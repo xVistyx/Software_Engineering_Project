@@ -92,3 +92,86 @@ AI determines relevance
 Relevant       Not Relevant
    │               │
 Allow Page      Block Page
+
+
+How to run:
+## Conda Environment Setup
+
+This project uses **Conda** so everyone uses the same Python version and dependencies.
+
+### 1. Install Miniconda
+
+**macOS**
+
+```bash
+brew install miniconda
+conda init zsh
+```
+
+Restart the terminal.
+
+**Windows**
+
+Install Miniconda from:
+
+https://docs.conda.io/projects/miniconda/en/latest/
+
+Then open Anaconda Prompt or restart PowerShell.
+
+---
+
+### 2. Create the Environment
+
+From the project folder:
+
+```bash
+conda env create -f environment.yml
+```
+
+This creates the environment:
+
+```text
+LockDownProject
+```
+
+### 3. Activate It
+
+```bash
+conda activate LockDownProject
+```
+
+Check that it works:
+
+```bash
+python --version
+```
+
+The project uses Python 3.12.
+
+### 4. Update the Environment
+
+If `environment.yml` changes after pulling from Git:
+
+```bash
+conda env update -f environment.yml --prune
+```
+
+### 5. Deactivate
+
+```bash
+conda deactivate
+```
+
+### VS Code
+
+Open:
+
+```text
+Python: Select Interpreter
+```
+
+and select the Python interpreter from:
+
+```text
+LockDownProject
+```
