@@ -1,0 +1,507 @@
+<!--
+  ============================================================
+  FOCUS EXTENSION — FRONTEND PROTOTYPE
+  ============================================================
+  One self-contained file. No build step. Drop the <body> markup
+  into your extension popup, keep the <style> and <script>.
+
+  HOW TO EDIT — quick map:
+    1. COLORS ....... :root variables below (change one line, whole app updates)
+    2. FONT ......... <link> in <head> + --font variable
+    3. SCREENS ...... each <section class="screen" id="..."> block is one screen
+    4. NAVIGATION ... any element with data-go="screenId" jumps there on click
+    5. TIMER ........ see <script> at the bottom (start/pause/stop logic)
+    6. DEV BAR ...... the strip at the very bottom lets you jump between
+                      screens while designing. DELETE it before shipping
+                      (it's marked "DEV ONLY").
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Focus — extension frontend</title>
+
+<!-- FONT: Nunito = rounded + friendly. Swap here to change the whole vibe. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ---------- 1. COLOR PALETTE (edit these) ---------- */
+  :root{
+    --bg:       #F4F1FB;  /* app background — soft lavender white */
+    --surface:  #FFFFFF;  /* cards / screen surface */
+    --primary:  #7A6FF0;  /* main friendly purple (buttons, highlights) */
+    --primary-d:#5B4FD6;  /* darker purple (hover / pressed) */
+    --accent:   #FF9A76;  /* warm peach (secondary highlight, scores) */
+    --mint:     #4FD1A5;  /* mint green (success / focus / "good") */
+    --ink:      #2B2740;  /* primary text */
+    --muted:    #8B87A3;  /* secondary / helper text */
+    --line:     #EAE7F5;  /* borders & dividers */
+
+    --font: 'Nunito', system-ui, sans-serif;
+    --radius: 20px;        /* global roundness */
+    --shadow: 0 12px 30px -12px rgba(90,79,214,.35); /* soft purple shadow */
+  }
+
+  /* ---------- base ---------- */
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:var(--font);
+    background:
+      radial-gradient(1200px 600px at 80% -10%, #EFE9FF 0%, transparent 60%),
+      var(--bg);
+    color:var(--ink);
+    min-height:100vh;
+    display:flex; flex-direction:column; align-items:center;
+    padding:28px 16px 90px; gap:20px;
+  }
+
+  /* POPUP FRAME — an extension popup is ~380px wide. This mimics it. */
+  .device{
+    width:380px; max-width:100%;
+    background:var(--surface);
+    border-radius:28px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+    position:relative;
+    border:1px solid var(--line);
+  }
+
+  /* ---------- SCREEN system: one visible at a time ---------- */
+  .screen{ display:none; padding:22px 22px 26px; min-height:520px; flex-direction:column; }
+  .screen.active{ display:flex; }
+
+  /* top bar with Home / Settings chips */
+  .topbar{ display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
+  .topbar .spacer{ flex:1; }
+  .chip{
+    font-size:13px; font-weight:700; color:var(--muted);
+    background:var(--bg); border:1px solid var(--line);
+    padding:7px 12px; border-radius:999px; cursor:pointer;
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .chip:hover{ color:var(--primary); border-color:var(--primary); }
+
+  /* headings */
+  .eyebrow{ font-size:14px; font-weight:700; color:var(--primary); margin-bottom:4px; }
+  h1{ font-size:26px; font-weight:800; line-height:1.15; letter-spacing:-.4px; }
+  h2{ font-size:20px; font-weight:800; }
+  .sub{ color:var(--muted); font-size:15px; margin-top:6px; line-height:1.4; }
+
+  /* ---------- buttons ---------- */
+  .btn{
+    width:100%; border:none; cursor:pointer; font-family:var(--font);
+    font-weight:800; font-size:16px; padding:15px 18px;
+    border-radius:16px; transition:transform .06s ease, background .15s ease;
+  }
+  .btn:active{ transform:translateY(1px); }
+  .btn-primary{ background:var(--primary); color:#fff; }
+  .btn-primary:hover{ background:var(--primary-d); }
+  .btn-soft{ background:var(--bg); color:var(--ink); border:1px solid var(--line); }
+  .btn-soft:hover{ border-color:var(--primary); color:var(--primary); }
+  .btn-warn{ background:#FFF0EB; color:#E5734A; border:1px solid #FFDACD; }
+  .btn-warn:hover{ background:#FFE4DA; }
+  .btn-ghost{ background:transparent; color:var(--muted); border:1px solid var(--line); }
+  .btn-ghost:hover{ color:var(--ink); }
+
+  .stack{ display:flex; flex-direction:column; gap:12px; }
+  .grow{ flex:1; }
+  .center{ text-align:center; }
+
+  /* ---------- inputs ---------- */
+  label.field{ font-size:14px; font-weight:700; color:var(--muted); display:block; margin-bottom:8px; }
+  .input{
+    width:100%; font-family:var(--font); font-size:16px; font-weight:600;
+    padding:14px 16px; border-radius:16px;
+    border:1px solid var(--line); background:var(--bg); color:var(--ink);
+  }
+  .input:focus{ outline:none; border-color:var(--primary); background:#fff; }
+  /* required-field error state */
+  .input.invalid{ border-color:var(--accent); background:#FFF6F2; }
+  .field-error{ display:none; color:#E5734A; font-size:13px; font-weight:700; margin-top:8px; }
+  .field-error.show{ display:block; }
+
+  /* time chips */
+  .chips{ display:flex; gap:10px; }
+  .timechip{
+    flex:1; text-align:center; padding:14px 0; border-radius:16px;
+    border:1px solid var(--line); background:var(--bg);
+    font-weight:800; cursor:pointer; color:var(--ink);
+  }
+  .timechip.sel{ background:var(--primary); color:#fff; border-color:var(--primary); }
+  /* custom minutes input, styled to sit inside the chip row */
+  /* custom time input — full-width field below the chip row */
+  .custominput{ font-family:var(--font); -moz-appearance:textfield; }
+  .custominput::-webkit-outer-spin-button,
+  .custominput::-webkit-inner-spin-button{ -webkit-appearance:none; margin:0; }
+  .custominput.sel{ border-color:var(--primary); background:#fff; }
+
+  /* ---------- running session dial ---------- */
+  .dial{ display:flex; flex-direction:column; align-items:center; gap:4px; margin:14px 0 18px; }
+  .time-big{ font-size:60px; font-weight:800; letter-spacing:-2px; font-variant-numeric:tabular-nums; }
+  .time-label{ color:var(--muted); font-weight:700; font-size:14px; }
+  .score-row{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    background:#FFF3EC; border:1px solid #FFE0D2; color:#E5734A;
+    padding:10px 16px; border-radius:14px; font-weight:800; font-size:15px;
+    align-self:center;
+  }
+  .score-row b{ font-size:18px; }
+
+  /* ---------- stat cards ---------- */
+  .stat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
+  .stat{
+    background:var(--bg); border:1px solid var(--line);
+    border-radius:16px; padding:14px;
+  }
+  .stat .num{ font-size:28px; font-weight:800; line-height:1; }
+  .stat .cap{ font-size:13px; font-weight:700; color:var(--muted); margin-top:6px; }
+  .stat.good .num{ color:var(--mint); }
+  .stat.warn .num{ color:var(--accent); }
+
+  .listrow{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:14px 4px; border-bottom:1px solid var(--line); font-weight:700;
+  }
+  .listrow:last-child{ border-bottom:none; }
+  .listrow span{ color:var(--muted); font-weight:600; }
+
+  /* settings rows */
+  .setting{ display:flex; align-items:center; justify-content:space-between; padding:16px 4px; border-bottom:1px solid var(--line); }
+  .setting .t{ font-weight:700; }
+  .setting .d{ font-size:13px; color:var(--muted); font-weight:600; margin-top:2px; }
+  .toggle{ width:46px; height:28px; border-radius:999px; background:var(--line); position:relative; cursor:pointer; flex:none; }
+  .toggle.on{ background:var(--mint); }
+  .toggle::after{ content:""; position:absolute; top:3px; left:3px; width:22px; height:22px; border-radius:50%; background:#fff; transition:left .15s ease; box-shadow:0 1px 3px rgba(0,0,0,.2); }
+  .toggle.on::after{ left:21px; }
+
+  /* ---------- PAUSED overlay (screen 7) ---------- */
+  #paused{ align-items:center; justify-content:center; text-align:center; gap:18px; background:linear-gradient(180deg,#EDE9FF, #F7F5FF); }
+  .pause-emoji{ font-size:52px; }
+  /* drawn pause icon — two rounded bars, no emoji */
+  .pause-icon{ width:64px; height:64px; border-radius:50%; background:#fff; border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow); }
+  .pause-icon::before, .pause-icon::after{ content:""; width:8px; height:26px; border-radius:5px; background:var(--primary); margin:0 4px; }
+
+  /* ---------- DEV BAR (delete before shipping) ---------- */
+  .devbar{
+    position:fixed; bottom:0; left:0; right:0;
+    background:#2B2740; color:#fff; display:flex; gap:6px; flex-wrap:wrap;
+    justify-content:center; padding:10px; font-size:12px; font-weight:700; z-index:99;
+  }
+  .devbar button{ background:#3d3860; color:#cfc9ee; border:none; padding:6px 10px; border-radius:8px; cursor:pointer; font-family:var(--font); font-weight:700; }
+  .devbar button:hover{ background:var(--primary); color:#fff; }
+  .devbar .tag{ align-self:center; color:#7d78a0; margin-right:6px; }
+</style>
+</head>
+<body>
+
+<div class="device">
+
+  <!-- ========================================================= -->
+  <!-- SCREEN 1 — WELCOME                                        -->
+  <!-- ========================================================= -->
+  <section class="screen active" id="welcome">
+    <div class="topbar">
+      <div class="spacer"></div>
+      <div class="chip" data-go="settings">⚙ Settings</div>
+    </div>
+
+    <div style="margin:24px 0 30px">
+      <div class="eyebrow">🌿 Grove</div>
+      <h1>Ready to focus?</h1>
+      <p class="sub">Start a session and I'll block the noise while you work.</p>
+    </div>
+
+    <div class="stack grow" style="justify-content:flex-end">
+      <button class="btn btn-primary" data-go="start">Start a new session</button>
+      <button class="btn btn-soft" data-go="past">View past sessions</button>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- SCREEN 2 — START SESSION (set topic + time)               -->
+  <!-- ========================================================= -->
+  <section class="screen" id="start">
+    <div class="topbar">
+      <div class="chip" data-go="welcome">‹ Back</div>
+      <div class="spacer"></div>
+      <div class="chip" data-go="settings">⚙</div>
+    </div>
+
+    <h2 style="margin:8px 0 20px">New session</h2>
+
+    <div class="stack">
+      <div>
+        <label class="field">What are you working on? <span style="color:var(--accent)">*</span></label>
+        <input class="input" id="topicInput"
+               placeholder="Be specific- Ex. Math calculus />
+        <!-- error hint: hidden until they try to start without a topic -->
+        <div class="field-error" id="topicError">Add a specific topic to start your session.</div>
+      </div>
+
+      <div>
+        <label class="field">Session length</label>
+        <div class="chips" id="timeChips">
+          <!-- data-min = timer minutes. Add/remove chips freely. -->
+          <div class="timechip sel" data-min="45">45m</div>
+          <div class="timechip" data-min="60">60m</div>
+          <div class="timechip" data-min="75">75m</div>
+          <div class="timechip" data-min="90">90m</div>
+        </div>
+        <!-- custom time: type your own minutes, on its own line below the chips -->
+        <input class="input custominput" id="customMin" type="number" min="1"
+               placeholder="Or enter your own time (minutes)" style="margin-top:10px" />
+      </div>
+    </div>
+
+    <div class="grow"></div>
+    <button class="btn btn-primary" id="startBtn" data-go="running">Start session</button>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- SCREEN 3 — RUNNING SESSION                                -->
+  <!-- ========================================================= -->
+  <section class="screen" id="running">
+    <div class="topbar">
+      <div class="chip" id="runningTopic">Focusing…</div>
+      <div class="spacer"></div>
+      <div class="chip" data-go="settings">⚙</div>
+    </div>
+
+    <div class="dial grow" style="justify-content:center">
+      <div class="time-label">Time remaining</div>
+      <div class="time-big" id="clock">45:00</div>
+      <div class="score-row">🔥 Focus score <b id="score">100</b></div>
+    </div>
+
+    <div class="stack">
+      <button class="btn btn-soft" id="pauseBtn" data-go="paused">Pause</button>
+      <button class="btn btn-warn" id="stopBtn" data-go="overview">Stop session</button>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- SCREEN 4 — SESSION OVERVIEW (after a session ends)        -->
+  <!-- ========================================================= -->
+  <section class="screen" id="overview">
+    <div class="topbar">
+      <div class="chip" data-go="welcome">⌂ Home</div>
+      <div class="spacer"></div>
+      <div class="chip" data-go="settings">⚙</div>
+    </div>
+
+    <div class="center" style="margin:10px 0 4px">
+      <div class="pause-emoji">🎉</div>
+      <h2>Session complete</h2>
+      <p class="sub">You focused for <b id="ovTime">45 minutes</b>.</p>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat good"><div class="num">12</div><div class="cap">Tabs blocked</div></div>
+      <div class="stat warn"><div class="num">3</div><div class="cap">Times you drifted</div></div>
+      <div class="stat"><div class="num">88</div><div class="cap">Focus score</div></div>
+      <div class="stat"><div class="num">31m</div><div class="cap">Longest streak</div></div>
+    </div>
+
+    <p class="sub" style="margin-top:16px">Most drift happened around the <b>20-minute</b> mark — try a short break there next time.</p>
+
+    <div class="grow"></div>
+    <button class="btn btn-primary" data-go="welcome">Done</button>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- SCREEN 5 — SETTINGS (proposed defaults — edit freely)     -->
+  <!-- ========================================================= -->
+  <section class="screen" id="settings">
+    <div class="topbar">
+      <div class="chip" data-go="welcome">⌂ Home</div>
+      <div class="spacer"></div>
+    </div>
+
+    <h2 style="margin:8px 0 12px">Settings</h2>
+
+    <!-- These are sensible defaults for a focus/tab-blocking extension.
+         Keep the ones that fit, delete the rest. -->
+    <div>
+      <div class="setting">
+        <div><div class="t">Blocklist</div><div class="d">Sites to block during a session</div></div>
+        <div class="chip">Edit ›</div>
+      </div>
+      <div class="setting">
+        <div><div class="t">Default length</div><div class="d">Pre-selected on new sessions</div></div>
+        <div class="chip">45m ›</div>
+      </div>
+      <div class="setting">
+        <div><div class="t">Break reminders</div><div class="d">Nudge you to rest</div></div>
+        <div class="toggle on" data-toggle></div>
+      </div>
+      <div class="setting">
+        <div><div class="t">Sounds</div><div class="d">Chime when a session ends</div></div>
+        <div class="toggle on" data-toggle></div>
+      </div>
+      <div class="setting">
+        <div><div class="t">Strict mode</div><div class="d">Can't stop early</div></div>
+        <div class="toggle" data-toggle></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- SCREEN 6 — PAST SESSIONS                                  -->
+  <!-- ========================================================= -->
+  <section class="screen" id="past">
+    <div class="topbar">
+      <div class="chip" data-go="welcome">⌂ Home</div>
+      <div class="spacer"></div>
+      <div class="chip" data-go="settings">⚙</div>
+    </div>
+
+    <h2 style="margin:8px 0 14px">Your progress</h2>
+
+    <div class="stat-grid">
+      <div class="stat"><div class="num">47</div><div class="cap">Sessions total</div></div>
+      <div class="stat good"><div class="num">9</div><div class="cap">This week</div></div>
+      <div class="stat"><div class="num">31h</div><div class="cap">Focused time</div></div>
+      <div class="stat warn"><div class="num">2pm</div><div class="cap">Peak drift hour</div></div>
+    </div>
+
+    <p class="sub" style="margin:18px 0 6px"><b>Recent sessions</b></p>
+    <div>
+      <div class="listrow">Thesis chapter 3 <span>45m · 92</span></div>
+      <div class="listrow">Email + admin <span>25m · 74</span></div>
+      <div class="listrow">Reading papers <span>60m · 88</span></div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- SCREEN 7 — PAUSED (overlay state of a running session)    -->
+  <!-- ========================================================= -->
+  <section class="screen" id="paused">
+    <div class="pause-icon" aria-hidden="true"></div>
+    <h2>Session paused</h2>
+    <p class="sub">Your timer is on hold. Come back when you're ready.</p>
+    <button class="btn btn-primary" id="resumeBtn" data-go="running" style="width:220px">Resume session</button>
+    <button class="btn btn-ghost" data-go="overview" style="width:220px">End session</button>
+  </section>
+
+</div>
+
+<!-- =========================================================== -->
+<!-- DEV ONLY — jump between screens while designing. DELETE ME.  -->
+<!-- =========================================================== -->
+<div class="devbar">
+  <span class="tag">DEV · jump to screen:</span>
+  <button data-go="welcome">1 Welcome</button>
+  <button data-go="start">2 Start</button>
+  <button data-go="running">3 Running</button>
+  <button data-go="overview">4 Overview</button>
+  <button data-go="settings">5 Settings</button>
+  <button data-go="past">6 Past</button>
+  <button data-go="paused">7 Paused</button>
+</div>
+
+<script>
+/* ============================================================
+   NAVIGATION — anything with data-go="id" switches screens.
+   ============================================================ */
+function show(id){
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById(id);
+  if(el) el.classList.add('active');
+}
+document.querySelectorAll('[data-go]').forEach(b =>
+  b.addEventListener('click', () => go(b.dataset.go))
+);
+
+/* ============================================================
+   TIMER — start / pause / resume / stop
+   ============================================================ */
+let totalSeconds = 45*60;   // set by the time chips on screen 2
+let remaining    = totalSeconds;
+let ticking      = null;
+let score        = 100;
+
+const clockEl = document.getElementById('clock');
+const scoreEl = document.getElementById('score');
+
+function fmt(s){ const m=Math.floor(s/60), ss=s%60; return `${String(m).padStart(2,'0')}:${String(ss).padStart(2,'0')}`; }
+
+function paint(){ clockEl.textContent = fmt(remaining); scoreEl.textContent = score; }
+
+function startTicking(){
+  clearInterval(ticking);
+  ticking = setInterval(() => {
+    if(remaining > 0){ remaining--; paint(); }
+    else { clearInterval(ticking); go('overview'); }  // auto-finish
+  }, 1000);
+}
+
+/* time chip selection (screen 2) */
+function selectChip(chip){
+  document.querySelectorAll('#timeChips .timechip, #customMin').forEach(c => c.classList.remove('sel'));
+  chip.classList.add('sel');
+  if(chip.dataset.min) totalSeconds = parseInt(chip.dataset.min,10)*60;
+}
+document.querySelectorAll('#timeChips .timechip').forEach(chip => {
+  chip.addEventListener('click', () => selectChip(chip));
+});
+/* custom "enter your own time" input */
+const customMin = document.getElementById('customMin');
+customMin.addEventListener('input', () => {
+  selectChip(customMin);
+  const v = parseInt(customMin.value,10);
+  if(v > 0) totalSeconds = v*60;
+});
+
+/* clear the required-topic error as soon as the user types */
+document.getElementById('topicInput').addEventListener('input', (e) => {
+  if(e.target.value.trim()){
+    e.target.classList.remove('invalid');
+    document.getElementById('topicError').classList.remove('show');
+  }
+});
+
+/* central router so the timer reacts to screen changes */
+function go(id){
+  if(id === 'running'){
+    // fresh start (coming from screen 2) vs resume (coming from pause)
+    const fresh = document.getElementById('start').classList.contains('active');
+    if(fresh){
+      const topicEl = document.getElementById('topicInput');
+      const topic = topicEl.value.trim();
+      // REQUIRED: no session without a topic
+      if(!topic){
+        topicEl.classList.add('invalid');
+        document.getElementById('topicError').classList.add('show');
+        topicEl.focus();
+        return;   // stop — don't navigate or start the timer
+      }
+      remaining = totalSeconds; score = 100;
+      document.getElementById('runningTopic').textContent = '🌿 ' + topic;
+    }
+    paint(); startTicking();
+  }
+  if(id === 'paused')   clearInterval(ticking);
+  if(id === 'overview'){
+    clearInterval(ticking);
+    const used = Math.round((totalSeconds - remaining)/60) || Math.round(totalSeconds/60);
+    document.getElementById('ovTime').textContent = used + ' minutes';
+  }
+  show(id);
+}
+
+/* ============================================================
+   TOGGLES (settings screen)
+   ============================================================ */
+document.querySelectorAll('[data-toggle]').forEach(t =>
+  t.addEventListener('click', () => t.classList.toggle('on'))
+);
+
+paint();
+</script>
+</body>
+</html>
