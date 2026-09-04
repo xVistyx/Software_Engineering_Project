@@ -8,13 +8,20 @@ class SessionData(BaseModel):
     action: str
     content: dict
 
+class FrontEndSessionData(BaseModel):
+     action: str
+     content: str
+
     
 
 class BackendRequests:
     
     def handle_requests(self, message:dict): #information from frontend getter frontend -> backend
 
-        return message
+        return FrontEndSessionData(
+             action = message["action"],
+             content = message["content"]
+        )
      
     def build_responses(self,message: dict) -> SessionData: #information being sent to frontend setter backend -> frontend
             """

@@ -18,6 +18,8 @@ def receive_message(data: SessionData):
     system.fetch_requests_from_frontend(message)
 
     # Backend creates whatever response it wants
+    system.buildResponse()
+    # this response is a demo it will need to be made nicer
     response = {
         "action": data.action,
         "content": {
