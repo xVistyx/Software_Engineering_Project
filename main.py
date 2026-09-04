@@ -1,7 +1,7 @@
 from System.System import System
 from System.BackendRequests import SessionData
 from fastapi import FastAPI
-from interfaces import ISystem
+
 
 
 app = FastAPI()
