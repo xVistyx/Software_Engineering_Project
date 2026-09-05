@@ -1,0 +1,124 @@
+/* ============================================================
+   styles.css — design tokens + components (from the prototype).
+   Class names are unchanged, so all page/component markup works.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+/* SHIP NOTE: bundle Nunito locally (@font-face) for a CSP-safe extension. */
+
+:root{
+  --bg:#F4F1FB; --surface:#FFFFFF;
+  --primary:#7A6FF0; --primary-d:#5B4FD6;
+  --accent:#FF9A76; --mint:#4FD1A5;
+  --ink:#2B2740; --muted:#8B87A3; --line:#EAE7F5;
+  --font:'Nunito',system-ui,sans-serif;
+  --radius:20px;
+  --shadow:0 12px 30px -12px rgba(90,79,214,.35);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{ font-family:var(--font); color:var(--ink); background:var(--bg); }
+
+/* popup frame (#app) */
+.device{
+  width:380px; max-width:100%; min-height:520px;
+  background:var(--surface);
+  background-image:radial-gradient(1200px 600px at 80% -10%, #EFE9FF 0%, transparent 60%);
+}
+
+/* screen shell — pages return <section class="screen active"> */
+.screen{ display:none; padding:22px 22px 26px; min-height:520px; flex-direction:column; }
+.screen.active{ display:flex; }
+
+.topbar{ display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
+.spacer{ flex:1; }
+.chip{
+  font-size:13px; font-weight:700; color:var(--muted);
+  background:var(--bg); border:1px solid var(--line);
+  padding:7px 12px; border-radius:999px; cursor:pointer;
+  display:inline-flex; align-items:center; gap:6px;
+}
+.chip:hover{ color:var(--primary); border-color:var(--primary); }
+
+.eyebrow{ font-size:14px; font-weight:700; color:var(--primary); margin-bottom:4px; }
+h1{ font-size:26px; font-weight:800; line-height:1.15; letter-spacing:-.4px; }
+h2{ font-size:20px; font-weight:800; }
+.sub{ color:var(--muted); font-size:15px; margin-top:6px; line-height:1.4; }
+
+.btn{
+  width:100%; border:none; cursor:pointer; font-family:var(--font);
+  font-weight:800; font-size:16px; padding:15px 18px;
+  border-radius:16px; transition:transform .06s ease, background .15s ease;
+}
+.btn:active{ transform:translateY(1px); }
+.btn:disabled{ opacity:.6; cursor:default; }
+.btn-primary{ background:var(--primary); color:#fff; }
+.btn-primary:hover{ background:var(--primary-d); }
+.btn-soft{ background:var(--bg); color:var(--ink); border:1px solid var(--line); }
+.btn-soft:hover{ border-color:var(--primary); color:var(--primary); }
+.btn-warn{ background:#FFF0EB; color:#E5734A; border:1px solid #FFDACD; }
+.btn-warn:hover{ background:#FFE4DA; }
+.btn-ghost{ background:transparent; color:var(--muted); border:1px solid var(--line); }
+.btn-ghost:hover{ color:var(--ink); }
+
+.stack{ display:flex; flex-direction:column; gap:12px; }
+.grow{ flex:1; }
+.center{ text-align:center; }
+
+label.field{ font-size:14px; font-weight:700; color:var(--muted); display:block; margin-bottom:8px; }
+.input{
+  width:100%; font-family:var(--font); font-size:16px; font-weight:600;
+  padding:14px 16px; border-radius:16px;
+  border:1px solid var(--line); background:var(--bg); color:var(--ink);
+}
+.input:focus{ outline:none; border-color:var(--primary); background:#fff; }
+.input.invalid{ border-color:var(--accent); background:#FFF6F2; }
+.field-error{ display:none; color:#E5734A; font-size:13px; font-weight:700; margin-top:8px; }
+.field-error.show{ display:block; }
+
+.chips{ display:flex; gap:10px; }
+.timechip{
+  flex:1; text-align:center; padding:14px 0; border-radius:16px;
+  border:1px solid var(--line); background:var(--bg);
+  font-weight:800; cursor:pointer; color:var(--ink);
+}
+.timechip.sel{ background:var(--primary); color:#fff; border-color:var(--primary); }
+.custominput{ font-family:var(--font); -moz-appearance:textfield; }
+.custominput::-webkit-outer-spin-button,
+.custominput::-webkit-inner-spin-button{ -webkit-appearance:none; margin:0; }
+.custominput.sel{ border-color:var(--primary); background:#fff; }
+
+.dial{ display:flex; flex-direction:column; align-items:center; gap:4px; margin:14px 0 18px; }
+.time-big{ font-size:60px; font-weight:800; letter-spacing:-2px; font-variant-numeric:tabular-nums; }
+.time-label{ color:var(--muted); font-weight:700; font-size:14px; }
+.score-row{
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  background:#FFF3EC; border:1px solid #FFE0D2; color:#E5734A;
+  padding:10px 16px; border-radius:14px; font-weight:800; font-size:15px; align-self:center;
+}
+.score-row b{ font-size:18px; }
+
+.stat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
+.stat{ background:var(--bg); border:1px solid var(--line); border-radius:16px; padding:14px; }
+.stat .num{ font-size:28px; font-weight:800; line-height:1; }
+.stat .cap{ font-size:13px; font-weight:700; color:var(--muted); margin-top:6px; }
+.stat.good .num{ color:var(--mint); }
+.stat.warn .num{ color:var(--accent); }
+
+.listrow{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:14px 4px; border-bottom:1px solid var(--line); font-weight:700;
+}
+.listrow:last-child{ border-bottom:none; }
+.listrow span{ color:var(--muted); font-weight:600; }
+
+.setting{ display:flex; align-items:center; justify-content:space-between; padding:16px 4px; border-bottom:1px solid var(--line); }
+.setting .t{ font-weight:700; }
+.setting .d{ font-size:13px; color:var(--muted); font-weight:600; margin-top:2px; }
+.toggle{ width:46px; height:28px; border-radius:999px; background:var(--line); position:relative; cursor:pointer; flex:none; }
+.toggle.on{ background:var(--mint); }
+.toggle::after{ content:""; position:absolute; top:3px; left:3px; width:22px; height:22px; border-radius:50%; background:#fff; transition:left .15s ease; box-shadow:0 1px 3px rgba(0,0,0,.2); }
+.toggle.on::after{ left:21px; }
+
+.pause-emoji{ font-size:52px; }
+.pause-icon{ width:64px; height:64px; border-radius:50%; background:#fff; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow); }
+.pause-icon::before, .pause-icon::after{ content:""; width:8px; height:26px; border-radius:5px; background:var(--primary); margin:0 4px; }

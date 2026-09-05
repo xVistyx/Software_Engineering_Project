@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Grove — Focus",
+  "version": "0.1.0",
+  "description": "Start a focus session and block distracting sites while you work.",
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Grove"
+  },
+
+  "permissions": [
+    "storage",
+    "declarativeNetRequest",
+    "tabs",
+    "alarms"
+  ],
+
+  "host_permissions": [
+    "http://127.0.0.1:8000/*"
+  ]
+}

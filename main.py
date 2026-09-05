@@ -15,17 +15,10 @@ def receive_message(data: SessionData):
     message = data.model_dump()
 
     # FRONTEND -> BACKEND
-    system.fetch_requests_from_frontend(message)
-
     # Backend creates whatever response it wants
-    system.buildResponse()
+    response:dict = system.buildResponse(message)
     # this response is a demo it will need to be made nicer
-    response = {
-        "action": data.action,
-        "content": {
-            "BackendContent":data.content,
-            "status": "received"
-        }
-    }
+
+   
     # BACKEND -> FRONTEND
     return system.send_requests_to_frontend(response)
