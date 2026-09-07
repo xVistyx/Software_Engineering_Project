@@ -51,7 +51,34 @@ export function bg(type, payload) {
 
     return Promise.resolve();
 }
+async function sendWebsiteMetadata() {
+    const [tab] = await chrome.tabs.query({
+        active: true,
+        currentWindow: true
+    });
 
+    if (!tab) return;
+
+    const metadata = {
+        tab_id: tab.id,
+        title: tab.title ?? "",
+        url: tab.url ?? "",
+        favicon: tab.favIconUrl ?? "",
+        timestamp: new Date().toISOString()
+    };
+
+    return req("store_website_metadata", metadata);
+}
+
+chrome.tabs.onActivated.addListener(async () => {
+    await sendWebsiteMetadata();
+});
+
+chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
+    if (changeInfo.status === "complete" && tab.active) {
+        await sendWebsiteMetadata();
+    }
+});
 /* Typed surface. Buttons call these — never fetch() directly. */
 export const api = {
 

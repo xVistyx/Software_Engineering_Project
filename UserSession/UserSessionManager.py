@@ -1,21 +1,26 @@
 from interfaces import IUserSessionManager, IDataManger
 from .SessionStart import SessionStart
 from .UserSessionDataManager import UserSessionDataManager
+from .WebsiteMetaData import WebsiteMetadataManager
+
 
 from .ActiveUserSession import ActiveUserSession
 
 class UserSessionManager(IUserSessionManager):
     def __init__(self):
-        self.test_dict = {"action": "start_session","content": {"id": "test-session-123"}}
+        #self.test_dict = {"action": "start_session","content": {"id": "test-session-123"}}
         self.active_session = None
         self.session_start = SessionStart()# -> add interface to this
         self.user_session_data_manager = UserSessionDataManager()# -> add interface to this
         self.active_user_session = ActiveUserSession()
+        self.website_meta_data= WebsiteMetadataManager()
+        
     
     
         
     def user_session_manager(self, action:str, content:dict, data_manager:IDataManger) -> dict:
         self.user_session_data_manager.set_global_data_manager(data_manager)
+        
         if action == "get_active_session":
             return self.get_active_session()
         elif action == "start_session":
@@ -36,7 +41,7 @@ class UserSessionManager(IUserSessionManager):
         """This functions main purpose is to log a new session such that the start gets logged in the db"""
         session_start:dict = self.session_start.session_start_as_dict(content)
         self.active_session = session_start
-        print("Active session ", self.active_session)
+        print("Active session ", session_start)
         self.user_session_data_manager.log_session_start(session_start)
         return {
         "action": "start_session",
@@ -55,6 +60,18 @@ class UserSessionManager(IUserSessionManager):
             }
         #this will return a dictionary with the updated user data
         return self.active_user_session.updated_session_state(self.active_session)
+
+
+    def log_meta_data(self, metadata: dict):
+        clean_metadata = self.website_meta_data.store_metadata(
+            metadata
+        )
+
+        self.user_session_data_manager.set_meta_data(
+            clean_metadata
+        )
+
+        return clean_metadata
 
     def update_user_session(self, content:dict ):
         """I dont yet know what this one does but its linked to the front end """

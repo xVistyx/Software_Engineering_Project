@@ -6,6 +6,7 @@ from Settings.Settings import Settings
 from PastSessions.PastSessionManager import PastSessionManager
 from DataBase.DataBaseManager import DataManager
 
+
 class System(ISystem):
     def __init__(self):
        
@@ -22,7 +23,7 @@ class System(ISystem):
         self.features = {"start_session": self.run_user_session, "update_session": self.run_user_session, "end_session": self.run_user_session, "get_active_session": self.run_user_session,
                          "get_settings": self.run_settings, "update_settings": self.run_settings, "get_blocklist": self.run_settings,
                          "update_blocklist": self.run_settings,"get_session_summary": self.run_past_session,"get_sessions": self.run_past_session,
-                          "get_stats": self.run_past_session
+                          "get_stats": self.run_past_session, "store_website_metadata": self.run_website_metadata
 } 
        
         
@@ -50,6 +51,7 @@ class System(ISystem):
                  return self.test_dict
 
     #BackEnd -> Frontend  
+
     def send_requests_to_frontend(self, message: dict) -> SessionData:
         return self.backend_requests.build_responses(message)
         
@@ -68,7 +70,12 @@ class System(ISystem):
         print(self.is_session_active)
         return user_session
 
-        
+    def run_website_metadata(self, message: dict):
+
+        return self.user_session_manager.log_meta_data(
+            message["content"]
+        )
+    
     def run_settings(self, action:str, content: dict) -> dict:
          # must return a dictionary formated: action: str  content: dict
         return self.test_dict

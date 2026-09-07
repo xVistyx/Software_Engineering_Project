@@ -4,6 +4,7 @@ class ActiveUserSession:
     def __int__(self):
         """Need to figure out the blocking of websites and information that isnt relivant"""
         pass
+        
     def updated_session_state(self, active_session):
             current_time = datetime.now()
     
@@ -18,9 +19,10 @@ class ActiveUserSession:
     
             # save the timestamp we just updated at
             active_session["last_update_time"] = current_time
-    
+            
             return {
                 "action": "get_active_session",
                 "content": active_session
             }
-    
+ 
+        
