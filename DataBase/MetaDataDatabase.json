@@ -1,1 +1,32 @@
-{"website_metadata": []}
+{
+    "website_metadata": [
+        {
+            "tab_id": 66838523,
+            "title": "Extensions",
+            "url": "chrome://extensions/",
+            "favicon": "",
+            "timestamp": "2026-09-07T15:51:24.577Z"
+        },
+        {
+            "tab_id": 66838557,
+            "title": "New Tab",
+            "url": "",
+            "favicon": "",
+            "timestamp": "2026-09-07T15:51:42.409Z"
+        },
+        {
+            "tab_id": 66838557,
+            "title": "New Tab",
+            "url": "chrome://newtab/",
+            "favicon": "",
+            "timestamp": "2026-09-07T15:51:42.462Z"
+        },
+        {
+            "tab_id": 66838557,
+            "title": "Apple (Deutschland)",
+            "url": "https://www.apple.com/de/",
+            "favicon": "https://www.apple.com/favicon.ico",
+            "timestamp": "2026-09-07T15:51:45.046Z"
+        }
+    ]
+}

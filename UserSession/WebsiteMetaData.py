@@ -15,28 +15,25 @@ class WebsiteMetadataManager:
 
     def __init__(self):
         pass
-        
 
     def get_meta_data(self):
         pass
 
-    def store_metadata(self, content: dict, session_data_manager) -> dict:
+    def store_metadata(self, content: dict) -> dict:
+
+        print("META CONTENT:", content)
 
         metadata = WebsiteMetadata(
             tab_id=content["tab_id"],
             title=content["title"],
             url=content["url"],
             favicon=content["favicon"],
-            timestamp=content["timestamp"]
+            timestamp=content["timestamp"],
+            block=content.get("block", False)
         )
 
         metadata_dict = asdict(metadata)
 
-        session_data_manager.set_meta_data(
-            "website_metadata",
-            metadata_dict
-        )
+        print("CLEAN METADATA:", metadata_dict)
 
-        return {
-            "stored": True
-        }
+        return metadata_dict

@@ -9,6 +9,11 @@
     "default_title": "LockDown"
   },
 
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
   "permissions": [
     "storage",
     "declarativeNetRequest",

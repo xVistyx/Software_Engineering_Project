@@ -29,6 +29,11 @@ class UserSessionManager(IUserSessionManager):
             return self.update_user_session(content)
         elif action == "end_session":
             return self.end_user_session(content)
+        elif action == "log_meta_data":
+            return {
+                "action": "log_meta_data",
+                "content": self.log_meta_data(content)
+            }
 
         else:
             return {
@@ -60,9 +65,15 @@ class UserSessionManager(IUserSessionManager):
             }
         #this will return a dictionary with the updated user data
         return self.active_user_session.updated_session_state(self.active_session)
+   
+
+
 
 
     def log_meta_data(self, metadata: dict):
+
+        print("LOG_META_DATA CALLED:", metadata)
+
         clean_metadata = self.website_meta_data.store_metadata(
             metadata
         )
@@ -71,7 +82,9 @@ class UserSessionManager(IUserSessionManager):
             clean_metadata
         )
 
-        return clean_metadata
+        return {
+            "stored": True
+        }
 
     def update_user_session(self, content:dict ):
         """I dont yet know what this one does but its linked to the front end """
@@ -88,7 +101,12 @@ class UserSessionManager(IUserSessionManager):
     def set_db_session_data(self):
         """This function will be responsible for writing information to the db about current session """
         pass
-        
+
+
+"""
+We still need a way to end the session
+-> needs to clear the db etc to not make the software to intensive to run
+"""        
 
 
      

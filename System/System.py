@@ -23,7 +23,7 @@ class System(ISystem):
         self.features = {"start_session": self.run_user_session, "update_session": self.run_user_session, "end_session": self.run_user_session, "get_active_session": self.run_user_session,
                          "get_settings": self.run_settings, "update_settings": self.run_settings, "get_blocklist": self.run_settings,
                          "update_blocklist": self.run_settings,"get_session_summary": self.run_past_session,"get_sessions": self.run_past_session,
-                          "get_stats": self.run_past_session, "store_website_metadata": self.run_website_metadata
+                          "get_stats": self.run_past_session, "log_meta_data": self.run_user_session
 } 
        
         

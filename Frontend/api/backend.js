@@ -1,19 +1,34 @@
 /* ============================================================
-   api/backend.js — the ONLY place the popup talks to anything
-   stateful (remote REST + the extension background worker).
-   Every page/component imports { api, bg } from here.
+   api/backend.js
+   Central API layer for communication with the Python backend.
    ============================================================ */
 
-const BASE     = 'http://127.0.0.1:8000'; // TODO: your real base URL
+const BASE = 'http://127.0.0.1:8000';
 
 
-/* auth token lives in chrome.storage; falls back to null in a browser tab */
+/* ============================================================
+   Optional token helper
+   ============================================================ */
+
 async function token() {
-  try { return (await chrome.storage.local.get('token')).token ?? null; }
-  catch { return null; }
+    try {
+        return (await chrome.storage.local.get('token')).token ?? null;
+    } catch {
+        return null;
+    }
 }
 
+
+/* ============================================================
+   Generic request function
+   ============================================================ */
+
 async function req(action, content = {}) {
+
+    console.log("SENDING TO PYTHON BACKEND:", {
+        action: action,
+        content: content
+    });
 
     const response = await fetch(
         `${BASE}/backend`,
@@ -32,95 +47,153 @@ async function req(action, content = {}) {
     );
 
     if (!response.ok) {
+        const errorText = await response.text();
+
+        console.error(
+            "BACKEND ERROR:",
+            response.status,
+            errorText
+        );
+
         throw new Error(
-            `${response.status} ${await response.text()}`
+            `${response.status} ${errorText}`
         );
     }
+
     const data = await response.json();
+
+    console.log("PYTHON BACKEND RETURNED:", data);
 
     return data.content;
 }
 
-/* Bridge to the background service worker. The real timer, site
-   blocking and drift scoring live there (a popup can't run them —
-   it dies on focus loss). No-ops safely in a plain browser tab. */
 
-/* TEMPORARY */   
+/* ============================================================
+   Temporary background bridge
+   ============================================================ */
+
 export function bg(type, payload) {
-    console.log("BG MESSAGE:", type, payload);
+
+    console.log(
+        "BG MESSAGE:",
+        type,
+        payload
+    );
 
     return Promise.resolve();
 }
-async function sendWebsiteMetadata() {
-    const [tab] = await chrome.tabs.query({
-        active: true,
-        currentWindow: true
-    });
 
-    if (!tab) return;
 
-    const metadata = {
-        tab_id: tab.id,
-        title: tab.title ?? "",
-        url: tab.url ?? "",
-        favicon: tab.favIconUrl ?? "",
-        timestamp: new Date().toISOString()
-    };
+/* ============================================================
+   API surface
+   ============================================================ */
 
-    return req("store_website_metadata", metadata);
-}
-
-chrome.tabs.onActivated.addListener(async () => {
-    await sendWebsiteMetadata();
-});
-
-chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
-    if (changeInfo.status === "complete" && tab.active) {
-        await sendWebsiteMetadata();
-    }
-});
-/* Typed surface. Buttons call these — never fetch() directly. */
 export const api = {
 
+    /* -------------------------
+       USER SESSION
+       ------------------------- */
+
     createSession: (data) =>
-        req('start_session', data),
+        req(
+            'start_session',
+            data
+        ),
 
     getActiveSession: () =>
-        req('get_active_session'),
+        req(
+            'get_active_session'
+        ),
 
     updateSession: (id, data) =>
-        req('update_session', {
-            session_id: id,
-            ...data
-        }),
+        req(
+            'update_session',
+            {
+                session_id: id,
+                ...data
+            }
+        ),
 
     endSession: (id) =>
-        req('end_session', {
-            session_id: id
-        }),
+        req(
+            'end_session',
+            {
+                session_id: id
+            }
+        ),
+
+
+    /* -------------------------
+       WEBSITE METADATA
+       ------------------------- */
+
+    logWebsiteMetadata: (metadata) => {
+
+        console.log(
+            "LOG WEBSITE METADATA CALLED:",
+            metadata
+        );
+
+        return req(
+            'log_meta_data',
+            metadata
+        );
+    },
+
+
+    /* -------------------------
+       PAST SESSIONS
+       ------------------------- */
 
     getSummary: (id) =>
-        req('get_session_summary', {
-            session_id: id
-        }),
+        req(
+            'get_session_summary',
+            {
+                session_id: id
+            }
+        ),
 
     listSessions: () =>
-        req('get_sessions'),
+        req(
+            'get_sessions'
+        ),
 
     getStats: () =>
-        req('get_stats'),
+        req(
+            'get_stats'
+        ),
+
+
+    /* -------------------------
+       SETTINGS
+       ------------------------- */
 
     getSettings: () =>
-        req('get_settings'),
+        req(
+            'get_settings'
+        ),
 
     updateSettings: (data) =>
-        req('update_settings', data),
+        req(
+            'update_settings',
+            data
+        ),
+
+
+    /* -------------------------
+       BLOCKLIST
+       ------------------------- */
 
     getBlocklist: () =>
-        req('get_blocklist'),
+        req(
+            'get_blocklist'
+        ),
 
     putBlocklist: (sites) =>
-        req('update_blocklist', {
-            sites: sites
-        })
+        req(
+            'update_blocklist',
+            {
+                sites: sites
+            }
+        )
 };
