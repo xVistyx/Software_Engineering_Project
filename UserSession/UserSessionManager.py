@@ -1,7 +1,8 @@
 from interfaces import IUserSessionManager, IDataManger
 from .SessionStart import SessionStart
 from .UserSessionDataManager import UserSessionDataManager
-from datetime import datetime, timedelta
+
+from .ActiveUserSession import ActiveUserSession
 
 class UserSessionManager(IUserSessionManager):
     def __init__(self):
@@ -9,6 +10,7 @@ class UserSessionManager(IUserSessionManager):
         self.active_session = None
         self.session_start = SessionStart()# -> add interface to this
         self.user_session_data_manager = UserSessionDataManager()# -> add interface to this
+        self.active_user_session = ActiveUserSession()
     
     
         
@@ -30,9 +32,6 @@ class UserSessionManager(IUserSessionManager):
                     "error": "Unknown user session action"
                 }
             }
-
-
-
     def start_user_session(self, content:dict,) -> dict:
         """This functions main purpose is to log a new session such that the start gets logged in the db"""
         session_start:dict = self.session_start.session_start_as_dict(content)
@@ -42,47 +41,21 @@ class UserSessionManager(IUserSessionManager):
         return {
         "action": "start_session",
         "content": session_start
-    }
-          
+        }
 
     def get_active_session(self) -> dict:
 
         if self.active_session is None:
-            print("YES")
+         
             return {
                 "action": "get_active_session",
                 "content": {
                     "is_running": False
                 }
             }
-        #here need to calculate all the relivant information such that
-        print("THERE IS AN ACTIVE SESSION")
-        return self.updated_session_state()
+        #this will return a dictionary with the updated user data
+        return self.active_user_session.updated_session_state(self.active_session)
 
-    def updated_session_state(self):
-        current_time = datetime.now()
-
-        last_update = self.active_session["last_update_time"]
-
-        time_spent = current_time - last_update
-        seconds_spent = int(time_spent.total_seconds())
-
-        self.active_session["time"] -= seconds_spent
-
-        self.active_session["time"] = max(
-            0,
-            self.active_session["time"]
-        )
-
-        # save the timestamp we just updated at
-        self.active_session["last_update_time"] = current_time
-
-        return {
-            "action": "get_active_session",
-            "content": self.active_session
-        }
-
-    
     def update_user_session(self, content:dict ):
         """I dont yet know what this one does but its linked to the front end """
         pass
@@ -94,9 +67,10 @@ class UserSessionManager(IUserSessionManager):
     def get_db_session_data(self):
         """This function will be responsible for getting information from the db about current session """
         pass
+
     def set_db_session_data(self):
-            """This function will be responsible for writing information to the db about current session """
-            pass
+        """This function will be responsible for writing information to the db about current session """
+        pass
         
 
 
