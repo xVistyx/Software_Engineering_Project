@@ -1,12 +1,12 @@
 {
   "manifest_version": 3,
-  "name": "Grove — Focus",
+  "name": "LockDown — Focus",
   "version": "0.1.0",
   "description": "Start a focus session and block distracting sites while you work.",
 
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Grove"
+    "default_title": "LockDown"
   },
 
   "permissions": [

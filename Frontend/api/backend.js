@@ -58,6 +58,9 @@ export const api = {
     createSession: (data) =>
         req('start_session', data),
 
+    getActiveSession: () =>
+        req('get_active_session'),
+
     updateSession: (id, data) =>
         req('update_session', {
             session_id: id,
@@ -94,5 +97,3 @@ export const api = {
             sites: sites
         })
 };
-
-
