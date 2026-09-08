@@ -1,0 +1,5 @@
+.preview-tools/
+.preview-artifacts/
+.venv/
+DataBase/Activity.json
+DataBase/Activity.json.tmp

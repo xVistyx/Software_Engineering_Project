@@ -23,14 +23,19 @@ export function Timer({ seconds, onComplete }) {
     <div class="dial grow" style="justify-content:center">
       <div class="time-label">Time remaining</div>
       <div class="time-big" data-clock>00:00</div>
-      <div class="score-row">🔥 Focus score <b data-score>100</b></div>
+      <div class="timer-track" aria-hidden="true"><div class="timer-progress" data-progress></div></div>
+      <div class="score-row">Session timer <b data-score>Running</b></div>
     </div>`);
 
   const clockEl = el.querySelector('[data-clock]');
   const scoreEl = el.querySelector('[data-score]');
 
   const fmt   = (s) => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
-  const paint = () => { clockEl.textContent = fmt(remaining); scoreEl.textContent = score; };
+  const paint = () => {
+    clockEl.textContent = fmt(remaining);
+    scoreEl.textContent = remaining > 0 ? 'Running' : 'Finishing';
+    el.querySelector('[data-progress]').style.transform = `scaleX(${seconds > 0 ? remaining / seconds : 0})`;
+  };
 
   const start = () => {
     clearInterval(tick);
@@ -46,6 +51,7 @@ export function Timer({ seconds, onComplete }) {
 
   return {
     el, start, pause, resume: start, stop,
+    setRemaining: value => { remaining = Math.max(0, Math.ceil(value)); paint(); },
     setScore: (s) => { score = s; paint(); },     // called from background SCORE msgs
     elapsed:  ()  => seconds - remaining,
     get remaining() { return remaining; },
