@@ -113,3 +113,51 @@ class UserSessionDataManager:
             return value.isoformat()
 
         return value
+
+    def update_metadata_in_session_json(
+        self,
+        metadata: dict
+    ) -> bool:
+
+        if self.session_path is None:
+            raise RuntimeError(
+                "No active session JSON has been created."
+            )
+
+        database = json.loads(
+            self.session_path.read_text()
+        )
+
+        for index, existing in enumerate(
+            database["website_metadata"]
+        ):
+
+            if existing["tab_id"] == metadata["tab_id"]:
+
+                database["website_metadata"][index] = metadata
+
+                self.session_path.write_text(
+                    json.dumps(
+                        database,
+                        indent=4
+                    )
+                )
+
+                print(
+                    "UPDATED TAB IN JSON:",
+                    metadata["tab_id"],
+                    "TIME:",
+                    round(
+                        metadata["time_spent"],
+                        2
+                    )
+                )
+
+                return True
+
+        print(
+            "COULD NOT FIND TAB TO UPDATE:",
+            metadata["tab_id"]
+        )
+
+        return False

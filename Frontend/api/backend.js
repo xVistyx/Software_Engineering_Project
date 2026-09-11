@@ -33,3 +33,4 @@ export const api = {
   getBlocklist: () => req('get_blocklist'),
   putBlocklist: sites => req('update_blocklist', { sites }),
 };
+/*Add the functionality for blocking stuff a simple function should do */

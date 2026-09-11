@@ -1,0 +1,53 @@
+{
+    "session_info": {
+        "id": 32,
+        "topic": "chess",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-11T18:25:14.747664",
+        "last_update_time": "2026-09-11T18:25:14.747664",
+        "predicted_end_time": "2026-09-11T19:10:14.747664",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 3,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66840120,
+            "title": "03:46 - Google Zoeken",
+            "url": "https://www.google.com/search?q=timer&rlz=1C5OZZY_enNL1221NL1221&oq=tim&gs_lcrp=EgZjaHJvbWUqFAgAEEUYOxhDGIMBGLEDGIAEGIoFMhQIABBFGDsYQxiDARixAxiABBiKBTIGCAEQRRg5Mg8IAhAAGEMYyQMYgAQYigUyDQgDEAAYgwEYsQMYgAQyDQgEEAAYgwEYsQMYgAQyBwgFEAAYgAQyEAgGEAAYgwEYsQMYgAQYigUyEAgHEAAYgwEYsQMYgAQYigUyDQgIEAAYkgMYgAQYigUyDQgJEAAYgwEYsQMYgATSAQgxMDMyajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-11T16:25:21.889Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 76.65922841699648,
+            "is_related": true
+        },
+        {
+            "tab_id": 66840115,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "https://www.chess.com/bundles/web/favicons/favicon.46041f2d.ico",
+            "timestamp": "2026-09-11T16:26:39.943Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 7.706402749994595,
+            "is_related": true
+        },
+        {
+            "tab_id": 66840096,
+            "title": "cs - Google Zoeken",
+            "url": "https://www.google.com/search?q=cs&rlz=1C5OZZY_enNL1221NL1221&oq=cs&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIMCAEQABhDGIAEGIoFMhIIAhAAGEMYgwEYsQMYgAQYigUyEggDEAAYQxiDARixAxiABBiKBTIMCAQQABhDGIAEGIoFMhIIBRAAGEMYgwEYsQMYgAQYigUyEggGEC4YQxjHARjRAxiABBiKBTISCAcQLhhDGIMBGLEDGIAEGIoF0gEHNzc1ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-11T16:26:53.906Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 4.572965166000358,
+            "is_related": true
+        }
+    ]
+}

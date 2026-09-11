@@ -72,7 +72,7 @@ class System(ISystem):
 
     def run_website_metadata(self, message: dict):
 
-        return self.user_session_manager.log_meta_data(
+        return self.user_session_manager.block_website(
             message["content"]
         )
     

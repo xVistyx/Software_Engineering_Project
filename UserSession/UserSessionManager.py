@@ -32,7 +32,7 @@ class UserSessionManager(IUserSessionManager):
         elif action == "log_meta_data":
             return {
                 "action": "log_meta_data",
-                "content": self.log_meta_data(content)
+                "content": self.block_website(content) # naming is a bit weird need to fix. But linked to frontend so cannot rn -> future this will be function call to block the websites
             }
 
         else:
@@ -72,18 +72,65 @@ class UserSessionManager(IUserSessionManager):
 
 
 
-    def log_meta_data(self, metadata: dict) -> dict:
+    def block_website(self, metadata: dict) -> dict:
 
-        print("LOG_META_DATA CALLED:", metadata)
-
-        clean_metadata = self.website_meta_data.store_metadata(
-            metadata
+        is_new_tab = self.website_meta_data.eval_metadata(
+            metadata,
+            self.active_session["topic"]
         )
 
-        self.user_session_data_manager.write_metadata_to_session_json(clean_metadata)
+        stored = False
+
+        # ========================================================
+        # NEW TAB
+        # ========================================================
+
+        if is_new_tab:
+
+            print(
+                "NEW TAB -> STORE:",
+                metadata.get("tab_id")
+            )
+
+            clean_metadata = (
+                self.website_meta_data
+                .get_website_meta_data()
+            )
+
+            self.user_session_data_manager.write_metadata_to_session_json(
+                clean_metadata
+            )
+
+            stored = True
+
+
+        # ========================================================
+        # EXISTING TABS THAT CHANGED
+        # ========================================================
+
+        dirty_tabs = (
+            self.website_meta_data
+            .get_dirty_tabs()
+        )
+
+        for changed_metadata in dirty_tabs:
+
+            print(
+                "UPDATE TAB:",
+                changed_metadata["tab_id"],
+                "TIME:",
+                changed_metadata["time_spent"]
+            )
+
+            self.user_session_data_manager.update_metadata_in_session_json(
+                changed_metadata
+            )
+
+            stored = True
+
 
         return {
-            "stored": True
+            "stored": stored
         }
 
     def update_user_session(self, content:dict ):

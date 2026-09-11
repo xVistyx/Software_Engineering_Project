@@ -55,7 +55,7 @@ class IUserSessionManager(ABC):
         pass
 
     @abstractmethod
-    def log_meta_data(self, metadata:dict) -> dict:
+    def block_website(self, metadata:dict) -> dict:
         pass
 
     @abstractmethod
