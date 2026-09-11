@@ -1,0 +1,169 @@
+{
+    "session_info": {
+        "id": 45,
+        "topic": "chess",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-11T16:51:01.839376",
+        "last_update_time": "2026-09-11T16:51:01.839376",
+        "predicted_end_time": "2026-09-11T17:36:01.839376",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 19,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66840048,
+            "title": "drk - Google Zoeken",
+            "url": "https://www.google.com/search?q=drk&rlz=1C5OZZY_enNL1221NL1221&oq=drk&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABixAxiABDINCAIQLhivARjHARiABDIHCAMQABiABDIHCAQQABiABDINCAUQLhivARjHARiABDIHCAYQABiABDIJCAcQABgKGIAEMgcICBAAGIAEMgcICRAAGIAE0gEHOTcyajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-11T14:51:11.020Z",
+            "block": false
+        },
+        {
+            "tab_id": 66840048,
+            "title": "drk - Google Zoeken",
+            "url": "https://www.google.com/search?q=drk&rlz=1C5OZZY_enNL1221NL1221&oq=drk&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABixAxiABDINCAIQLhivARjHARiABDIHCAMQABiABDIHCAQQABiABDINCAUQLhivARjHARiABDIHCAYQABiABDIJCAcQABgKGIAEMgcICBAAGIAEMgcICRAAGIAE0gEHOTcyajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-11T14:51:11.026Z",
+            "block": false
+        },
+        {
+            "tab_id": 66840048,
+            "title": "drk - Google Zoeken",
+            "url": "https://www.google.com/search?q=drk&rlz=1C5OZZY_enNL1221NL1221&oq=drk&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABixAxiABDINCAIQLhivARjHARiABDIHCAMQABiABDIHCAQQABiABDINCAUQLhivARjHARiABDIHCAYQABiABDIJCAcQABgKGIAEMgcICBAAGIAEMgcICRAAGIAE0gEHOTcyajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-11T14:51:11.564Z",
+            "block": false
+        },
+        {
+            "tab_id": 66840048,
+            "title": "Dirk: de beste supermarkt van Nederland | Dirk",
+            "url": "https://www.dirk.nl/",
+            "favicon": "",
+            "timestamp": "2026-09-11T14:51:14.862Z",
+            "block": false
+        },
+        {
+            "tab_id": 66840048,
+            "title": "Dirk: de beste supermarkt van Nederland | Dirk",
+            "url": "https://www.dirk.nl/",
+            "favicon": "",
+            "timestamp": "2026-09-11T14:51:14.867Z",
+            "block": false
+        },
+        {
+            "tab_id": 66840048,
+            "title": "Dirk: de beste supermarkt van Nederland | Dirk",
+            "url": "https://www.dirk.nl/",
+            "favicon": "",
+            "timestamp": "2026-09-11T14:51:15.092Z",
+            "block": false
+        },
+        {
+            "tab_id": 66840048,
+            "title": "Dirk: de beste supermarkt van Nederland | Dirk",
+            "url": "https://www.dirk.nl/",
+            "favicon": "https://www.dirk.nl/favicon.ico",
+            "timestamp": "2026-09-11T14:51:17.955Z",
+            "block": false
+        },
+        {
+            "tab_id": 66840050,
+            "title": "chess - Google Zoeken",
+            "url": "https://www.google.com/search?q=chess&rlz=1C5OZZY_enNL1221NL1221&oq=chess&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7Mg0IARAAGIMBGLEDGIAEMhgIAhAuGEMYgwEYxwEYsQMY0QMYgAQYigUyBwgDEAAYgAQyBwgEEAAYgAQyBwgFEAAYgAQyBwgGEAAYgAQyBwgHEAAYgAQyBwgIEAAYgAQyBwgJEAAYjwLSAQgxMTAxajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-11T14:51:34.171Z",
+            "block": false
+        },
+        {
+            "tab_id": 66840050,
+            "title": "chess - Google Zoeken",
+            "url": "https://www.google.com/search?q=chess&rlz=1C5OZZY_enNL1221NL1221&oq=chess&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7Mg0IARAAGIMBGLEDGIAEMhgIAhAuGEMYgwEYxwEYsQMY0QMYgAQYigUyBwgDEAAYgAQyBwgEEAAYgAQyBwgFEAAYgAQyBwgGEAAYgAQyBwgHEAAYgAQyBwgIEAAYgAQyBwgJEAAYjwLSAQgxMTAxajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-11T14:51:34.176Z",
+            "block": false
+        },
+        {
+            "tab_id": 66840050,
+            "title": "chess - Google Zoeken",
+            "url": "https://www.google.com/search?q=chess&rlz=1C5OZZY_enNL1221NL1221&oq=chess&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7Mg0IARAAGIMBGLEDGIAEMhgIAhAuGEMYgwEYxwEYsQMY0QMYgAQYigUyBwgDEAAYgAQyBwgEEAAYgAQyBwgFEAAYgAQyBwgGEAAYgAQyBwgHEAAYgAQyBwgIEAAYgAQyBwgJEAAYjwLSAQgxMTAxajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-11T14:51:34.491Z",
+            "block": false
+        },
+        {
+            "tab_id": 66840050,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "https://www.chess.com/bundles/web/favicons/favicon.46041f2d.ico",
+            "timestamp": "2026-09-11T14:51:37.475Z",
+            "block": false
+        },
+        {
+            "tab_id": 66840050,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "https://www.chess.com/bundles/web/favicons/favicon.46041f2d.ico",
+            "timestamp": "2026-09-11T14:51:37.481Z",
+            "block": false
+        },
+        {
+            "tab_id": 66840050,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "https://www.chess.com/bundles/web/favicons/favicon.46041f2d.ico",
+            "timestamp": "2026-09-11T14:51:37.936Z",
+            "block": false
+        },
+        {
+            "tab_id": 66840052,
+            "title": "ho - Google Zoeken",
+            "url": "https://www.google.com/search?q=ho&rlz=1C5OZZY_enNL1221NL1221&oq=ho&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTISCAEQLhhDGMcBGNEDGIAEGIoFMhIIAhAAGEMYgwEYsQMYgAQYigUyDAgDEAAYQxiABBiKBTISCAQQLhhDGMcBGNEDGIAEGIoFMgoIBRAAGLEDGIAEMgYIBhBFGDwyBggHEEUYPNIBCDExNjVqMGo3qAIIsAIB8QX98pMex_YVBg&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-11T14:52:20.458Z",
+            "block": false
+        },
+        {
+            "tab_id": 66840052,
+            "title": "ho - Google Zoeken",
+            "url": "https://www.google.com/search?q=ho&rlz=1C5OZZY_enNL1221NL1221&oq=ho&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTISCAEQLhhDGMcBGNEDGIAEGIoFMhIIAhAAGEMYgwEYsQMYgAQYigUyDAgDEAAYQxiABBiKBTISCAQQLhhDGMcBGNEDGIAEGIoFMgoIBRAAGLEDGIAEMgYIBhBFGDwyBggHEEUYPNIBCDExNjVqMGo3qAIIsAIB8QX98pMex_YVBg&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-11T14:52:20.465Z",
+            "block": false
+        },
+        {
+            "tab_id": 66840052,
+            "title": "ho - Google Zoeken",
+            "url": "https://www.google.com/search?q=ho&rlz=1C5OZZY_enNL1221NL1221&oq=ho&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTISCAEQLhhDGMcBGNEDGIAEGIoFMhIIAhAAGEMYgwEYsQMYgAQYigUyDAgDEAAYQxiABBiKBTISCAQQLhhDGMcBGNEDGIAEGIoFMgoIBRAAGLEDGIAEMgYIBhBFGDwyBggHEEUYPNIBCDExNjVqMGo3qAIIsAIB8QX98pMex_YVBg&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-11T14:52:20.864Z",
+            "block": false
+        },
+        {
+            "tab_id": 66840052,
+            "title": "Ho - 10 definities - Encyclo",
+            "url": "https://www.encyclo.nl/begrip/ho",
+            "favicon": "",
+            "timestamp": "2026-09-11T14:52:22.764Z",
+            "block": false
+        },
+        {
+            "tab_id": 66840052,
+            "title": "Ho - 10 definities - Encyclo",
+            "url": "https://www.encyclo.nl/begrip/ho",
+            "favicon": "",
+            "timestamp": "2026-09-11T14:52:22.774Z",
+            "block": false
+        },
+        {
+            "tab_id": 66840052,
+            "title": "Ho - 10 definities - Encyclo",
+            "url": "https://www.encyclo.nl/begrip/ho",
+            "favicon": "",
+            "timestamp": "2026-09-11T14:52:23.164Z",
+            "block": false
+        }
+    ]
+}

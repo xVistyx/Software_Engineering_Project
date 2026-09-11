@@ -18,7 +18,8 @@
     "storage",
     "declarativeNetRequest",
     "tabs",
-    "alarms"
+    "alarms",
+    "idle"
   ],
 
   "host_permissions": [

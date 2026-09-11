@@ -9,11 +9,19 @@
    <section class="screen active">...</section>
    ============================================================ */
 
-import { api, bg }       from './api/backend.js';
+import { api as liveApi, bg } from './api/backend.js';
 import { StartPage }     from './pages/StartPage.js';
 import { SessionPage }   from './pages/SessionPage.js';
 import { BlockListPage } from './pages/BlockListPage.js';
 import { SettingsPage }  from './pages/SettingsPage.js';
+import { HistoryPage } from './pages/HistoryPage.js';
+
+// The extension always uses the real API. Sample data is opt-in on localhost.
+const isPreview = ['localhost', '127.0.0.1'].includes(location.hostname)
+  && new URLSearchParams(location.search).get('preview') === '1';
+const api = isPreview
+  ? (await import('./api/preview.js')).createPreviewApi()
+  : liveApi;
 
 
 /* ============================================================
@@ -25,6 +33,7 @@ const PAGES = {
   session:   SessionPage,
   blocklist: BlockListPage,
   settings:  SettingsPage,
+  history: HistoryPage,
 };
 
 
@@ -56,6 +65,19 @@ const state = {
    ============================================================ */
 
 const mount = document.getElementById('app');
+let currentPage = null;
+
+if (isPreview) {
+  document.body.classList.add('preview');
+  const caption = document.createElement('div');
+  caption.className = 'preview-caption';
+  caption.innerHTML = '<strong>Grove / Focus extension</strong><span>Interactive preview</span>';
+  const footer = document.createElement('p');
+  footer.className = 'preview-footer';
+  footer.textContent = 'Sample data. Try a session, explore settings, or edit your blocklist. Website blocking is inactive in this preview.';
+  mount.before(caption);
+  mount.after(footer);
+}
 
 
 /* ============================================================
@@ -81,6 +103,7 @@ function navigate(page) {
 
 function render() {
 
+  currentPage?.dispose?.();
   mount.innerHTML = '';
 
   const ctx = {
@@ -92,7 +115,8 @@ function render() {
 
   const Page = PAGES[state.page];
 
-  mount.append(Page(ctx));
+  currentPage = Page(ctx);
+  mount.append(currentPage);
 }
 
 
@@ -133,7 +157,7 @@ async function loadActiveSession() {
 
     console.log('Active session response:', activeSession);
 
-    if (activeSession && activeSession.is_running) {
+    if (activeSession && (activeSession.is_running || activeSession.status === 'paused')) {
 
       // Restore frontend session state
       state.session = activeSession;

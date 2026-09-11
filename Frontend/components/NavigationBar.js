@@ -1,36 +1,31 @@
-/* ============================================================
-   components/NavigationBar.js — the topbar every page mounts.
-   Props:
-     left    : { label, page } | null   (Back / Home chip)
-     right   : { label, page } | null   (Settings gear, default)
-     title   : string | null            (center label, e.g. topic)
-     onNavigate(page)                    (router from main.js)
-   ============================================================ */
-
-const node = (html) => {
-  const t = document.createElement('template');
-  t.innerHTML = html.trim();
-  return t.content.firstElementChild;
-};
-
-export function NavigationBar({ left = null, right = { label: '⚙', page: 'settings' }, title = null, onNavigate }) {
-  const el = node(`<div class="topbar"></div>`);
-
-  if (left) {
-    const c = node(`<div class="chip">${left.label}</div>`);
-    c.addEventListener('click', () => onNavigate(left.page));
-    el.append(c);
-  } else if (title) {
-    el.append(node(`<div class="chip">${title}</div>`));
+export function NavigationBar({ left = null, right = { label: 'Settings', page: 'settings' }, title = null, onNavigate }) {
+  const el = document.createElement('nav');
+  el.className = 'topbar';
+  el.setAttribute('aria-label', 'Main navigation');
+  const link = ({ label, page }) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'chip';
+    button.textContent = label;
+    button.addEventListener('click', () => onNavigate(page));
+    return button;
+  };
+  if (left) el.append(link(left));
+  else if (title) {
+    const heading = document.createElement('span');
+    heading.className = 'nav-title';
+    heading.textContent = title;
+    el.append(heading);
+  } else {
+    const brand = document.createElement('div');
+    brand.className = 'brand';
+    brand.innerHTML = '<span class="brand-mark" aria-hidden="true">g</span><span>Grove</span>';
+    el.append(brand);
   }
-
-  el.append(node(`<div class="spacer"></div>`));
-
-  if (right) {
-    const g = node(`<div class="chip">${right.label}</div>`);
-    g.addEventListener('click', () => onNavigate(right.page));
-    el.append(g);
-  }
-
+  const spacer = document.createElement('span');
+  spacer.className = 'spacer';
+  el.append(spacer);
+  if (!left && !title) el.append(link({ label: 'History', page: 'history' }));
+  if (right) el.append(link(right));
   return el;
 }

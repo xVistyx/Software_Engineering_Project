@@ -12,8 +12,8 @@ class UserSessionManager(IUserSessionManager):
         self.active_session = None
         self.session_start = SessionStart()# -> add interface to this
         self.user_session_data_manager = UserSessionDataManager()# -> add interface to this
-        self.active_user_session = ActiveUserSession()
-        self.website_meta_data= WebsiteMetadataManager()
+        self.active_user_session = ActiveUserSession()# -> add interface to this
+        self.website_meta_data= WebsiteMetadataManager()# -> add interface to this
         
     
     
@@ -42,12 +42,14 @@ class UserSessionManager(IUserSessionManager):
                     "error": "Unknown user session action"
                 }
             }
-    def start_user_session(self, content:dict,) -> dict:
+    def start_user_session(self, content:dict) -> dict:
         """This functions main purpose is to log a new session such that the start gets logged in the db"""
         session_start:dict = self.session_start.session_start_as_dict(content)
         self.active_session = session_start
         print("Active session ", session_start)
+        self.user_session_data_manager.create_session_json(session_start["id"])
         self.user_session_data_manager.log_session_start(session_start)
+
         return {
         "action": "start_session",
         "content": session_start
@@ -78,9 +80,7 @@ class UserSessionManager(IUserSessionManager):
             metadata
         )
 
-        self.user_session_data_manager.set_meta_data(
-            clean_metadata
-        )
+        self.user_session_data_manager.write_metadata_to_session_json(clean_metadata)
 
         return {
             "stored": True

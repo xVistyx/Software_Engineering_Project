@@ -1,64 +1,33 @@
-# Grove — Focus (restructured)
+# Grove frontend
 
-The single-file `focus-extension.html` prototype, split into the modular
-structure you specified. **Vanilla ES modules** — no framework, no build step;
-loads straight into an MV3 popup.
+A vanilla JavaScript browser extension interface. No framework, build step, or external font downloads are required.
 
-```
-Frontend/
-├── pages/
-│   ├── StartPage.js      # home + new-session setup   (was screens 1 Welcome, 2 Start, 6 Past)
-│   ├── SessionPage.js    # running / paused / complete (was screens 3, 7, 4)
-│   ├── BlockListPage.js  # edit blocked sites          (was the Blocklist row in Settings)
-│   └── SettingsPage.js   # toggles + default length    (was screen 5)
-│
-├── components/
-│   ├── Timer.js          # countdown dial + focus score
-│   ├── WebsiteList.js    # add/remove blocked domains
-│   └── NavigationBar.js  # reusable topbar
-│
-├── api/
-│   └── backend.js        # api.* (REST) + bg() (background worker) + mock fallback
-│
-├── main.js               # state, router, mount
-│
-├── popup.html            # shell — <script type="module" src="main.js">   (glue)
-├── styles.css            # design tokens + component CSS                    (glue)
-└── manifest.json         # MV3                                             (glue)
+## Interactive design preview
+
+From the repository root:
+
+```powershell
+python -m http.server 5173 --bind 127.0.0.1 --directory Frontend
 ```
 
-`popup.html`, `styles.css`, `manifest.json` weren't in your diagram but are
-required for the `.js` files to run as an extension.
+Open http://127.0.0.1:5173/popup.html?preview=1.
 
-## How it works
+The preview uses sample history and an in-memory API for starting, pausing, resuming, and ending sessions, changing settings, and editing the blocklist. Reloading resets the sample data. It does not connect to the backend or block websites. Preview mode is only enabled by `preview=1` on localhost or 127.0.0.1.
 
-- **`main.js`** holds `state` (`page`, `session`, `settings`), a `navigate(page)`
-  router, and mounts the current page into `#app`. It passes every page a
-  `ctx = { navigate, state, api, bg }`.
-- **Pages** are functions returning a `<section class="screen active">` element.
-- **Components** are factories returning a DOM node (Timer also returns
-  start/pause/resume/stop controls).
-- **`api/backend.js`** is the single seam to the outside world. `USE_MOCK = true`
-  means the whole UI runs with canned data and no server — flip it off when your
-  backend is live.
+## Browser extension
 
-## Run it now (no server)
+Open `chrome://extensions` or `edge://extensions`, enable Developer mode, choose **Load unpacked**, and select the `Frontend` directory. Reload the extension after editing its files.
 
-Open `popup.html` via a local server (ES modules need http, not `file://`):
+The extension uses `api/backend.js` to connect to the Python API at `http://127.0.0.1:8000/backend`. Opening `popup.html` without `preview=1` also uses the real API; localhost port 5173 is allowed by the server's CORS configuration.
 
-```bash
-cd Frontend && python3 -m http.server 5173   # then open http://localhost:5173/popup.html
-```
+The backend now persists session timelines, website visits, settings, and history. **History** provides session details and JSON/CSV exports. The extension tracks foreground website activity only during running sessions and requests the `idle` permission to distinguish machine inactivity. See [Activity tracking](../Documents/ActivityTracking.md) for the data format, timing limits, recovery behavior, and tests. Actual website blocking remains unimplemented.
 
-## Load as an extension
+## Files
 
-`chrome://extensions` → Developer mode → **Load unpacked** → select `Frontend/`.
-
-## Next step: background service worker
-
-A popup can't run a reliable timer or block tabs — it dies on focus loss. Move
-the timer, `declarativeNetRequest` blocking, and drift scoring into a
-`background.js` service worker. The seams already exist: pages call
-`bg('SESSION_START' | 'SESSION_PAUSE' | 'SESSION_RESUME' | 'SESSION_END' | 'BLOCKLIST_UPDATED', payload)`.
-The worker should push `{type:'TICK', remaining}` and `{type:'SCORE', score}`
-messages back; wire them to `Timer`'s `remaining` repaint and `setScore()`.
+- `main.js`: state, routing, page cleanup, and opt-in preview setup.
+- `styles.css`: shared typography, colors, layout, and controls.
+- `pages/`: session setup, active/paused/completed session, settings, blocklist, and history with exports.
+- `components/`: navigation, timer, and editable website list.
+- `api/backend.js`: existing Python API adapter.
+- `api/preview.js`: isolated sample data for reviewing the interface.
+- `popup.html`, `manifest.json`, `background.js`: extension entry points.

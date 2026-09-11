@@ -17,7 +17,7 @@ export function WebsiteList({ sites = [], onChange }) {
   const el = node(`
     <div>
       <div class="chips" style="margin-bottom:12px">
-        <input class="input" data-add placeholder="Add a site to block (e.g. youtube.com)" />
+        <input class="input" data-add aria-label="Website to block" placeholder="e.g. youtube.com" />
         <button class="btn btn-primary" data-addbtn style="width:auto;padding:14px 18px">Add</button>
       </div>
       <div data-rows></div>
@@ -37,7 +37,9 @@ export function WebsiteList({ sites = [], onChange }) {
       return;
     }
     list.forEach((site, i) => {
-      const row = node(`<div class="listrow">${site}<span data-x="${i}" style="cursor:pointer;color:var(--accent)">Remove</span></div>`);
+      const row = node(`<div class="listrow"><span data-site></span><button type="button" class="text-button" data-x="${i}">Remove</button></div>`);
+      row.querySelector('[data-site]').textContent = site;
+      row.querySelector('[data-x]').setAttribute('aria-label', `Remove ${site}`);
       row.querySelector('[data-x]').addEventListener('click', () => {
         list.splice(i, 1); render(); commit();
       });

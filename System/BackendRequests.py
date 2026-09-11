@@ -2,11 +2,11 @@
 """
 Here i need to get access to the front end via the fast API connection
 """
-
+from typing import Any
 from pydantic import BaseModel
 class SessionData(BaseModel):
     action: str
-    content: dict
+    content: Any
 
 class FrontEndSessionData(BaseModel):
      action: str
