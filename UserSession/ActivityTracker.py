@@ -12,6 +12,10 @@ from uuid import uuid4
 
 
 def stamp(seconds):
+    """
+    This function is responsible for getting a current time stamp
+    Used soley for the getting accurate time readings for the time stamps
+    """
     return datetime.fromtimestamp(seconds, timezone.utc).isoformat()
 
 
