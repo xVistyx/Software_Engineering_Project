@@ -13,12 +13,6 @@ class WebsiteMetadata:
 
 class WebsiteMetadataManager:
 
-    def __init__(self):
-        pass
-
-    def get_meta_data(self):
-        pass
-
     def store_metadata(self, content: dict) -> dict:
 
         print("META CONTENT:", content)
@@ -37,3 +31,6 @@ class WebsiteMetadataManager:
         print("CLEAN METADATA:", metadata_dict)
 
         return metadata_dict
+
+    def AI_meta_data_eval(self):
+        """This function will be responsible for passing the information to the meta data"""

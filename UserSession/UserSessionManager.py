@@ -1,4 +1,4 @@
-from interfaces import IUserSessionManager, IDataManger
+from interfaces import IUserSessionManager
 from .SessionStart import SessionStart
 from .UserSessionDataManager import UserSessionDataManager
 from .WebsiteMetaData import WebsiteMetadataManager
@@ -18,7 +18,7 @@ class UserSessionManager(IUserSessionManager):
     
     
         
-    def user_session_manager(self, action:str, content:dict, data_manager:IDataManger) -> dict:
+    def user_session_manager(self, action:str, content:dict, data_manager) -> dict:
         self.user_session_data_manager.set_global_data_manager(data_manager)
         
         if action == "get_active_session":
@@ -70,7 +70,7 @@ class UserSessionManager(IUserSessionManager):
 
 
 
-    def log_meta_data(self, metadata: dict):
+    def log_meta_data(self, metadata: dict) -> dict:
 
         print("LOG_META_DATA CALLED:", metadata)
 
