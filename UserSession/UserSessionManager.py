@@ -1,19 +1,19 @@
 from interfaces import IUserSessionManager
 from .SessionStart import SessionStart
 from .UserSessionDataManager import UserSessionDataManager
-from .WebsiteMetaData import WebsiteMetadataManager
+
 
 
 from .ActiveUserSession import ActiveUserSession
 
 class UserSessionManager(IUserSessionManager):
     def __init__(self):
-        #self.test_dict = {"action": "start_session","content": {"id": "test-session-123"}}
+        """I need to add threading to this to make it threading safe. This file shouldnt do anything but coordinate. Logic is handeled in the manager Files"""
         self.active_session = None
         self.session_start = SessionStart()# -> add interface to this
         self.user_session_data_manager = UserSessionDataManager()# -> add interface to this
         self.active_user_session = ActiveUserSession()# -> add interface to this
-        self.website_meta_data= WebsiteMetadataManager()# -> add interface to this
+        
         
     
     
@@ -26,13 +26,13 @@ class UserSessionManager(IUserSessionManager):
         elif action == "start_session":
             return self.start_user_session(content)
         elif action == "update_session":
-            return self.update_user_session(content)
+            return self.update_user_session(content, "update_session")
         elif action == "end_session":
             return self.end_user_session(content)
         elif action == "log_meta_data":
             return {
                 "action": "log_meta_data",
-                "content": self.block_website(content) # naming is a bit weird need to fix. But linked to frontend so cannot rn -> future this will be function call to block the websites
+                "content": self.update_user_session(content, "log_meta_data") # naming is a bit weird need to fix. But linked to frontend so cannot rn -> future this will be function call to block the websites
             }
 
         else:
@@ -50,10 +50,7 @@ class UserSessionManager(IUserSessionManager):
         self.user_session_data_manager.create_session_json(session_start["id"])
         self.user_session_data_manager.log_session_start(session_start)
 
-        return {
-        "action": "start_session",
-        "content": session_start
-        }
+        return {"action": "start_session","content": session_start}
 
     def get_active_session(self) -> dict:
 
@@ -70,72 +67,28 @@ class UserSessionManager(IUserSessionManager):
    
 
 
+    
+    def update_user_session(self, content: dict, command: str):
 
+        if command == "log_meta_data":
+            topic = self.active_session["topic"]
+            metadata_result, stored = (self.active_user_session.block_website(content,topic))
+            if not stored:
+                return
+            if isinstance(metadata_result, dict):
 
-    def block_website(self, metadata: dict) -> dict:
+                print("NEW TAB -> WRITING")
+                self.user_session_data_manager.write_metadata_to_session_json(metadata_result)
 
-        is_new_tab = self.website_meta_data.eval_metadata(
-            metadata,
-            self.active_session["topic"]
-        )
+            elif isinstance(metadata_result, list):
 
-        stored = False
+                for changed_tab in metadata_result:
+                    self.user_session_data_manager.update_metadata_in_session_json(changed_tab)
 
-        # ========================================================
-        # NEW TAB
-        # ========================================================
+        else:
+            self.active_user_session.updated_session_state(content)
+            
 
-        if is_new_tab:
-
-            print(
-                "NEW TAB -> STORE:",
-                metadata.get("tab_id")
-            )
-
-            clean_metadata = (
-                self.website_meta_data
-                .get_website_meta_data()
-            )
-
-            self.user_session_data_manager.write_metadata_to_session_json(
-                clean_metadata
-            )
-
-            stored = True
-
-
-        # ========================================================
-        # EXISTING TABS THAT CHANGED
-        # ========================================================
-
-        dirty_tabs = (
-            self.website_meta_data
-            .get_dirty_tabs()
-        )
-
-        for changed_metadata in dirty_tabs:
-
-            print(
-                "UPDATE TAB:",
-                changed_metadata["tab_id"],
-                "TIME:",
-                changed_metadata["time_spent"]
-            )
-
-            self.user_session_data_manager.update_metadata_in_session_json(
-                changed_metadata
-            )
-
-            stored = True
-
-
-        return {
-            "stored": stored
-        }
-
-    def update_user_session(self, content:dict ):
-        """I dont yet know what this one does but its linked to the front end """
-        pass
 
     def end_user_session(self, content:dict ):
         pass

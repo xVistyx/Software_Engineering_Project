@@ -1,0 +1,47 @@
+{
+    "session_info": {
+        "id": 95,
+        "topic": "not chess",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-12T15:03:01.564050",
+        "last_update_time": "2026-09-12T15:03:01.564050",
+        "predicted_end_time": "2026-09-12T15:48:01.564050",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 2,
+        "complete_session": false
+    },
+    "website_metadata": [
+        [
+            {
+                "tab_id": 66840192,
+                "title": "google.com/search?q=timer&rlz=1C5OZZY_enNL1221NL1221&oq=timer&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7Mg0IARAAGIMBGLEDGIAEMg0IAhAAGIMBGLEDGIAEMg0IAxAAGIMBGLEDGIAEMg0IBBAAGIMBGLEDGIAEMg0IBRAAGIMBGLEDGIAEMg0IBhAAGIMBGLEDGIAEMg0IBxAAGIMBGLEDGIAEMg0ICBAAGIMBGLEDGIAEMgcICRAAGIAE0gEHODE5ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+                "url": "https://www.google.com/search?q=timer&rlz=1C5OZZY_enNL1221NL1221&oq=timer&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7Mg0IARAAGIMBGLEDGIAEMg0IAhAAGIMBGLEDGIAEMg0IAxAAGIMBGLEDGIAEMg0IBBAAGIMBGLEDGIAEMg0IBRAAGIMBGLEDGIAEMg0IBhAAGIMBGLEDGIAEMg0IBxAAGIMBGLEDGIAEMg0ICBAAGIMBGLEDGIAEMgcICRAAGIAE0gEHODE5ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+                "favicon": "",
+                "timestamp": "2026-09-12T13:03:05.499Z",
+                "block": false,
+                "currently_open": true,
+                "currently_active": true,
+                "time_spent": 1.3290999049786478e-05,
+                "is_related": true
+            },
+            true
+        ],
+        [
+            {
+                "tab_id": 66840181,
+                "title": "hello world - Google Zoeken",
+                "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hello+world&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7Mg0IARAuGK8BGMcBGIAEMgcIAhAAGIAEMgwIAxAuGEMYgAQYigUyBwgEEAAYgAQyBggFEEUYPDIGCAYQRRg9MgYIBxBFGD3SAQgxNjUzajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+                "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+                "timestamp": "2026-09-12T13:04:04.587Z",
+                "block": false,
+                "currently_open": true,
+                "currently_active": true,
+                "time_spent": 1.454199809813872e-05,
+                "is_related": true
+            },
+            true
+        ]
+    ]
+}

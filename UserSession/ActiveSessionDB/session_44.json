@@ -1,0 +1,41 @@
+{
+    "session_info": {
+        "id": 44,
+        "topic": "chess",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-12T15:05:51.713866",
+        "last_update_time": "2026-09-12T15:05:51.713866",
+        "predicted_end_time": "2026-09-12T15:50:51.713866",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 2,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66840194,
+            "title": "03:41 - Google Zoeken",
+            "url": "https://www.google.com/search?q=timer&rlz=1C5OZZY_enNL1221NL1221&oq=tim&gs_lcrp=EgZjaHJvbWUqFAgAEEUYOxhDGIMBGLEDGIAEGIoFMhQIABBFGDsYQxiDARixAxiABBiKBTIGCAEQRRg5Mg8IAhAAGEMYyQMYgAQYigUyDQgDEAAYgwEYsQMYgAQyDQgEEAAYgwEYsQMYgAQyBwgFEAAYgAQyEAgGEAAYgwEYsQMYgAQYigUyEAgHEAAYgwEYsQMYgAQYigUyDQgIEAAYkgMYgAQYigUyDQgJEAAYgwEYsQMYgATSAQc1MjVqMGo3qAIAsAIA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-12T13:05:54.574Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 80.75638258300751,
+            "is_related": true
+        },
+        {
+            "tab_id": 66840181,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hello+world&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7Mg0IARAuGK8BGMcBGIAEMgcIAhAAGIAEMgwIAxAuGEMYgAQYigUyBwgEEAAYgAQyBggFEEUYPDIGCAYQRRg9MgYIBxBFGD3SAQgxNjUzajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-12T13:07:16.614Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 4.794492958993942,
+            "is_related": true
+        }
+    ]
+}

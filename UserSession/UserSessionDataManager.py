@@ -20,18 +20,14 @@ class UserSessionDataManager:
         self.global_data_manager = data_manager
 
     def create_session_json(self, session_id: int):
-        self.session_path = (
-            self.session_folder / f"session_{session_id}.json"
-        )
+        self.session_path = (self.session_folder / f"session_{session_id}.json")
 
         session_data = {
             "session_info": {},
             "website_metadata": []
         }
 
-        self.session_path.write_text(
-            json.dumps(session_data, indent=4)
-        )
+        self.session_path.write_text(json.dumps(session_data, indent=4))
 
         return self.session_path
 
@@ -114,15 +110,10 @@ class UserSessionDataManager:
 
         return value
 
-    def update_metadata_in_session_json(
-        self,
-        metadata: dict
-    ) -> bool:
+    def update_metadata_in_session_json(self,metadata: dict) -> bool:
 
         if self.session_path is None:
-            raise RuntimeError(
-                "No active session JSON has been created."
-            )
+            raise RuntimeError("No active session JSON has been created.")
 
         database = json.loads(
             self.session_path.read_text()

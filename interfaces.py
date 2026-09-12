@@ -53,10 +53,12 @@ class IUserSessionManager(ABC):
     @abstractmethod
     def get_active_session() -> dict:
         pass
-
+    """
     @abstractmethod
-    def block_website(self, metadata:dict) -> dict:
-        pass
+        def block_website(self, metadata:dict) -> dict:
+            pass
+    """
+
 
     @abstractmethod
     def update_user_session(self, content:dict ):

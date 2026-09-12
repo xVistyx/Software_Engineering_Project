@@ -103,12 +103,8 @@ class WebsiteMetadataManager:
     # MAIN ENTRY POINT
     # ========================================================
 
-    def eval_metadata(
-        self,
-        content: dict,
-        topic: str
-    ) -> bool:
-
+    def eval_metadata(self, content: dict, topic: str) -> bool:
+        print("Does it ever call this? \n \n \n")
         print("META CONTENT:", content)
         print("TOPIC:", topic)
 
@@ -131,10 +127,7 @@ class WebsiteMetadataManager:
         # BROWSER LOST FOCUS
         # ====================================================
 
-        if (
-            reason == "window_focus_changed"
-            and state == "unfocused"
-        ):
+        if (reason == "window_focus_changed" and state == "unfocused"):
             self.browser_unfocused()
             return False
 
@@ -142,10 +135,7 @@ class WebsiteMetadataManager:
         # IDLE / LOCKED
         # ====================================================
 
-        if (
-            reason == "idle_state_changed"
-            and state in {"idle", "locked"}
-        ):
+        if (reason == "idle_state_changed" and state in {"idle", "locked"}):
             self.browser_unfocused()
             return False
 
@@ -170,18 +160,13 @@ class WebsiteMetadataManager:
         # ====================================================
 
         if tab_id not in self.tabs:
-            metadata = self.create_metadata(
-                content,
-                topic
-            )
+            metadata = self.create_metadata(content,topic)
 
             self.tabs[tab_id] = metadata
             self.meta_data = metadata
             self.new_tab = True
 
-            print(
-                "NEW TAB:",
-                tab_id
+            print("NEW TAB:",tab_id
             )
 
         # ====================================================
@@ -531,9 +516,7 @@ class WebsiteMetadataManager:
     # GET CURRENT METADATA
     # ========================================================
 
-    def get_website_meta_data(
-        self
-    ) -> dict | None:
+    def get_website_meta_data(self) -> dict | None:
 
         if self.meta_data is None:
             return None
@@ -575,11 +558,7 @@ class WebsiteMetadataManager:
     # SESSION RELATED
     # ========================================================
 
-    def is_session_related(
-        self,
-        meta_data: dict,
-        topic: str
-    ) -> bool:
+    def is_session_related(self,meta_data: dict,topic: str) -> bool:
         """
         Placeholder until AI evaluation is implemented.
         """
@@ -590,9 +569,5 @@ class WebsiteMetadataManager:
     # AI
     # ========================================================
 
-    def AI_meta_data_eval(
-        self,
-        meta_data,
-        topic
-    ):
+    def AI_meta_data_eval(self,meta_data: dict ,topic: str) -> bool:
         pass
