@@ -1,0 +1,89 @@
+{
+    "session_info": {
+        "id": 8,
+        "topic": "work",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-13T17:40:41.309883",
+        "last_update_time": "2026-09-13T17:40:41.309883",
+        "predicted_end_time": "2026-09-13T18:25:41.309883",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 6,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66840326,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "",
+            "timestamp": "2026-09-13T15:40:49.303Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 7.960621624995838,
+            "is_related": true
+        },
+        {
+            "tab_id": 66840332,
+            "title": "03:49 - Google Zoeken",
+            "url": "https://www.google.com/search?q=timer&rlz=1C5OZZY_enNL1221NL1221&oq=t&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEEUYOzINCAMQABiDARixAxiABDIKCAQQLhixAxiABDIGCAUQRRg8MgYIBhBFGDwyBggHEEUYPNIBBzcyMmowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-13T15:40:57.267Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 79.95905179099645,
+            "is_related": true
+        },
+        {
+            "tab_id": 66840332,
+            "title": "04:00 - Google Zoeken",
+            "url": "https://www.google.com/search?q=timer&rlz=1C5OZZY_enNL1221NL1221&oq=t&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEEUYOzINCAMQABiDARixAxiABDIKCAQQLhixAxiABDIGCAUQRRg8MgYIBhBFGDwyBggHEEUYPNIBBzcyMmowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-13T15:40:57.267Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 65.72116404099506,
+            "is_related": true
+        },
+        {
+            "tab_id": 66840334,
+            "title": "Alan Walker & Torine - Hello World (Official Music Video) - YouTube",
+            "url": "https://www.youtube.com/watch?v=u7JMhVI7taQ&list=RDu7JMhVI7taQ&start_radio=1",
+            "favicon": "https://www.youtube.com/s/desktop/e60429bd/img/favicon.ico",
+            "timestamp": "2026-09-13T15:42:17.809Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 32.44098070799373,
+            "is_related": true
+        },
+        {
+            "tab_id": 66840336,
+            "title": "not ches - Google Zoeken",
+            "url": "https://www.google.com/search?q=not+ches&rlz=1C5OZZY_enNL1221NL1221&oq=not+ches&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABiABDIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIICAUQABgWGB4yCAgGEAAYFhgeMggIBxAAGBYYHjIICAgQABgWGB4yCAgJEAAYFhge0gEIMTU5NGowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-13T15:42:50.252Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 38.64726454099582,
+            "is_related": true
+        },
+        {
+            "tab_id": 66840336,
+            "title": "not ches - Google Zoeken",
+            "url": "https://www.google.com/search?q=not+ches&rlz=1C5OZZY_enNL1221NL1221&oq=not+ches&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABiABDIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIICAUQABgWGB4yCAgGEAAYFhgeMggIBxAAGBYYHjIICAgQABgWGB4yCAgJEAAYFhge0gEIMTU5NGowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-13T15:42:50.252Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 38.64726454099582,
+            "is_related": true
+        }
+    ]
+}

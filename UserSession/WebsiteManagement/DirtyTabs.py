@@ -8,5 +8,6 @@ class DirtyTabHandler:
             """
             self.dirty_tab_dict[metadata["tab_id"]] = metadata.copy()
             return self.dirty_tab_dict 
+
     
     

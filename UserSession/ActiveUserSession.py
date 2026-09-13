@@ -31,28 +31,14 @@ class ActiveUserSessionManager:
     
     
     def webiste_data(self, metadata: dict, session_topic:str) -> dict:
-            print(type(self.website_meta_data))
-            is_new_tab = self.website_meta_data.eval_metadata(metadata,session_topic)
-            print("START")
-            
-    
+            is_new_tab = self.website_meta_data.handle_event(metadata,session_topic)
             stored = False
-    
-            # ========================================================
-            # NEW TAB
-            # ========================================================
-    
+         
             if is_new_tab:
                 print("NEW TAB -> STORE:",metadata.get("tab_id"))
                 clean_metadata = (self.website_meta_data.get_website_meta_data()) 
                 stored = True
                 return [clean_metadata, stored]
-                
-    
-            # ========================================================
-            # EXISTING TABS THAT CHANGED
-            # ========================================================
-
             dirty_tabs = self.website_meta_data.get_dirty_tabs() 
 
             print("DIRTY TABS:", dirty_tabs)
