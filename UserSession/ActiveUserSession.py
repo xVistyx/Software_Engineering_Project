@@ -1,11 +1,11 @@
 from datetime import datetime, timedelta
-from .WebsiteMetaData import WebsiteMetadataManager
-class ActiveUserSession:
+#from .WebsiteMetaData import WebsiteMetadataManager
+from .WebsiteManagement.MetaDataManager import WebsiteMetadataEvaluator
+class ActiveUserSessionManager:
     def __init__(self):
         """Need to figure out the blocking of websites and information that isnt relivant"""
-        
-
-        self.website_meta_data = WebsiteMetadataManager()
+    
+        self.website_meta_data = WebsiteMetadataEvaluator()
         print("it initis")
        
         
@@ -30,7 +30,7 @@ class ActiveUserSession:
             }
     
     
-    def block_website(self, metadata: dict, session_topic:str) -> dict:
+    def webiste_data(self, metadata: dict, session_topic:str) -> dict:
             print(type(self.website_meta_data))
             is_new_tab = self.website_meta_data.eval_metadata(metadata,session_topic)
             print("START")
@@ -44,7 +44,7 @@ class ActiveUserSession:
     
             if is_new_tab:
                 print("NEW TAB -> STORE:",metadata.get("tab_id"))
-                clean_metadata = (self.website_meta_data.get_website_meta_data())
+                clean_metadata = (self.website_meta_data.get_website_meta_data()) 
                 stored = True
                 return [clean_metadata, stored]
                 
@@ -53,13 +53,17 @@ class ActiveUserSession:
             # EXISTING TABS THAT CHANGED
             # ========================================================
 
-            dirty_tabs = self.website_meta_data.get_dirty_tabs()
+            dirty_tabs = self.website_meta_data.get_dirty_tabs() 
 
             print("DIRTY TABS:", dirty_tabs)
 
             stored = len(dirty_tabs) > 0
 
             return [dirty_tabs, stored]
+
+    def block_website(self):
+        """This function will call the blocking the blocking calls to stop a website form loading"""  
+        ...
     
     
            

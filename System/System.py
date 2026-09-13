@@ -1,6 +1,6 @@
-from interfaces import ISystem, IServerManage, IUserSessionManager, IUserSessionManager, ISettings, IPastSessionManager
+from interfaces import ISystem, IServerManage, IUserSessionCoordinator, IUserSessionCoordinator, ISettings, IPastSessionManager
 from .BackendRequests import BackendRequests, SessionData, FrontEndSessionData 
-from UserSession.UserSessionManager import UserSessionManager
+from UserSession.UserSessionManager import UserSessionCoordinator
 #from UserSession.UserSessionDataManager import UserSessionDataManager
 from Settings.Settings import Settings
 from PastSessions.PastSessionManager import PastSessionManager
@@ -14,7 +14,7 @@ class System(ISystem):
         self.data_manager = DataManager() #Add type hint later
         self.backend_requests: BackendRequests = BackendRequests()
         self.frontend_message: FrontEndSessionData = {}
-        self.user_session_manager: IUserSessionManager = UserSessionManager()
+        self.user_session_manager: IUserSessionCoordinator = UserSessionCoordinator()
         self.settings:ISettings = Settings()
         self.is_session_active = False
         
@@ -87,7 +87,7 @@ class System(ISystem):
 
 
 
-    def get_user_session_info()-> dict[str: IUserSessionManager]: 
+    def get_user_session_info()-> dict[str: IUserSessionCoordinator]: 
         pass
     
 

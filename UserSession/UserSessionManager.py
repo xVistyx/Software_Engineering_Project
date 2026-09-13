@@ -1,18 +1,18 @@
-from interfaces import IUserSessionManager
+from interfaces import IUserSessionCoordinator
 from .SessionStart import SessionStart
 from .UserSessionDataManager import UserSessionDataManager
 
 
 
-from .ActiveUserSession import ActiveUserSession
+from .ActiveUserSession import ActiveUserSessionManager
 
-class UserSessionManager(IUserSessionManager):
+class UserSessionCoordinator(IUserSessionCoordinator):
     def __init__(self):
         """I need to add threading to this to make it threading safe. This file shouldnt do anything but coordinate. Logic is handeled in the manager Files"""
         self.active_session = None
         self.session_start = SessionStart()# -> add interface to this
         self.user_session_data_manager = UserSessionDataManager()# -> add interface to this
-        self.active_user_session = ActiveUserSession()# -> add interface to this
+        self.active_user_session = ActiveUserSessionManager()# -> add interface to this
         
         
     
@@ -72,11 +72,10 @@ class UserSessionManager(IUserSessionManager):
 
         if command == "log_meta_data":
             topic = self.active_session["topic"]
-            metadata_result, stored = (self.active_user_session.block_website(content,topic))
+            metadata_result, stored = (self.active_user_session.webiste_data(content,topic))
             if not stored:
                 return
             if isinstance(metadata_result, dict):
-
                 print("NEW TAB -> WRITING")
                 self.user_session_data_manager.write_metadata_to_session_json(metadata_result)
 

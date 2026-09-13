@@ -1,0 +1,77 @@
+{
+    "session_info": {
+        "id": 14,
+        "topic": "not chess",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-13T10:32:45.033085",
+        "last_update_time": "2026-09-13T10:32:45.033085",
+        "predicted_end_time": "2026-09-13T11:17:45.033085",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 5,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66840207,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "https://www.chess.com/bundles/web/favicons/favicon.46041f2d.ico",
+            "timestamp": "2026-09-13T08:32:59.069Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 25.227106207996258,
+            "is_related": true
+        },
+        {
+            "tab_id": 66840206,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hell&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg7MgYIAhBFGDsyBggDEEUYOTIGCAQQRRg7MhIIBRAAGEMYgwEYsQMYgAQYigUyBggGEEUYPDIGCAcQRRg80gEHNzE2ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-13T08:33:24.306Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 14.581511999989743,
+            "is_related": true
+        },
+        {
+            "tab_id": 66840209,
+            "title": "03:53 - Google Zoeken",
+            "url": "https://www.google.com/search?q=timer&rlz=1C5OZZY_enNL1221NL1221&oq=timer&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7Mg0IARAAGIMBGLEDGIAEMg0IAhAAGIMBGLEDGIAEMg0IAxAAGIMBGLEDGIAEMg0IBBAAGIMBGLEDGIAEMg0IBRAAGIMBGLEDGIAEMg0IBhAAGIMBGLEDGIAEMg0IBxAAGIMBGLEDGIAEMg0ICBAAGIMBGLEDGIAEMg0ICRAAGIMBGLEDGIAE0gEHNzE2ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-13T08:33:30.803Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 73.41695729098865,
+            "is_related": true
+        },
+        {
+            "tab_id": 66840203,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hello&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDsyBggCEEUYOTIGCAMQRRg7MgYIBBBFGDwyBggFEEUYPDIGCAYQRRg9MgYIBxBFGD3SAQc5ODFqMGo3qAIAsAIA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-13T08:34:52.303Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 86.36383100098465,
+            "is_related": true
+        },
+        {
+            "tab_id": 66840212,
+            "title": "03:25 - Google Zoeken",
+            "url": "https://www.google.com/search?q=timer&rlz=1C5OZZY_enNL1221NL1221&oq=t&gs_lcrp=EgZjaHJvbWUqFAgAEEUYOxhDGIMBGLEDGIAEGIoFMhQIABBFGDsYQxiDARixAxiABBiKBTIGCAEQRRg5MgYIAhBFGDsyDAgDEAAYQxiABBiKBTINCAQQABiDARixAxiABDIGCAUQRRg8MgYIBhBFGDwyBggHEEUYPNIBBzY1MGowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-13T08:35:03.058Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 97.99001162400236,
+            "is_related": true
+        }
+    ]
+}

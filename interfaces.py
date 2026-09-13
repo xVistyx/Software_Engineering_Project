@@ -40,7 +40,7 @@ class IDataManger(ABC):
 
 
 
-class IUserSessionManager(ABC):
+class IUserSessionCoordinator(ABC):
 
     @abstractmethod
     def user_session_manager(self, action:str, content:dict, data_manager) -> dict:
