@@ -7,9 +7,9 @@ class TabTimerHandler(ITabTimerHandler):
     """
 
     def __init__(self, tabs):
-        self.active_tab_id = None
-        self.started_at = None
-        self.tabs = tabs
+        self.active_tab_id:dict = None
+        self.started_at: monotonic = None
+        self.tabs:dict = tabs
        
 
     def is_active(self, tab_id: int) -> bool:

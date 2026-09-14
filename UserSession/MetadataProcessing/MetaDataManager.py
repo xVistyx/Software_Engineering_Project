@@ -1,8 +1,8 @@
 from .TabTimer import TabTimerHandler
-from typing import Any
-from .SessionInterfaces import  IWebsiteMetadataEvaluator, IDirtyTabsStore, ITabsStore, ITabTimerHandler
+
+from .SessionInterfaces import  IWebsiteMetadataEvaluator, IDirtyTabsStore, ITabsStore, ITabTimerHandler, ITabActivityHandler
 from .TabHandlers import InMemoryTabsStore
-from .AISessionEval import AISessionEval
+from ..AIEval.AISessionEval import AISessionEval
 from .TabActivity import TabActivityHandler
 from .TabHandlers import DirtyTabHandler
 
@@ -23,7 +23,7 @@ class ActiveSessionConstructor:
         # Existing records that must be updated in the DB.
         self.dirty_handler: IDirtyTabsStore = DirtyTabHandler()
         self.timer:ITabTimerHandler = TabTimerHandler(self.tabs)
-        self.tab_activity = TabActivityHandler(self.timer, self.tabs, self.dirty_handler)
+        self.tab_activity: ITabActivityHandler = TabActivityHandler(self.timer, self.tabs, self.dirty_handler)
 
 
 class WebsiteMetadataEvaluator(IWebsiteMetadataEvaluator):
@@ -33,17 +33,17 @@ class WebsiteMetadataEvaluator(IWebsiteMetadataEvaluator):
 
     def __init__(self):
         self.session = ActiveSessionConstructor()
-        self.ai_eval = AISessionEval()
+        
         self.meta_data = None
-        self.reason_lst_tabs = ["tab_closed","tab_activated","page_updated",]
+        
+        self.reason_lst_tabs = ["tab_closed","tab_activated","page_updated"]
         
         self.event_manager = EventManager(self.session.timer, self.session.tab_activity)
 
         self.tab_manager = TabManager(
             timer = self.session.timer,
-            tab_activity=self.session.tab_activity,
-            tabs=self.session.tabs,
-            ai_eval=self.ai_eval,
+            tab_activity = self.session.tab_activity,
+            tabs = self.session.tabs,
         )
    
 
@@ -54,7 +54,7 @@ class WebsiteMetadataEvaluator(IWebsiteMetadataEvaluator):
         if reason in self.reason_lst_tabs:
             is_new, metadata = self.tab_manager.handle_tab_state(reason, state, content, topic)
         else:
-            is_new, metadata = self.event_manager.handle_event(reason, content, state)
+            is_new, metadata = self.event_manager.handle_event(reason, state)
         self.meta_data = metadata
         
         return is_new
@@ -78,11 +78,11 @@ class WebsiteMetadataEvaluator(IWebsiteMetadataEvaluator):
 
 class EventManager:
     def __init__(self, timer, tab_activity):
-        self.timer = timer
-        self.tab_activity = tab_activity
+        self.timer:ITabTimerHandler = timer
+        self.tab_activity:ITabActivityHandler = tab_activity
        
 
-    def handle_event(self, reason, content, state) -> tuple[bool, dict| None]:
+    def handle_event(self, reason: str, state: str) -> tuple[bool, dict| None]:
         if (reason == "window_focus_changed" and state == "unfocused"):
             bools,meta_data = self.browser_unfocused()
             if bools == True:
@@ -115,17 +115,14 @@ class EventManager:
 
 
 class TabManager:
-    def __init__(self,timer, tab_activity, tabs, ai_eval):
+    def __init__(self,timer, tab_activity, tabs):
         self.timer: ITabTimerHandler = timer
-        #self.open_tab = open_tab
-        self.tab_activity =  tab_activity
-        self.tabs = tabs
-
        
+        self.tab_activity:ITabActivityHandler = tab_activity
+        self.tabs: ITabsStore  = tabs
 
-        self.ai_eval = ai_eval
-       
     def handle_tab_state(self, reason, state, content, topic) -> tuple[bool, dict| None]:
+        
         if reason == "tab_closed":
             return self.close_tab(content)
         
@@ -152,7 +149,6 @@ class TabManager:
         tab_id = content.get("tab_id")
         if tab_id is  None:
             return False, None
-        
         closed, metadata = self.tab_activity.close_tab(tab_id)   
         return False, metadata if closed else None
 
@@ -160,26 +156,23 @@ class TabManager:
 
     def create_tab(self, content, topic, tab_id) -> tuple[bool, dict | None]:
         metadata = self.tab_activity.create_metadata(content)
-        self._is_related(metadata,topic)
+        metadata.setdefault("is_related", True)
         new_tab = True
         print("NEW TAB:",tab_id)
         return new_tab, metadata
 
     def update_tab(self, content, topic, tab_id) -> tuple[bool, dict | None]:
         metadata = self.tabs.get_tab(tab_id)
+        metadata.setdefault("is_related", True)
         if metadata is None:
             return False, None
         self.tab_activity.update_metadata(metadata,content)
-        self._is_related(metadata, topic)
         new_tab = False
         print("UPDATED TAB:",tab_id)
         return new_tab, metadata
 
-    def _is_related(self, metadata, topic):
-        """I can change this too a bool later so it will immidiatly stop if the website is not related"""
-        metadata["is_related"] = (self.ai_eval.is_session_related(metadata,topic))
 
-    def time_manager(self, reason, tab_id, state):
+    def time_manager(self, reason, tab_id, state) -> bool:
             if reason == "tab_activated":
                 return self.tab_activity.activate_tab(tab_id)
     

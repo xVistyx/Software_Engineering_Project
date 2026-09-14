@@ -45,17 +45,75 @@ class IDirtyTabsStore(ABC):
 class ITabTimerHandler(ABC):
     @abstractmethod
     def is_active(self, tab_id: int) -> bool:
-        pass
+        raise NotImplementedError
+
     @abstractmethod
     def start(self, tab_id: int) -> tuple[int | None, float]:
         pass
+
     @abstractmethod
     def stop(self) -> tuple[int | None, float]:
         pass
+
     @abstractmethod
     def get_live_time(self, tab_id: int) -> float:
         pass
 
     @abstractmethod
     def get_time_spent(self, tab_id: int) -> float:
+        pass
+
+class ITabActivityHandler(ABC):
+    @abstractmethod
+    def activate_tab(self, tab_id: int) -> bool:
+        pass
+
+    @abstractmethod
+    def close_tab(self, tab_id: int) -> tuple[bool, dict | None]:
+        pass
+
+    @abstractmethod
+    def create_metadata(self,content: dict) -> dict:
+        pass
+
+    @abstractmethod    
+    def update_metadata(self,metadata: dict,content: dict) -> None:
+        pass
+
+    @abstractmethod       
+    def get_all_website_meta_data(self) -> list:
+        pass
+
+class ITabManager(ABC):
+    @abstractmethod
+    def handle_tab_state(self, reason:str, state:str, content:dict, topic:str) -> tuple[bool, dict| None]:
+        pass
+    
+    @abstractmethod
+    def close_tab(self, content:dict) -> tuple[bool, dict |None ]:
+        pass
+
+    @abstractmethod
+    def create_tab(self, content:dict, topic:str, tab_id:str) -> tuple[bool, dict | None]:
+        pass
+
+    @abstractmethod
+    def update_tab(self, content:dict, topic:str, tab_id:str) -> tuple[bool, dict | None]:
+        pass
+    
+    @abstractmethod
+    def _is_related(self, metadata:dict, topic:str) -> None:
+        pass
+
+    @abstractmethod
+    def time_manager(self, reason:str, tab_id, state:str) -> bool:
+        pass
+
+class IEventManager(ABC):
+    @abstractmethod
+    def handle_event(self, reason:str, content:dict, state:str) -> tuple[bool, dict| None]:
+        pass
+                
+    @abstractmethod
+    def browser_unfocused(self) -> tuple[bool, dict | None]:
         pass

@@ -53,17 +53,13 @@ class IUserSessionCoordinator(ABC):
     @abstractmethod
     def get_active_session() -> dict:
         pass
-    """
-    @abstractmethod
-        def block_website(self, metadata:dict) -> dict:
-            pass
-    """
-
+   
 
     @abstractmethod
     def update_user_session(self, content:dict ):
         """I dont yet know what this one does but its linked to the front end """
         pass
+    
     @abstractmethod
     def end_user_session(self, content:dict ):
         pass

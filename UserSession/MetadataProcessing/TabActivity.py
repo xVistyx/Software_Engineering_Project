@@ -1,7 +1,7 @@
 from datetime import datetime
 from dataclasses import dataclass
 from dataclasses import  asdict
-from .SessionInterfaces import ITabsStore, IDirtyTabsStore
+from .SessionInterfaces import ITabsStore, IDirtyTabsStore, ITabActivityHandler, ITabTimerHandler
 
 @dataclass
 class WebsiteMetadata:
@@ -17,9 +17,9 @@ class WebsiteMetadata:
     is_related: bool
 
 
-class TabActivityHandler:
+class TabActivityHandler(ITabActivityHandler):
     def __init__(self, timer, tabs, dirty_tabs):
-        self.timer = timer
+        self.timer:ITabTimerHandler = timer
         self.tabs: ITabsStore = tabs
         self.dirty_tabs: IDirtyTabsStore = dirty_tabs
         

@@ -1,8 +1,9 @@
 from interfaces import IUserSessionCoordinator
-from .SessionStart import SessionStart
+from .SessionStart import SessionStart, SessionInfo
 from .UserSessionDataManager import UserSessionDataManager
-from .WebsiteManagement.MetaDataManager import WebsiteMetadataEvaluator
-from .WebsiteManagement.SessionInterfaces import IWebsiteMetadataEvaluator
+from .MetadataProcessing.MetaDataManager import WebsiteMetadataEvaluator
+from .MetadataProcessing.SessionInterfaces import IWebsiteMetadataEvaluator
+from .AIEval.AISessionEval import AISessionEval
 
 
 
@@ -11,17 +12,19 @@ from .ActiveUserSession import ActiveUserSessionManager
 class UserSessionCoordinator(IUserSessionCoordinator):
     def __init__(self):
         """I need to add threading to this to make it threading safe. This file shouldnt do anything but coordinate. Logic is handeled in the manager Files"""
-        self.active_session = None
+        self.active_session: SessionInfo = None
+        self.ai_eval = AISessionEval() #needs an interface
         self.website_meta_data_evaluator: IWebsiteMetadataEvaluator = WebsiteMetadataEvaluator()
-        self.session_start = SessionStart()# -> add interface to this
+        self.session_start:SessionInfo = SessionStart()
         self.user_session_data_manager = UserSessionDataManager()# -> add interface to this
-        self.active_user_session = ActiveUserSessionManager(self.website_meta_data_evaluator)# -> add interface to this
+        
+        self.active_user_session = ActiveUserSessionManager(self.website_meta_data_evaluator, self.ai_eval)# -> add interface to this
+        
         #add Website blocking to here as well
         
         
         
-    
-    
+
         
     def user_session_manager(self, action:str, content:dict, data_manager) -> dict:
         self.user_session_data_manager.set_global_data_manager(data_manager)
@@ -50,7 +53,7 @@ class UserSessionCoordinator(IUserSessionCoordinator):
     def start_user_session(self, content:dict) -> dict:
         """This functions main purpose is to log a new session such that the start gets logged in the db"""
         session_start:dict = self.session_start.session_start_as_dict(content)
-        self.active_session = session_start
+        self.active_session:SessionInfo = session_start
         print("Active session ", session_start)
         self.user_session_data_manager.create_session_json(session_start["id"])
         self.user_session_data_manager.log_session_start(session_start)
@@ -77,34 +80,42 @@ class UserSessionCoordinator(IUserSessionCoordinator):
 
         if command == "log_meta_data":
             topic = self.active_session["topic"]
-            metadata_result, stored = (self.active_user_session.webiste_data(content,topic))
+            metadata_result, stored = (self.active_user_session.active_session_manager(content,topic))
             if not stored:
                 return
-            if isinstance(metadata_result, dict):
-                print("NEW TAB -> WRITING")
-                self.user_session_data_manager.write_metadata_to_session_json(metadata_result)
-
-            elif isinstance(metadata_result, list):
-
-                for changed_tab in metadata_result:
-                    self.user_session_data_manager.update_metadata_in_session_json(changed_tab)
-
+            self.set_db_session_data(metadata_result, True)
         else:
-            self.active_user_session.updated_session_state(content)
+            self.set_db_session_data(content, False)
+         
             
 
 
     def end_user_session(self, content:dict ):
         pass
 
+    def pause_user_session(self):
+        ...
+
 
     def get_db_session_data(self):
         """This function will be responsible for getting information from the db about current session """
         pass
 
-    def set_db_session_data(self):
+    def set_db_session_data(self, content: dict | list[dict], log ) -> None:
         """This function will be responsible for writing information to the db about current session """
-        pass
+        if log == False:
+            self.active_user_session.updated_session_state(content)
+        else:
+            if isinstance(content, dict):
+                print("NEW TAB -> WRITING")
+                self.user_session_data_manager.write_metadata_to_session_json(content)
+            
+            elif isinstance(content, list):
+                for changed_tab in content:
+                    self.user_session_data_manager.update_metadata_in_session_json(changed_tab)
+        
+
+        
 
 
 """

@@ -3,7 +3,11 @@ from datetime import datetime
 from pathlib import Path
 import json
 
+"""
+Need to fix this such that it doesnt use the global db write to JSON but stays local.
+It will also need to write the summary and delete the old session json
 
+"""
 class UserSessionDataManager:
 
     def __init__(self):
