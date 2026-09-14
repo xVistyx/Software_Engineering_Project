@@ -1,13 +1,9 @@
 from .TabTimer import TabTimerHandler
 from typing import Any
-from .SessionInterfaces import ITabsStore, IWebsiteMetadataEvaluator
+from .SessionInterfaces import  IWebsiteMetadataEvaluator, IDirtyTabsStore, ITabsStore, ITabTimerHandler
 from .TabHandlers import InMemoryTabsStore
-
-
 from .AISessionEval import AISessionEval
-from .OpenTab import OpenTabHandler
 from .TabActivity import TabActivityHandler
-
 from .TabHandlers import DirtyTabHandler
 
 
@@ -21,20 +17,13 @@ Things to add:
 
 class ActiveSessionConstructor:
     def __init__(self):
-        self.ai_eval = AISessionEval()
+        
         # One record per physical Chrome tab.
-        self.tabs = InMemoryTabsStore()
+        self.tabs:ITabsStore = InMemoryTabsStore()
         # Existing records that must be updated in the DB.
-        self.dirty_handler = DirtyTabHandler()
-        self.timer = TabTimerHandler(self.tabs)
-        
-        
-        self.tab_activity = TabActivityHandler(self.timer, self.tabs, self.dirty_handler, self.dirty_handler)
-        
-        #self.time_manager = TimeManager(self.tab_activity, self.timer)
-        self.open_tab = OpenTabHandler(self.tabs, self.timer)
-
-
+        self.dirty_handler: IDirtyTabsStore = DirtyTabHandler()
+        self.timer:ITabTimerHandler = TabTimerHandler(self.tabs)
+        self.tab_activity = TabActivityHandler(self.timer, self.tabs, self.dirty_handler)
 
 
 class WebsiteMetadataEvaluator(IWebsiteMetadataEvaluator):
@@ -44,6 +33,7 @@ class WebsiteMetadataEvaluator(IWebsiteMetadataEvaluator):
 
     def __init__(self):
         self.session = ActiveSessionConstructor()
+        self.ai_eval = AISessionEval()
         self.meta_data = None
         self.reason_lst_tabs = ["tab_closed","tab_activated","page_updated",]
         
@@ -51,10 +41,9 @@ class WebsiteMetadataEvaluator(IWebsiteMetadataEvaluator):
 
         self.tab_manager = TabManager(
             timer = self.session.timer,
-            open_tab=self.session.open_tab,
             tab_activity=self.session.tab_activity,
             tabs=self.session.tabs,
-            ai_eval=self.session.ai_eval,
+            ai_eval=self.ai_eval,
         )
    
 
@@ -88,9 +77,9 @@ class WebsiteMetadataEvaluator(IWebsiteMetadataEvaluator):
 
 
 class EventManager:
-    def __init__(self, timer, closed_tab):
+    def __init__(self, timer, tab_activity):
         self.timer = timer
-        self.closed_tab = closed_tab
+        self.tab_activity = tab_activity
        
 
     def handle_event(self, reason, content, state) -> tuple[bool, dict| None]:
@@ -121,14 +110,14 @@ class EventManager:
             return False, None
 
         print("BROWSER UNFOCUSED")
-        return self.closed_tab.deactivate_tab(tab_id)
+        return self.tab_activity.deactivate_tab(tab_id)
 
 
 
 class TabManager:
-    def __init__(self,timer, open_tab, tab_activity, tabs, ai_eval):
-        self.timer = timer
-        self.open_tab = open_tab
+    def __init__(self,timer, tab_activity, tabs, ai_eval):
+        self.timer: ITabTimerHandler = timer
+        #self.open_tab = open_tab
         self.tab_activity =  tab_activity
         self.tabs = tabs
 
@@ -170,7 +159,7 @@ class TabManager:
     
 
     def create_tab(self, content, topic, tab_id) -> tuple[bool, dict | None]:
-        metadata = self.open_tab.create_metadata(content,topic)
+        metadata = self.tab_activity.create_metadata(content)
         self._is_related(metadata,topic)
         new_tab = True
         print("NEW TAB:",tab_id)
@@ -180,7 +169,7 @@ class TabManager:
         metadata = self.tabs.get_tab(tab_id)
         if metadata is None:
             return False, None
-        self.open_tab.update_metadata(metadata,content,topic)
+        self.tab_activity.update_metadata(metadata,content)
         self._is_related(metadata, topic)
         new_tab = False
         print("UPDATED TAB:",tab_id)

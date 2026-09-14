@@ -41,3 +41,21 @@ class IDirtyTabsStore(ABC):
     @abstractmethod
     def get_dirty_tabs(self) -> list[dict[str, Any]]:
         raise NotImplementedError
+
+class ITabTimerHandler(ABC):
+    @abstractmethod
+    def is_active(self, tab_id: int) -> bool:
+        pass
+    @abstractmethod
+    def start(self, tab_id: int) -> tuple[int | None, float]:
+        pass
+    @abstractmethod
+    def stop(self) -> tuple[int | None, float]:
+        pass
+    @abstractmethod
+    def get_live_time(self, tab_id: int) -> float:
+        pass
+
+    @abstractmethod
+    def get_time_spent(self, tab_id: int) -> float:
+        pass

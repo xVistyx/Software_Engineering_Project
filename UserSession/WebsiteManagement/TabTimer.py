@@ -1,6 +1,7 @@
 from time import monotonic
+from .SessionInterfaces import ITabTimerHandler
 
-class TabTimerHandler:
+class TabTimerHandler(ITabTimerHandler):
     """
     Responsible only for timing the currently active tab.
     """

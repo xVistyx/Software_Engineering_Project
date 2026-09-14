@@ -29,7 +29,7 @@ class InMemoryTabsStore(ITabsStore):
     def get_tab(self, tab_id: int) -> dict[str, Any] | None:
         return self._tabs.get(tab_id)
 
-    def save_tab(self,tab_id: int,metadata: dict[str, Any],) -> None:
+    def save_tab(self,tab_id: int,metadata: dict[str, Any]) -> None:
         self._tabs[tab_id] = metadata
 
     def remove_tab(self, tab_id: int) -> dict[str, Any] | None:

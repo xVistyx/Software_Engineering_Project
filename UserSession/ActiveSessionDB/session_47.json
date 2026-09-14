@@ -1,0 +1,65 @@
+{
+    "session_info": {
+        "id": 47,
+        "topic": "chess",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-14T14:53:13.717855",
+        "last_update_time": "2026-09-14T14:53:13.717855",
+        "predicted_end_time": "2026-09-14T15:38:13.717855",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 4,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66840889,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hel&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg7MgYIAhBFGDsyBggDEEUYOTISCAQQABhDGIMBGLEDGIAEGIoFMgYIBRBFGDwyBggGEEUYPDIGCAcQRRg80gEHNjQ5ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-14T12:53:16.573Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 18.018034499997157,
+            "is_related": true
+        },
+        {
+            "tab_id": 66840886,
+            "title": "notebooklm - Google Zoeken",
+            "url": "https://www.google.com/search?q=notebooklm&rlz=1C5OZZY_enNL1221NL1221&oq=n&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDsyBggCEEUYOzIGCAMQRRg7MgYIBBBFGDwyBggFEEUYPDIGCAYQRRg8MgYIBxBFGDzSAQgzMTE5ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-14T12:53:34.592Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 3.5355877919937484,
+            "is_related": true
+        },
+        {
+            "tab_id": 66840891,
+            "title": "04:18 - Google Zoeken",
+            "url": "https://www.google.com/search?q=timer&rlz=1C5OZZY_enNL1221NL1221&oq=tim&gs_lcrp=EgZjaHJvbWUqFAgAEEUYOxhDGIMBGLEDGIAEGIoFMhQIABBFGDsYQxiDARixAxiABBiKBTIPCAEQABhDGMkDGIAEGIoFMgYIAhBFGDkyDAgDEAAYQxiABBiKBTIMCAQQABhDGIAEGIoFMgwIBRAAGEMYgAQYigUyDAgGEAAYQxiABBiKBTIMCAcQABhDGIAEGIoFMgwICBAAGEMYgAQYigUyDAgJEAAYQxiABBiKBdIBBzUxNGowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-14T12:53:36.071Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 49.30373424998834,
+            "is_related": true
+        },
+        {
+            "tab_id": 66840893,
+            "title": "google.com/search?q=timer&rlz=1C5OZZY_enNL1221NL1221&oq=t&gs_lcrp=EgZjaHJvbWUqFAgAEEUYOxhDGIMBGLEDGIAEGIoFMhQIABBFGDsYQxiDARixAxiABBiKBTIGCAEQRRg5MgYIAhBFGDsyDAgDEAAYQxiABBiKBTINCAQQABiDARixAxiABDIGCAUQRRg8MgYIBhBFGDwyBggHEEUYPNIBBzU5MmowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "url": "https://www.google.com/search?q=timer&rlz=1C5OZZY_enNL1221NL1221&oq=t&gs_lcrp=EgZjaHJvbWUqFAgAEEUYOxhDGIMBGLEDGIAEGIoFMhQIABBFGDsYQxiDARixAxiABBiKBTIGCAEQRRg5MgYIAhBFGDsyDAgDEAAYQxiABBiKBTINCAQQABiDARixAxiABDIGCAUQRRg8MgYIBhBFGDwyBggHEEUYPNIBBzU5MmowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-14T12:54:27.431Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 0.0,
+            "is_related": true
+        }
+    ]
+}
