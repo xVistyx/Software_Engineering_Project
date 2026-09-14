@@ -56,18 +56,16 @@ class TabTimerHandler:
 
         return monotonic() - self.started_at
 
-    def get_time_spent(self,tab_id: int) -> float:
-    
-            tab = self.tabs.get(
-                tab_id
-            )
-    
-            if tab is None:
-                return 0.0
-    
-            total = tab["time_spent"]
-    
-            total += self.get_live_time(tab_id)
-    
-            return total
+    def get_time_spent(self, tab_id: int) -> float:
+
+        tab = self.tabs.get_tab(tab_id)
+
+        if tab is None:
+            return 0.0
+
+        total = tab["time_spent"]
+
+        total += self.get_live_time(tab_id)
+
+        return total
     

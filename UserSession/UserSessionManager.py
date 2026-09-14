@@ -1,6 +1,8 @@
 from interfaces import IUserSessionCoordinator
 from .SessionStart import SessionStart
 from .UserSessionDataManager import UserSessionDataManager
+from .WebsiteManagement.MetaDataManager import WebsiteMetadataEvaluator
+from .WebsiteManagement.SessionInterfaces import IWebsiteMetadataEvaluator
 
 
 
@@ -10,9 +12,12 @@ class UserSessionCoordinator(IUserSessionCoordinator):
     def __init__(self):
         """I need to add threading to this to make it threading safe. This file shouldnt do anything but coordinate. Logic is handeled in the manager Files"""
         self.active_session = None
+        self.website_meta_data_evaluator: IWebsiteMetadataEvaluator = WebsiteMetadataEvaluator()
         self.session_start = SessionStart()# -> add interface to this
         self.user_session_data_manager = UserSessionDataManager()# -> add interface to this
-        self.active_user_session = ActiveUserSessionManager()# -> add interface to this
+        self.active_user_session = ActiveUserSessionManager(self.website_meta_data_evaluator)# -> add interface to this
+        #add Website blocking to here as well
+        
         
         
     

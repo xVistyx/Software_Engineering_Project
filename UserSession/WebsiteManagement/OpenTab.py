@@ -63,11 +63,7 @@ class OpenTabHandler:
             return metadata
     
     
-    
-        # ========================================================
-        # GET ALL TABS
-        # ========================================================
-    
+        
     def get_all_website_meta_data(
             self
         ) -> list:

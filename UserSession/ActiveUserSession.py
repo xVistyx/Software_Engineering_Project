@@ -1,12 +1,13 @@
 from datetime import datetime, timedelta
 #from .WebsiteMetaData import WebsiteMetadataManager
-from .WebsiteManagement.MetaDataManager import WebsiteMetadataEvaluator
+
+from .WebsiteManagement.SessionInterfaces import IWebsiteMetadataEvaluator
 class ActiveUserSessionManager:
-    def __init__(self):
+    def __init__(self, website_meta_data):
         """Need to figure out the blocking of websites and information that isnt relivant"""
     
-        self.website_meta_data = WebsiteMetadataEvaluator()
-        print("it initis")
+        self.website_meta_data: IWebsiteMetadataEvaluator = website_meta_data
+
        
         
         
@@ -30,7 +31,7 @@ class ActiveUserSessionManager:
             }
     
     
-    def webiste_data(self, metadata: dict, session_topic:str) -> dict:
+    def webiste_data(self, metadata: dict, session_topic:str, ) -> dict:
             is_new_tab = self.website_meta_data.handle_event(metadata,session_topic)
             stored = False
          

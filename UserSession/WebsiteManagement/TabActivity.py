@@ -7,22 +7,22 @@ class TabActivityHandler:
         self.dirty = dirty
     
         
-    def activate_tab(self,tab_id: int) -> bool:
-        if tab_id not in self.tabs:
+    def activate_tab(self, tab_id: int) -> bool:
+        if not self.tabs.contains(tab_id):
             return False
 
         # Same tab is already being timed.
         if self.timer.is_active(tab_id):
             return False
 
-        previous_tab_id, elapsed = (self.timer.start(tab_id))
+        previous_tab_id, elapsed = self.timer.start(tab_id)
 
         # ====================================================
         # PREVIOUS TAB BECOMES INACTIVE
         # ====================================================
 
         if previous_tab_id is not None:
-            previous_tab = self.tabs.get(previous_tab_id)
+            previous_tab = self.tabs.get_tab(previous_tab_id)
 
             if previous_tab is not None:
                 previous_tab["time_spent"] += elapsed
@@ -36,17 +36,14 @@ class TabActivityHandler:
                     "ADDED:",
                     round(elapsed, 2),
                     "TOTAL:",
-                    round(
-                        previous_tab["time_spent"],
-                        2
-                    )
+                    round(previous_tab["time_spent"], 2)
                 )
 
         # ====================================================
         # NEW ACTIVE TAB
         # ====================================================
 
-        tab = self.tabs[tab_id]
+        tab = self.tabs.get_tab(tab_id)
 
         tab["currently_active"] = True
         tab["currently_open"] = True
@@ -55,9 +52,6 @@ class TabActivityHandler:
 
         self.dirty.mark_dirty(tab)
 
-        print("TAB ACTIVE:",tab_id)
+        print("TAB ACTIVE:", tab_id)
 
         return True
-
-    
-

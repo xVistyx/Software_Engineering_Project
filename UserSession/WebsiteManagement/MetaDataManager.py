@@ -1,4 +1,7 @@
 from .TabTimer import TabTimerHandler
+from typing import Any
+from .SessionInterfaces import ITabsStore, IWebsiteMetadataEvaluator
+
 
 from .AISessionEval import AISessionEval
 from .OpenTab import OpenTabHandler
@@ -13,24 +16,40 @@ Things to add:
     Add an interface for ActiveSessionConstructor
 """
 
+class InMemoryTabsStore(ITabsStore):
+    def __init__(self):
+        self._tabs: dict[int, dict[str, Any]] = {}
+
+    def get_tab(self, tab_id: int) -> dict[str, Any] | None:
+        return self._tabs.get(tab_id)
+
+    def save_tab(self,tab_id: int,metadata: dict[str, Any],) -> None:
+        self._tabs[tab_id] = metadata
+
+    def remove_tab(self, tab_id: int) -> dict[str, Any] | None:
+        return self._tabs.pop(tab_id, None)
+
+    def contains(self, tab_id: int) -> bool:
+        return tab_id in self._tabs
+
 class ActiveSessionConstructor:
     def __init__(self):
         self.ai_eval = AISessionEval()
         # One record per physical Chrome tab.
-        self.tabs = {}
+        self.tabs = InMemoryTabsStore()
         # Existing records that must be updated in the DB.
-        self.dirty_tabs = {}
+        self.dirty_handler = DirtyTabHandler()
         self.timer = TabTimerHandler(self.tabs)
-        self.dirty = DirtyTabHandler(self.dirty_tabs)
-        self.closed_tab = ClosedTabHandler(self.timer, self.tabs, self.dirty)
-        self.tab_activity = TabActivityHandler(self.timer, self.tabs, self.dirty_tabs, self.dirty)
+        
+        self.closed_tab = ClosedTabHandler(self.timer, self.tabs, self.dirty_handler)
+        self.tab_activity = TabActivityHandler(self.timer, self.tabs, self.dirty_handler, self.dirty_handler)
         self.time_manager = TimeManager(self.tab_activity, self.timer)
         self.open_tab = OpenTabHandler(self.tabs, self.timer)
 
 
 
 
-class WebsiteMetadataEvaluator:
+class WebsiteMetadataEvaluator(IWebsiteMetadataEvaluator):
     """
     NEED to add this later
     """
@@ -47,7 +66,6 @@ class WebsiteMetadataEvaluator:
             open_tab=self.session.open_tab,
             closed_tab=self.session.closed_tab,
             tabs=self.session.tabs,
-            dirty_tabs=self.session.dirty_tabs,
             ai_eval=self.session.ai_eval,
         )
    
@@ -69,28 +87,15 @@ class WebsiteMetadataEvaluator:
     
     def get_website_meta_data(self) -> dict | None:
        
-
         if self.meta_data is None:
             return None
-
         result = self.meta_data.copy()
-
         result["time_spent"] = (self.session.timer.get_time_spent(result["tab_id"]))
         return result
 
-    def get_dirty_tabs(self) -> list:
-        """
-        Returns changed existing records and clears the queue.
-
-        These should be UPDATED in the DB by tab_id,
-        not appended.
-        """
-
-        updates = list(self.session.dirty_tabs.values())
-
-        self.session.dirty_tabs.clear()
-
-        return updates
+    def get_dirty_tabs(self) -> list[dict]:
+        return self.session.dirty_handler.get_dirty_tabs()
+    
 
 
 
@@ -116,12 +121,8 @@ class EventManager:
 
         if reason == "heartbeat":
             return False, None
-
        
         return False, None
-
-  
-
 
     def browser_unfocused(self) -> tuple[bool, dict | None]:
         
@@ -136,41 +137,44 @@ class EventManager:
 
 
 class TabManager:
-    def __init__(self,time_manager, open_tab, closed_tab, tabs, dirty_tabs, ai_eval):
+    def __init__(self,time_manager, open_tab, closed_tab, tabs, ai_eval):
         self.time_manager = time_manager
         self.open_tab = open_tab
         self.closed_tab =  closed_tab
         self.tabs = tabs
-        self.dirty_tabs = dirty_tabs
+       
 
         self.ai_eval = ai_eval
        
     def handle_tab_state(self, reason, state, content, topic) -> tuple[bool, dict| None]:
         if reason == "tab_closed":
-            return self.close_tab_setter(content)
+            return self.close_tab(content)
         
         tab_id = content.get("tab_id")
         if tab_id is None:
             return False, None
-        if tab_id not in self.tabs:
+
+      
+        
+        if not self.tabs.contains(tab_id):
             new_tab, meta_data =  self.create_tab(content, topic, tab_id)
+            
 
         else:
             new_tab, meta_data = self.update_tab(content, topic, tab_id)
-       
-        self.time_manager.time_manager(reason, tab_id, state)
-        
 
+        self.tabs.save_tab(tab_id, meta_data)
+        self.time_manager.time_manager(reason, tab_id, state)
         return new_tab, meta_data
 
 
 
-    def close_tab_setter(self, content) -> tuple[bool, dict |None ]:
+    def close_tab(self, content) -> tuple[bool, dict |None ]:
         tab_id = content.get("tab_id")
         if tab_id is  None:
             return False, None
         
-        closed, metadata = self.closed_tab.close_tab(tab_id, self.tabs, self.dirty_tabs)   
+        closed, metadata = self.closed_tab.close_tab(tab_id)   
         return False, metadata if closed else None
 
     
@@ -178,13 +182,14 @@ class TabManager:
     def create_tab(self, content, topic, tab_id) -> tuple[bool, dict | None]:
         metadata = self.open_tab.create_metadata(content,topic)
         self._is_related(metadata,topic)
-        self.tabs[tab_id] = metadata
         new_tab = True
         print("NEW TAB:",tab_id)
         return new_tab, metadata
 
     def update_tab(self, content, topic, tab_id) -> tuple[bool, dict | None]:
-        metadata = self.tabs[tab_id]
+        metadata = self.tabs.get_tab(tab_id)
+        if metadata is None:
+            return False, None
         self.open_tab.update_metadata(metadata,content,topic)
         self._is_related(metadata, topic)
         new_tab = False
