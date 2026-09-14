@@ -20,12 +20,12 @@ class SessionInfo:
 
 class SessionStart:
     def __init__(self):
-        self.active_session = False
+        self.active_session:bool = False
 
     def calculate_endtime(self, start_time: datetime, duration: float) -> datetime:
         return start_time + timedelta(seconds=duration)
 
-    def setup_session(self, content: dict):
+    def setup_session(self, content: dict) -> SessionInfo:
         self.active_session = True
 
         session_id = self.generate_id()
@@ -51,11 +51,11 @@ class SessionStart:
 
         )
 
-    def generate_id(self):
+    def generate_id(self) -> int:
         return random.randint(0, 100)
 
 
 
-    def session_start_as_dict(self, content):
+    def session_start_as_dict(self, content) -> dict:
         start_session = self.setup_session(content)
         return asdict(start_session)

@@ -81,6 +81,8 @@ class ActiveUserSessionManager:
         """I can change this too a bool later so it will immidiatly stop if the website is not related"""
         return self.ai_eval.is_session_related(metadata,topic)
 
+
+
     def block_website(self):
         """This function will call the blocking the blocking calls to stop a website form loading"""  
         ...

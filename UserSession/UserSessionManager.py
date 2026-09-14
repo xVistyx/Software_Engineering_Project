@@ -4,6 +4,7 @@ from .UserSessionDataManager import UserSessionDataManager
 from .MetadataProcessing.MetaDataManager import WebsiteMetadataEvaluator
 from .MetadataProcessing.SessionInterfaces import IWebsiteMetadataEvaluator
 from .AIEval.AISessionEval import AISessionEval
+from .StopSession.StopSession import StopSession
 
 
 
@@ -17,17 +18,18 @@ class UserSessionCoordinator(IUserSessionCoordinator):
         self.website_meta_data_evaluator: IWebsiteMetadataEvaluator = WebsiteMetadataEvaluator()
         self.session_start:SessionInfo = SessionStart()
         self.user_session_data_manager = UserSessionDataManager()# -> add interface to this
+        self.stop_session = StopSession()
         
         self.active_user_session = ActiveUserSessionManager(self.website_meta_data_evaluator, self.ai_eval)# -> add interface to this
-        
+        self.session_id: int = None
         #add Website blocking to here as well
         
         
         
 
         
-    def user_session_manager(self, action:str, content:dict, data_manager) -> dict:
-        self.user_session_data_manager.set_global_data_manager(data_manager)
+    def user_session_manager(self, action:str, content:dict) -> dict:
+        
         
         if action == "get_active_session":
             return self.get_active_session()
@@ -55,6 +57,7 @@ class UserSessionCoordinator(IUserSessionCoordinator):
         session_start:dict = self.session_start.session_start_as_dict(content)
         self.active_session:SessionInfo = session_start
         print("Active session ", session_start)
+        self.session_id = session_start["id"]
         self.user_session_data_manager.create_session_json(session_start["id"])
         self.user_session_data_manager.log_session_start(session_start)
 
@@ -90,19 +93,30 @@ class UserSessionCoordinator(IUserSessionCoordinator):
             
 
 
-    def end_user_session(self, content:dict ):
+    def end_user_session(self, frontend_content:dict ) -> bool:
+        session_content = self.get_db_session_data(self.session_id)
+        print("This end is being called \n \n")
+        self.stop_session.manage_session_stop(session_content,frontend_content )
+
         pass
 
     def pause_user_session(self):
         ...
 
 
-    def get_db_session_data(self):
-        """This function will be responsible for getting information from the db about current session """
-        pass
+    def get_db_session_data(self, session_id: int) -> dict:
+        """
+        This function will be responsible for getting information from the db about current session 
+        ONLY ACCESS POINT TO THE USERSESSIONDATAMANAGER to get stuff
+        """
+        return self.user_session_data_manager.session_end_json(session_id)
+        
 
     def set_db_session_data(self, content: dict | list[dict], log ) -> None:
-        """This function will be responsible for writing information to the db about current session """
+        """
+        
+        ONLY ACCESS POINT TO THE USERSESSIONDATAMANAGER to set stuff 
+        """
         if log == False:
             self.active_user_session.updated_session_state(content)
         else:

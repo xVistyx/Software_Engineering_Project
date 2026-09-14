@@ -1,4 +1,3 @@
-from interfaces import IDataManger
 from datetime import datetime
 from pathlib import Path
 import json
@@ -11,20 +10,17 @@ It will also need to write the summary and delete the old session json
 class UserSessionDataManager:
 
     def __init__(self):
-        self.global_data_manager: IDataManger | None = None
-        self.session_table = "sessions"
-        self.metadata_table = "website_metadata"
+        self.session_table:str = "sessions"
+        self.metadata_table:str = "website_metadata"
 
-        self.session_folder = Path("UserSession/ActiveSessionDB")
+        self.session_folder:Path = Path("UserSession/ActiveSessionDB")
         self.session_folder.mkdir(parents=True, exist_ok=True)
 
         self.session_path: Path | None = None
 
-    def set_global_data_manager(self, data_manager: IDataManger):
-        self.global_data_manager = data_manager
-
-    def create_session_json(self, session_id: int):
-        self.session_path = (self.session_folder / f"session_{session_id}.json")
+    
+    def create_session_json(self, session_id: int) -> Path:
+        self.session_path:Path = (self.session_folder / f"session_{session_id}.json")
 
         session_data = {
             "session_info": {},
@@ -35,16 +31,10 @@ class UserSessionDataManager:
 
         return self.session_path
 
-    def generate_summary(self):
-        """Generates summary which will be logged in the DB."""
-        ...
+   
+    def log_session_start(self, content: dict) -> None:
 
-    def end_session(self):
-        ...
-
-    def log_session_start(self, content: dict):
-
-        #self.create_session_json(content["id"])
+        
 
         clean_session = {
             "id": content["id"],
@@ -77,7 +67,7 @@ class UserSessionDataManager:
             json.dumps(database, indent=4)
         )
 
-    def write_metadata_to_session_json(self, data: dict):
+    def write_metadata_to_session_json(self, data: dict) -> None:
 
         if self.session_path is None:
             raise RuntimeError("No active session JSON has been created.")
@@ -93,22 +83,10 @@ class UserSessionDataManager:
         self.session_path.write_text(
             json.dumps(database, indent=4)
         )
+    
 
-    def get_active_session(self):
-        if self.global_data_manager is None:
-            raise RuntimeError("Global data manager has not been set")
 
-        sessions = self.global_data_manager.read_from_db(
-            self.session_table
-        )
-
-        for session in reversed(sessions):
-            if session.get("is_running") is True:
-                return session
-
-        return None
-
-    def _make_json_safe(self, value):
+    def _make_json_safe(self, value) -> datetime:
         if isinstance(value, datetime):
             return value.isoformat()
 
@@ -156,3 +134,14 @@ class UserSessionDataManager:
         )
 
         return False
+
+    def session_end_json(self, session_id: int) -> dict:
+        session_path = self.session_folder / f"session_{session_id}.json"
+
+        if not session_path.exists():
+            raise FileNotFoundError(
+                f"Session JSON not found: {session_path}"
+            )
+
+        with session_path.open("r", encoding="utf-8") as file:
+            return json.load(file)

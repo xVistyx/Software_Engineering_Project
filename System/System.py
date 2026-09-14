@@ -63,8 +63,10 @@ class System(ISystem):
          - New session
          - running session
          - No session
+        At the end add a way to get the session summary and store it in the db somehow -> this will still need
+        to be implemented later. There is no direct connection to the UserSession Outside of this function
         """
-        user_session:dict = self.user_session_manager.user_session_manager(action, content,self.data_manager )
+        user_session:dict = self.user_session_manager.user_session_manager(action, content )
         print("USER SESSION ", user_session)
         self.is_session_active = user_session['content']['is_running']
         print(self.is_session_active)
