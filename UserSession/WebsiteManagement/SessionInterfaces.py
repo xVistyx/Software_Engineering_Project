@@ -3,11 +3,7 @@ from typing import Any
 
 class IWebsiteMetadataEvaluator(ABC):
     @abstractmethod
-    def handle_event(
-        self,
-        content: dict[str, Any],
-        topic: str,
-    ) -> bool:
+    def handle_event(self,content: dict[str, Any],topic: str,) -> bool:
         raise NotImplementedError
 
     @abstractmethod

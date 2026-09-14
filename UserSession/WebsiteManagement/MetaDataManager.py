@@ -1,13 +1,14 @@
 from .TabTimer import TabTimerHandler
 from typing import Any
 from .SessionInterfaces import ITabsStore, IWebsiteMetadataEvaluator
+from .TabHandlers import InMemoryTabsStore
 
 
 from .AISessionEval import AISessionEval
 from .OpenTab import OpenTabHandler
 from .TabActivity import TabActivityHandler
-from .CloseTab import ClosedTabHandler
-from .DirtyTabs import DirtyTabHandler
+
+from .TabHandlers import DirtyTabHandler
 
 
 """
@@ -16,21 +17,7 @@ Things to add:
     Add an interface for ActiveSessionConstructor
 """
 
-class InMemoryTabsStore(ITabsStore):
-    def __init__(self):
-        self._tabs: dict[int, dict[str, Any]] = {}
 
-    def get_tab(self, tab_id: int) -> dict[str, Any] | None:
-        return self._tabs.get(tab_id)
-
-    def save_tab(self,tab_id: int,metadata: dict[str, Any],) -> None:
-        self._tabs[tab_id] = metadata
-
-    def remove_tab(self, tab_id: int) -> dict[str, Any] | None:
-        return self._tabs.pop(tab_id, None)
-
-    def contains(self, tab_id: int) -> bool:
-        return tab_id in self._tabs
 
 class ActiveSessionConstructor:
     def __init__(self):
@@ -41,9 +28,10 @@ class ActiveSessionConstructor:
         self.dirty_handler = DirtyTabHandler()
         self.timer = TabTimerHandler(self.tabs)
         
-        self.closed_tab = ClosedTabHandler(self.timer, self.tabs, self.dirty_handler)
+        
         self.tab_activity = TabActivityHandler(self.timer, self.tabs, self.dirty_handler, self.dirty_handler)
-        self.time_manager = TimeManager(self.tab_activity, self.timer)
+        
+        #self.time_manager = TimeManager(self.tab_activity, self.timer)
         self.open_tab = OpenTabHandler(self.tabs, self.timer)
 
 
@@ -59,12 +47,12 @@ class WebsiteMetadataEvaluator(IWebsiteMetadataEvaluator):
         self.meta_data = None
         self.reason_lst_tabs = ["tab_closed","tab_activated","page_updated",]
         
-        self.event_manager = EventManager(self.session.timer, self.session.closed_tab)
+        self.event_manager = EventManager(self.session.timer, self.session.tab_activity)
 
         self.tab_manager = TabManager(
-            time_manager=self.session.time_manager,
+            timer = self.session.timer,
             open_tab=self.session.open_tab,
-            closed_tab=self.session.closed_tab,
+            tab_activity=self.session.tab_activity,
             tabs=self.session.tabs,
             ai_eval=self.session.ai_eval,
         )
@@ -136,12 +124,14 @@ class EventManager:
         return self.closed_tab.deactivate_tab(tab_id)
 
 
+
 class TabManager:
-    def __init__(self,time_manager, open_tab, closed_tab, tabs, ai_eval):
-        self.time_manager = time_manager
+    def __init__(self,timer, open_tab, tab_activity, tabs, ai_eval):
+        self.timer = timer
         self.open_tab = open_tab
-        self.closed_tab =  closed_tab
+        self.tab_activity =  tab_activity
         self.tabs = tabs
+
        
 
         self.ai_eval = ai_eval
@@ -164,7 +154,7 @@ class TabManager:
             new_tab, meta_data = self.update_tab(content, topic, tab_id)
 
         self.tabs.save_tab(tab_id, meta_data)
-        self.time_manager.time_manager(reason, tab_id, state)
+        self.time_manager(reason, tab_id, state)
         return new_tab, meta_data
 
 
@@ -174,7 +164,7 @@ class TabManager:
         if tab_id is  None:
             return False, None
         
-        closed, metadata = self.closed_tab.close_tab(tab_id)   
+        closed, metadata = self.tab_activity.close_tab(tab_id)   
         return False, metadata if closed else None
 
     
@@ -200,19 +190,11 @@ class TabManager:
         """I can change this too a bool later so it will immidiatly stop if the website is not related"""
         metadata["is_related"] = (self.ai_eval.is_session_related(metadata,topic))
 
-
-    
-
-class TimeManager:
-    def __init__(self, tab_activity, timer):
-        self.tab_activity = tab_activity
-        self.timer = timer
-
     def time_manager(self, reason, tab_id, state):
-        if reason == "tab_activated":
-            return self.tab_activity.activate_tab(tab_id)
-
-        if (reason == "page_updated" and state == "active" and not self.timer.is_active(tab_id)):
-            return self.tab_activity.activate_tab(tab_id)
-
-        return False
+            if reason == "tab_activated":
+                return self.tab_activity.activate_tab(tab_id)
+    
+            if (reason == "page_updated" and state == "active" and not self.timer.is_active(tab_id)):
+                return self.tab_activity.activate_tab(tab_id)
+    
+            return False

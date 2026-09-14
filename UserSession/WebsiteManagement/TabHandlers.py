@@ -1,6 +1,6 @@
 from typing import Any
 
-from .SessionInterfaces import IDirtyTabsStore
+from .SessionInterfaces import IDirtyTabsStore, ITabsStore
 
 
 class DirtyTabHandler(IDirtyTabsStore):
@@ -21,3 +21,19 @@ class DirtyTabHandler(IDirtyTabsStore):
         updates = list(self._dirty_tabs.values())
         self._dirty_tabs.clear()
         return updates
+
+class InMemoryTabsStore(ITabsStore):
+    def __init__(self):
+        self._tabs: dict[int, dict[str, Any]] = {}
+
+    def get_tab(self, tab_id: int) -> dict[str, Any] | None:
+        return self._tabs.get(tab_id)
+
+    def save_tab(self,tab_id: int,metadata: dict[str, Any],) -> None:
+        self._tabs[tab_id] = metadata
+
+    def remove_tab(self, tab_id: int) -> dict[str, Any] | None:
+        return self._tabs.pop(tab_id, None)
+
+    def contains(self, tab_id: int) -> bool:
+        return tab_id in self._tabs

@@ -64,9 +64,7 @@ class OpenTabHandler:
     
     
         
-    def get_all_website_meta_data(
-            self
-        ) -> list:
+    def get_all_website_meta_data(self) -> list:
     
             result = []
     
