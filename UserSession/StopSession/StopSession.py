@@ -18,6 +18,7 @@ class StopSession:
     def stop_session(self, active_session):
         active_session["is_running"] = False
         return active_session
+
     
 
 

@@ -189,26 +189,16 @@ class GenerateSummary:
             session_info.get("time", 0) or 0
         )
 
-    def calculate_time_spent_per_tab(self,metadata: list[dict]) -> dict:
-        """
-        Returns:
-
-        {
-            66841445: 9.23,
-            66841447: 24.92,
-            ...
-        }
-        """
+    def calculate_time_spent_per_tab(self, metadata: list[dict]) -> dict:
         tab_times = {}
 
         for tab in metadata:
             tab_id = tab.get("tab_id")
+
             if tab_id is None:
                 continue
 
-            time_spent = float(tab.get("time_spent", 0) or 0)
-
-            tab_times[tab_id] = time_spent
+            tab_times[tab_id] = self._get_tab_time_spent(tab)
 
         return tab_times
 
@@ -282,3 +272,25 @@ class GenerateSummary:
 
         except ValueError:
             return ""
+
+    def _get_tab_time_spent(self, tab: dict) -> float:
+        time_spent = float(tab.get("time_spent", 0) or 0)
+
+        # Use the recorded value if the timer has already tracked time.
+        if time_spent != 0.0:
+            return time_spent
+
+        start_time = self._parse_datetime(tab.get("timestamp"))
+
+        if start_time is None:
+            return 0.0
+
+        # Avoid mixing timezone-aware and timezone-naive datetimes.
+        if start_time.tzinfo is not None:
+            current_time = datetime.now(start_time.tzinfo)
+        else:
+            current_time = datetime.now()
+
+        elapsed = (current_time - start_time).total_seconds()
+
+        return max(0.0, elapsed)

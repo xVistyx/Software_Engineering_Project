@@ -145,3 +145,15 @@ class UserSessionDataManager:
 
         with session_path.open("r", encoding="utf-8") as file:
             return json.load(file)
+
+    def delete_current_session_json(self) -> None:
+        if self.session_path is None:
+            raise RuntimeError("No active session JSON has been created.")
+
+        if not self.session_path.exists():
+            raise FileNotFoundError(
+                f"Session JSON not found: {self.session_path}"
+            )
+
+        self.session_path.unlink()
+        self.session_path = None

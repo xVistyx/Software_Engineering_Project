@@ -100,6 +100,7 @@ class UserSessionCoordinator(IUserSessionCoordinator):
         frontend_info, backend_info, session_info = self.stop_session.manage_session_stop(session_content, self.active_session )
         self.session_summary = backend_info
         self.active_session = session_info
+        self.delete_old_session()
         return frontend_info
 
 
@@ -111,6 +112,8 @@ class UserSessionCoordinator(IUserSessionCoordinator):
 
     def pause_user_session(self):
         ...
+    def delete_old_session(self):
+        self.user_session_data_manager.delete_current_session_json()
 
 
     def get_db_session_data(self, session_id: int) -> dict:
