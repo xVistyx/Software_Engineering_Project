@@ -1,12 +1,26 @@
 const BASE = 'http://127.0.0.1:8000';
 
+const extension = () => typeof chrome !== 'undefined' && !!chrome.runtime?.id;
+export async function accessKey(value) {
+  if (extension()) {
+    if (value !== undefined) await chrome.storage.local.set({ groveAccessKey: value });
+    return (await chrome.storage.local.get('groveAccessKey')).groveAccessKey || '';
+  }
+  if (value !== undefined) localStorage.setItem('groveAccessKey', value);
+  return localStorage.getItem('groveAccessKey') || '';
+}
+
 async function req(action, content = {}) {
   const response = await fetch(`${BASE}/backend`, {
-    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${await accessKey()}` },
     body: JSON.stringify({ action, content }), signal: AbortSignal.timeout(8000),
   });
   const data = await response.json();
-  if (!response.ok) throw new Error(typeof data.detail === 'string' ? data.detail : 'The request could not be completed.');
+  if (!response.ok) {
+    const error = new Error(typeof data.detail === 'string' ? data.detail : 'The request could not be completed.');
+    error.status = response.status;
+    throw error;
+  }
   return data.content;
 }
 
@@ -27,10 +41,11 @@ export const api = {
   getSessionDetails: id => req('get_session_details', { session_id: id }),
   exportActivity: () => req('export_activity'),
   listSessions: () => req('get_sessions'),
+  listPastSessions: () => req('get_past_sessions'),
+  retrySessionSaves: () => req('retry_session_saves'),
   getStats: () => req('get_stats'),
   getSettings: () => req('get_settings'),
   updateSettings: data => req('update_settings', data),
   getBlocklist: () => req('get_blocklist'),
   putBlocklist: sites => req('update_blocklist', { sites }),
 };
-/*Add the functionality for blocking stuff a simple function should do */

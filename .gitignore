@@ -1,0 +1,11 @@
+.preview-tools/
+.preview-artifacts/
+.venv/
+DataBase/Activity.json
+DataBase/Activity.json.tmp
+DataBase/*.sqlite3*
+DataBase/active/
+DataBase/team-active/
+UserSession/ActiveSessionDB/
+__pycache__/
+*.pyc

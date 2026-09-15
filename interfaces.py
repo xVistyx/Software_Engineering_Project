@@ -1,16 +1,17 @@
 from abc import ABC, abstractmethod
+from DataBase.IDataBaseManager import IDataBaseManager
 
 
 
 class ISystem(ABC):
-  
-    
+
+
     @abstractmethod
     def send_requests_to_frontend(message:str) -> None:
         pass
 
-   
-   
+
+
 
 #OPTIONAL RN NOT USED
 class IServerManage(ABC):
@@ -51,17 +52,17 @@ class IUserSessionCoordinator(ABC):
     @abstractmethod
     def get_active_session() -> dict:
         pass
-   
+
 
     @abstractmethod
     def update_user_session(self, content:dict ):
         """I dont yet know what this one does but its linked to the front end """
         pass
-    
+
     @abstractmethod
     def end_user_session(self, content:dict ):
         pass
-    
+
     @abstractmethod
     def get_db_session_data(self):
         """This function will be responsible for getting information from the db about current session """
@@ -71,7 +72,3 @@ class IUserSessionCoordinator(ABC):
     def set_db_session_data(self):
         """This function will be responsible for writing information to the db about current session """
         pass
-
-
-
-    

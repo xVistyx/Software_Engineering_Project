@@ -86,8 +86,19 @@ class TabActivityHandler(ITabActivityHandler):
             tab["currently_open"] = False
             tab["currently_active"] = False
     
-            self.dirty.mark_dirty(tab)
+            self.dirty_tabs.mark_dirty(tab)
             return True, tab
+
+    def deactivate_tab(self, tab_id):
+        tab = self.tabs.get_tab(tab_id)
+        if tab is None:
+            return False, None
+        if self.timer.is_active(tab_id):
+            _, elapsed = self.timer.stop()
+            tab['time_spent'] += elapsed
+        tab['currently_active'] = False
+        self.dirty_tabs.mark_dirty(tab)
+        return False, tab
 
     def create_metadata(self,content: dict) -> dict:
         

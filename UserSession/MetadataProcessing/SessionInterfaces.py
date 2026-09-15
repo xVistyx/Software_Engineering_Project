@@ -14,6 +14,11 @@ class IWebsiteMetadataEvaluator(ABC):
     def get_dirty_tabs(self) -> list[dict[str, Any]]:
         raise NotImplementedError
 
+    @abstractmethod
+    def snapshot_metadata(self, stop: bool = False) -> list[dict[str, Any]]:
+        """Return current tab totals for a checkpoint or session completion."""
+        raise NotImplementedError
+
 
 class ITabsStore(ABC):
     @abstractmethod

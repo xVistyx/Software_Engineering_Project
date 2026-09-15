@@ -1,0 +1,951 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" version="24.7.17">
+  <diagram id="overview" name="01 / Team summary storage flow">
+    <mxGraphModel page="1" pageWidth="1600" pageHeight="1000" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="01 / Team summary storage flow" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=30;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="42" y="25" width="1516" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="The session component owns temporary data. System passes the completed DTO to permanent storage." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=17;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="42" y="79" width="1516" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Grove | SQL session update | 15 September 2026 | feature/sql-summary-integration | based on bb5b28d" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="42" y="954" width="1516" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="" style="rounded=1;arcSize=6;html=0;fillColor=#f1edf8;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="165" width="340" height="185" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="«component» Frontend" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="61" y="179" width="308" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="216" width="340" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Start / pause / stop&#10;History and Past Sessions&#10;HTTP action + content" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="61" y="232" width="308" height="109" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="" style="rounded=1;arcSize=6;html=0;fillColor=#f1edf8;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="475" y="165" width="390" height="185" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="«component» System" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="491" y="179" width="358" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="475" y="216" width="390" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="Authenticates owner and role&#10;Coordinates session and DB managers&#10;Confirms commit before cleanup" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="491" y="232" width="358" height="109" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="" style="rounded=1;arcSize=6;html=0;fillColor=#f1edf8;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="965" y="165" width="590" height="185" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="«component» UserSessionCoordinator" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="981" y="179" width="558" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="965" y="216" width="590" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="Owns session lifecycle and pending summaries&#10;Uses StopSession / GenerateSummary&#10;SessionSummaryForDB is the handoff" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="981" y="232" width="558" height="109" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="385" y="255" as="sourcePoint" />
+            <mxPoint x="475" y="255" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="18" value="HTTP" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="396" y="218" width="76" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="865" y="255" as="sourcePoint" />
+            <mxPoint x="965" y="255" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="20" value="calls" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="880" y="218" width="75" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="" style="rounded=1;arcSize=6;html=0;fillColor=#edf6f0;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="475" y="470" width="390" height="195" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="«component» DataBaseManager" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="491" y="484" width="358" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="475" y="521" width="390" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="Implements IDataBaseManager&#10;Receives summary; stores and fetches&#10;SessionRepository owns SQLite SQL&#10;Never reads or deletes temp files" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="491" y="537" width="358" height="119" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="665" y="350" as="sourcePoint" />
+            <mxPoint x="665" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="26" value="summary save / history read" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="393" width="265" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="" style="rounded=1;arcSize=6;html=0;fillColor=#edf6f0;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="965" y="470" width="590" height="195" as="geometry" />
+        </mxCell>
+        <mxCell id="28" value="«component» UserSessionDataManager" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="981" y="484" width="558" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="29" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="965" y="521" width="590" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="30" value="Owns temporary session JSON files&#10;Atomic replacement + fsync&#10;Retains frozen summary for retry&#10;Deletes when session coordinator requests it" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="981" y="537" width="558" height="119" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1260" y="350" as="sourcePoint" />
+            <mxPoint x="1260" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="32" value="temporary storage operations" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1272" y="394" width="285" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="" style="rounded=1;arcSize=6;html=0;fillColor=#fff5e3;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="745" width="760" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="34" value="«note» Permanent information" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="61" y="759" width="728" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="35" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="796" width="760" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="36" value="New sessions store exactly the supplied summary fields.&#10;Existing SQL records and their detailed activity remain readable." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="61" y="812" width="728" height="79" as="geometry" />
+        </mxCell>
+        <mxCell id="37" value="" style="rounded=1;arcSize=6;html=0;fillColor=#fff5e3;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="865" y="745" width="690" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="38" value="«note» No new AI model" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="881" y="759" width="658" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="39" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="865" y="796" width="690" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="40" value="Scores/productivity come from the session component.&#10;Optional returned analysis is stored against the original session." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="881" y="812" width="658" height="79" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="classes" name="02 / Runtime classes and interfaces">
+    <mxGraphModel page="1" pageWidth="1600" pageHeight="1000" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="02 / Runtime classes and interfaces" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=30;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="42" y="25" width="1516" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="System calls both managers. The database component has no dependency on the session component." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=17;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="42" y="79" width="1516" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Grove | SQL session update | 15 September 2026 | feature/sql-summary-integration | based on bb5b28d" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="42" y="954" width="1516" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="" style="rounded=1;arcSize=6;html=0;fillColor=#f1edf8;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="145" width="400" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="«module» main.py" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="56" y="159" width="368" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="196" width="400" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="create_app(system)&#10;Bearer extraction and HTTP errors&#10;POST /backend; checkpoint task" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="56" y="212" width="368" height="124" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="" style="rounded=1;arcSize=6;html=0;fillColor=#f1edf8;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="545" y="145" width="445" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="«class» System" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="561" y="159" width="413" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="545" y="196" width="445" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="db_manager: IDataBaseManager&#10;for_user(); run_user_session()&#10;send_to_db_manager(data, user_id)&#10;run_past_session(); checkpoint()" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="561" y="212" width="413" height="124" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="" style="rounded=1;arcSize=6;html=0;fillColor=#f1edf8;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="145" width="470" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="«class» UserSessionCoordinator" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1106" y="159" width="438" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="196" width="470" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="user_session_manager()&#10;end_user_session(); pending_summaries&#10;delete_old_session(session_id)" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1106" y="212" width="438" height="124" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="245" as="sourcePoint" />
+            <mxPoint x="545" y="245" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="18" value="calls" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="451" y="209" width="80" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="990" y="245" as="sourcePoint" />
+            <mxPoint x="1090" y="245" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="20" value="calls" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1001" y="209" width="85" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="" style="rounded=1;arcSize=6;html=0;fillColor=#f1edf8;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="545" y="455" width="445" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="«interface» IDataBaseManager" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="561" y="469" width="413" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="545" y="506" width="445" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="save_session(user_id, summary)&#10;get_history(user_id)&#10;get_session_details(user_id, id)&#10;Credentials, preferences, AI results" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="561" y="522" width="413" height="124" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="765" y="345" as="sourcePoint" />
+            <mxPoint x="765" y="455" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="26" value="storage boundary" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="778" y="390" width="240" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="" style="rounded=1;arcSize=6;html=0;fillColor=#edf6f0;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="545" y="775" width="445" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="28" value="«class» DataBaseManager" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="561" y="789" width="413" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="29" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="545" y="826" width="445" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="30" value="repository: SessionRepository&#10;Implements supplied-data persistence" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="561" y="842" width="413" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="" style="html=0;endArrow=block;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="765" y="775" as="sourcePoint" />
+            <mxPoint x="765" y="655" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="32" value="implements" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="780" y="699" width="220" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="" style="rounded=1;arcSize=6;html=0;fillColor=#edf6f0;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="775" width="400" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="34" value="«class» SessionRepository" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="56" y="789" width="368" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="35" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="826" width="400" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="36" value="SQLite connections + transactions&#10;Owner-scoped queries" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="56" y="842" width="368" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="37" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="545" y="845" as="sourcePoint" />
+            <mxPoint x="440" y="845" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="38" value="calls" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="452" y="804" width="80" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="39" value="" style="rounded=1;arcSize=6;html=0;fillColor=#edf6f0;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="455" width="470" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="40" value="«class» UserSessionDataManager" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1106" y="469" width="438" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="41" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="506" width="470" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="42" value="Atomic temporary JSON&#10;Frozen summary for retry&#10;delete_current_session_json()" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1106" y="522" width="438" height="99" as="geometry" />
+        </mxCell>
+        <mxCell id="43" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1325" y="345" as="sourcePoint" />
+            <mxPoint x="1325" y="455" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="44" value="uses" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="390" width="170" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="45" value="" style="rounded=1;arcSize=6;html=0;fillColor=#f1edf8;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="775" width="470" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="46" value="«dataclass» SessionSummaryForDB" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1106" y="789" width="438" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="47" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="826" width="470" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="48" value="Team dataclass: 12 fields&#10;Produced by GenerateSummary" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1106" y="842" width="438" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="49" value="" style="rounded=1;arcSize=6;html=0;fillColor=#fff5e3;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="455" width="400" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="50" value="«note» Other existing components" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="56" y="469" width="368" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="51" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="506" width="400" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="52" value="PastSessionManager formats History.&#10;Settings validates preferences.&#10;BackendRequests builds responses.&#10;All receive data through System." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="56" y="522" width="368" height="124" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="finalization" name="03 / Completion, commit, and cleanup">
+    <mxGraphModel page="1" pageWidth="1600" pageHeight="1000" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="03 / Completion, commit, and cleanup" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=30;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="42" y="25" width="1516" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="System coordinates the order; file deletion remains inside the session component." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=17;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="42" y="79" width="1516" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Grove | SQL session update | 15 September 2026 | feature/sql-summary-integration | based on bb5b28d" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="42" y="954" width="1516" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="" style="rounded=1;arcSize=6;html=0;fillColor=#f1edf8;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="35.0" y="140" width="210" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="System" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="51.0" y="154" width="178" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="35.0" y="191" width="210" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="" style="html=0;endArrow=none;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="140.0" y="214" as="sourcePoint" />
+            <mxPoint x="140.0" y="775" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9" value="" style="rounded=1;arcSize=6;html=0;fillColor=#f1edf8;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="475.0" y="140" width="210" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="Session manager" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="491.0" y="154" width="178" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="475.0" y="191" width="210" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="" style="html=0;endArrow=none;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580.0" y="214" as="sourcePoint" />
+            <mxPoint x="580.0" y="775" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="13" value="" style="rounded=1;arcSize=6;html=0;fillColor=#f1edf8;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="915.0" y="140" width="210" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="Temp manager" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="931.0" y="154" width="178" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="915.0" y="191" width="210" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="" style="html=0;endArrow=none;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1020.0" y="214" as="sourcePoint" />
+            <mxPoint x="1020.0" y="775" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="17" value="" style="rounded=1;arcSize=6;html=0;fillColor=#f1edf8;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="1355.0" y="140" width="210" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="DB manager / SQL" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1371.0" y="154" width="178" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="1355.0" y="191" width="210" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="" style="html=0;endArrow=none;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1460.0" y="214" as="sourcePoint" />
+            <mxPoint x="1460.0" y="775" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="21" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="140.0" y="255" as="sourcePoint" />
+            <mxPoint x="580.0" y="255" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="22" value="end_user_session / timer expiry" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="152.0" y="211" width="416.0" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580.0" y="325" as="sourcePoint" />
+            <mxPoint x="1020.0" y="325" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="24" value="Freeze end time and summary in JSON" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="592.0" y="281" width="416.0" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580.0" y="395" as="sourcePoint" />
+            <mxPoint x="140.0" y="395" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="26" value="Return SessionSummaryForDB" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="152.0" y="351" width="416.0" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="140.0" y="465" as="sourcePoint" />
+            <mxPoint x="1460.0" y="465" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="28" value="send_to_db_manager: save_session(owner, summary)" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="152.0" y="421" width="1296.0" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="29" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1460.0" y="535" as="sourcePoint" />
+            <mxPoint x="140.0" y="535" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="30" value="Return only after commit / verified retry" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="152.0" y="491" width="1296.0" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="140.0" y="605" as="sourcePoint" />
+            <mxPoint x="580.0" y="605" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="32" value="delete_old_session(session_id)" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="152.0" y="561" width="416.0" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580.0" y="675" as="sourcePoint" />
+            <mxPoint x="1020.0" y="675" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="34" value="delete_current_session_json(session_id)" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="592.0" y="631" width="416.0" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="35" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580.0" y="745" as="sourcePoint" />
+            <mxPoint x="140.0" y="745" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="36" value="Cleanup complete; remove pending entry" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="152.0" y="701" width="416.0" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="37" value="" style="rounded=1;arcSize=6;html=0;fillColor=#fff5e3;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="42" y="820" width="475" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="38" value="«note» Database failure" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="58" y="834" width="443" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="39" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="42" y="871" width="475" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="40" value="Keep terminal JSON and frozen summary.&#10;Retry via System request/checkpoint/restart." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="58" y="887" width="443" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="41" value="" style="rounded=1;arcSize=6;html=0;fillColor=#fff5e3;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="558" y="820" width="480" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="42" value="«note» Cleanup failure" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="574" y="834" width="448" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="43" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="558" y="871" width="480" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="44" value="Retry the same summary without duplicating it.&#10;Existing analysis remains attached." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="574" y="887" width="448" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="45" value="" style="rounded=1;arcSize=6;html=0;fillColor=#fff5e3;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="1078" y="820" width="480" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="46" value="«note» Durable boundary" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1094" y="834" width="448" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="47" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="1078" y="871" width="480" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="48" value="A later error cannot restore a running session.&#10;Different content with the same ID is rejected." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1094" y="887" width="448" height="39" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="sql-model" name="04 / Persistent data and DTO mapping">
+    <mxGraphModel page="1" pageWidth="1600" pageHeight="1000" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="04 / Persistent data and DTO mapping" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=30;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="42" y="25" width="1516" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="No schema migration is needed. Existing detailed archives stay readable alongside new summary-only records." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=17;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="42" y="79" width="1516" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Grove | SQL session update | 15 September 2026 | feature/sql-summary-integration | based on bb5b28d" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="42" y="954" width="1516" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="" style="rounded=1;arcSize=6;html=0;fillColor=#f1edf8;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="155" width="610" height="345" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="«dataclass» SessionSummaryForDB" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="61" y="169" width="578" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="206" width="610" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="session_id: int; session_topic: str&#10;session_start_time; session_end_time&#10;set_session_duration; actual_session_duration&#10;productive_time; session_score&#10;number_of_tabs; time_spent_on_tabs&#10;most_used_tab; most_often_blocked&#10;&#10;Durations: seconds; timestamps preserved" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="61" y="222" width="578" height="269" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="" style="rounded=1;arcSize=6;html=0;fillColor=#edf6f0;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="890" y="155" width="665" height="345" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="«table» sessions" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="906" y="169" width="633" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="890" y="206" width="665" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="PK (user_id, id); FK user_id -&gt; users.id&#10;Topic, status, start/end, duration columns&#10;payload.source_summary retains all DTO fields&#10;payload.detail_level = summary&#10;summary stores the History display mapping&#10;New DTOs do not supply visits or events" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="906" y="222" width="633" height="269" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="655" y="325" as="sourcePoint" />
+            <mxPoint x="890" y="325" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="14" value="normalize supplied data" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="674" y="280" width="203" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="" style="rounded=1;arcSize=6;html=0;fillColor=#edf6f0;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="605" width="450" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="«tables» users / access_keys" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="61" y="619" width="418" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="656" width="450" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="Profiles own sessions&#10;Hashed keys resolve user + role&#10;System supplies authenticated owner&#10;The DTO has no caller-selected user_id" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="61" y="672" width="418" height="144" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="" style="rounded=1;arcSize=6;html=0;fillColor=#edf6f0;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="575" y="605" width="450" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="«table» analyses" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="591" y="619" width="418" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="575" y="656" width="450" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="PK (user_id, session_id)&#10;FK -&gt; sessions(user_id, id)&#10;Optional result and updated_at&#10;Separate from immutable DTO" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="591" y="672" width="418" height="144" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="" style="rounded=1;arcSize=6;html=0;fillColor=#edf6f0;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="1105" y="605" width="450" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="«tables» Existing data" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1121" y="619" width="418" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="1105" y="656" width="450" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="visits / events: older detailed records&#10;preferences: settings + blocklist&#10;legacy_imports: original sources&#10;Existing records are preserved" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1121" y="672" width="418" height="144" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="Summary-only does not mean zero activity: unavailable visits, pauses, and event details are not invented." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=21;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="45" y="875" width="1500" height="54" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="states" name="05 / Lifecycle and persistence are separate">
+    <mxGraphModel page="1" pageWidth="1600" pageHeight="1000" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="05 / Lifecycle and persistence are separate" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=30;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="42" y="25" width="1516" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="The DTO arrives after completion; its storage status can still be pending." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=17;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="42" y="79" width="1516" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Grove | SQL session update | 15 September 2026 | feature/sql-summary-integration | based on bb5b28d" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="42" y="954" width="1516" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="" style="rounded=1;arcSize=6;html=0;fillColor=#f1edf8;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="170" width="420" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="«component» Running / paused" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="61" y="184" width="388" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="221" width="420" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Session coordinator owns active state&#10;Temporary manager writes checkpoints" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="61" y="237" width="388" height="79" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="" style="rounded=1;arcSize=6;html=0;fillColor=#fff5e3;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="590" y="170" width="420" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="«component» Ended / pending" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="606" y="184" width="388" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="590" y="221" width="420" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="End time and DTO are durable in JSON&#10;System attempts permanent save" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="606" y="237" width="388" height="79" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="" style="rounded=1;arcSize=6;html=0;fillColor=#edf6f0;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="1135" y="170" width="420" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="«component» Saved" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1151" y="184" width="388" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="1135" y="221" width="420" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="SQL contains the summary&#10;Temporary JSON has been removed" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1151" y="237" width="388" height="79" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="465" y="245" as="sourcePoint" />
+            <mxPoint x="590" y="245" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="18" value="stop / expiry" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="475" y="202" width="113" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1010" y="245" as="sourcePoint" />
+            <mxPoint x="1135" y="245" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="20" value="commit +&#10;delete" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1018" y="202" width="115" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="800" y="325" as="sourcePoint" />
+            <mxPoint x="965" y="325" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="800" y="430" />
+              <mxPoint x="965" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="22" value="failure: retain and retry" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="820" y="438" width="300" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="" style="rounded=1;arcSize=6;html=0;fillColor=#fff5e3;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="570" width="705" height="225" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="«note» Restart recovery" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="61" y="584" width="673" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="621" width="705" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="Pending DTO: replay its frozen values.&#10;Unfinished work: close at the saved checkpoint.&#10;Unknown offline time is excluded.&#10;No guessing of owner from shared legacy files." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="61" y="637" width="673" height="149" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="" style="rounded=1;arcSize=6;html=0;fillColor=#fff5e3;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="840" y="570" width="715" height="225" as="geometry" />
+        </mxCell>
+        <mxCell id="28" value="«note» Identity and timing" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="856" y="584" width="683" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="29" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="840" y="621" width="715" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="30" value="Large integer IDs preserve the team DTO contract.&#10;Owner + session ID scopes SQL and retries.&#10;Actual duration follows the team wall-time calculation.&#10;A paused session can have a longer actual duration." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="856" y="637" width="683" height="149" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="history-ai" name="06 / History, dashboard, and analysis">
+    <mxGraphModel page="1" pageWidth="1600" pageHeight="1000" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="06 / History, dashboard, and analysis" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=30;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="42" y="25" width="1516" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Permanent storage receives and returns data only; every application call goes through System." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=17;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="42" y="79" width="1516" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Grove | SQL session update | 15 September 2026 | feature/sql-summary-integration | based on bb5b28d" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="42" y="954" width="1516" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="" style="rounded=1;arcSize=6;html=0;fillColor=#f1edf8;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="35.0" y="140" width="210" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="History + tab" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="51.0" y="154" width="178" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="35.0" y="191" width="210" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="" style="html=0;endArrow=none;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="140.0" y="214" as="sourcePoint" />
+            <mxPoint x="140.0" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9" value="" style="rounded=1;arcSize=6;html=0;fillColor=#f1edf8;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="475.0" y="140" width="210" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="System" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="491.0" y="154" width="178" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="475.0" y="191" width="210" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="" style="html=0;endArrow=none;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580.0" y="214" as="sourcePoint" />
+            <mxPoint x="580.0" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="13" value="" style="rounded=1;arcSize=6;html=0;fillColor=#f1edf8;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="915.0" y="140" width="210" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="DB manager / SQL" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="931.0" y="154" width="178" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="915.0" y="191" width="210" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="" style="html=0;endArrow=none;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1020.0" y="214" as="sourcePoint" />
+            <mxPoint x="1020.0" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="17" value="" style="rounded=1;arcSize=6;html=0;fillColor=#f1edf8;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="1355.0" y="140" width="210" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="AI component" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1371.0" y="154" width="178" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="1355.0" y="191" width="210" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="" style="html=0;endArrow=none;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1460.0" y="214" as="sourcePoint" />
+            <mxPoint x="1460.0" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="21" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="140.0" y="255" as="sourcePoint" />
+            <mxPoint x="580.0" y="255" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="22" value="get_sessions / get_past_sessions / details" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="152.0" y="211" width="416.0" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580.0" y="325" as="sourcePoint" />
+            <mxPoint x="1020.0" y="325" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="24" value="get_history(owner) / get_session_details(owner, id)" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="592.0" y="281" width="416.0" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1020.0" y="395" as="sourcePoint" />
+            <mxPoint x="580.0" y="395" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="26" value="Saved summary (plus legacy details if present)" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="592.0" y="351" width="416.0" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580.0" y="465" as="sourcePoint" />
+            <mxPoint x="140.0" y="465" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="28" value="Same records for History and the new tab" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="152.0" y="421" width="416.0" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="29" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1460.0" y="535" as="sourcePoint" />
+            <mxPoint x="580.0" y="535" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="30" value="User-scoped AI key: get_ai_session" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="592.0" y="491" width="856.0" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580.0" y="605" as="sourcePoint" />
+            <mxPoint x="1020.0" y="605" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="32" value="Read saved input using original owner/session" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="592.0" y="561" width="416.0" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1460.0" y="675" as="sourcePoint" />
+            <mxPoint x="580.0" y="675" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="34" value="save_session_analysis(session_id, result)" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="592.0" y="631" width="856.0" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="35" value="" style="html=0;endArrow=open;endFill=0;strokeColor=#746f7d;strokeWidth=1.6;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580.0" y="745" as="sourcePoint" />
+            <mxPoint x="1020.0" y="745" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="36" value="Store optional result against original record" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="592.0" y="701" width="416.0" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="37" value="" style="rounded=1;arcSize=6;html=0;fillColor=#fff5e3;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="810" width="700" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="38" value="«note» Honest presentation" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="61" y="824" width="668" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="39" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="861" width="700" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="40" value="Summary-only records offer summary JSON/CSV.&#10;Detailed visits/events remain available for older archives." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="61" y="877" width="668" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="41" value="" style="rounded=1;arcSize=6;html=0;fillColor=#fff5e3;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="845" y="810" width="710" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="42" value="«note» Existing AI workflow" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="861" y="824" width="678" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="43" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="845" y="861" width="710" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="44" value="No new model is added. The evaluator is still a stub.&#10;Dashboard remains usable without returned analysis." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="861" y="877" width="678" height="44" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="migration" name="07 / Integration and existing data">
+    <mxGraphModel page="1" pageWidth="1600" pageHeight="1000" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="07 / Integration and existing data" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=30;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="42" y="25" width="1516" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Integration branch starts directly at the colleague’s StopSession commit bb5b28d." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=17;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="42" y="79" width="1516" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Grove | SQL session update | 15 September 2026 | feature/sql-summary-integration | based on bb5b28d" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=13;fontColor=#746f7d;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="42" y="954" width="1516" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="" style="rounded=1;arcSize=6;html=0;fillColor=#fff5e3;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="170" width="455" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="«Git» Local recovery snapshot" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="61" y="184" width="423" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="221" width="455" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="backup/sql-before-team-summary-20260915&#10;Commit 07dd303 preserves earlier work&#10;No old source work was discarded&#10;No changes were pushed" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="61" y="237" width="423" height="154" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="" style="rounded=1;arcSize=6;html=0;fillColor=#edf6f0;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="575" y="170" width="455" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="«Git» Current integration" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="591" y="184" width="423" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="575" y="221" width="455" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="feature/sql-summary-integration&#10;Team session classes retained&#10;SQL summary storage + History added&#10;DTO class fields unchanged" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="591" y="237" width="423" height="154" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="" style="rounded=1;arcSize=6;html=0;fillColor=#edf6f0;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="1105" y="170" width="450" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="«storage» Database continuity" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1121" y="184" width="418" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="1105" y="221" width="450" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="Same configured SQLite file&#10;No new server or schema upgrade&#10;Existing summaries/visits remain readable&#10;User-scoped keys remain valid" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="1121" y="237" width="418" height="154" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="" style="rounded=1;arcSize=6;html=0;fillColor=#fff5e3;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="560" width="710" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="«note» Legacy JSON imports" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="61" y="574" width="678" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="611" width="710" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="Stop the backend before importing.&#10;Use DataBase.manage import-legacy USER_ID SOURCE.&#10;Assign the actual owner explicitly.&#10;Sources remain untouched; imports are repeatable." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="61" y="627" width="678" height="154" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="" style="rounded=1;arcSize=6;html=0;fillColor=#fff5e3;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="845" y="560" width="710" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="«note» Team boundary" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=18;fontColor=#292630;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="861" y="574" width="678" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="" style="line;strokeColor=#bcb6c8;" vertex="1" parent="1">
+          <mxGeometry x="845" y="611" width="710" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="UserSessionDataManager owns temporary files.&#10;UserSessionCoordinator requests their deletion.&#10;DataBaseManager owns permanent summaries.&#10;System coordinates save, acknowledgment, and reads." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=16;fontColor=#292630;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="861" y="627" width="678" height="154" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

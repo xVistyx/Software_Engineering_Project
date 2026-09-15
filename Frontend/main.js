@@ -10,6 +10,7 @@
    ============================================================ */
 
 import { api as liveApi, bg } from './api/backend.js';
+import { connectProfile } from './components/ProfileConnection.js';
 import { StartPage }     from './pages/StartPage.js';
 import { SessionPage }   from './pages/SessionPage.js';
 import { SessionCompletePage } from './pages/SessionCompletePage.js';
@@ -199,6 +200,7 @@ async function loadActiveSession() {
    ============================================================ */
 
 async function boot() {
+  if (!isPreview) await connectProfile(mount);
 
   // Restore data from backend before first render
   await loadSettings();
@@ -210,3 +212,8 @@ async function boot() {
 
 // Start app
 boot();
+if (!isPreview && typeof chrome !== 'undefined' && chrome.storage?.onChanged) {
+  chrome.storage.onChanged.addListener(changes => {
+    if (changes.groveAccessKey && currentPage) location.reload();
+  });
+}

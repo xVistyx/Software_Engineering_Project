@@ -1,5 +1,7 @@
 # Software_Engineering_Project
 
+Current local integration: [SQL summary setup](SessionStorage.md), [database handoff](DatabaseInterface.md), and [team-aligned UML](BackendUML.md). These documents describe the implemented storage path; the product description below includes intended AI capabilities.
+
 ## AI Focus Browser Extension
 
 An AI-powered Google Chrome extension designed to help users stay focused by automatically deciding whether the websites they visit are relevant to their current task.

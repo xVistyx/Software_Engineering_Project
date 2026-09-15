@@ -72,6 +72,17 @@ class WebsiteMetadataEvaluator(IWebsiteMetadataEvaluator):
 
     def get_dirty_tabs(self) -> list[dict]:
         return self.session.dirty_handler.get_dirty_tabs()
+
+    def snapshot_metadata(self, stop=False):
+        if stop:
+            self.event_manager.browser_unfocused()
+        changes = {item['tab_id']: item for item in self.get_dirty_tabs()}
+        active_id = self.session.timer.active_tab_id
+        if active_id is not None:
+            item = self.session.tabs.get_tab(active_id).copy()
+            item['time_spent'] = self.session.timer.get_time_spent(active_id)
+            changes[active_id] = item
+        return list(changes.values())
     
 
 

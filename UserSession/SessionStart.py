@@ -1,6 +1,7 @@
 from dataclasses import dataclass, asdict
 from datetime import datetime, timedelta
-import random
+import secrets
+import math
 
 @dataclass
 class SessionInfo:
@@ -19,13 +20,20 @@ class SessionInfo:
 
 
 class SessionStart:
-    def __init__(self):
+    def __init__(self, clock=None):
         self.active_session:bool = False
+        self.clock = clock or datetime.now
 
     def calculate_endtime(self, start_time: datetime, duration: float) -> datetime:
         return start_time + timedelta(seconds=duration)
 
     def setup_session(self, content: dict) -> SessionInfo:
+        minutes = content.get('minutes')
+        topic = content.get('topic')
+        if not isinstance(topic, str) or not topic.strip() or len(topic) > 160:
+            raise ValueError('A topic of 1 to 160 characters is required')
+        if type(minutes) not in (int, float) or not math.isfinite(minutes) or not 1 <= minutes <= 480 or minutes != int(minutes):
+            raise ValueError('Duration must be a whole number from 1 to 480 minutes')
         self.active_session = True
 
         session_id = self.generate_id()
@@ -34,7 +42,7 @@ class SessionStart:
         # If you want to track in seconds:
         time = content["minutes"] * 60
 
-        now = datetime.now()
+        now = self.clock()
 
         return SessionInfo(
             id=session_id,
@@ -52,7 +60,9 @@ class SessionStart:
         )
 
     def generate_id(self) -> int:
-        return random.randint(0, 100)
+        # Keep the team's integer DTO, without collisions in a 101-value range.
+        # 52 bits also round-trip exactly through JavaScript numbers.
+        return secrets.randbits(52) or 1
 
 
 

@@ -5,6 +5,7 @@ const node = html => {
 };
 
 const formatDuration = seconds => {
+  if (seconds == null) return 'Not recorded';
   const value = Math.max(0, Math.round(Number(seconds) || 0));
   if (value < 60) return `${value}s`;
   const minutes = Math.floor(value / 60);
@@ -49,11 +50,12 @@ function normalizeSummary(summary = {}) {
       summary.productiveSeconds,
     ),
 
-    distractionsBlocked: Math.max(0, Math.round(firstNumber(
+    distractionsBlocked: [summary.distractionsBlocked, summary.distractions_blocked, summary.blockedCount]
+      .some(value => value != null) ? Math.max(0, Math.round(firstNumber(
       summary.distractionsBlocked,
       summary.distractions_blocked,
       summary.blockedCount,
-    ))),
+    ))) : null,
 
     tabsOpened: Math.max(0, Math.round(firstNumber(
       summary.tabsOpened,
@@ -160,7 +162,7 @@ export function SessionCompletePage({ navigate, state, api }) {
     grid.append(
       metricCard('clock', formatDuration(summary.sessionSeconds), 'Session time'),
       metricCard('productive', formatDuration(summary.productiveSeconds), 'Productive time'),
-      metricCard('shield', summary.distractionsBlocked, 'Distractions blocked'),
+      metricCard('shield', summary.distractionsBlocked ?? 'Not recorded', 'Distractions blocked'),
       metricCard('tabs', summary.tabsOpened, 'Tabs opened'),
     );
 

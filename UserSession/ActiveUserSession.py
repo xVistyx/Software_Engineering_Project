@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Any
 
 from .SessionStart import SessionInfo
@@ -6,6 +6,16 @@ from .SessionStart import SessionInfo
 
 from .MetadataProcessing.SessionInterfaces import IWebsiteMetadataEvaluator
 class ActiveUserSessionManager:
+    def advance_session_clock(self, active_session, now):
+        """Advance remaining running time; return the exact timer-expiry time, if any."""
+        if active_session['is_running']:
+            elapsed = max(0, (now - active_session['last_update_time']).total_seconds())
+            remaining = active_session['time']
+            active_session['time'] = max(0, remaining - elapsed)
+            if active_session['time'] == 0:
+                return active_session['last_update_time'] + timedelta(seconds=remaining)
+        active_session['last_update_time'] = now
+        return None
     def __init__(self, website_meta_data, ai_eval):
         """Need to figure out the blocking of websites and information that isnt relivant"""
         
