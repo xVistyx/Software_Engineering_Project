@@ -10,11 +10,9 @@ class ISystem(ABC):
         pass
 
    
-    
-    @abstractmethod
-    def get_user_session_info()-> dict: # add ISession here
-        pass
+   
 
+#OPTIONAL RN NOT USED
 class IServerManage(ABC):
 
     @abstractmethod

@@ -3,7 +3,7 @@ from .BackendRequests import BackendRequests, SessionData, FrontEndSessionData
 from UserSession.UserSessionManager import UserSessionCoordinator
 #from UserSession.UserSessionDataManager import UserSessionDataManager
 from Settings.Settings import Settings
-from PastSessions.PastSessionManager import PastSessionManager
+#from PastSessions.PastSessionManager import PastSessionManager
 from DataBase.DataBaseManager import DataManager
 
 
@@ -19,7 +19,7 @@ class System(ISystem):
         self.is_session_active = False
         
         self.test_dict = {"action": "start_session","content": {"id": "test-session-123"}}
-        self.past_sessions: IPastSessionManager= PastSessionManager()
+        
         self.features = {"start_session": self.run_user_session, "update_session": self.run_user_session, "end_session": self.run_user_session, "get_active_session": self.run_user_session,
                          "get_settings": self.run_settings, "update_settings": self.run_settings, "get_blocklist": self.run_settings,
                          "update_blocklist": self.run_settings,"get_session_summary": self.run_past_session,"get_sessions": self.run_past_session,
@@ -68,10 +68,24 @@ class System(ISystem):
         """
         user_session:dict = self.user_session_manager.user_session_manager(action, content )
         print("USER SESSION ", user_session)
+        print("ACTION", action)
+        if action == "end_session":
+            print("ENDING SESSION \n \n")
+            self.send_to_db_manager( self.user_session_manager.send_to_global_db_manager())
+            return user_session
+
         self.is_session_active = user_session['content']['is_running']
         print(self.is_session_active)
+        
+            
+
         return user_session
 
+
+    def send_to_db_manager(self, data):
+        """WICTOR this is ur function to send to ur backend IT contains the session summary"""
+
+        pass
     def run_website_metadata(self, message: dict):
 
         return self.user_session_manager.block_website(
@@ -84,75 +98,14 @@ class System(ISystem):
 
     def run_past_session(self, action:str, content: dict) -> dict:
          # must return a dictionary formated: action: str  content: dict
+        """
+         This function is reponsible for sending DB information to the frontend to load it.
+         
+        """
         return self.test_dict
 
 
 
 
-    def get_user_session_info()-> dict[str: IUserSessionCoordinator]: 
-        pass
-    
+   
 
-
-"""
-
-# get_settings
-{
-    "action": "get_settings",
-    "content": {
-        "defaultMinutes": 45,
-        "breakReminders": True,
-        "sounds": True,
-        "strictMode": False
-    }
-}
-# update_settings
-{
-    "action": "update_settings",
-    "content": {}
-}
-# get_blocklist
-{
-    "action": "get_blocklist",
-    "content": {
-        "sites": []
-    }
-}
-# update_blocklist
-{
-    "action": "update_blocklist",
-    "content": {}
-}
-# get_session_summary
-{
-    "action": "get_session_summary",
-    "content": {
-        "focusedSeconds": 2700,
-        "tabsBlocked": 12,
-        "driftCount": 3,
-        "score": 88,
-        "longestStreakMin": 31
-    }
-}
-{ 
-    "action": "get_sessions",
-    "content": [ -> content must be a lst not dict
-        {
-            "id": "session-1",
-            "topic": "Math",
-            "minutes": 45,
-            "score": 92
-        },
-        {
-            "id": "session-2",
-            "topic": "C++",
-            "minutes": 60,
-            "score": 85
-        }
-    ]
-}
-
-
-
-
-"""

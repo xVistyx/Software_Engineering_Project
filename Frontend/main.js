@@ -12,6 +12,7 @@
 import { api as liveApi, bg } from './api/backend.js';
 import { StartPage }     from './pages/StartPage.js';
 import { SessionPage }   from './pages/SessionPage.js';
+import { SessionCompletePage } from './pages/SessionCompletePage.js';
 import { BlockListPage } from './pages/BlockListPage.js';
 import { SettingsPage }  from './pages/SettingsPage.js';
 import { HistoryPage } from './pages/HistoryPage.js';
@@ -31,6 +32,7 @@ const api = isPreview
 const PAGES = {
   start:     StartPage,
   session:   SessionPage,
+  sessionComplete: SessionCompletePage,
   blocklist: BlockListPage,
   settings:  SettingsPage,
   history: HistoryPage,
@@ -54,6 +56,12 @@ const state = {
   //   is_running: true
   // }
   session: null,
+
+  // id of the session whose completion summary is currently being shown
+  completedSessionId: null,
+
+  // summary returned directly by end_session
+  completedSessionSummary: null,
 
   // loaded from backend when extension opens
   settings: null,
@@ -88,6 +96,10 @@ function navigate(page) {
 
   // Don't allow the session page if there is no active session
   if (page === 'session' && !state.session) {
+    page = 'start';
+  }
+
+  if (page === 'sessionComplete' && !state.completedSessionId) {
     page = 'start';
   }
 

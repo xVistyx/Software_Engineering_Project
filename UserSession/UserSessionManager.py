@@ -22,6 +22,7 @@ class UserSessionCoordinator(IUserSessionCoordinator):
         
         self.active_user_session = ActiveUserSessionManager(self.website_meta_data_evaluator, self.ai_eval)# -> add interface to this
         self.session_id: int = None
+        self.session_summary = None
         #add Website blocking to here as well
         
         
@@ -93,12 +94,20 @@ class UserSessionCoordinator(IUserSessionCoordinator):
             
 
 
-    def end_user_session(self, frontend_content:dict ) -> bool:
+    def end_user_session(self, frontend_content:dict ) -> dict:
         session_content = self.get_db_session_data(self.session_id)
-        print("This end is being called \n \n")
-        self.stop_session.manage_session_stop(session_content,frontend_content )
+        
+        frontend_info, backend_info, session_info = self.stop_session.manage_session_stop(session_content, self.active_session )
+        self.session_summary = backend_info
+        self.active_session = session_info
+        return frontend_info
 
-        pass
+
+    def send_to_global_db_manager(self):
+        return self.session_summary
+
+    def get_session_summary(self):
+        ...
 
     def pause_user_session(self):
         ...

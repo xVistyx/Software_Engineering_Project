@@ -29,7 +29,10 @@ export function SessionPage({ navigate, state, api, bg }) {
     page.querySelectorAll('button').forEach(button => { button.disabled = true; });
     try {
       if (action === 'end') {
-        await api.endSession(session.id);
+        const endResult = await api.endSession(session.id);
+        const summary = endResult?.content ?? endResult;
+        console.log('END SESSION SUMMARY:', summary);
+        state.completedSessionSummary = summary;
         await bg('SESSION_END');
         await complete();
       } else {
@@ -79,25 +82,14 @@ export function SessionPage({ navigate, state, api, bg }) {
 
   async function complete() {
     timer?.stop();
-    const summary = await api.getSummary(session.id);
-    if (disposed) return;
     clearInterval(poll);
+    if (disposed) return;
+
+    // Preserve the completed id before clearing the active-session state.
+    // SessionCompletePage owns fetching and rendering the final summary.
+    state.completedSessionId = session.id;
     state.session = null;
-    const body = node('<div class="grow"><div class="complete-mark" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="m6 12 4 4 8-8"/></svg></div><h2 class="center">Session complete</h2><p class="sub center" data-duration></p><div class="stat-grid"></div></div>');
-    body.querySelector('[data-duration]').textContent = `Session time: ${Math.round(summary.focusedSeconds / 60)} minutes.`;
-    [[summary.visitCount ?? 0, 'Website visits'], [summary.pauseCount ?? 0, 'Pauses'],
-     [`${Math.round((summary.browserActiveSeconds ?? 0) / 60)}m`, 'Browser activity'],
-     [`${Math.round((summary.pausedSeconds ?? 0) / 60)}m`, 'Paused time']].forEach(([value, caption]) => {
-      const stat = node('<div class="stat"><div class="num"></div><div class="cap"></div></div>');
-      stat.querySelector('.num').textContent = value;
-      stat.querySelector('.cap').textContent = caption;
-      body.querySelector('.stat-grid').append(stat);
-    });
-    const details = node('<button class="btn btn-soft" style="margin:20px 0 10px">View session details</button>');
-    details.addEventListener('click', () => { state.historySessionId = session.id; navigate('history'); });
-    const done = node('<button class="btn btn-primary">Done</button>');
-    done.addEventListener('click', () => navigate('start'));
-    page.replaceChildren(body, details, done);
+    navigate('sessionComplete');
   }
 
   async function sync() {
