@@ -5,4 +5,9 @@ class Settings(ISettings):
     def __init__(self):
         pass
     def view_settings(self):
-        pass
+        ...
+
+#class get settings
+
+
+#class update settings
