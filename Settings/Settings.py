@@ -6,7 +6,7 @@ settingfile = "settings.json"
 blocklistfile = "blocklist.json"
 
 
-class Settings(ISettings):
+class Settings:
 
     def __init__(self):
         self.settings = {
@@ -21,6 +21,7 @@ class Settings(ISettings):
         }
         self.load_blocklist()
         self.load_settings()
+    
     def settings_manager(self, action:str, content:dict):
         if action == "get_settings":
             return self.get_settings()
@@ -32,7 +33,7 @@ class Settings(ISettings):
             return self.update_blocklist(content)
         else:
             return {"action":action, "content": {}}
-
+    
     def get_settings(self):
         return {"action":"get_settings", "content":self.settings}
     def update_settings(self, content:dict):

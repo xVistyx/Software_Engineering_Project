@@ -30,7 +30,7 @@ class IServerManage(ABC):
 
 class ISettings(ABC):
     @abstractmethod
-    def view_settings():
+    def settings_manager(self, action:str, content:dict):
         pass
 
 class IPastSessionManager(ABC):
