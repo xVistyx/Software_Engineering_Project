@@ -1,6 +1,6 @@
 from interfaces import ISettings
 import json
-from os import isfile
+from os.path import isfile
 
 settingfile = "settings.json"
 blocklistfile = "blocklist.json"
@@ -10,8 +10,8 @@ class Settings(ISettings):
 
     def __init__(self):
         self.settings = {
-            "defaultminutes" : 45,
-            "breakreminders" : True,
+            "defaultMinutes" : 45,
+            "breakReminders" : True,
             "sounds" : True,
             "strictMode" : False
         }
@@ -43,7 +43,7 @@ class Settings(ISettings):
         self.save_settings()
         return {"action":"update_settings", "content":self.settings}
     def get_blocklist(self):
-        return {"action":"get blocklist", "content": self.blocklist}
+        return {"action":"get_blocklist", "content": self.blocklist}
     def update_blocklist(self, content:dict):
         if "sites" in content:
             self.blocklist["sites"] = content["sites"]
