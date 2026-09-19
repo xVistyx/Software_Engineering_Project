@@ -56,19 +56,12 @@ class GenerateSummary:
             session_end_time = datetime.now()
 
         session_set_duration = self.calculate_set_duration(session_info)
-
         actual_session_duration = self.calculate_session_duration(session_start_time,session_end_time)
-
         number_of_tabs = session_info.get("tab_count",len(session_data.get("website_metadata", [])))
-
         time_spent_on_tabs = int(round(sum(self.calculate_time_spent_per_tab(metadata).values())))
-
         most_used_tab = self.calculate_most_used_tabs(metadata)
-
         most_often_blocked = self.calculate_most_blocked(metadata)
-
         productive_time = sum(float(tab.get("time_spent", 0) or 0) for tab in metadata if tab.get("is_related") is True)
-
         session_score = self.generate_score(productive_time, actual_session_duration)
 
        

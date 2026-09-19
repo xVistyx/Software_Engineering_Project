@@ -11,7 +11,7 @@ from .StopSession.StopSession import StopSession
 from .ActiveUserSession import ActiveUserSessionManager
 
 class UserSessionCoordinator(IUserSessionCoordinator):
-    def __init__(self):
+    def __init__(self, session_folder, clock):
         """I need to add threading to this to make it threading safe. This file shouldnt do anything but coordinate. Logic is handeled in the manager Files"""
         self.active_session: SessionInfo = None
         self.ai_eval = AISessionEval() #needs an interface
