@@ -1,0 +1,65 @@
+{
+    "session_info": {
+        "id": 85,
+        "topic": "Intro to ML practice",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-17T10:55:18.326320",
+        "last_update_time": "2026-09-17T10:55:18.326320",
+        "predicted_end_time": "2026-09-17T11:40:18.326320",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 4,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 171809625,
+            "title": "(2) WhatsApp",
+            "url": "https://web.whatsapp.com/",
+            "favicon": "https://web.whatsapp.com/favicon/1x/f02/v4/",
+            "timestamp": "2026-09-17T08:56:07.522Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 1.3910000000032596,
+            "is_related": true
+        },
+        {
+            "tab_id": 171809640,
+            "title": "Miniconda not appearing in terminal - Claude",
+            "url": "https://claude.ai/chat/05bb7400-413a-4b7d-8fcd-a119768fa666",
+            "favicon": "https://claude.ai/favicon.ico",
+            "timestamp": "2026-09-17T08:56:08.907Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 62.35899999999674,
+            "is_related": true
+        },
+        {
+            "tab_id": 171809660,
+            "title": "Aanmelden bij uw account",
+            "url": "https://login.microsoftonline.com/login.srf",
+            "favicon": "https://aadcdn.msftauth.net/shared/1.0/content/images/favicon_a_eupayfgghqiai7k9sol6lg2.ico",
+            "timestamp": "2026-09-17T08:57:04.020Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 31.578000000008615,
+            "is_related": true
+        },
+        {
+            "tab_id": 171809664,
+            "title": "Aanmelden bij uw account",
+            "url": "https://login.microsoftonline.com/7a5561df-6599-4898-8a20-cce41db3b44f/saml2?SAMLRequest=lZJPb%2BIwEMW%2FSuR7cEji%2FLEAiYXDInULgmwPvRlnQi05Y9bjbLvffgO0KnuptFePf2%2Fee5oZqd6e5XIIL7iHXwNQiN56iySvgzkbPEqnyJBE1QPJoOVh%2BeNBppNEnr0LTjvL7pCvCUUEPhiHLNqs52y13TdbXSkQmRZtm0OpqqzuyiybJl2qdC4KUaSq7dpK1Cx6Ak8jO2ej1ChANMAGKSgM41OSFnFSx9OySSopSpmnzyxaj3kMqnClXkI4k%2BTcupPBSW%2B0d%2BS64NAahIl2PS%2BVEMW07eJC1HWcV3UVVypNYq0hn7bH7JjnHb%2BkTFm0%2FIiyckhDD%2F4A%2FrfR8HP%2F8LkK8HTRpsF32iG8hQlarsayAYPRV1%2BczlzfJOK7enbv3X4z2Bo8fV3r8faJ5Pem2cW77aFhi9nFp7yW5Bf%2F6aeHoFoV1Izfi8xut%2FI4rt%2Bsd84a%2FSdaWuteVx5UgDkLfgDGFzfq36Na%2FAU%3D",
+            "favicon": "",
+            "timestamp": "2026-09-17T08:57:42.841Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 8.905999999988126,
+            "is_related": true
+        }
+    ]
+}

@@ -94,7 +94,8 @@ class System(ISystem):
     
     def run_settings(self, action:str, content: dict) -> dict:
          # must return a dictionary formated: action: str  content: dict
-        return self.test_dict
+        settings =  self.settings.settings_manager(action=action, content= content)
+        return settings
 
     def run_past_session(self, action:str, content: dict) -> dict:
          # must return a dictionary formated: action: str  content: dict
