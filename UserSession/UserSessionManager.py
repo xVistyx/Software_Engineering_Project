@@ -100,15 +100,14 @@ class UserSessionCoordinator(IUserSessionCoordinator):
         frontend_info, backend_info, session_info = self.stop_session.manage_session_stop(session_content, self.active_session )
         self.session_summary = backend_info
         self.active_session = session_info
-        self.delete_old_session()
+        self.delete_old_session() #comment out if u want to collect data
         return frontend_info
 
 
     def send_to_global_db_manager(self):
         return self.session_summary
 
-    def get_session_summary(self):
-        ...
+    
 
     def pause_user_session(self):
         ...

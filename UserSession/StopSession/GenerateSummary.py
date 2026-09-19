@@ -4,6 +4,7 @@ from urllib.parse import urlparse
 from collections import Counter
 
 
+
 @dataclass
 class SessionSummaryForDB:
     session_id: int

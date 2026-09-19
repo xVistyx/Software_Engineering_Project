@@ -22,17 +22,11 @@ class ActiveUserSessionManager:
         if isinstance(final_metadata, list):
 
             for tab_metadata in final_metadata:
-                tab_metadata["is_related"] = self._is_related(
-                    tab_metadata,
-                    session_topic
-                )
+                tab_metadata["is_related"] = self._is_related(tab_metadata, session_topic)
 
       
         else:
-            final_metadata["is_related"] = self._is_related(
-                final_metadata,
-                session_topic
-            )
+            final_metadata["is_related"] = self._is_related(final_metadata,session_topic)
 
         return final_metadata, is_stored
          
