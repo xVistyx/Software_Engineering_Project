@@ -7,4 +7,5 @@ dependencies:
   - pip:
       - fastapi
       - uvicorn
+       - pydantic
 
