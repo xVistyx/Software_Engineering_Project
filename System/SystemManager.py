@@ -15,32 +15,24 @@ from UserSession.UserSessionManager import UserSessionCoordinator
 from System.BackendRequests import BackendRequests
 from PastSessions.PastSessionManager import PastSessionManager
 from Settings.Settings import Settings
+from DataBase.SummaryAdapter import summary_record
 
 
 class SetupSystem:
 
     def __init__(self, user_id=None, activity_path=None):
-
         self.system_db_manager = SystemDatabaseManager()
-
         configured = (activity_path or os.environ.get("GROVE_ACTIVITY_PATH"))
-
         if configured:
             self.session_folder = (Path(configured).parent / "team-active")
         else:
             self.session_folder = (Path(__file__).resolve().parents[1]/ "UserSession"/ "ActiveSessionDB")
-
         self.clock = datetime.now
         self.lock = RLock()
-
         self.session_managers = {}
-
         self.backend_requests = BackendRequests()
-        self.past_session_manager = PastSessionManager()
         self.settings = Settings()
-
         self.user_id = user_id
-
         self.user_manager = AuthenticateUser(
             system_db_manager=self.system_db_manager,
             session_folder=self.session_folder,
@@ -50,28 +42,21 @@ class SetupSystem:
         )
 
     def setup_system(self):
-
         if self.user_id is None:
             return self.user_manager.register_user()
-
         manager = self.user_manager.for_user(self.user_id)
-
         return manager
 
     def checkpoint(self):
-
         with self.lock:managers = list(self.session_managers.items())
-
         for user_id, manager in managers:
-
             try:
                 with manager.lock:
                     manager.checkpoint()
                     self.system_db_manager.save_pending(user_id,manager)
-
             except Exception:
-
                 logging.exception("Could not checkpoint user %s; will retry",user_id)
+
 class SystemDatabaseManager:
 
     def __init__(self):
@@ -97,6 +82,13 @@ class SystemDatabaseManager:
             user_id,
             session_summary
         )
+    def get_history(self, user_id):
+        return self.db_manager.get_history(user_id)
+
+    def get_session_details(self, user_id, session_id):
+        return self.db_manager.get_session_details(user_id,session_id)
+    def get_legacy_sources(self, user_id):
+        return self.db_manager.get_legacy_sources(user_id)
 
 
 class AuthenticateUser:
@@ -147,6 +139,77 @@ class AuthenticateUser:
 class AuthorizationError(Exception):
     pass
 
+class SessionSummaryManager:
+    def __init__(self, db_manager):
+        self.past_session_manager = PastSessionManager()
+        self.db_manager = db_manager
+        self.clock = datetime.now
+
+    def _details(self, user_id, sid):
+        return self.db_manager.get_session_details(
+            user_id,
+            str(sid)
+        )
+
+    
+    
+    def get_past_session(self,action,content,user_id,manager):
+
+        if action in (
+            'get_session_details',
+            'get_session_summary'
+        ):
+
+            details = self._details(
+                user_id,
+                content.get('session_id')
+            )
+
+            if action == 'get_session_details':
+                return details
+
+            return {
+                **details['summary'],
+                'storage_status': details['storage_status']
+            }
+
+
+        if action not in (
+            'get_sessions',
+            'get_past_sessions',
+            'get_stats',
+            'export_activity'
+        ):
+            raise ValueError('Unknown action')
+
+
+        records = {
+            session['id']: session
+            for session in self.db_manager.get_history(user_id)
+        }
+
+
+        sessions = sorted(
+            records.values(),
+            key=lambda session: session['started_at'],
+            reverse=True
+        )
+
+
+        legacy = (
+            self.db_manager.get_legacy_sources(user_id)
+            if action == 'export_activity'
+            else []
+        )
+
+
+        return self.past_session_manager.present(
+            action,
+            sessions,
+            set(),
+            legacy,
+            self.clock()
+        )
 """
 class System(ISystem):
     

@@ -5,7 +5,7 @@ from UserSession.UserSessionManager import UserSessionCoordinator
 from Settings.Settings import Settings
 #from PastSessions.PastSessionManager import PastSessionManager
 
-from .DBManager import SetupSystem, SystemDatabaseManager
+from .SystemManager import SetupSystem, SystemDatabaseManager, SessionSummaryManager
 
 
 class System():
@@ -15,6 +15,7 @@ class System():
         self.server_manager:IServerManage = None
         self.backend_requests: BackendRequests = BackendRequests()
         self.data_manager = self.system_manager.system_db_manager
+        self.session_summary_manager = SessionSummaryManager(self.data_manager)
         
         self.frontend_message: FrontEndSessionData = {}
 
@@ -23,11 +24,24 @@ class System():
         
         self.test_dict = {"action": "start_session","content": {"id": "test-session-123"}}
         
-        self.features = {"start_session": self.run_user_session, "update_session": self.run_user_session, "end_session": self.run_user_session, "get_active_session": self.run_user_session,
-                         "get_settings": self.run_settings, "update_settings": self.run_settings, "get_blocklist": self.run_settings,
-                         "update_blocklist": self.run_settings,"get_session_summary": self.run_past_session,"get_sessions": self.run_past_session,
-                          "get_stats": self.run_past_session, "log_meta_data": self.run_user_session
-} 
+        self.features = {
+        "start_session": self.run_user_session,
+        "update_session": self.run_user_session,
+        "end_session": self.run_user_session,
+        "get_active_session": self.run_user_session,
+
+        "get_settings": self.run_settings,
+        "update_settings": self.run_settings,
+        "get_blocklist": self.run_settings,
+        "update_blocklist": self.run_settings,
+
+        "get_session_summary": self.run_past_session,
+        "get_session_details": self.run_past_session,
+        "get_sessions": self.run_past_session,
+        "get_stats": self.run_past_session,
+
+        "log_meta_data": self.run_user_session,
+    } 
         
     def authenticate_user(self, token) -> tuple[str, IUserSessionCoordinator]:
         identity = self.data_manager.authenticate(token)
@@ -73,11 +87,7 @@ class System():
         return response
 
 
-    """
-    def run_website_metadata(self, message: dict):
-    
-            return self.user_session_manager.block_website(message["content"])
-   """
+  
     
     
     def run_settings(self,action,content,user_id, user_session_manager) -> dict:
@@ -85,14 +95,27 @@ class System():
         settings =  self.settings.settings_manager(action=action, content= content)
         return settings
 
+    
 
 
-    def run_past_session(self,action,content,user_id,user_session_manager):
-         # must return a dictionary formated: action: str  content: dict
-        """
-         This function is reponsible for sending DB information to the frontend to load it.
-         
-        """
-        return self.test_dict
+    def run_past_session(
+    self,
+    action,
+    content,
+    user_id,
+    manager
+):
+        result = self.session_summary_manager.get_past_session(
+            action,
+            content,
+            user_id,
+            manager
+        )
+
+        return {
+            "action": action,
+            "content": result
+        }
+
 
 
