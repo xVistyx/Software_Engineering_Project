@@ -2,8 +2,8 @@ from interfaces import ISettings
 import json
 from os.path import isfile
 
-settingfile = "settings.json"
-blocklistfile = "blocklist.json"
+settingfile = "Settings/settings.json"
+blocklistfile = "Settings/blocklist.json"
 
 
 class Settings:

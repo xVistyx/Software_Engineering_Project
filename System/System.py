@@ -22,7 +22,7 @@ class System():
         self.settings:ISettings = Settings()
         self.is_session_active = False
         
-        self.test_dict = {"action": "start_session","content": {"id": "test-session-123"}}
+       
         
         self.features = {
         "start_session": self.run_user_session,
@@ -55,7 +55,7 @@ class System():
         
 
    
-    def buildResponse(self, frontend_message:dict, token: str) ->SessionData :
+    def buildResponse(self, frontend_message:dict, token: str) -> SessionData :
             """build response from backend"""
             action = frontend_message["action"]
             content = frontend_message["content"]
@@ -75,7 +75,7 @@ class System():
         return self.backend_requests.build_responses(message)
         
         
-    def run_user_session(self,action: str,content: dict,user_id,user_session_manager) -> dict:
+    def run_user_session(self,action: str,content: dict,user_id,user_session_manager) -> dict[str:str, str: dict]:
 
         response = user_session_manager.user_session_manager(action,content)
 
@@ -90,7 +90,7 @@ class System():
   
     
     
-    def run_settings(self,action,content,user_id, user_session_manager) -> dict:
+    def run_settings(self,action,content,user_id, user_session_manager) -> dict[str:str, str: dict]:
          # must return a dictionary formated: action: str  content: dict
         settings =  self.settings.settings_manager(action=action, content= content)
         return settings
@@ -98,19 +98,8 @@ class System():
     
 
 
-    def run_past_session(
-    self,
-    action,
-    content,
-    user_id,
-    manager
-):
-        result = self.session_summary_manager.get_past_session(
-            action,
-            content,
-            user_id,
-            manager
-        )
+    def run_past_session(self,action,content,user_id,manager) -> dict[str:str, str: dict]:
+        result = self.session_summary_manager.get_past_session(action,content,user_id,manager)
 
         return {
             "action": action,
