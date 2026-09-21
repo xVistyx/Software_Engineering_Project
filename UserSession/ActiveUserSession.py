@@ -15,11 +15,12 @@ class ActiveUserSessionManager:
         self.website_blocking_manager = website_blocking_manager
 
     def active_session_manager(self,metadata: dict,session_topic: str) -> tuple[dict | list[dict] | None, bool]:
-
+        
         final_metadata, is_stored = self.webiste_data(metadata=metadata,session_topic=session_topic)
 
         if not is_stored:
             return {}, False
+        print("METADATA: ", final_metadata)
         
         if isinstance(final_metadata, list):
 
@@ -29,6 +30,7 @@ class ActiveUserSessionManager:
       
         else:
             final_metadata["is_related"] = self._is_related(final_metadata,session_topic)
+        
 
         return final_metadata, is_stored
          
@@ -59,6 +61,7 @@ class ActiveUserSessionManager:
     def webiste_data(self, metadata: dict, session_topic:str, ) -> tuple[dict, bool]:
             is_new_tab = self.website_meta_data.handle_event(metadata,session_topic)
             stored = False
+            is_related = False
          
             if is_new_tab:
                 print("NEW TAB -> STORE:",metadata.get("tab_id"))

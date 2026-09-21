@@ -32,14 +32,14 @@ class TabTimerHandler(ITabTimerHandler):
         elapsed = 0.0
 
         if self.active_tab_id is not None:
-            previous_tab_id, elapsed = self.stop()
+            previous_tab_id, elapsed = self.stop(tab_id)
 
         self.active_tab_id = tab_id
         self.started_at = monotonic()
 
         return previous_tab_id, elapsed
 
-    def stop(self) -> tuple[int | None, float]:
+    def stop(self, tab_id) -> tuple[int | None, float]:
         if self.active_tab_id is None or self.started_at is None:
             return None, 0.0
 

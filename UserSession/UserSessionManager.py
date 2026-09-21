@@ -86,7 +86,6 @@ class UserSessionCoordinator(IUserSessionCoordinator):
         if command == "log_meta_data":
             topic = self.active_session["topic"]
             metadata_result, stored = (self.active_user_session.active_session_manager(content,topic))
-            self.manage_webiste_blocking(metadata_result)
             if not stored:
                 return
             self.set_db_session_data(metadata_result, True)
@@ -108,8 +107,7 @@ class UserSessionCoordinator(IUserSessionCoordinator):
 
     def send_to_global_db_manager(self):
         return self.session_summary
-    def manage_webiste_blocking(self, meta_data):
-        self.website_blocking_manager.website_blocker_manager(meta_data=meta_data)
+   
     
 
     def pause_user_session(self):

@@ -1,0 +1,125 @@
+{
+    "session_info": {
+        "id": 28,
+        "topic": "hello world",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-21T11:22:47.067748",
+        "last_update_time": "2026-09-21T11:22:47.067748",
+        "predicted_end_time": "2026-09-21T12:07:47.067748",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 9,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66843688,
+            "title": "fuck u - Google Zoeken",
+            "url": "https://www.google.com/search?sca_esv=191ec1cb4de0abb4&rlz=1C5OZZY_enNL1221NL1221&q=fuck+u&source=lnms&fbs=ABfTbFUyxjQn9bne4DuflY2dNqqKxYAWFhLCpnjf3OsLbYdPHfeLRBbUdax8XIDisZsbNPMegIQzUsa4JCn1YSkvXcqL2vBeGVbea-Al2nduh-wu03ZCCac4V33yKZU_4pj59rSzK4QFLYLtDjlV60PTTPjOZwqdM137BHtba0dUxzHxEAKInD-IaaiiTF9EakWNojSTsNYm&sa=X&ved=2ahUKEwiN4YfdrP-WAxVp_gIHHdsoDCcQ0pQJegQIDhAB&biw=1492&bih=842&dpr=2",
+            "favicon": "",
+            "timestamp": "2026-09-21T09:22:54.585Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 14.18271237501176,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843683,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hello&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg5MgYIAhBFGDsyBggDEEUYOzIGCAQQRRg8MgYIBRBFGDwyBggGEEUYPDIGCAcQRRg90gEIMjMzMWowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-21T09:23:08.781Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 4.470350084011443,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843690,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "",
+            "timestamp": "2026-09-21T09:23:10.434Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 0.7509287919965573,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843692,
+            "title": "not chess - Google Zoeken",
+            "url": "https://www.google.com/search?q=not+chess&rlz=1C5OZZY_enNL1221NL1221&oq=not+chess&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgcIARAAGIAEMgcIAhAAGIAEMgcIAxAAGIAEMggIBBAAGBYYHjIICAUQABgWGB4yCAgGEAAYFhgeMgYIBxBFGDzSAQgxMTA4ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-21T09:23:13.344Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 0.5357153340009972,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843695,
+            "title": "The Holocaust was terrible, but it does not deserve the emphasis and attention it gets compared to other genocides and tragedies CMV : r/changemyview",
+            "url": "https://www.reddit.com/r/changemyview/comments/1ina3y/the_holocaust_was_terrible_but_it_does_not/",
+            "favicon": "",
+            "timestamp": "2026-09-21T09:23:19.765Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 39.342860125005245,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843678,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "",
+            "timestamp": "2026-09-21T09:24:01.599Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 0.9881279580295086,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843667,
+            "title": "hee - Google Zoeken",
+            "url": "https://www.google.com/search?q=hee&rlz=1C5OZZY_enNL1221NL1221&oq=he&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg7MgYIAhBFGDkyBggDEEUYOzIGCAQQRRg7MgYIBRBFGDwyBggGEEUYPDIGCAcQRRg80gEIMTIwMGowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-21T09:24:02.595Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 13.405040582991205,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843698,
+            "title": "not chess - Google Zoeken",
+            "url": "https://www.google.com/search?q=not+chess&rlz=1C5OZZY_enNL1221NL1221&oq=not+chess&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgcIARAAGIAEMgcIAhAAGIAEMgcIAxAAGIAEMggIBBAAGBYYHjIICAUQABgWGB4yCAgGEAAYFhgeMgYIBxBFGDzSAQgxNDIxajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-21T09:24:10.367Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 1.4548927920404822,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843700,
+            "title": "google.com/search?q=was+the+holocaust+even+that+bad%3F&rlz=1C5OZZY_enNL1221NL1221&oq=&gs_lcrp=EgZjaHJvbWUqCQgCEEUYOxjCAzIJCAAQRRg7GMIDMgkIARBFGDsYwgMyCQgCEEUYOxjCAzIJCAMQRRg7GMIDMgkIBBBFGDsYwgMyCQgFEEUYOxjCAzIJCAYQRRg7GMIDMgkIBxBFGDsYwgPSAQg4NTU5ajBqN6gCCLACAfEFQv4Up3vEmxc&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "url": "https://www.google.com/search?q=was+the+holocaust+even+that+bad%3F&rlz=1C5OZZY_enNL1221NL1221&oq=&gs_lcrp=EgZjaHJvbWUqCQgCEEUYOxjCAzIJCAAQRRg7GMIDMgkIARBFGDsYwgMyCQgCEEUYOxjCAzIJCAMQRRg7GMIDMgkIBBBFGDsYwgMyCQgFEEUYOxjCAzIJCAYQRRg7GMIDMgkIBxBFGDsYwgPSAQg4NTU5ajBqN6gCCLACAfEFQv4Up3vEmxc&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-21T09:24:17.472Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 0.0,
+            "is_related": true
+        }
+    ]
+}

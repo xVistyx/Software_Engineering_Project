@@ -55,8 +55,6 @@ class TabActivityHandler(ITabActivityHandler):
                     round(previous_tab["time_spent"], 2)
                 )
 
-
-
         tab = self.tabs.get_tab(tab_id)
 
         tab["currently_active"] = True
@@ -84,6 +82,7 @@ class TabActivityHandler(ITabActivityHandler):
     
             self.dirty.mark_dirty(tab)
             return True, tab
+
     def deactivate_tab(self, tab_id: int) -> tuple[bool, dict | None]:
         tab = self.tabs.get_tab(tab_id)
         # Tab doesn't exist
@@ -94,10 +93,10 @@ class TabActivityHandler(ITabActivityHandler):
             tab["currently_active"] = False
             return False, tab
         # Stop timer and get elapsed active time
-        elapsed = self.timer.stop(tab_id)
+        elapsed_time = self.timer.stop(tab_id)[1]
 
         # Add this active period to total time spent
-        tab["time_spent"] += elapsed
+        tab["time_spent"] += elapsed_time
         tab["currently_active"] = False
         # Metadata changed, so mark it for saving/updating
         self.dirty_tabs.mark_dirty(tab)
