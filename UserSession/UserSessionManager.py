@@ -41,22 +41,19 @@ class UserSessionCoordinator(IUserSessionCoordinator):
             return self.update_user_session(content, "update_session")
         elif action == "end_session":
             return self.end_user_session(content)
-        elif action == "log_meta_data":
-            return {
-                "action": "log_meta_data",
-                "content": self.update_user_session(content, "log_meta_data") # naming is a bit weird need to fix. But linked to frontend so cannot rn -> future this will be function call to block the websites
+        elif action in ["log_meta_data","log_dynamic_content"]:
+            return {"action": action,"content": self.update_user_session(content, "log_dynamic_content") # naming is a bit weird need to fix. But linked to frontend so cannot rn -> future this will be function call to block the websites
             }
-
         else:
-            return {
-                "action": action,
-                "content": {
-                    "error": "Unknown user session action"
-                }
-            }
+            return {"action": action,"content": {"error": "Unknown user session action"}}
+        
     def start_user_session(self, content:dict) -> dict:
         """This functions main purpose is to log a new session such that the start gets logged in the db"""
+
+        
         session_start:dict = self.session_start.session_start_as_dict(content)
+
+        
         self.active_session:SessionInfo = session_start
         print("Active session ", session_start)
         self.session_id = session_start["id"]
@@ -82,10 +79,12 @@ class UserSessionCoordinator(IUserSessionCoordinator):
 
     
     def update_user_session(self, content: dict, command: str):
-
-        if command == "log_meta_data":
+        if command == "log_dynamic_content":
             topic = self.active_session["topic"]
-            metadata_result, stored = (self.active_user_session.active_session_manager(content,topic))
+            metadata_result, stored = (self.active_user_session.active_session_manager(content,topic, command="log_dynamic_content"))
+        elif command == "log_meta_data":
+            topic = self.active_session["topic"]
+            metadata_result, stored = (self.active_user_session.active_session_manager(content,topic, command=None))
             if not stored:
                 return
             self.set_db_session_data(metadata_result, True)
@@ -101,7 +100,7 @@ class UserSessionCoordinator(IUserSessionCoordinator):
         frontend_info, backend_info, session_info = self.stop_session.manage_session_stop(session_content, self.active_session )
         self.session_summary = backend_info
         self.active_session = session_info
-        self.delete_old_session() #comment out if u want to collect data
+        #self.delete_old_session() #comment out if u want to collect data
         return frontend_info
 
 

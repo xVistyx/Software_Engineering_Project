@@ -29,11 +29,17 @@ function enqueue(task) {
 
 async function getRunningSession() {
 
-  const session = await api.getActiveSession();
+  const session =
+    await api.getActiveSession();
 
-  if (!session?.id || !session.is_running) {
+
+  if (
+    !session?.id ||
+    !session.is_running
+  ) {
     return null;
   }
+
 
   return session;
 }
@@ -54,39 +60,207 @@ async function sendTabObservation(
 
   if (tab.incognito) return;
 
-  if (!/^https?:\/\//i.test(tab.url ?? '')) return;
+  if (
+    !/^https?:\/\//i.test(
+      tab.url ?? ''
+    )
+  ) {
+    return;
+  }
 
 
   const observation = {
 
-    event_id: crypto.randomUUID(),
+    event_id:
+      crypto.randomUUID(),
 
-    session_id: session.id,
+    session_id:
+      session.id,
 
-    timestamp: new Date().toISOString(),
+    timestamp:
+      new Date().toISOString(),
 
     state,
 
     reason,
 
-    tab_id: tab.id,
+    tab_id:
+      tab.id,
 
-    window_id: tab.windowId,
+    window_id:
+      tab.windowId,
 
-    url: tab.url,
+    url:
+      tab.url,
 
-    title: tab.title ?? '',
+    title:
+      tab.title ?? '',
 
-    favicon: tab.favIconUrl ?? '',
+    favicon:
+      tab.favIconUrl ?? '',
 
-    audible: !!tab.audible,
+    audible:
+      !!tab.audible,
 
-    pinned: !!tab.pinned
+    pinned:
+      !!tab.pinned
   };
 
 
   await api.logWebsiteMetadata(
     observation
+  );
+}
+
+
+// ============================================================
+// DYNAMIC WEBPAGE CONTENT
+// ============================================================
+
+async function handleDynamicContent(
+  message,
+  sender
+) {
+
+  /*
+    Dynamic content should only be evaluated
+    while a focus session is running.
+  */
+
+  const session =
+    await getRunningSession();
+
+
+  if (!session) {
+    return {
+      error:
+        'No active focus session.'
+    };
+  }
+
+
+  /*
+    Content scripts do not need to know their
+    own Chrome tab ID.
+
+    Chrome provides it through sender.tab.id.
+  */
+
+  const tabId =
+    sender.tab?.id;
+
+
+  if (!tabId) {
+
+    return {
+      error:
+        'Could not determine tab ID.'
+    };
+
+  }
+
+
+  const payload =
+    message.payload;
+
+
+  /*
+    Expected structure:
+
+    {
+      page_type: "...",
+      primary_content: {...},
+      recommended_content: [...]
+    }
+  */
+
+  if (
+    !payload ||
+    typeof payload !== 'object'
+  ) {
+
+    return {
+      error:
+        'Invalid dynamic content payload.'
+    };
+
+  }
+
+
+  const primaryContent =
+    payload.primary_content ?? null;
+
+
+  const recommendedContent =
+    Array.isArray(
+      payload.recommended_content
+    )
+      ? payload.recommended_content
+      : [];
+
+
+  /*
+    If there is nothing to evaluate,
+    don't contact the backend.
+  */
+
+  if (
+    !primaryContent &&
+    recommendedContent.length === 0
+  ) {
+
+    return {
+      primary_content: null,
+      recommended_content: []
+    };
+
+  }
+
+
+  /*
+    Add information that the content script
+    itself shouldn't need to provide.
+  */
+
+  const data = {
+
+    tab_id:
+      tabId,
+
+    session_id:
+      session.id,
+
+    page_type:
+      payload.page_type ??
+      'dynamic_page',
+
+    primary_content:
+      primaryContent,
+
+    recommended_content:
+      recommendedContent
+
+  };
+
+
+  /*
+    IMPORTANT:
+
+    logDynamicContent() needs to RETURN the
+    backend response.
+
+    Example backend response:
+
+    {
+      primary_content: {...},
+      recommended_content: [...]
+    }
+
+    That result gets sent back to youtube.js.
+  */
+
+  return await api.logDynamicContent(
+    data
   );
 }
 
@@ -99,12 +273,15 @@ async function handleTabActivated(
   activeInfo
 ) {
 
-  const session = await getRunningSession();
+  const session =
+    await getRunningSession();
+
 
   if (!session) return;
 
 
   let tab;
+
 
   try {
 
@@ -115,6 +292,7 @@ async function handleTabActivated(
   } catch {
 
     return;
+
   }
 
 
@@ -137,25 +315,46 @@ async function handlePageUpdated(
   tab
 ) {
 
-  // Only care about active tab
-  if (!tab.active) return;
+  /*
+    Only care about the active tab.
+  */
+
+  if (!tab.active) {
+    return;
+  }
 
 
-  // Ignore updates that don't affect useful metadata
+  /*
+    Ignore Chrome updates that don't contain
+    useful website metadata.
+  */
+
   const meaningfulUpdate = (
+
     changeInfo.url !== undefined ||
+
     changeInfo.title !== undefined ||
-    changeInfo.status === 'complete' ||
+
+    changeInfo.status ===
+      'complete' ||
+
     changeInfo.audible !== undefined
+
   );
 
 
-  if (!meaningfulUpdate) return;
+  if (!meaningfulUpdate) {
+    return;
+  }
 
 
-  const session = await getRunningSession();
+  const session =
+    await getRunningSession();
 
-  if (!session) return;
+
+  if (!session) {
+    return;
+  }
 
 
   await sendTabObservation(
@@ -175,33 +374,43 @@ async function handleTabClosed(
   tabId
 ) {
 
-  const session = await getRunningSession();
+  const session =
+    await getRunningSession();
 
-  if (!session) return;
+
+  if (!session) {
+    return;
+  }
 
 
   /*
-    The tab no longer exists here.
+    The tab no longer exists.
 
-    That's fine.
+    The backend already knows its URL/title
+    from previous observations.
 
-    The backend already knows this tab's metadata from previous
-    events. We only need to tell it WHICH tab closed.
+    We only need to tell it which tab closed.
   */
 
   await api.logWebsiteMetadata({
 
-    event_id: crypto.randomUUID(),
+    event_id:
+      crypto.randomUUID(),
 
-    session_id: session.id,
+    session_id:
+      session.id,
 
-    timestamp: new Date().toISOString(),
+    timestamp:
+      new Date().toISOString(),
 
-    state: 'closed',
+    state:
+      'closed',
 
-    reason: 'tab_closed',
+    reason:
+      'tab_closed',
 
-    tab_id: tabId
+    tab_id:
+      tabId
 
   });
 }
@@ -215,53 +424,80 @@ async function handleWindowFocusChanged(
   windowId
 ) {
 
-  const session = await getRunningSession();
+  const session =
+    await getRunningSession();
 
-  if (!session) return;
+
+  if (!session) {
+    return;
+  }
 
 
-  // Chrome lost focus entirely
+  /*
+    Chrome lost focus entirely.
+  */
+
   if (
-    windowId === chrome.windows.WINDOW_ID_NONE
+    windowId ===
+    chrome.windows.WINDOW_ID_NONE
   ) {
 
     await api.logWebsiteMetadata({
 
-      event_id: crypto.randomUUID(),
+      event_id:
+        crypto.randomUUID(),
 
-      session_id: session.id,
+      session_id:
+        session.id,
 
-      timestamp: new Date().toISOString(),
+      timestamp:
+        new Date().toISOString(),
 
-      state: 'unfocused',
+      state:
+        'unfocused',
 
-      reason: 'window_focus_changed'
+      reason:
+        'window_focus_changed'
 
     });
+
 
     return;
   }
 
 
-  // Chrome gained focus
+  /*
+    Chrome gained focus.
+  */
+
   let tabs;
+
 
   try {
 
-    tabs = await chrome.tabs.query({
-      active: true,
-      windowId
-    });
+    tabs =
+      await chrome.tabs.query({
+
+        active: true,
+
+        windowId
+
+      });
 
   } catch {
 
     return;
+
   }
 
 
-  const tab = tabs[0];
+  const tab =
+    tabs[0];
 
-  if (!tab) return;
+
+  if (!tab) {
+    return;
+  }
 
 
   await sendTabObservation(
@@ -281,54 +517,95 @@ async function handleIdleStateChanged(
   newState
 ) {
 
-  const session = await getRunningSession();
+  const session =
+    await getRunningSession();
 
-  if (!session) return;
+
+  if (!session) {
+    return;
+  }
 
 
-  if (newState !== 'active') {
+  /*
+    User became idle or locked.
+  */
+
+  if (
+    newState !==
+    'active'
+  ) {
 
     await api.logWebsiteMetadata({
 
-      event_id: crypto.randomUUID(),
+      event_id:
+        crypto.randomUUID(),
 
-      session_id: session.id,
+      session_id:
+        session.id,
 
-      timestamp: new Date().toISOString(),
+      timestamp:
+        new Date().toISOString(),
 
-      state: newState,
+      state:
+        newState,
 
-      reason: 'idle_state_changed'
+      reason:
+        'idle_state_changed'
 
     });
+
 
     return;
   }
 
 
-  // User returned
-  const windows = await chrome.windows.getAll({
-    windowTypes: ['normal']
-  });
+  /*
+    User returned.
+
+    Find the active tab in the focused
+    Chrome window.
+  */
+
+  const windows =
+    await chrome.windows.getAll({
+
+      windowTypes:
+        ['normal']
+
+    });
 
 
-  const focused = windows.find(
-    window => window.focused
-  );
+  const focused =
+    windows.find(
+      window =>
+        window.focused
+    );
 
 
-  if (!focused) return;
+  if (!focused) {
+    return;
+  }
 
 
-  const tabs = await chrome.tabs.query({
-    active: true,
-    windowId: focused.id
-  });
+  const tabs =
+    await chrome.tabs.query({
+
+      active:
+        true,
+
+      windowId:
+        focused.id
+
+    });
 
 
-  const tab = tabs[0];
+  const tab =
+    tabs[0];
 
-  if (!tab) return;
+
+  if (!tab) {
+    return;
+  }
 
 
   await sendTabObservation(
@@ -346,38 +623,45 @@ async function handleIdleStateChanged(
 
 async function handleHeartbeat() {
 
-  const session = await getRunningSession();
+  const session =
+    await getRunningSession();
 
-  if (!session) return;
+
+  if (!session) {
+    return;
+  }
 
 
   /*
-    Important:
+    Heartbeat doesn't send the entire website
+    metadata again.
 
-    Heartbeat does NOT send website metadata anymore.
-
-    Otherwise your timer page changing its title every second
-    can cause a constant stream of DB updates.
-
-    The heartbeat is only useful for general activity state.
+    It simply tells the backend that the session
+    is still alive and what the idle state is.
   */
 
-  const idle = await chrome.idle.queryState(
-    60
-  );
+  const idle =
+    await chrome.idle.queryState(
+      60
+    );
 
 
   await api.logWebsiteMetadata({
 
-    event_id: crypto.randomUUID(),
+    event_id:
+      crypto.randomUUID(),
 
-    session_id: session.id,
+    session_id:
+      session.id,
 
-    timestamp: new Date().toISOString(),
+    timestamp:
+      new Date().toISOString(),
 
-    state: idle,
+    state:
+      idle,
 
-    reason: 'heartbeat'
+    reason:
+      'heartbeat'
 
   });
 }
@@ -391,9 +675,10 @@ chrome.tabs.onActivated.addListener(
   activeInfo => {
 
     enqueue(
-      () => handleTabActivated(
-        activeInfo
-      )
+      () =>
+        handleTabActivated(
+          activeInfo
+        )
     );
 
   }
@@ -408,11 +693,12 @@ chrome.tabs.onUpdated.addListener(
   ) => {
 
     enqueue(
-      () => handlePageUpdated(
-        tabId,
-        changeInfo,
-        tab
-      )
+      () =>
+        handlePageUpdated(
+          tabId,
+          changeInfo,
+          tab
+        )
     );
 
   }
@@ -423,9 +709,10 @@ chrome.tabs.onRemoved.addListener(
   tabId => {
 
     enqueue(
-      () => handleTabClosed(
-        tabId
-      )
+      () =>
+        handleTabClosed(
+          tabId
+        )
     );
 
   }
@@ -436,9 +723,10 @@ chrome.windows.onFocusChanged.addListener(
   windowId => {
 
     enqueue(
-      () => handleWindowFocusChanged(
-        windowId
-      )
+      () =>
+        handleWindowFocusChanged(
+          windowId
+        )
     );
 
   }
@@ -449,11 +737,105 @@ chrome.idle.onStateChanged.addListener(
   newState => {
 
     enqueue(
-      () => handleIdleStateChanged(
-        newState
-      )
+      () =>
+        handleIdleStateChanged(
+          newState
+        )
     );
 
+  }
+);
+
+
+// ============================================================
+// DYNAMIC CONTENT MESSAGES
+// ============================================================
+
+chrome.runtime.onMessage.addListener(
+  (
+    message,
+    sender,
+    sendResponse
+  ) => {
+
+    /*
+      Only handle dynamic-content messages here.
+    */
+
+    if (
+      message.type !==
+      'DYNAMIC_CONTENT'
+    ) {
+      return;
+    }
+
+
+    /*
+      Only accept messages coming from this
+      Chrome extension.
+    */
+
+    if (
+      sender.id !==
+      chrome.runtime.id
+    ) {
+
+      sendResponse({
+        error:
+          'Invalid extension sender.'
+      });
+
+      return;
+
+    }
+
+
+    /*
+      IMPORTANT:
+
+      We DON'T put this through the normal
+      activity queue.
+
+      The content script is waiting for the
+      backend response so it can immediately
+      blur/allow the YouTube cards.
+    */
+
+    handleDynamicContent(
+      message,
+      sender
+    )
+      .then(result => {
+
+        sendResponse(
+          result
+        );
+
+      })
+      .catch(error => {
+
+        console.error(
+          'Dynamic content error:',
+          error
+        );
+
+
+        sendResponse({
+
+          error:
+            error.message
+
+        });
+
+      });
+
+
+    /*
+      Keeps the Chrome message channel open
+      while the async backend request runs.
+    */
+
+    return true;
   }
 );
 
@@ -470,17 +852,23 @@ chrome.runtime.onMessage.addListener(
   ) => {
 
     if (
-      sender.id !== chrome.runtime.id
+      sender.id !==
+      chrome.runtime.id
     ) {
       return;
     }
 
 
     const allowed = [
+
       'SESSION_START',
+
       'SESSION_PAUSE',
+
       'SESSION_RESUME',
+
       'SESSION_END'
+
     ];
 
 
@@ -500,7 +888,9 @@ chrome.runtime.onMessage.addListener(
           await getRunningSession();
 
 
-        if (!session) return;
+        if (!session) {
+          return;
+        }
 
 
         await api.logWebsiteMetadata({
@@ -526,9 +916,13 @@ chrome.runtime.onMessage.addListener(
 
       }
     ).then(
-      () => respond({
-        ok: true
-      })
+      () => {
+
+        respond({
+          ok: true
+        });
+
+      }
     );
 
 
@@ -562,7 +956,8 @@ chrome.alarms
         return chrome.alarms.create(
           'activity-heartbeat',
           {
-            periodInMinutes: 0.5
+            periodInMinutes:
+              0.5
           }
         );
 
@@ -586,8 +981,8 @@ chrome.alarms.onAlarm.addListener(
   alarm => {
 
     if (
-      alarm.name
-      !== 'activity-heartbeat'
+      alarm.name !==
+      'activity-heartbeat'
     ) {
       return;
     }

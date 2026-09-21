@@ -1,0 +1,41 @@
+{
+    "session_info": {
+        "id": "5cda9d8d-eab5-4f91-bfaf-3cc4ea5a67fd",
+        "topic": "chess",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-21T17:28:08.568722",
+        "last_update_time": "2026-09-21T17:28:08.568722",
+        "predicted_end_time": "2026-09-21T18:13:08.568722",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 2,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66843801,
+            "title": "Hello Kitty\u2019s Bow Chase | Hello Kitty and Friends Supercute Adventures S2 EP 10 - YouTube",
+            "url": "https://www.youtube.com/watch?v=LP9CQ8uGHeY",
+            "favicon": "https://www.youtube.com/s/desktop/b0f1b2cc/img/favicon.ico",
+            "timestamp": "2026-09-21T15:28:11.563Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 55.32949658401776,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843801,
+            "title": "Hello Kitty\u2019s Bow Chase | Hello Kitty and Friends Supercute Adventures S2 EP 10 - YouTube",
+            "url": "https://www.youtube.com/watch?v=LP9CQ8uGHeY",
+            "favicon": "https://www.youtube.com/s/desktop/b0f1b2cc/img/favicon.ico",
+            "timestamp": "2026-09-21T15:28:11.563Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 55.32949658401776,
+            "is_related": true
+        }
+    ]
+}

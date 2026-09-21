@@ -1,0 +1,53 @@
+{
+    "session_info": {
+        "id": 87,
+        "topic": "chess",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-21T16:38:01.804537",
+        "last_update_time": "2026-09-21T16:38:01.804537",
+        "predicted_end_time": "2026-09-21T17:23:01.804537",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 3,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66843787,
+            "title": "Hello Kitty\u2019s Bow Chase | Hello Kitty and Friends Supercute Adventures S2 EP 10 - YouTube",
+            "url": "https://www.youtube.com/watch?v=LP9CQ8uGHeY",
+            "favicon": "https://www.youtube.com/s/desktop/b0f1b2cc/img/favicon.ico",
+            "timestamp": "2026-09-21T14:38:08.227Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 91.23895504104439,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843780,
+            "title": "hc - Google Zoeken",
+            "url": "https://www.google.com/search?q=hc&rlz=1C5OZZY_enNL1221NL1221&oq=hc&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTITCAEQLhiDARjHARixAxjRAxiABDIHCAIQABiABDIHCAMQABiABDIQCAQQLhivARjHARiABBiOBTIHCAUQABiABDINCAYQLhivARjHARiABDIGCAcQRRg80gEHNDAyajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-21T14:39:39.481Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 2.8096083750133403,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843789,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "",
+            "timestamp": "2026-09-21T14:39:42.290Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 0.0,
+            "is_related": true
+        }
+    ]
+}

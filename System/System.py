@@ -37,6 +37,7 @@ class System():
         "get_stats": self.run_past_session,
 
         "log_meta_data": self.run_user_session,
+        "log_dynamic_content": self.run_user_session
     } 
         
     def authenticate_user(self, token) -> tuple[str, IUserSessionCoordinator]:

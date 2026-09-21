@@ -1,0 +1,16 @@
+{
+    "session_info": {
+        "id": 0,
+        "topic": "ch",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-21T17:08:52.700878",
+        "last_update_time": "2026-09-21T17:08:52.700878",
+        "predicted_end_time": "2026-09-21T17:53:52.700878",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 0,
+        "complete_session": false
+    },
+    "website_metadata": []
+}

@@ -1,0 +1,65 @@
+{
+    "session_info": {
+        "id": "3afdbc59-9928-41f2-8099-03172e8daf22",
+        "topic": "chess",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-21T17:30:18.785180",
+        "last_update_time": "2026-09-21T17:30:18.785180",
+        "predicted_end_time": "2026-09-21T18:15:18.785180",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 4,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66843802,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hel&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MhUIARAAGEMYgwEYsQMYyQMYgAQYigUyBggCEEUYOzIGCAMQRRg7MhIIBBAAGEMYgwEYsQMYgAQYigUyBggFEEUYPDIGCAYQRRg9MgYIBxBFGDzSAQc2OTdqMGo3qAIIsAIB8QXLw4OcDFJUqg&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-21T15:30:22.030Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 9.845412665978074,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843803,
+            "title": "hellraiser revival - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hellraiser+revival",
+            "favicon": "https://www.youtube.com/s/desktop/b0f1b2cc/img/favicon.ico",
+            "timestamp": "2026-09-21T15:30:29.156Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 9.703813083993737,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843791,
+            "title": "Hello Kitty\u2019s Bow Chase | Hello Kitty and Friends Supercute Adventures S2 EP 10 - YouTube",
+            "url": "https://www.youtube.com/watch?v=LP9CQ8uGHeY",
+            "favicon": "https://www.youtube.com/s/desktop/b0f1b2cc/img/favicon.ico",
+            "timestamp": "2026-09-21T15:30:41.590Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 7.296737708034925,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843791,
+            "title": "Hello Kitty\u2019s Bow Chase | Hello Kitty and Friends Supercute Adventures S2 EP 10 - YouTube",
+            "url": "https://www.youtube.com/watch?v=LP9CQ8uGHeY",
+            "favicon": "https://www.youtube.com/s/desktop/b0f1b2cc/img/favicon.ico",
+            "timestamp": "2026-09-21T15:30:41.590Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 7.296737708034925,
+            "is_related": true
+        }
+    ]
+}

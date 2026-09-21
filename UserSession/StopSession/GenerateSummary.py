@@ -19,6 +19,7 @@ class SessionSummaryForDB:
     time_spent_on_tabs: int
     most_used_tab: str
     most_often_blocked: str
+    block_counter: int
 
 
 class GenerateSummary:
@@ -32,6 +33,8 @@ class GenerateSummary:
         frontend_data = self.session_summary_frontend(session,session_data)
 
         return session, frontend_data
+    def count_blocked_sites(self, session_data):
+        return session_data.get("session_info",{}).get("blocked_tabs",0)
 
   
 
@@ -63,7 +66,7 @@ class GenerateSummary:
         most_often_blocked = self.calculate_most_blocked(metadata)
         productive_time = sum(float(tab.get("time_spent", 0) or 0) for tab in metadata if tab.get("is_related") is True)
         session_score = self.generate_score(productive_time, actual_session_duration)
-
+        block_counter = self.count_blocked_sites(session_data)
        
 
         return SessionSummaryForDB(
@@ -78,40 +81,31 @@ class GenerateSummary:
             number_of_tabs=number_of_tabs,
             time_spent_on_tabs=time_spent_on_tabs,
             most_used_tab=most_used_tab,
-            most_often_blocked=most_often_blocked
+            most_often_blocked=most_often_blocked,
+            block_counter=block_counter
         )
 
     # ---------------------------------------------------------
     # FRONTEND SUMMARY
     # ---------------------------------------------------------
 
-    def session_summary_frontend(self,session: SessionSummaryForDB,session_data: dict) -> dict:
-        """
-        Returns only the information required by the frontend.
-
-        Expected format:
-
-        {
-            "score": ...,
-            "sessionTimeSeconds": ...,
-            "productiveTimeSeconds": ...,
-            "distractionsBlocked": ...,
-            "tabsOpened": ...
-        }
-        """
-
-        metadata = session_data.get("website_metadata", [])
-        session_info = session_data.get("session_info", {})
-
-        distractions_blocked = session_info.get("blocked_tabs",sum(1 for tab in metadata if tab.get("block") is True))
+    def session_summary_frontend(
+        self,
+        session: SessionSummaryForDB,
+        session_data: dict
+    ) -> dict:
 
         return {
             "action": "end_session",
             "content": {
                 "score": session.session_score,
-                "sessionTimeSeconds": int(round(session.actual_session_duration)),
-                "productiveTimeSeconds": int(round(session.productive_time)),
-                "distractionsBlocked": distractions_blocked,
+                "sessionTimeSeconds": int(
+                    round(session.actual_session_duration)
+                ),
+                "productiveTimeSeconds": int(
+                    round(session.productive_time)
+                ),
+                "distractionsBlocked": session.block_counter,
                 "tabsOpened": session.number_of_tabs
             }
         }
@@ -195,6 +189,7 @@ class GenerateSummary:
             tab_times[tab_id] = self._get_tab_time_spent(tab)
 
         return tab_times
+    
 
     # ---------------------------------------------------------
     # MOST BLOCKED WEBSITE

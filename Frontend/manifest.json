@@ -1,18 +1,7 @@
 {
   "manifest_version": 3,
   "name": "LockDown — Focus",
-  "version": "0.1.0",
-  "description": "Start a focus session and block distracting sites while you work.",
-
-  "action": {
-    "default_popup": "popup.html",
-    "default_title": "LockDown"
-  },
-
-  "background": {
-    "service_worker": "background.js",
-    "type": "module"
-  },
+  "version": "1.0.0",
 
   "permissions": [
     "storage",
@@ -23,6 +12,28 @@
   ],
 
   "host_permissions": [
-    "http://127.0.0.1:8000/*"
+    "http://127.0.0.1:8000/*",
+    "https://www.youtube.com/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "action": {
+    "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "api/dynamic_webpages.js"
+      ],
+      "run_at": "document_idle"
+    }
   ]
 }

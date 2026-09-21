@@ -1,0 +1,89 @@
+{
+    "session_info": {
+        "id": "e530b3ba-164c-4ff8-a223-ddbb979c7175",
+        "topic": "chess",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-21T17:24:36.472171",
+        "last_update_time": "2026-09-21T17:24:36.472171",
+        "predicted_end_time": "2026-09-21T18:09:36.472171",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 6,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66843792,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hel&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDsyBggCEEUYOzIGCAMQRRg7MhIIBBAAGAoYgwEYsQMYgAQYigUyBggFEEUYPDIGCAYQRRg9MgYIBxBFGDzSAQc4NzRqMGo3qAIAsAIA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-21T15:24:48.108Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 2.037938082998153,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843791,
+            "title": "Hello Kitty\u2019s Bow Chase | Hello Kitty and Friends Supercute Adventures S2 EP 10 - YouTube",
+            "url": "https://www.youtube.com/watch?v=LP9CQ8uGHeY",
+            "favicon": "https://www.youtube.com/s/desktop/b0f1b2cc/img/favicon.ico",
+            "timestamp": "2026-09-21T15:24:50.156Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 5.498747083009221,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843796,
+            "title": "Hello Kitty\u2019s Bow Chase | Hello Kitty and Friends Supercute Adventures S2 EP 10 - YouTube",
+            "url": "https://www.youtube.com/watch?v=LP9CQ8uGHeY",
+            "favicon": "https://www.youtube.com/s/desktop/b0f1b2cc/img/favicon.ico",
+            "timestamp": "2026-09-21T15:24:52.107Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 42.80064658401534,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843798,
+            "title": "s - Google Zoeken",
+            "url": "https://www.google.com/search?q=s&rlz=1C5OZZY_enNL1221NL1221&oq=s&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg7MgYIAhBFGDsyBggDEEUYOzIMCAQQABhDGIAEGIoFMgYIBRBFGDwyBggGEEUYPDIGCAcQRRg80gEHMzg2ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-21T15:25:36.680Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 2.0501355830347165,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843798,
+            "title": "s - Google Zoeken",
+            "url": "https://www.google.com/search?q=s&rlz=1C5OZZY_enNL1221NL1221&oq=s&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg7MgYIAhBFGDsyBggDEEUYOzIMCAQQABhDGIAEGIoFMgYIBRBFGDwyBggGEEUYPDIGCAcQRRg80gEHMzg2ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-21T15:25:36.680Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 2.0501355830347165,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843791,
+            "title": "Hello Kitty\u2019s Bow Chase | Hello Kitty and Friends Supercute Adventures S2 EP 10 - YouTube",
+            "url": "https://www.youtube.com/watch?v=LP9CQ8uGHeY",
+            "favicon": "https://www.youtube.com/s/desktop/b0f1b2cc/img/favicon.ico",
+            "timestamp": "2026-09-21T15:24:50.156Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 5.498747083009221,
+            "is_related": true
+        }
+    ]
+}
