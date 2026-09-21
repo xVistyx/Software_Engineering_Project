@@ -12,11 +12,7 @@ from threading import RLock
 from DataBase.DataBaseManager import DataBaseManager
 from DataBase.IDataBaseManager import IDataBaseManager
 from UserSession.UserSessionManager import UserSessionCoordinator
-from System.BackendRequests import BackendRequests
 from PastSessions.PastSessionManager import PastSessionManager
-from Settings.Settings import Settings
-from DataBase.SummaryAdapter import summary_record
-
 
 class SetupSystem:
 
@@ -30,8 +26,6 @@ class SetupSystem:
         self.clock = datetime.now
         self.lock = RLock()
         self.session_managers = {}
-        self.backend_requests = BackendRequests()
-        self.settings = Settings()
         self.user_id = user_id
         self.user_manager = AuthenticateUser(
             system_db_manager=self.system_db_manager,
@@ -40,7 +34,7 @@ class SetupSystem:
             lock=self.lock,
             clock=self.clock
         )
-        
+
     def setup_system(self):
         if self.user_id is None:
             return self.user_manager.register_user()

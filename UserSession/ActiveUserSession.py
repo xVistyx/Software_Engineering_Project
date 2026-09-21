@@ -4,13 +4,15 @@ from typing import Any
 from .SessionStart import SessionInfo
 #from .WebsiteMetaData import WebsiteMetadataManager
 
+
 from .MetadataProcessing.SessionInterfaces import IWebsiteMetadataEvaluator
 class ActiveUserSessionManager:
-    def __init__(self, website_meta_data, ai_eval):
+    def __init__(self, website_meta_data, ai_eval, website_blocking_manager):
         """Need to figure out the blocking of websites and information that isnt relivant"""
         
         self.website_meta_data: IWebsiteMetadataEvaluator = website_meta_data
         self.ai_eval = ai_eval #add an interface to this in the future
+        self.website_blocking_manager = website_blocking_manager
 
     def active_session_manager(self,metadata: dict,session_topic: str) -> tuple[dict | list[dict] | None, bool]:
 
