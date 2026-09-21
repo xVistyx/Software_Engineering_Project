@@ -80,7 +80,7 @@ class TabActivityHandler(ITabActivityHandler):
             tab["currently_open"] = False
             tab["currently_active"] = False
     
-            self.dirty.mark_dirty(tab)
+            self.dirty_tabs.mark_dirty(tab)
             return True, tab
 
     def deactivate_tab(self, tab_id: int) -> tuple[bool, dict | None]:

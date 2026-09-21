@@ -1,0 +1,29 @@
+{
+    "session_info": {
+        "id": 72,
+        "topic": "chess",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-21T13:00:54.221429",
+        "last_update_time": "2026-09-21T13:00:54.221429",
+        "predicted_end_time": "2026-09-21T13:45:54.221429",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 1,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66843719,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hel&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDsyBggCEEUYOzIGCAMQRRg7MhIIBBAAGAoYgwEYsQMYgAQYigUyBggFEEUYPDIGCAYQRRg8MgYIBxBFGDzSAQgxMzM4ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-21T11:00:57.281Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 5.285859708033968,
+            "is_related": true
+        }
+    ]
+}

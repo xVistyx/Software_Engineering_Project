@@ -16,21 +16,11 @@ class ActiveUserSessionManager:
 
     def active_session_manager(self,metadata: dict,session_topic: str) -> tuple[dict | list[dict] | None, bool]:
         
-        final_metadata, is_stored = self.webiste_data(metadata=metadata,session_topic=session_topic)
+        metadatas, is_stored = self.webiste_data(metadata=metadata,session_topic=session_topic)
 
         if not is_stored:
             return {}, False
-        print("METADATA: ", final_metadata)
-        
-        if isinstance(final_metadata, list):
-
-            for tab_metadata in final_metadata:
-                tab_metadata["is_related"] = self._is_related(tab_metadata, session_topic)
-
-      
-        else:
-            final_metadata["is_related"] = self._is_related(final_metadata,session_topic)
-        
+        final_metadata = self.website_blocking_manager.website_blocker_manager(metadatas,session_topic)
 
         return final_metadata, is_stored
          
@@ -76,9 +66,7 @@ class ActiveUserSessionManager:
 
             return [dirty_tabs, stored]
 
-    def _is_related(self, metadata, topic) -> None:
-        """I can change this too a bool later so it will immidiatly stop if the website is not related"""
-        return self.ai_eval.is_session_related(metadata,topic)
+  
 
 
 
