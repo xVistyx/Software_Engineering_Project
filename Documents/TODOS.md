@@ -8,7 +8,7 @@ NEED TO FIX:
 
 - Ofc AI eval not working rn
 
-Minor:
+Minor issues:
 - Refines the Dataflow between frontend and backend
 - Implement factory design pattern for data creation and management 
 - Implement more of the SOLID design principles. 

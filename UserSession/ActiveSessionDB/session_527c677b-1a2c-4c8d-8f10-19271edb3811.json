@@ -1,0 +1,53 @@
+{
+    "session_info": {
+        "id": "527c677b-1a2c-4c8d-8f10-19271edb3811",
+        "topic": "chess",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T22:58:25.050861",
+        "last_update_time": "2026-09-25T22:58:25.050861",
+        "predicted_end_time": "2026-09-25T23:43:25.050861",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 3,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844965,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hel&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg7MgYIAhBFGDsyBggDEEUYOzISCAQQABhDGIMBGLEDGIAEGIoFMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEHODc5ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-25T20:58:27.744Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 3.1937870000256225,
+            "is_related": null
+        },
+        {
+            "tab_id": 66844966,
+            "title": "hello world - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+world",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T20:58:30.937Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 15.407338624994736,
+            "is_related": null
+        },
+        {
+            "tab_id": 66844965,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hel&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg7MgYIAhBFGDsyBggDEEUYOzISCAQQABhDGIMBGLEDGIAEGIoFMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEHODc5ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-25T20:58:27.744Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 4.068514791026246,
+            "is_related": null
+        }
+    ]
+}

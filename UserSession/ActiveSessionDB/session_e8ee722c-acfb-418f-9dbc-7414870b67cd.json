@@ -1,0 +1,29 @@
+{
+    "session_info": {
+        "id": "e8ee722c-acfb-418f-9dbc-7414870b67cd",
+        "topic": "hell",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T22:56:19.635273",
+        "last_update_time": "2026-09-25T22:56:19.635273",
+        "predicted_end_time": "2026-09-25T23:41:19.635273",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 1,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844900,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "",
+            "timestamp": "2026-09-25T20:56:23.334Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 7.8830867080250755,
+            "is_related": null
+        }
+    ]
+}

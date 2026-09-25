@@ -58,7 +58,7 @@ class WebsiteBlockerManager:
         return meta_datas, response
 
     def confidence_to_bool(self, ai_confidence) -> bool:
-        return True
+        return False
 
     def get_ai_evaluation(self, metadata, topic) -> bool:
 

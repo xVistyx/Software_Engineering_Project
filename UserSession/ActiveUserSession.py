@@ -1,10 +1,6 @@
 from datetime import datetime
 from typing import Any
-from .BlockingWebsites.WebsiteBlockerManager import BlockContent
-
 from .SessionStart import SessionInfo
-#from .WebsiteMetaData import WebsiteMetadataManager
-
 from .MetadataProcessing.DynamicMetaData import DynamicWebpageMetaData
 from .MetadataProcessing.SessionInterfaces import IWebsiteMetadataEvaluator
 
@@ -20,27 +16,20 @@ class ActiveUserSessionManager:
     def active_session_manager(self,metadata: dict,session_topic: str, command) -> tuple[dict | list[dict] | None, bool]:
         print("COMMMAND \n \n ", command, "\n \n")
         if command  == "log_dynamic_content" or metadata["reason"] == "log_meta_data":
-            list_of_recommendation, primary_meta_data = self.dynamic_meta_data(metadata, session_topic) 
-            if primary_meta_data == None:
-                 primary_meta_data = metadata
-
-
+            list_of_recommendation = self.dynamic_meta_data(metadata, session_topic) 
+            primary_meta_data = metadata
         else:
             #reason': 'window_focus_changed 
             print("NORMAL CONTENT ")
             print("\n\n META DATA, ", metadata, "\n\n")
             if metadata["reason"] == 'page_updated':
-                meta_datas, block_info_lst = self.website_blocking_manager.website_blocker_manager(metadata,session_topic)
+                _, block_info_lst = self.website_blocking_manager.website_blocker_manager(metadata,session_topic)
                 primary_meta_data = metadata
                 list_of_recommendation = block_info_lst
             else:
                 primary_meta_data = metadata
                 list_of_recommendation = ["No content to return"]   
              
-        # should check before this if the website should be blocked or not -> if it needs to be blocked it shouldnt be able to continue and instead should return a blocking call
-        #should_block = self.block_website(primary_meta_data)
-        # add reason based removal 'reason': 'heartbeat'
-        #metadatas, message_to_frontend = self.website_blocking_manager.website_blocker_manager(primary_meta_data,session_topic)
         final_metadata, is_stored = self.webiste_data(metadata=primary_meta_data,session_topic=session_topic)
         print("\n LIST OF RECOMMENDATIONS, ", list_of_recommendation, "\n\n")
         print("\n \n  FINAL METADATA ", final_metadata, "\n \n")
@@ -61,29 +50,11 @@ class ActiveUserSessionManager:
         """
         Split the metadata between primary content and the feature content
         """
-        
-        not_storable = metadata.get("recommended_content")
         meta_datas, block_info_lst = self.website_blocking_manager.website_blocker_manager(metadata,session_topic) # -> this does some processing to the data so it will will be a dict containing content id and if it should be blocked (bool)
         print("\n \n  Block list info ", block_info_lst, "\n \n")
         print("\n \n META DATA  \n \n ", meta_datas, "\n \n")
-        primary = metadata.get("primary_content")
-        if primary is None:
-             print("\n \n META DATA IS SHITTY FORMAT \n \n ", metadata, "\n \n")
-             return block_info_lst,None
-        primary_metadata = {
-            "tab_id": metadata.get("tab_id"),
-            "title": primary.get("title"),
-            "url": primary.get("url"),
-            "favicon": "",
-            "timestamp": None,
-            "block": True,
-            "currently_open": True,
-            "currently_active": True,
-            "time_spent": 0.0,
-            "is_related": True #need to change this
-        }
-        print("SHOULD BLOCK \n \n", block_info_lst, "\n \n")
-        return block_info_lst, primary_metadata
+        return block_info_lst
+        
 
     def updated_session_state(self, active_session: SessionInfo) -> dict[str, Any]:
                 current_time = datetime.now()
@@ -97,33 +68,20 @@ class ActiveUserSessionManager:
                 # save the timestamp we just updated at
                 active_session["last_update_time"] = current_time
                 
-                return {"action": "get_active_session",
-                    "content": active_session
-                }
-             
-             
-
-    
-    
+                return {"action": "get_active_session","content": active_session}
+            
     def webiste_data(self, metadata: dict, session_topic:str) -> tuple[dict, bool]:
 
             is_new_tab = self.website_meta_data_evaluator.handle_event(metadata,session_topic)
-
             stored = False
-         
-         
             if is_new_tab:
                 print("NEW TAB -> STORE:",metadata.get("tab_id"))
-                  
                 clean_metadata = (self.website_meta_data_evaluator.get_website_meta_data()) 
                 stored = True
                 return [clean_metadata, stored]
             dirty_tabs = self.website_meta_data_evaluator.get_dirty_tabs() 
-
             print("DIRTY TABS:", dirty_tabs)
-
             stored = len(dirty_tabs) > 0
-
             return [dirty_tabs, stored]
 
   
@@ -133,50 +91,3 @@ class ActiveUserSessionManager:
     
     
     
-           
-    
-
-"""
-{
-  "tab_id": 66843914,
-  "session_id": "04931a1c-2c08-4777-8750-5c9503284b4b",
-  "page_type": "youtube_watch",
-  "primary_content": {
-    "content_id": "LP9CQ8uGHeY",
-    "source": "youtube",
-    "content_type": "video",
-    "title": "Hello Kitty’s Bow Chase | Hello Kitty and Friends Supercute Adventures S2 EP 10",
-    "url": "https://www.youtube.com/watch?v=LP9CQ8uGHeY",
-    "channel": "Hello Kitty and Friends"
-  },
-
-  "recommended_content": [
-    {
-      "content_id": "wncB6LwnV_k",
-      "source": "youtube",
-      "content_type": "video",
-      "title": "Season 5 Top 5 Episodes | Hello Kitty and Friends Supercute Adventures",
-      "url": "https://www.youtube.com/watch?v=wncB6LwnV_k",
-      "channel": "Hello Kitty and Friends"
-    },
-    {
-      "content_id": "IfQgdWxAxMw",
-      "source": "youtube",
-      "content_type": "video",
-      "title": "Hello Kitty, Kuromi and My Melody on The Plane! DIYs for Dolls LOL OMG",
-      "url": "https://www.youtube.com/watch?v=IfQgdWxAxMw",
-      "channel": "LaLiLu World"
-    },
-    {
-      "content_id": "LiaYDPRedWQ",
-      "source": "youtube",
-      "content_type": "video",
-      "title": "Avril Lavigne - Hello Kitty (Official Video)",
-      "url": "https://www.youtube.com/watch?v=LiaYDPRedWQ",
-      "channel": "Avril Lavigne"
-    }
-  ]
-}
-
-
-"""
