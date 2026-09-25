@@ -107,9 +107,37 @@ async function sendTabObservation(
   };
 
 
-  await api.logWebsiteMetadata(
+  const result = await api.logWebsiteMetadata(
     observation
-  );
+);
+
+// Only process valid blocking responses for this tab.
+if (!Array.isArray(result?.blocking_decisions)) return;
+if (result.tab_id !== tab.id) return;
+
+// Ordinary websites have an empty content_id.
+// Block only when the URL matches and block is true.
+const shouldBlock = result.blocking_decisions.some(decision =>
+    decision.block === true &&
+    !decision.content_id &&
+    decision.website_url === tab.url
+);
+
+if (!shouldBlock) return;
+
+// Verify that the user hasn't navigated to another page
+// while the backend was evaluating the previous page.
+try {
+    const currentTab = await chrome.tabs.get(tab.id);
+
+    if (currentTab.url !== tab.url) return;
+
+    await chrome.tabs.update(tab.id, {
+        url: chrome.runtime.getURL("blocked.html")
+    });
+} catch (error) {
+    console.warn("Could not block tab:", error);
+}
 }
 
 

@@ -1,0 +1,41 @@
+{
+    "session_info": {
+        "id": "4b53ea1f-7e8e-4a82-8f09-8b7147a25d44",
+        "topic": "w",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T22:17:22.411803",
+        "last_update_time": "2026-09-25T22:17:22.411803",
+        "predicted_end_time": "2026-09-25T23:02:22.411803",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 2,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844847,
+            "title": "google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=he&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg7MgYIAhBFGDkyBggDEEUYOzIGCAQQRRg7MgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEHNDA4ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=he&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg7MgYIAhBFGDkyBggDEEUYOzIGCAQQRRg7MgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEHNDA4ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T20:17:24.202Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 0.0,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844847,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=he&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg7MgYIAhBFGDkyBggDEEUYOzIGCAQQRRg7MgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEHNDA4ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T20:17:24.202Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 2.9763469580211677,
+            "is_related": false
+        }
+    ]
+}

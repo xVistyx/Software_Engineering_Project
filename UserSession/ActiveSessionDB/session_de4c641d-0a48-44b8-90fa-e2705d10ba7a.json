@@ -1,0 +1,29 @@
+{
+    "session_info": {
+        "id": "de4c641d-0a48-44b8-90fa-e2705d10ba7a",
+        "topic": "hello world",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T22:15:03.366402",
+        "last_update_time": "2026-09-25T22:15:03.366402",
+        "predicted_end_time": "2026-09-25T23:00:03.366402",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 1,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844840,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "",
+            "timestamp": "2026-09-25T20:15:05.666Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 6.1237065410241485,
+            "is_related": false
+        }
+    ]
+}

@@ -113,7 +113,7 @@ class TabActivityHandler(ITabActivityHandler):
                         "timestamp",
                         datetime.now().isoformat()
                     ),
-                    block=False,
+                    block=True,
                     currently_open=True,
                     currently_active=False,
                     time_spent=0.0,

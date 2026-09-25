@@ -1,0 +1,41 @@
+{
+    "session_info": {
+        "id": "6ad3aa2e-c21f-4940-b4d7-c01167e83092",
+        "topic": "hello world",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T22:15:21.647401",
+        "last_update_time": "2026-09-25T22:15:21.647401",
+        "predicted_end_time": "2026-09-25T23:00:21.647401",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 2,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844843,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hel&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDsyBggCEEUYOzIGCAMQRRg7MgoIBBAAGLEDGIAEMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEHNjcyajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T20:15:23.712Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 3.817676583013963,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844845,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "",
+            "timestamp": "2026-09-25T20:15:29.150Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 1.671557624998968,
+            "is_related": false
+        }
+    ]
+}

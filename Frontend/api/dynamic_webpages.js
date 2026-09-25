@@ -1,5 +1,7 @@
 const contentElements = new Map();
 const evaluatedContent = new Set();
+const blockedContentIds = new Set();
+
 
 let updateTimer = null;
 let currentlySending = false;
@@ -166,10 +168,15 @@ function processRecommendationCard(
      * Already evaluated by backend.
      */
     if (
-        evaluatedContent.has(videoId)
-    ) {
-        return;
+    evaluatedContent.has(videoId)
+) {
+    // YouTube may recreate a previously evaluated video card.
+    if (blockedContentIds.has(videoId)) {
+        applyAction(card, "hide");
     }
+
+    return;
+}
 
     content.push({
         content_id: videoId,
@@ -318,53 +325,36 @@ async function sendYouTubeContent() {
 |--------------------------------------------------------------------------
 */
 
-function applyEvaluationResults(
-    response
-) {
-    /*
-     * Primary video
-     */
-    if (
-        response.primary_content
-    ) {
-        evaluatedContent.add(
-            response.primary_content.content_id
-        );
+function applyEvaluationResults(response) {
+    // backend.js already extracts the response's content field.
+    if (!Array.isArray(response?.blocking_decisions)) {
+        return;
     }
 
+    for (const decision of response.blocking_decisions) {
+        const contentId = decision.content_id;
 
-    /*
-     * Recommended videos
-     */
-    const recommendations =
-        response.recommended_content ?? [];
+        // Website-level blocking is handled by background.js.
+        if (!contentId) continue;
 
-    recommendations.forEach(
-        result => {
-            const contentId =
-                result.content_id;
+        evaluatedContent.add(contentId);
 
-            evaluatedContent.add(
-                contentId
-            );
+        if (decision.block === true) {
+            blockedContentIds.add(contentId);
+        } else {
+            blockedContentIds.delete(contentId);
+        }
 
-            const element =
-                contentElements.get(
-                    contentId
-                );
+        const element = contentElements.get(contentId);
 
-            if (!element) {
-                return;
-            }
-
+        if (element) {
             applyAction(
                 element,
-                result.action
+                decision.block === true ? "hide" : "allow"
             );
         }
-    );
+    }
 }
-
 
 function applyAction(
     element,

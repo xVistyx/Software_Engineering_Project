@@ -1,0 +1,41 @@
+{
+    "session_info": {
+        "id": "2d3a40ff-8950-4579-a51a-10a0052575f7",
+        "topic": "hello",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T22:20:54.920733",
+        "last_update_time": "2026-09-25T22:20:54.920733",
+        "predicted_end_time": "2026-09-25T23:05:54.920733",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 2,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844850,
+            "title": "hes - Google Zoeken",
+            "url": "https://www.google.com/search?q=hes&rlz=1C5OZZY_enNL1221NL1221&oq=hes&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIMCAEQABhDGIAEGIoFMgYIAhBFGDsyDAgDEAAYQxiABBiKBTIMCAQQABhDGIAEGIoFMgwIBRAAGEMYgAQYigUyCggGEC4YgAQYtAcyBwgHEAAYgAQyEggIEC4YQxjHARjRAxiABBiKBTIHCAkQABiPAtIBBzUyNmowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T20:20:57.502Z",
+            "block": true,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 62.010810417006724,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844850,
+            "title": "hes - Google Zoeken",
+            "url": "https://www.google.com/search?q=hes&rlz=1C5OZZY_enNL1221NL1221&oq=hes&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIMCAEQABhDGIAEGIoFMgYIAhBFGDsyDAgDEAAYQxiABBiKBTIMCAQQABhDGIAEGIoFMgwIBRAAGEMYgAQYigUyCggGEC4YgAQYtAcyBwgHEAAYgAQyEggIEC4YQxjHARjRAxiABBiKBTIHCAkQABiPAtIBBzUyNmowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T20:20:57.502Z",
+            "block": true,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 62.010810417006724,
+            "is_related": false
+        }
+    ]
+}

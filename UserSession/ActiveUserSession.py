@@ -76,11 +76,11 @@ class ActiveUserSessionManager:
             "url": primary.get("url"),
             "favicon": "",
             "timestamp": None,
-            "block": False,
+            "block": True,
             "currently_open": True,
             "currently_active": True,
             "time_spent": 0.0,
-            "is_related": False
+            "is_related": True #need to change this
         }
         print("SHOULD BLOCK \n \n", block_info_lst, "\n \n")
         return block_info_lst, primary_metadata

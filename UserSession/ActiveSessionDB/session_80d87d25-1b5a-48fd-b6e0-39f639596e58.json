@@ -1,0 +1,53 @@
+{
+    "session_info": {
+        "id": "80d87d25-1b5a-48fd-b6e0-39f639596e58",
+        "topic": "gew",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T22:17:59.335860",
+        "last_update_time": "2026-09-25T22:17:59.335860",
+        "predicted_end_time": "2026-09-25T23:02:59.335860",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 3,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844842,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "https://www.chess.com/bundles/web/favicons/favicon.46041f2d.ico",
+            "timestamp": "2026-09-25T20:18:01.119Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 3.734936916967854,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844839,
+            "title": "hello kitty - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+kitty",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T20:18:04.882Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 1.4041026588529348e-05,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844839,
+            "title": "hello kitty - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+kitty",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T20:18:04.882Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 4.8475567499990575,
+            "is_related": false
+        }
+    ]
+}

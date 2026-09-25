@@ -26,7 +26,7 @@ class WebsiteBlockerManager:
                 block = BlockContent(
                     website_url=video["url"],
                     content_id=video["content_id"],
-                    block=not is_related
+                    block= is_related
                 )
 
                 block_content_list.append(block)
@@ -39,7 +39,7 @@ class WebsiteBlockerManager:
 
             block = BlockContent(website_url=meta_datas["url"],
                 content_id="",
-                block=not is_related
+                block= is_related
             )
 
             block_content_list.append(block)

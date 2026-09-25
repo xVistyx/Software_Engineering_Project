@@ -1,0 +1,41 @@
+{
+    "session_info": {
+        "id": "8511a263-e996-46b7-b061-9dcfc7b48ad1",
+        "topic": "hess",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T22:24:20.357001",
+        "last_update_time": "2026-09-25T22:24:20.357001",
+        "predicted_end_time": "2026-09-25T23:09:20.357001",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 2,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844852,
+            "title": "google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hel&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg7MgYIAhBFGDsyBggDEEUYOzISCAQQABhDGIMBGLEDGIAEGIoFMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEIMTQzOGowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hel&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg7MgYIAhBFGDsyBggDEEUYOzISCAQQABhDGIMBGLEDGIAEGIoFMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEIMTQzOGowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T20:24:23.077Z",
+            "block": true,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 0.0,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844852,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hel&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg7MgYIAhBFGDsyBggDEEUYOzISCAQQABhDGIMBGLEDGIAEGIoFMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEIMTQzOGowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T20:24:23.077Z",
+            "block": true,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 9.048708999995142,
+            "is_related": false
+        }
+    ]
+}

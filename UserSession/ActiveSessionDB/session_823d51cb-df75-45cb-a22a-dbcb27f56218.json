@@ -1,0 +1,29 @@
+{
+    "session_info": {
+        "id": "823d51cb-df75-45cb-a22a-dbcb27f56218",
+        "topic": "gh",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T22:28:22.611454",
+        "last_update_time": "2026-09-25T22:28:22.611454",
+        "predicted_end_time": "2026-09-25T23:13:22.611454",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 1,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844862,
+            "title": "dsa - Google Zoeken",
+            "url": "https://www.google.com/search?q=dsa&rlz=1C5OZZY_enNL1221NL1221&oq=dsa&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg7MgwIAhAAGEMYgAQYigUyDQgDEC4YrwEYxwEYgAQyBwgEEAAYgAQyDQgFEC4YrwEYxwEYgAQyBwgGEAAYgAQyBwgHEAAYgAQyBwgIEAAYgAQyBwgJEAAYjwLSAQczMDZqMGo3qAIAsAIA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T20:28:24.030Z",
+            "block": true,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 1.0665454580448568,
+            "is_related": false
+        }
+    ]
+}
