@@ -69,7 +69,9 @@ class System():
     #BackEnd -> Frontend  
 
     def send_requests_to_frontend(self, message: dict) -> SessionData:
-        return self.backend_requests.build_responses(message)
+        m = self.backend_requests.build_responses(message)
+        print("BACKEND RESPONSE, ", m)        
+        return m
         
         
     def run_user_session(self,action: str,content: dict,user_id,user_session_manager) -> dict[str:str, str: dict]:

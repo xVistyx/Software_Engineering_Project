@@ -1,0 +1,65 @@
+{
+    "session_info": {
+        "id": "6fc428e8-7104-4ea7-986e-56e7348cf739",
+        "topic": "ches",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T19:39:05.798755",
+        "last_update_time": "2026-09-25T19:39:05.798755",
+        "predicted_end_time": "2026-09-25T20:24:05.798755",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 4,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844738,
+            "title": "hello kitty - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+kitty",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T17:39:07.525Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 5.4041681659873575,
+            "is_related": true
+        },
+        {
+            "tab_id": 66844741,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hell&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg5MhIIAhAAGEMYgwEYsQMYgAQYigUyBggDEEUYOzIKCAQQABixAxiABDIGCAUQRRg9MgYIBhBFGDwyBggHEEUYPNIBCDEyMzRqMGo3qAIAsAIA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T17:39:10.326Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 2.0668917499715462,
+            "is_related": true
+        },
+        {
+            "tab_id": 66844743,
+            "title": "hello kitty - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+kitty",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T17:39:14.011Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 25.828633667028043,
+            "is_related": true
+        },
+        {
+            "tab_id": 66844743,
+            "title": "hello kitty - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+kitty",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T17:39:14.011Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 25.828633667028043,
+            "is_related": true
+        }
+    ]
+}

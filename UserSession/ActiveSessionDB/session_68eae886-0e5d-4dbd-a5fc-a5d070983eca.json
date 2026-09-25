@@ -1,0 +1,29 @@
+{
+    "session_info": {
+        "id": "68eae886-0e5d-4dbd-a5fc-a5d070983eca",
+        "topic": "gaedew",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T21:27:08.003977",
+        "last_update_time": "2026-09-25T21:27:08.003977",
+        "predicted_end_time": "2026-09-25T22:12:08.003977",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 1,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844813,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hello+world&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7Mg0IARAuGK8BGMcBGIAEMgcIAhAAGIAEMgcIAxAAGIAEMgwIBBAuGEMYgAQYigUyBwgFEAAYgAQyBggGEEUYPDIGCAcQRRg80gEIMTc4MWowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-25T19:27:10.950Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 1.8459046259522438e-05,
+            "is_related": false
+        }
+    ]
+}

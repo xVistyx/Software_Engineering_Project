@@ -1,0 +1,41 @@
+{
+    "session_info": {
+        "id": "81d0131f-7b31-4554-9ed3-14395a2f0408",
+        "topic": "hehhl",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T20:51:23.229492",
+        "last_update_time": "2026-09-25T20:51:23.229492",
+        "predicted_end_time": "2026-09-25T21:36:23.229492",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 2,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844792,
+            "title": "YouTube",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "favicon": "",
+            "timestamp": "2026-09-25T18:51:24.904Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 0.0,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844792,
+            "title": "chess - YouTube",
+            "url": "https://www.youtube.com/results?search_query=chess",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T18:51:24.904Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 39.265523790963925,
+            "is_related": false
+        }
+    ]
+}

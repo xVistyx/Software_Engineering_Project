@@ -1,0 +1,53 @@
+{
+    "session_info": {
+        "id": "b5cce8af-f79b-46f8-ae3f-1890f9ffe6c9",
+        "topic": "c",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-21T18:24:02.588299",
+        "last_update_time": "2026-09-21T18:24:02.588299",
+        "predicted_end_time": "2026-09-21T19:09:02.588299",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 3,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66843846,
+            "title": "FSA | Financial Study Association | Meet your future employer",
+            "url": "https://fsa.nl/",
+            "favicon": "https://fsa.nl/wp-content/themes/mmfsa/public/images/favicons/favicon.6b5d40.ico",
+            "timestamp": "2026-09-21T16:24:05.960Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 20.238057082984596,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843845,
+            "title": "Hello Kitty\u2019s Bow Chase | Hello Kitty and Friends Supercute Adventures S2 EP 10 - YouTube",
+            "url": "https://www.youtube.com/watch?v=LP9CQ8uGHeY",
+            "favicon": "https://www.youtube.com/s/desktop/b0f1b2cc/img/favicon.ico",
+            "timestamp": "2026-09-21T16:24:26.207Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 1.4749995898455381e-05,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843845,
+            "title": "Hello Kitty\u2019s Bow Chase | Hello Kitty and Friends Supercute Adventures S2 EP 10 - YouTube",
+            "url": "https://www.youtube.com/watch?v=LP9CQ8uGHeY",
+            "favicon": "https://www.youtube.com/s/desktop/b0f1b2cc/img/favicon.ico",
+            "timestamp": "2026-09-21T16:24:26.207Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 2.442637583008036,
+            "is_related": true
+        }
+    ]
+}

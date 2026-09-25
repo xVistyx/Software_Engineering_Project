@@ -1,0 +1,16 @@
+{
+    "session_info": {
+        "id": "f4500c6d-22fa-4134-9190-f1f76be8e1cc",
+        "topic": "hel",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T19:55:59.192721",
+        "last_update_time": "2026-09-25T19:55:59.192721",
+        "predicted_end_time": "2026-09-25T20:40:59.192721",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 0,
+        "complete_session": false
+    },
+    "website_metadata": []
+}

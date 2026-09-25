@@ -1,0 +1,41 @@
+{
+    "session_info": {
+        "id": "4b660a44-b17f-43fc-9e0e-db04264d49c0",
+        "topic": "hell world",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T20:49:23.309016",
+        "last_update_time": "2026-09-25T20:49:23.309016",
+        "predicted_end_time": "2026-09-25T21:34:23.309016",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 2,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844785,
+            "title": "hello kitty - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+kitty",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T18:49:25.690Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 46.9492042909842,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844785,
+            "title": "hello kitty - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+kitty",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T18:49:25.690Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 46.9492042909842,
+            "is_related": false
+        }
+    ]
+}

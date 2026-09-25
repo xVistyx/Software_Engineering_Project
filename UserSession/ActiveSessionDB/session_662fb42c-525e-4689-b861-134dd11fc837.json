@@ -1,0 +1,41 @@
+{
+    "session_info": {
+        "id": "662fb42c-525e-4689-b861-134dd11fc837",
+        "topic": "chess",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-21T18:32:15.773981",
+        "last_update_time": "2026-09-21T18:32:15.773981",
+        "predicted_end_time": "2026-09-21T19:17:15.773981",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 2,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66843929,
+            "title": "Hello Kitty and Friends Supercute Adventures | The Perfect Gift (NEW ANIMATION) S1 EP 1 - YouTube",
+            "url": "https://www.youtube.com/watch?v=pRJ-Dai3oB0&list=PLqzv7LtjMohGDJS0LeaDWlxBsNL-HHs8N",
+            "favicon": "https://www.youtube.com/s/desktop/b0f1b2cc/img/favicon.ico",
+            "timestamp": "2026-09-21T16:32:18.169Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 37.272320458025206,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843929,
+            "title": "Hello Kitty and Friends Supercute Adventures | The Perfect Gift (NEW ANIMATION) S1 EP 1 - YouTube",
+            "url": "https://www.youtube.com/watch?v=pRJ-Dai3oB0&list=PLqzv7LtjMohGDJS0LeaDWlxBsNL-HHs8N",
+            "favicon": "https://www.youtube.com/s/desktop/b0f1b2cc/img/favicon.ico",
+            "timestamp": "2026-09-21T16:32:18.169Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 21.2582575409906,
+            "is_related": true
+        }
+    ]
+}

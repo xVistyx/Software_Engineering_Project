@@ -1,0 +1,53 @@
+{
+    "session_info": {
+        "id": "69c61287-a41a-4502-a80b-89871045b309",
+        "topic": "chess",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-24T15:33:55.467665",
+        "last_update_time": "2026-09-24T15:33:55.467665",
+        "predicted_end_time": "2026-09-24T16:18:55.467665",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 3,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844096,
+            "title": "gekk - Google Zoeken",
+            "url": "https://www.google.com/search?q=gekk&rlz=1C5OZZY_enNL1221NL1221&oq=gekk&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQLhixAxiABDIHCAIQABiABDIKCAMQABiABBi0BzIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIHCAcQABiABDIHCAgQABiABDIHCAkQABiPAtIBBzgxNGowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-24T13:33:59.483Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 4.164723624999169,
+            "is_related": true
+        },
+        {
+            "tab_id": 66844096,
+            "title": "gekk - Google Zoeken",
+            "url": "https://www.google.com/search?q=gekk&rlz=1C5OZZY_enNL1221NL1221&oq=gekk&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQLhixAxiABDIHCAIQABiABDIKCAMQABiABBi0BzIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIHCAcQABiABDIHCAgQABiABDIHCAkQABiPAtIBBzgxNGowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-24T13:33:59.483Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 3.169194417016115,
+            "is_related": true
+        },
+        {
+            "tab_id": 66844096,
+            "title": "gekk - Google Zoeken",
+            "url": "https://www.google.com/search?q=gekk&rlz=1C5OZZY_enNL1221NL1221&oq=gekk&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQLhixAxiABDIHCAIQABiABDIKCAMQABiABBi0BzIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIHCAcQABiABDIHCAgQABiABDIHCAkQABiPAtIBBzgxNGowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-24T13:33:59.483Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 4.164723624999169,
+            "is_related": true
+        }
+    ]
+}

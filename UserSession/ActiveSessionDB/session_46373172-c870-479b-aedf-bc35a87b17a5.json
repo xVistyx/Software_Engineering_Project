@@ -1,0 +1,53 @@
+{
+    "session_info": {
+        "id": "46373172-c870-479b-aedf-bc35a87b17a5",
+        "topic": "hello workd",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T21:24:35.760237",
+        "last_update_time": "2026-09-25T21:24:35.760237",
+        "predicted_end_time": "2026-09-25T22:09:35.760237",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 3,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844811,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hell&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg5MhIIAhAAGEMYgwEYsQMYgAQYigUyBggDEEUYOzIKCAQQABixAxiABDIGCAUQRRg9MgYIBhBFGDwyBggHEEUYPNIBBzg3MmowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T19:24:40.740Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 32.905929667002056,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844812,
+            "title": "YouTube",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "favicon": "",
+            "timestamp": "2026-09-25T19:25:13.645Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 0.0,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844812,
+            "title": "hello kitty - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+kitty",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T19:25:13.645Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 32.44183508300921,
+            "is_related": false
+        }
+    ]
+}

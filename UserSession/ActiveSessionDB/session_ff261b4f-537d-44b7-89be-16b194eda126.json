@@ -1,0 +1,16 @@
+{
+    "session_info": {
+        "id": "ff261b4f-537d-44b7-89be-16b194eda126",
+        "topic": "hell",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T21:16:41.410759",
+        "last_update_time": "2026-09-25T21:16:41.410759",
+        "predicted_end_time": "2026-09-25T22:01:41.410759",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 0,
+        "complete_session": false
+    },
+    "website_metadata": []
+}

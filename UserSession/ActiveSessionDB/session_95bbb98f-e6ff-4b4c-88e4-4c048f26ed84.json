@@ -1,0 +1,53 @@
+{
+    "session_info": {
+        "id": "95bbb98f-e6ff-4b4c-88e4-4c048f26ed84",
+        "topic": "asd",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-21T18:29:23.730159",
+        "last_update_time": "2026-09-21T18:29:23.730159",
+        "predicted_end_time": "2026-09-21T19:14:23.730159",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 3,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66843928,
+            "title": "fsa - Google Zoeken",
+            "url": "https://www.google.com/search?q=fsa&rlz=1C5OZZY_enNL1221NL1221&oq=fs&gs_lcrp=EgZjaHJvbWUqDwgAEEUYOxiDARixAxiABDIPCAAQRRg7GIMBGLEDGIAEMgYIARBFGDkyDQgCEAAYgwEYsQMYgAQyDQgDEC4YrwEYxwEYgAQyDQgEEAAYgwEYsQMYgAQyEwgFEC4YgwEYxwEYsQMY0QMYgAQyBggGEEUYPDIGCAcQRRg90gEHNjAyajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-21T16:29:26.553Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 5.842857582960278,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843929,
+            "title": "hello kitty - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+kitty",
+            "favicon": "https://www.youtube.com/s/desktop/b0f1b2cc/img/favicon.ico",
+            "timestamp": "2026-09-21T16:29:32.394Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 12.153697541973088,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843929,
+            "title": "hello kitty - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+kitty",
+            "favicon": "https://www.youtube.com/s/desktop/b0f1b2cc/img/favicon.ico",
+            "timestamp": "2026-09-21T16:29:32.394Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 12.153697541973088,
+            "is_related": true
+        }
+    ]
+}

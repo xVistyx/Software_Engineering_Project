@@ -1,0 +1,113 @@
+{
+    "session_info": {
+        "id": "3f6cb9f6-fd74-49aa-8614-cdf084d01f72",
+        "topic": "hello world",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T21:42:27.010449",
+        "last_update_time": "2026-09-25T21:42:27.010449",
+        "predicted_end_time": "2026-09-25T22:27:27.010449",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 8,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844823,
+            "title": "hellp - Google Zoeken",
+            "url": "https://www.google.com/search?q=hellp&rlz=1C5OZZY_enNL1221NL1221&oq=hellp&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgcIARAAGIAEMhEIAhAAGAoYCxiDARixAxiABDIHCAMQLhiABDIHCAQQABiABDIHCAUQABiABDIJCAYQABgKGIAEMgcIBxAAGIAEMgcICBAAGIAEMgcICRAAGI8C0gEIMTYwMGowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T19:42:30.975Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 6.4918410839745775,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844822,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hell&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg5MhIIAhAAGEMYgwEYsQMYgAQYigUyBggDEEUYOzIKCAQQABixAxiABDIGCAUQRRg9MgYIBhBFGDwyBggHEEUYPNIBBzczM2owajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-25T19:42:37.479Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 7.599702542007435,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844825,
+            "title": "hello kitty - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+kitty",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T19:42:43.148Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 48.24059895903338,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844825,
+            "title": "hello kitty - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+kitty",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T19:42:43.148Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 48.24059895903338,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844828,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hello+world&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7Mg0IARAuGK8BGMcBGIAEMgcIAhAAGIAEMgcIAxAAGIAEMgcIBBAAGIAEMgcIBRAAGIAEMgYIBhBFGDwyBggHEEUYPNIBCDQzMjZqMGo3qAIAsAIA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-25T19:47:49.623Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 3.702403916977346,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844828,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hello+world&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7Mg0IARAuGK8BGMcBGIAEMgcIAhAAGIAEMgcIAxAAGIAEMgcIBBAAGIAEMgcIBRAAGIAEMgYIBhBFGDwyBggHEEUYPNIBCDQzMjZqMGo3qAIAsAIA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-25T19:47:49.623Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 3.702403916977346,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844830,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hello&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg5MgoIAhAAGLEDGIAEMgYIAxBFGDsyDQgEEAAYsQMYgAQYigUyBggFEEUYPTIGCAYQRRg8MgYIBxBFGDzSAQgxMjE5ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T19:48:00.569Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 7.2539720829809085,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844830,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hello&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg5MgoIAhAAGLEDGIAEMgYIAxBFGDsyDQgEEAAYsQMYgAQYigUyBggFEEUYPTIGCAYQRRg8MgYIBxBFGDzSAQgxMjE5ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T19:48:00.569Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 7.2539720829809085,
+            "is_related": false
+        }
+    ]
+}

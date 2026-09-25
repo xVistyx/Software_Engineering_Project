@@ -1,0 +1,16 @@
+{
+    "session_info": {
+        "id": "d8756ee0-c59a-4c1e-a96a-8511dadf01f3",
+        "topic": "helll",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T21:26:17.662254",
+        "last_update_time": "2026-09-25T21:26:17.662254",
+        "predicted_end_time": "2026-09-25T22:11:17.662254",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 0,
+        "complete_session": false
+    },
+    "website_metadata": []
+}

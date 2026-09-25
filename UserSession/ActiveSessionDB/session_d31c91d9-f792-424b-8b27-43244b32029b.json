@@ -1,0 +1,53 @@
+{
+    "session_info": {
+        "id": "d31c91d9-f792-424b-8b27-43244b32029b",
+        "topic": "hell",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T18:52:13.212150",
+        "last_update_time": "2026-09-25T18:52:13.212150",
+        "predicted_end_time": "2026-09-25T19:37:13.212150",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 3,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844670,
+            "title": "Google Drive: inloggen",
+            "url": "https://accounts.google.com/v3/signin/identifier?continue=https://drive.google.com/drive/my-drive?hl%3Dnl&followup=https://drive.google.com/drive/my-drive?hl%3Dnl&hl=nl&osid=1&passive=1209600&service=wise&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-600799880:1790355139367893",
+            "favicon": "",
+            "timestamp": "2026-09-25T16:52:18.862Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 3.0986201249761507,
+            "is_related": true
+        },
+        {
+            "tab_id": 66844725,
+            "title": "youtube.com/?app=desktop&hl=NL",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "favicon": "",
+            "timestamp": "2026-09-25T16:52:21.961Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 0.0,
+            "is_related": true
+        },
+        {
+            "tab_id": 66844725,
+            "title": "hello world - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+world",
+            "favicon": "https://www.youtube.com/s/desktop/e60429bd/img/favicon.ico",
+            "timestamp": "2026-09-25T16:52:21.961Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 70.70294887496857,
+            "is_related": true
+        }
+    ]
+}

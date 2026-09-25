@@ -31,7 +31,7 @@ class UserSessionCoordinator(IUserSessionCoordinator):
 
         
     def user_session_manager(self, action:str, content:dict) -> dict:
-        
+      
         
         if action == "get_active_session":
             return self.get_active_session()
@@ -41,9 +41,12 @@ class UserSessionCoordinator(IUserSessionCoordinator):
             return self.update_user_session(content, "update_session")
         elif action == "end_session":
             return self.end_user_session(content)
-        elif action in ["log_meta_data","log_dynamic_content"]:
+        elif action =="log_dynamic_content":
             return {"action": action,"content": self.update_user_session(content, "log_dynamic_content") # naming is a bit weird need to fix. But linked to frontend so cannot rn -> future this will be function call to block the websites
             }
+        elif action == "log_meta_data":
+            return {"action": action,"content": self.update_user_session(content, "log_meta_data") # naming is a bit weird need to fix. But linked to frontend so cannot rn -> future this will be function call to block the websites
+                        }
         else:
             return {"action": action,"content": {"error": "Unknown user session action"}}
         
@@ -81,15 +84,16 @@ class UserSessionCoordinator(IUserSessionCoordinator):
     def update_user_session(self, content: dict, command: str):
         if command == "log_dynamic_content":
             topic = self.active_session["topic"]
-            metadata_result, stored = (self.active_user_session.active_session_manager(content,topic, command="log_dynamic_content"))
+            metadata_result, stored, frontend_message = (self.active_user_session.active_session_manager(content,topic, "log_dynamic_content"))
         elif command == "log_meta_data":
             topic = self.active_session["topic"]
-            metadata_result, stored = (self.active_user_session.active_session_manager(content,topic, command=None))
+            metadata_result, stored, frontend_message = (self.active_user_session.active_session_manager(content,topic, "log_meta_data"))
             if not stored:
-                return
+                return frontend_message
             self.set_db_session_data(metadata_result, True)
         else:
             self.set_db_session_data(content, False)
+        return frontend_message
          
             
 

@@ -1,0 +1,41 @@
+{
+    "session_info": {
+        "id": "228fa319-3f4f-400f-9371-f71682445d0b",
+        "topic": "gell",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T21:22:13.232376",
+        "last_update_time": "2026-09-25T21:22:13.232376",
+        "predicted_end_time": "2026-09-25T22:07:13.232376",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 2,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844810,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hello&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyCggCEAAYsQMYgAQyBggDEEUYOzINCAQQABixAxiABBiKBTIGCAUQRRg9MgYIBhBFGDwyBggHEEUYPNIBCDIzNjRqMGo3qAIAsAIA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T19:22:25.995Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 16.96008270798484,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844810,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hello&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyCggCEAAYsQMYgAQyBggDEEUYOzINCAQQABixAxiABBiKBTIGCAUQRRg9MgYIBhBFGDwyBggHEEUYPNIBCDIzNjRqMGo3qAIAsAIA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T19:22:25.995Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 16.96008270798484,
+            "is_related": false
+        }
+    ]
+}

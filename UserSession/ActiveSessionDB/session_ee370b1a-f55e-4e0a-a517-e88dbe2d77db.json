@@ -1,0 +1,41 @@
+{
+    "session_info": {
+        "id": "ee370b1a-f55e-4e0a-a517-e88dbe2d77db",
+        "topic": "hellow world",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T20:47:45.759051",
+        "last_update_time": "2026-09-25T20:47:45.759051",
+        "predicted_end_time": "2026-09-25T21:32:45.759051",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 2,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844782,
+            "title": "hello world - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+world",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T18:47:50.426Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 27.341647833993193,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844782,
+            "title": "hello world - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+world",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T18:47:50.426Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 27.341647833993193,
+            "is_related": false
+        }
+    ]
+}

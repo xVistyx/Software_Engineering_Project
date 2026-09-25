@@ -1,0 +1,77 @@
+{
+    "session_info": {
+        "id": "b1c2d280-4a44-46ea-a5b7-7e1b4fa7fd4f",
+        "topic": "hell world",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-24T15:42:49.870535",
+        "last_update_time": "2026-09-24T15:42:49.870535",
+        "predicted_end_time": "2026-09-24T16:27:49.870535",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 5,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844102,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "",
+            "timestamp": "2026-09-24T13:42:52.194Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 5.98073700000532,
+            "is_related": true
+        },
+        {
+            "tab_id": 66844102,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "",
+            "timestamp": "2026-09-24T13:42:52.194Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 5.98073700000532,
+            "is_related": true
+        },
+        {
+            "tab_id": 66844101,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hell&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEEUYOzIGCAMQRRg7MgoIBBAAGLEDGIAEMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEHODUxajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-24T13:43:08.943Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 2.36941858305363,
+            "is_related": true
+        },
+        {
+            "tab_id": 66844104,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hell&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg5MhIIAhAAGEMYgwEYsQMYgAQYigUyBggDEEUYOzIKCAQQABixAxiABDIGCAUQRRg9MgYIBhBFGDwyBggHEEUYPNIBBzg2NmowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-24T13:43:11.313Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 7.008351750031579,
+            "is_related": true
+        },
+        {
+            "tab_id": 66844104,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hell&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg5MhIIAhAAGEMYgwEYsQMYgAQYigUyBggDEEUYOzIKCAQQABixAxiABDIGCAUQRRg9MgYIBhBFGDwyBggHEEUYPNIBBzg2NmowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-24T13:43:11.313Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 7.008351750031579,
+            "is_related": true
+        }
+    ]
+}

@@ -1,0 +1,77 @@
+{
+    "session_info": {
+        "id": "c13e756b-18ff-4f51-a07d-2b40714eaf09",
+        "topic": "hello world",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-21T18:33:49.613140",
+        "last_update_time": "2026-09-21T18:33:49.613140",
+        "predicted_end_time": "2026-09-21T19:18:49.613140",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 5,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66843930,
+            "title": "not dynamic - Google Zoeken",
+            "url": "https://www.google.com/search?q=not+dynamic&rlz=1C5OZZY_enNL1221NL1221&oq=not+dynamic&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABgTGBYYHjIKCAIQABgTGBYYHjIKCAMQABgTGBYYHjIKCAQQABgTGBYYHjIKCAUQABgTGBYYHjIKCAYQABgTGBYYHjIKCAcQABgTGBYYHjIMCAgQABgKGBMYFhgeMgoICRAAGBMYFhge0gEIMjE5MGowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-21T16:33:53.709Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 5.994136916997377,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843928,
+            "title": "fsa - Google Zoeken",
+            "url": "https://www.google.com/search?q=fsa&rlz=1C5OZZY_enNL1221NL1221&oq=fs&gs_lcrp=EgZjaHJvbWUqDwgAEEUYOxiDARixAxiABDIPCAAQRRg7GIMBGLEDGIAEMgYIARBFGDkyDQgCEAAYgwEYsQMYgAQyDQgDEC4YrwEYxwEYgAQyDQgEEAAYgwEYsQMYgAQyEwgFEC4YgwEYxwEYsQMY0QMYgAQyBggGEEUYPDIGCAcQRRg90gEHNjAyajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-21T16:33:59.711Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 2.649614373978693,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843933,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "",
+            "timestamp": "2026-09-21T16:34:01.053Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 3.6034612920484506,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843935,
+            "title": "Hello Kitty\u2019s Bow Chase | Hello Kitty and Friends Supercute Adventures S2 EP 10 - YouTube",
+            "url": "https://www.youtube.com/watch?v=LP9CQ8uGHeY",
+            "favicon": "https://www.youtube.com/s/desktop/b0f1b2cc/img/favicon.ico",
+            "timestamp": "2026-09-21T16:34:05.968Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 16.169103207997978,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843935,
+            "title": "Hello Kitty\u2019s Bow Chase | Hello Kitty and Friends Supercute Adventures S2 EP 10 - YouTube",
+            "url": "https://www.youtube.com/watch?v=LP9CQ8uGHeY",
+            "favicon": "https://www.youtube.com/s/desktop/b0f1b2cc/img/favicon.ico",
+            "timestamp": "2026-09-21T16:34:05.968Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 16.169103207997978,
+            "is_related": true
+        }
+    ]
+}

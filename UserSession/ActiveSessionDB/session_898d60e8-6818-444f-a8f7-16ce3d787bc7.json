@@ -1,0 +1,125 @@
+{
+    "session_info": {
+        "id": "898d60e8-6818-444f-a8f7-16ce3d787bc7",
+        "topic": "hello world",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T20:08:19.505279",
+        "last_update_time": "2026-09-25T20:08:19.505279",
+        "predicted_end_time": "2026-09-25T20:53:19.505279",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 9,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844753,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hell&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg5MhIIAhAAGEMYgwEYsQMYgAQYigUyBggDEEUYOzIKCAQQABixAxiABDIGCAUQRRg9MgYIBhBFGDwyBggHEEUYPNIBCDI4ODRqMGo3qAIAsAIA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T18:08:23.814Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 3.103792792011518,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844752,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hel&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg7MgYIAhBFGDsyBggDEEUYOzISCAQQABhDGIMBGLEDGIAEGIoFMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEHOTE4ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-25T18:08:26.927Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 0.981849166972097,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844751,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hell&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg5MhIIAhAAGEMYgwEYsQMYgAQYigUyBggDEEUYOzIKCAQQABixAxiABDIGCAUQRRg9MgYIBhBFGDwyBggHEEUYPNIBBzc0MWowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-25T18:08:27.917Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 0.5909113750094548,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844748,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=he&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg5MgYIAhBFGDsyBggDEEUYOzIMCAQQABhDGIAEGIoFMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEIMTM1NmowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-25T18:08:28.520Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 0.5955361250089481,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844747,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hell&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg5MhIIAhAAGEMYgwEYsQMYgAQYigUyBggDEEUYOzIKCAQQABixAxiABDIGCAUQRRg9MgYIBhBFGDwyBggHEEUYPNIBBzcwMGowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-25T18:08:29.130Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 0.6849834169843234,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844746,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hell&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEEUYOzIGCAMQRRg7MgoIBBAAGLEDGIAEMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEHOTA5ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-25T18:08:29.822Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 0.42500691703753546,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844760,
+            "title": "cgess - YouTube",
+            "url": "https://www.youtube.com/results?search_query=cgess",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T18:08:32.061Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 12.267493208986707,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844764,
+            "title": "hello kitt - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+kitt",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T18:09:09.790Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 76.10034354199888,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844764,
+            "title": "hello kitt - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+kitt",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T18:09:09.790Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 76.10034354199888,
+            "is_related": false
+        }
+    ]
+}

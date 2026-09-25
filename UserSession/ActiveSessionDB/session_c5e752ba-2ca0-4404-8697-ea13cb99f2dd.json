@@ -1,0 +1,53 @@
+{
+    "session_info": {
+        "id": "c5e752ba-2ca0-4404-8697-ea13cb99f2dd",
+        "topic": "chess",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T19:35:33.525522",
+        "last_update_time": "2026-09-25T19:35:33.525522",
+        "predicted_end_time": "2026-09-25T20:20:33.525522",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 3,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844736,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hel&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDsyBggCEEUYOzIGCAMQRRg7MgoIBBAAGLEDGIAEMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEHNjU5ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T17:35:35.759Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 2.332807916973252,
+            "is_related": true
+        },
+        {
+            "tab_id": 66844738,
+            "title": "hello kitty - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+kitty",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T17:35:40.060Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 22.171532041975297,
+            "is_related": true
+        },
+        {
+            "tab_id": 66844738,
+            "title": "hello kitty - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+kitty",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T17:35:40.060Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 22.171532041975297,
+            "is_related": true
+        }
+    ]
+}

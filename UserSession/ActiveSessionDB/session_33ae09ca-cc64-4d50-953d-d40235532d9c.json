@@ -1,0 +1,65 @@
+{
+    "session_info": {
+        "id": "33ae09ca-cc64-4d50-953d-d40235532d9c",
+        "topic": "hello world",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T20:29:46.597960",
+        "last_update_time": "2026-09-25T20:29:46.597960",
+        "predicted_end_time": "2026-09-25T21:14:46.597960",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 4,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844769,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hello&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyCggCEAAYsQMYgAQyBggDEEUYOzINCAQQABixAxiABBiKBTIGCAUQRRg9MgYIBhBFGDwyBggHEEUYPNIBCDE1MThqMGo3qAIAsAIA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T18:29:50.712Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 10.6099215419963,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844766,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hello&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyCggCEAAYsQMYgAQyBggDEEUYOzINCAQQABixAxiABBiKBTIGCAUQRRg9MgYIBhBFGDwyBggHEEUYPNIBCDEwNDZqMGo3qAIAsAIA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-25T18:30:01.336Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 3.125913874944672,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844771,
+            "title": "YouTube",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "favicon": "",
+            "timestamp": "2026-09-25T18:30:04.462Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 0.0,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844771,
+            "title": "hello world - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+world",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T18:30:04.462Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 43.31272670801263,
+            "is_related": false
+        }
+    ]
+}

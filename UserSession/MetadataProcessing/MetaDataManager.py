@@ -27,9 +27,7 @@ class ActiveSessionConstructor:
 
 
 class WebsiteMetadataEvaluator(IWebsiteMetadataEvaluator):
-    """
-    NEED to add this later
-    """
+    
 
     def __init__(self):
         self.session = ActiveSessionConstructor()

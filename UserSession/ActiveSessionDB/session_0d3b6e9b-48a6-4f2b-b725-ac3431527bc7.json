@@ -1,0 +1,16 @@
+{
+    "session_info": {
+        "id": "0d3b6e9b-48a6-4f2b-b725-ac3431527bc7",
+        "topic": "hello world",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T21:13:51.395215",
+        "last_update_time": "2026-09-25T21:13:51.395215",
+        "predicted_end_time": "2026-09-25T21:58:51.395215",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 0,
+        "complete_session": false
+    },
+    "website_metadata": []
+}

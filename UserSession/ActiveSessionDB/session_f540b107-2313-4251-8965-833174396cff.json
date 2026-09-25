@@ -1,0 +1,41 @@
+{
+    "session_info": {
+        "id": "f540b107-2313-4251-8965-833174396cff",
+        "topic": "das",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T19:18:16.319441",
+        "last_update_time": "2026-09-25T19:18:16.319441",
+        "predicted_end_time": "2026-09-25T20:03:16.319441",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 2,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844728,
+            "title": "helluva boss - YouTube",
+            "url": "https://www.youtube.com/results?search_query=helluva+boss",
+            "favicon": "https://www.youtube.com/s/desktop/18536138/img/favicon.ico",
+            "timestamp": "2026-09-25T17:18:19.122Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 13.802090958983172,
+            "is_related": true
+        },
+        {
+            "tab_id": 66844728,
+            "title": "helluva boss - YouTube",
+            "url": "https://www.youtube.com/results?search_query=helluva+boss",
+            "favicon": "https://www.youtube.com/s/desktop/18536138/img/favicon.ico",
+            "timestamp": "2026-09-25T17:18:19.122Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 12.72055787499994,
+            "is_related": true
+        }
+    ]
+}

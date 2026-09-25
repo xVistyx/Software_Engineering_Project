@@ -1,0 +1,41 @@
+{
+    "session_info": {
+        "id": "4440b801-e428-4df6-a095-31f7c7ecb452",
+        "topic": "hellow world",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T20:45:28.302128",
+        "last_update_time": "2026-09-25T20:45:28.302128",
+        "predicted_end_time": "2026-09-25T21:30:28.302128",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 2,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844780,
+            "title": "youtube.com/?app=desktop&hl=NL",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "favicon": "",
+            "timestamp": "2026-09-25T18:45:32.904Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 0.0,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844780,
+            "title": "hello kitty - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+kitty",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T18:45:32.904Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 41.718433292000555,
+            "is_related": false
+        }
+    ]
+}

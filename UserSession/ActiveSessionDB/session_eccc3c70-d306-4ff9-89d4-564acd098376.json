@@ -1,0 +1,16 @@
+{
+    "session_info": {
+        "id": "eccc3c70-d306-4ff9-89d4-564acd098376",
+        "topic": "hesll",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-21T18:20:03.406185",
+        "last_update_time": "2026-09-21T18:20:03.406185",
+        "predicted_end_time": "2026-09-21T19:05:03.406185",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 0,
+        "complete_session": false
+    },
+    "website_metadata": []
+}

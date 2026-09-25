@@ -1,0 +1,29 @@
+{
+    "session_info": {
+        "id": "0f957275-fcca-45ad-9f10-a68f0037e68b",
+        "topic": "hellow",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T21:52:00.048775",
+        "last_update_time": "2026-09-25T21:52:00.048775",
+        "predicted_end_time": "2026-09-25T22:37:00.048775",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 1,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844832,
+            "title": "chess. - Google Zoeken",
+            "url": "https://www.google.com/search?q=chess.&rlz=1C5OZZY_enNL1221NL1221&oq=chess.+&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABiABDIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIGCAcQRRg80gEIMjAxMWowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T19:52:03.667Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 37.199348750000354,
+            "is_related": false
+        }
+    ]
+}

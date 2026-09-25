@@ -1,0 +1,53 @@
+{
+    "session_info": {
+        "id": "3ff566be-c138-4668-8aae-19dbad3bf860",
+        "topic": "hello world",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T20:18:06.369579",
+        "last_update_time": "2026-09-25T20:18:06.369579",
+        "predicted_end_time": "2026-09-25T21:03:06.369579",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 3,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844766,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hello&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyCggCEAAYsQMYgAQyBggDEEUYOzINCAQQABixAxiABBiKBTIGCAUQRRg9MgYIBhBFGDwyBggHEEUYPNIBCDEwNDZqMGo3qAIAsAIA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T18:18:11.385Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 18.021266874973662,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844767,
+            "title": "YouTube",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "favicon": "",
+            "timestamp": "2026-09-25T18:18:29.407Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 0.0,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844767,
+            "title": "hello jitty - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+jitty",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T18:18:29.407Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 36.83927350002341,
+            "is_related": false
+        }
+    ]
+}

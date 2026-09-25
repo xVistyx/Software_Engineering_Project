@@ -1,0 +1,65 @@
+{
+    "session_info": {
+        "id": "a5d1d951-7d9c-4c86-a56b-278afe6faf90",
+        "topic": "hell",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T20:40:26.281888",
+        "last_update_time": "2026-09-25T20:40:26.281888",
+        "predicted_end_time": "2026-09-25T21:25:26.281888",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 4,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844776,
+            "title": "chess - Google Zoeken",
+            "url": "https://www.google.com/search?q=chess&rlz=1C5OZZY_enNL1221NL1221&oq=chess+&gs_lcrp=EgZjaHJvbWUqBwgAEAAYjwIyBwgAEAAYjwIyDQgBEAAYgwEYsQMYgAQyCQgCEEUYOxiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIGCAYQRRg8MgYIBxBFGDzSAQgxOTEwajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T18:40:32.263Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 8.844255041040014,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844775,
+            "title": "chess - YouTube",
+            "url": "https://www.youtube.com/results?search_query=chess",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T18:40:41.113Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 22.323800958984066,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844778,
+            "title": "chess - YouTube",
+            "url": "https://www.youtube.com/results?search_query=chess",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T18:41:03.437Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 43.92054929200094,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844778,
+            "title": "chess - YouTube",
+            "url": "https://www.youtube.com/results?search_query=chess",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T18:41:03.437Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 43.92054929200094,
+            "is_related": false
+        }
+    ]
+}

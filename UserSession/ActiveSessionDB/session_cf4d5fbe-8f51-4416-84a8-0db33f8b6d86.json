@@ -1,0 +1,41 @@
+{
+    "session_info": {
+        "id": "cf4d5fbe-8f51-4416-84a8-0db33f8b6d86",
+        "topic": "hell word",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T21:14:15.167131",
+        "last_update_time": "2026-09-25T21:14:15.167131",
+        "predicted_end_time": "2026-09-25T21:59:15.167131",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 2,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844807,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hello+wo&gs_lcrp=EgZjaHJvbWUqCQgAEEUYOxiABDIJCAAQRRg7GIAEMgYIARBFGDkyDQgCEC4YrwEYxwEYgAQyBggDEEUYOzIHCAQQABiABDINCAUQLhivARjHARiABDIGCAYQRRg8MgYIBxBFGDzSAQgyODkzajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T19:14:24.491Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 0.0,
+            "is_related": false
+        },
+        {
+            "tab_id": 66844807,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?sca_esv=61d4f8cae68376dd&rlz=1C5OZZY_enNL1221NL1221&sxsrf=APpeQnsRo0SjPZ5GK4AsPdTMNxIKNRADCA:1790363681177&q=hello+world&source=lnms&fbs=ABfTbFUyxjQn9bne4DuflY2dNqqKxYAWFhLCpnjf3OsLbYdPHfeLRBbUdax8XIDisZsbNPMegIQzUsa4JCn1YSkvXcqL2vBeGVbea-Al2nduh-wu03ZCCac4V33yKZU_4pj59rSzK4QFLYLtDjlV60PTTPjOZwqdM137BHtba0dUxzHxEAKInD-IaaiiTF9EakWNojSTsNYm&sa=X&ved=2ahUKEwiVkvC5uIqXAxWR2AIHHYtQCFQQ0pQJegQIDRAB&biw=1492&bih=842&dpr=2",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-25T19:14:24.491Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 39.38987170800101,
+            "is_related": false
+        }
+    ]
+}

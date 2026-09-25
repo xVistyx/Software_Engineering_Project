@@ -1,0 +1,89 @@
+{
+    "session_info": {
+        "id": "3931bec7-ccb1-4083-87da-8d1a192f1c8f",
+        "topic": "chess",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-21T18:38:47.707610",
+        "last_update_time": "2026-09-21T18:38:47.707610",
+        "predicted_end_time": "2026-09-21T19:23:47.707610",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 6,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66843941,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=hello&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg5MgoIAhAAGLEDGIAEMgYIAxBFGDsyCggEEAAYsQMYgAQyBggFEEUYPTIGCAYQRRg8MgYIBxBFGDzSAQc5NThqMGo3qAIAsAIA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-21T16:38:51.209Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 2.712460916955024,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843928,
+            "title": "fsa - Google Zoeken",
+            "url": "https://www.google.com/search?q=fsa&rlz=1C5OZZY_enNL1221NL1221&oq=fs&gs_lcrp=EgZjaHJvbWUqDwgAEEUYOxiDARixAxiABDIPCAAQRRg7GIMBGLEDGIAEMgYIARBFGDkyDQgCEAAYgwEYsQMYgAQyDQgDEC4YrwEYxwEYgAQyDQgEEAAYgwEYsQMYgAQyEwgFEC4YgwEYxwEYsQMY0QMYgAQyBggGEEUYPDIGCAcQRRg90gEHNjAyajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-21T16:38:53.930Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 0.6490122920367867,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843843,
+            "title": "hc - Google Zoeken",
+            "url": "https://www.google.com/search?q=hc&rlz=1C5OZZY_enNL1221NL1221&oq=hc&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTITCAEQLhiDARjHARixAxjRAxiABDIHCAIQABiABDIHCAMQABiABDIQCAQQLhivARjHARiABBiOBTIHCAUQABiABDINCAYQLhivARjHARiABDIGCAcQRRg80gEHNDAyajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-21T16:38:54.587Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 2.939338249969296,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843944,
+            "title": "Hello Kitty\u2019s Bow Chase | Hello Kitty and Friends Supercute Adventures S2 EP 10 - YouTube",
+            "url": "https://www.youtube.com/watch?v=LP9CQ8uGHeY",
+            "favicon": "https://www.youtube.com/s/desktop/b0f1b2cc/img/favicon.ico",
+            "timestamp": "2026-09-21T16:38:55.921Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 47.5188734169933,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843944,
+            "title": "Hello Kitty\u2019s Bow Chase | Hello Kitty and Friends Supercute Adventures S2 EP 10 - YouTube",
+            "url": "https://www.youtube.com/watch?v=LP9CQ8uGHeY",
+            "favicon": "https://www.youtube.com/s/desktop/b0f1b2cc/img/favicon.ico",
+            "timestamp": "2026-09-21T16:38:55.921Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 47.5188734169933,
+            "is_related": true
+        },
+        {
+            "tab_id": 66843843,
+            "title": "hc - Google Zoeken",
+            "url": "https://www.google.com/search?q=hc&rlz=1C5OZZY_enNL1221NL1221&oq=hc&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTITCAEQLhiDARjHARixAxjRAxiABDIHCAIQABiABDIHCAMQABiABDIQCAQQLhivARjHARiABBiOBTIHCAUQABiABDINCAYQLhivARjHARiABDIGCAcQRRg80gEHNDAyajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-21T16:38:54.587Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 2.939338249969296,
+            "is_related": true
+        }
+    ]
+}
