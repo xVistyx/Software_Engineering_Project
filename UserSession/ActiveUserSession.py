@@ -35,7 +35,7 @@ class ActiveUserSessionManager:
                 list_of_recommendation = block_info_lst
             else:
                 primary_meta_data = metadata
-                list_of_recommendation = ["NIGGEr"]   
+                list_of_recommendation = ["No content to return"]   
              
         # should check before this if the website should be blocked or not -> if it needs to be blocked it shouldnt be able to continue and instead should return a blocking call
         #should_block = self.block_website(primary_meta_data)

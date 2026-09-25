@@ -1,0 +1,65 @@
+{
+    "session_info": {
+        "id": "5df7802e-af88-48e0-90c9-956386720472",
+        "topic": "hello",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T22:46:16.673319",
+        "last_update_time": "2026-09-25T22:46:16.673319",
+        "predicted_end_time": "2026-09-25T23:31:16.673319",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 4,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844870,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "",
+            "timestamp": "2026-09-25T20:46:18.872Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 10.620233750029001,
+            "is_related": null
+        },
+        {
+            "tab_id": 66844839,
+            "title": "hello kitty - YouTube",
+            "url": "https://www.youtube.com/results?search_query=hello+kitty",
+            "favicon": "https://www.youtube.com/s/desktop/af0a3c1e/img/favicon.ico",
+            "timestamp": "2026-09-25T20:46:29.501Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 2.119819166022353,
+            "is_related": null
+        },
+        {
+            "tab_id": 66844838,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=h&gs_lcrp=EgZjaHJvbWUqDggBEEUYOxhDGIAEGIoFMgYIABBFGDwyDggBEEUYOxhDGIAEGIoFMgYIAhBFGDsyBggDEEUYPDIGCAQQRRg8MgYIBRBFGDwyBggGEEUYPDIGCAcQRRg80gEIMTYzNmowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-25T20:46:31.637Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 9.237078000034671,
+            "is_related": null
+        },
+        {
+            "tab_id": 66844838,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=h&gs_lcrp=EgZjaHJvbWUqDggBEEUYOxhDGIAEGIoFMgYIABBFGDwyDggBEEUYOxhDGIAEGIoFMgYIAhBFGDsyBggDEEUYPDIGCAQQRRg8MgYIBRBFGDwyBggGEEUYPDIGCAcQRRg80gEIMTYzNmowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-25T20:46:31.637Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 9.237078000034671,
+            "is_related": null
+        }
+    ]
+}

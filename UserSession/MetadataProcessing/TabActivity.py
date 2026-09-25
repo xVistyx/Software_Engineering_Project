@@ -2,19 +2,8 @@ from datetime import datetime
 from dataclasses import dataclass
 from dataclasses import  asdict
 from .SessionInterfaces import ITabsStore, IDirtyTabsStore, ITabActivityHandler, ITabTimerHandler
+from .WebsiteMetaData import WebsiteMetadata
 
-@dataclass
-class WebsiteMetadata:
-    tab_id: int
-    title: str
-    url: str
-    favicon: str
-    timestamp: str
-    block: bool
-    currently_open: bool
-    currently_active: bool
-    time_spent: float
-    is_related: bool
 
 
 class TabActivityHandler(ITabActivityHandler):
@@ -113,11 +102,11 @@ class TabActivityHandler(ITabActivityHandler):
                         "timestamp",
                         datetime.now().isoformat()
                     ),
-                    block=True,
+                    block=None,
                     currently_open=True,
                     currently_active=False,
                     time_spent=0.0,
-                    is_related=False
+                    is_related=None
                 )
         
                 result = asdict(metadata)

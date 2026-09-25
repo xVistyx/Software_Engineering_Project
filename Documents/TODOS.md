@@ -1,13 +1,16 @@
 """
 NEED TO FIX:
-- For some reason AI blocking call is overwritten somewhere else meaning i have to figure out where. IT should be the only place that should be able
-control the blocking.
-
 - Broke the stop session somehow
+    - wrong json format for stopping the session and logging it
 
 - The pause button lost functionality 
+    - we never really implemented this so 
 
-- OFc AI eval not working rn
+- Ofc AI eval not working rn
 
-
+Minor:
+- Refines the Dataflow between frontend and backend
+- Implement factory design pattern for data creation and management 
+- Implement more of the SOLID design principles. 
+- Add more interfaces to use 
 """

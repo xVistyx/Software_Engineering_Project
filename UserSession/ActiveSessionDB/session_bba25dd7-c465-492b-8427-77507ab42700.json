@@ -1,0 +1,53 @@
+{
+    "session_info": {
+        "id": "bba25dd7-c465-492b-8427-77507ab42700",
+        "topic": "hell",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-09-25T22:47:36.220199",
+        "last_update_time": "2026-09-25T22:47:36.220199",
+        "predicted_end_time": "2026-09-25T23:32:36.220199",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 3,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66844874,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=he&gs_lcrp=EgZjaHJvbWUqDggAEEUYOxhDGIAEGIoFMg4IABBFGDsYQxiABBiKBTIGCAEQRRg7MgYIAhBFGDsyBggDEEUYOTIMCAQQABhDGIAEGIoFMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEHMzE3ajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-09-25T20:47:38.166Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 0.9596292080241255,
+            "is_related": null
+        },
+        {
+            "tab_id": 66844873,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=he&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDsyBggCEEUYOzIGCAMQRRg5MgoIBBAAGLEDGIAEMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEHMzIxajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-25T20:47:39.132Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 1.6759078330360353,
+            "is_related": null
+        },
+        {
+            "tab_id": 66844873,
+            "title": "hello world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+world&rlz=1C5OZZY_enNL1221NL1221&oq=he&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDsyBggCEEUYOzIGCAMQRRg5MgoIBBAAGLEDGIAEMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEHMzIxajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-09-25T20:47:39.132Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 1.6759078330360353,
+            "is_related": null
+        }
+    ]
+}
