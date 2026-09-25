@@ -1,0 +1,32 @@
+{
+  "queries": [
+    {
+      "topic": "Reference/Education",
+      "query": "I will study concept mapping and knowledge organization tools"
+    },
+    {
+      "topic": "Computers/Software",
+      "query": "I will study software engineering and development tools"
+    },
+    {
+      "topic": "Society/Law",
+      "query": "I will study law school coursework and legal studies"
+    },
+    {
+      "topic": "Health/Medicine",
+      "query": "I will study evidence-based medicine and pharmacology"
+    },
+    {
+      "topic": "Science/Social_Sciences",
+      "query": "I will study social science research methods"
+    },
+    {
+      "topic": "Arts/Music",
+      "query": "I will study music theory and composition"
+    },
+    {
+      "topic": "Science/Math",
+      "query": "I will study mathematical analysis"
+    }
+  ]
+}

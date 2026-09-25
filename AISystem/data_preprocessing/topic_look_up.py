@@ -18,4 +18,4 @@ with open("html_content_english.jsonl", "r") as f:
 
 print(f"Total topics collected: {len(topics)}")
 result = pd.Series(topics).value_counts()
-print(result)
+print(result.head(20))
