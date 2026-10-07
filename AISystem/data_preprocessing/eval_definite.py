@@ -23,6 +23,19 @@ QUERIES = {
     "Law":              "I will study contract law",
 }
 
+# easy_no may only use sites from clearly distant fields (decided by topic distance, not by model results)
+FAR = {
+    "Mathematics":      ["History", "Law"],
+    "Physics":          ["History", "Law", "Economics"],
+    "Chemistry":        ["History", "Law", "Philosophy", "Economics", "Computer_Science"],
+    "Biology":          ["History", "Law", "Economics", "Computer_Science"],
+    "Computer_Science": ["History", "Law", "Biology", "Chemistry"],
+    "History":          ["Mathematics", "Physics", "Chemistry", "Biology", "Computer_Science"],
+    "Economics":        ["Physics", "Chemistry", "Biology"],
+    "Philosophy":       ["Chemistry", "Biology", "Computer_Science"],
+    "Law":              ["Mathematics", "Physics", "Chemistry", "Biology", "Computer_Science"],
+}
+
 df = pd.read_csv(script_dir / "study_sites_candidates.csv")
 df = df[df["keep"] == 1]
 df = df[df["topic"].isin(QUERIES)]
@@ -33,7 +46,7 @@ pairs = []
 for _, r in df.iterrows():
     pairs.append(dict(tier="easy_yes", query=QUERIES[r.topic], uid=r.uid, topic=r.topic,
                       title=r.title, truth=True))
-    other = df[df.topic != r.topic].sample(1, random_state=random.randint(0, 10**6)).iloc[0]
+    other = df[df.topic.isin(FAR[r.topic])].sample(1, random_state=random.randint(0, 10**6)).iloc[0]
     pairs.append(dict(tier="easy_no", query=QUERIES[r.topic], uid=other.uid, topic=other.topic,
                       title=other.title, truth=False))
 
