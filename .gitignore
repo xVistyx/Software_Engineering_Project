@@ -1,3 +1,7 @@
 # Python cache files
 __pycache__/
-*.py[cod]
+*.py[cod].DS_Store
+.DS_Store
+curlie.csv.gz
+html_content.json.gz
+html_content_english.jsonl
