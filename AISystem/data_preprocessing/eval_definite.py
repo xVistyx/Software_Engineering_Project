@@ -23,31 +23,23 @@ QUERIES = {
     "Law":              "I will study contract law",
 }
 
-# easy_no may only use sites from clearly distant fields (decided by topic distance, not by model results)
-FAR = {
-    "Mathematics":      ["History", "Law"],
-    "Physics":          ["History", "Law", "Economics"],
-    "Chemistry":        ["History", "Law", "Philosophy", "Economics", "Computer_Science"],
-    "Biology":          ["History", "Law", "Economics", "Computer_Science"],
-    "Computer_Science": ["History", "Law", "Biology", "Chemistry"],
-    "History":          ["Mathematics", "Physics", "Chemistry", "Biology", "Computer_Science"],
-    "Economics":        ["Physics", "Chemistry", "Biology"],
-    "Philosophy":       ["Chemistry", "Biology", "Computer_Science"],
-    "Law":              ["Mathematics", "Physics", "Chemistry", "Biology", "Computer_Science"],
-}
-
 df = pd.read_csv(script_dir / "study_sites_candidates.csv")
 df = df[df["keep"] == 1]
 df = df[df["topic"].isin(QUERIES)]
 print(df.groupby("topic").size())
+
+# easy_no titles come from clearly irrelevant pages (games, sports, music videos...); rows without a title are dropped
+neg = pd.read_csv(script_dir / "irrelevant_sites.csv").fillna("")
+neg = neg[neg["title"] != ""]
+print(len(neg), "irrelevant pages with a title")
 
 # build pairs
 pairs = []
 for _, r in df.iterrows():
     pairs.append(dict(tier="easy_yes", query=QUERIES[r.topic], uid=r.uid, topic=r.topic,
                       title=r.title, truth=True))
-    other = df[df.topic.isin(FAR[r.topic])].sample(1, random_state=random.randint(0, 10**6)).iloc[0]
-    pairs.append(dict(tier="easy_no", query=QUERIES[r.topic], uid=other.uid, topic=other.topic,
+    other = neg.sample(1, random_state=random.randint(0, 10**6)).iloc[0]
+    pairs.append(dict(tier="easy_no", query=QUERIES[r.topic], uid=other.site_id, topic=other.category,
                       title=other.title, truth=False))
 
 MODEL = "Qwen/Qwen3-4B"
@@ -78,3 +70,12 @@ res.to_csv(script_dir / "eval_definite_results.csv", index=False)
 print("parse failures:", res["pred"].isna().sum())
 print(res.groupby("tier")["correct"].agg(["mean", "sum", "count"]))
 print(res.groupby(["tier", "topic"])["correct"].mean().unstack(0))
+
+# precision / recall with "block" as the positive class
+tp = ((res.tier == "easy_no") & (res.pred == False)).sum()
+fn = ((res.tier == "easy_no") & (res.pred != False)).sum()
+fp = ((res.tier == "easy_yes") & (res.pred == False)).sum()
+tn = ((res.tier == "easy_yes") & (res.pred != False)).sum()
+prec, rec = tp / max(tp + fp, 1), tp / max(tp + fn, 1)
+print(f"BLOCK: TP={tp} FN={fn} FP={fp} TN={tn}")
+print(f"precision={prec:.3f} recall={rec:.3f} f1={2*prec*rec/max(prec+rec,1e-9):.3f} accuracy={(tp+tn)/len(res):.3f}")
