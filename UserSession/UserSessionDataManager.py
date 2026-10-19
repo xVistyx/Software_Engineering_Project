@@ -67,6 +67,22 @@ class UserSessionDataManager:
             json.dumps(database, indent=4)
         )
 
+    def update_session_info(self, content: dict) -> None:
+        if self.session_path is None:
+            raise RuntimeError("No active session JSON has been created.")
+
+        if not self.session_path.exists():
+            raise FileNotFoundError(
+                f"Session JSON not found: {self.session_path}"
+            )
+
+        database = json.loads(self.session_path.read_text())
+        database["session_info"] = {
+            key: self._make_json_safe(value)
+            for key, value in content.items()
+        }
+        self.session_path.write_text(json.dumps(database, indent=4))
+
     def write_metadata_to_session_json(self, data: dict) -> None:
 
         if self.session_path is None:
