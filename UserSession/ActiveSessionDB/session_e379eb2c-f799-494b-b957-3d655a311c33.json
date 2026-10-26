@@ -1,0 +1,53 @@
+{
+    "session_info": {
+        "id": "e379eb2c-f799-494b-b957-3d655a311c33",
+        "topic": "hello world",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-10-26T16:48:32.937510",
+        "last_update_time": "2026-10-26T16:48:32.937510",
+        "predicted_end_time": "2026-10-26T17:33:32.937510",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 3,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66848704,
+            "title": "WW2 - OverSimplified (Part 1) - YouTube",
+            "url": "https://www.youtube.com/watch?v=_uk_6vfqwTA",
+            "favicon": "https://www.youtube.com/s/desktop/dc0b62b0/img/favicon.ico",
+            "timestamp": "2026-10-26T15:48:41.836Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 114.01124433299992,
+            "is_related": null
+        },
+        {
+            "tab_id": 66848704,
+            "title": "WW2 - OverSimplified (Part 1) - YouTube",
+            "url": "https://www.youtube.com/watch?v=_uk_6vfqwTA",
+            "favicon": "https://www.youtube.com/s/desktop/dc0b62b0/img/favicon.ico",
+            "timestamp": "2026-10-26T15:48:41.836Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 113.33123258300475,
+            "is_related": null
+        },
+        {
+            "tab_id": 66848638,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "https://www.chess.com/bundles/web/favicons/favicon.46041f2d.ico",
+            "timestamp": "2026-10-26T15:51:10.263Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 5.000001692678779e-06,
+            "is_related": null
+        }
+    ]
+}

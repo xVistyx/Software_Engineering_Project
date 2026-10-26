@@ -1,4 +1,5 @@
 from .GenerateSummary import GenerateSummary, SessionSummaryForDB
+from datetime import datetime
 
 class StopSession:
     def __init__(self):
@@ -17,6 +18,9 @@ class StopSession:
         
     def stop_session(self, active_session):
         active_session["is_running"] = False
+        active_session["complete_session"] = True
+        active_session["actual_end_time"] = datetime.now()
+
         return active_session
 
     
