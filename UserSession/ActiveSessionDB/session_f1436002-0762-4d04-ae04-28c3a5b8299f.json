@@ -1,0 +1,101 @@
+{
+    "session_info": {
+        "id": "f1436002-0762-4d04-ae04-28c3a5b8299f",
+        "topic": "chess",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-10-26T16:33:11.624631",
+        "last_update_time": "2026-10-26T16:33:11.624631",
+        "predicted_end_time": "2026-10-26T17:18:11.624631",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 7,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66848692,
+            "title": "hello wok - Google Zoeken",
+            "url": "https://www.google.com/search?q=hello+wok&rlz=1C5OZZY_enNL1221NL1221&oq=hello+wok&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTILCAEQABgKGBMYgAQyCQgCEAAYExiABDIJCAMQABgTGIAEMgkIBBAAGBMYgAQyCQgFEAAYExiABDIJCAYQABgTGIAEMgkIBxAAGBMYgAQyCQgIEAAYExiABDIMCAkQABgTGIAEGLQH0gEIMjEzMGowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-10-26T15:33:15.942Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 4.581275124997774,
+            "is_related": null
+        },
+        {
+            "tab_id": 66848691,
+            "title": "hellp world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hellp+world&rlz=1C5OZZY_enNL1221NL1221&oq=hellp+world&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIJCAEQABgNGIAEMg8IAhAuGA0YrwEYxwEYgAQyCQgDEAAYDRiABDIJCAQQABgNGIAEMgkIBRAAGA0YgAQyCQgGEAAYDRiABDIJCAcQABgNGIAEMgkICBAuGA0YgAQyCQgJEAAYDRiABNIBCDIzODdqMGo3qAIAsAIA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-10-26T15:33:20.529Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 7.983041457999207,
+            "is_related": null
+        },
+        {
+            "tab_id": 66848694,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "https://www.chess.com/bundles/web/favicons/favicon.46041f2d.ico",
+            "timestamp": "2026-10-26T15:33:22.824Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 1.2572636250042706,
+            "is_related": null
+        },
+        {
+            "tab_id": 66848696,
+            "title": "ww2 - YouTube",
+            "url": "https://www.youtube.com/results?search_query=ww2",
+            "favicon": "https://www.youtube.com/s/desktop/dc0b62b0/img/favicon.ico",
+            "timestamp": "2026-10-26T15:33:25.985Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 11.273357457997918,
+            "is_related": null
+        },
+        {
+            "tab_id": 66848696,
+            "title": "YouTube",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "favicon": "https://www.youtube.com/s/desktop/dc0b62b0/img/favicon.ico",
+            "timestamp": "2026-10-26T15:33:25.985Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 1.3658834579982795,
+            "is_related": null
+        },
+        {
+            "tab_id": 66848698,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "",
+            "timestamp": "2026-10-26T15:33:46.748Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 1.4077549169960548,
+            "is_related": null
+        },
+        {
+            "tab_id": 66848691,
+            "title": "hellp world - Google Zoeken",
+            "url": "https://www.google.com/search?q=hellp+world&rlz=1C5OZZY_enNL1221NL1221&oq=hellp+world&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIJCAEQABgNGIAEMg8IAhAuGA0YrwEYxwEYgAQyCQgDEAAYDRiABDIJCAQQABgNGIAEMgkIBRAAGA0YgAQyCQgGEAAYDRiABDIJCAcQABgNGIAEMgkICBAuGA0YgAQyCQgJEAAYDRiABNIBCDIzODdqMGo3qAIAsAIA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-10-26T15:33:20.529Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 7.983041457999207,
+            "is_related": null
+        }
+    ]
+}

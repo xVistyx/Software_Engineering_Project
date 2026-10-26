@@ -98,13 +98,21 @@ class UserSessionCoordinator(IUserSessionCoordinator):
             
 
 
-    def end_user_session(self, frontend_content:dict ) -> dict:
+    def end_user_session(self, frontend_content: dict) -> dict:
         session_content = self.get_db_session_data(self.session_id)
-        
-        frontend_info, backend_info, session_info = self.stop_session.manage_session_stop(session_content, self.active_session )
+
+        frontend_info, backend_info, session_info = (
+            self.stop_session.manage_session_stop(
+                session_content,
+                self.active_session
+            )
+        )
+
         self.session_summary = backend_info
         self.active_session = session_info
-        #self.delete_old_session() #comment out if u want to collect data
+
+        self.session_start.mark_session_stopped()  # ADD THIS
+
         return frontend_info
 
 

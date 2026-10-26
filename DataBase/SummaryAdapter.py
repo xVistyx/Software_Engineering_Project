@@ -6,17 +6,64 @@ retained, including naive timestamps and the team's calculated scores.
 from dataclasses import asdict, is_dataclass
 from datetime import datetime
 import math
+from urllib.parse import urlparse
 
 
 def summary_record(user_id, data):
     raw = asdict(data) if is_dataclass(data) else dict(data)
-    required = {'session_id', 'session_topic', 'session_start_time', 'session_end_time',
-                'set_session_duration', 'actual_session_duration', 'productive_time', 'session_score',
-                'number_of_tabs', 'time_spent_on_tabs', 'most_used_tab', 'most_often_blocked'}
+    required = {
+    'session_id',
+    'session_topic',
+    'session_start_time',
+    'session_end_time',
+    'set_session_duration',
+    'actual_session_duration',
+    'productive_time',
+    'session_score',
+    'number_of_tabs',
+    'time_spent_on_tabs',
+    'most_used_tab',
+    'most_often_blocked',
+    'block_counter',
+    'website_metadata'
+}
+    website_visits = []
+    domains = {}
+
+
+    for i, tab in enumerate(raw["website_metadata"]):
+        website_visits.append({
+            "id": f"{tab.get('tab_id')}-{i}",
+            "tab_id": tab.get("tab_id"),
+            "url": tab.get("url"),
+            "title": tab.get("title"),
+            "domain": urlparse(tab.get("url", "")).netloc,
+            "started_at": tab.get("timestamp"),
+            "ended_at": None,
+            "duration_seconds": tab.get("time_spent", 0),
+            "decision": tab.get("block"),
+            "currently_open": tab.get("currently_open"),
+            "is_related": tab.get("is_related")
+    })
+    for tab in raw["website_metadata"]:
+        url = tab.get("url", "")
+        domain = urlparse(url).netloc
+
+        if domain not in domains:
+            domains[domain] = {
+                "domain": domain,
+                "seconds": 0,
+                "visits": 0
+            }
+
+        domains[domain]["seconds"] += tab.get("time_spent", 0)
+        domains[domain]["visits"] += 1
+
+    domain_summary = list(domains.values())
     if set(raw) != required:
         raise ValueError('Expected the SessionSummaryForDB fields')
-    if type(raw['session_id']) is not int or raw['session_id'] < 0:
-        raise ValueError('Session ID must be a nonnegative integer')
+    if not isinstance(raw['session_id'], str) or not raw['session_id']:
+        raise ValueError('Session ID must be a nonempty string')
     if not isinstance(raw['session_topic'], str) or not raw['session_topic'].strip():
         raise ValueError('Session topic is required')
     for key in ('session_start_time', 'session_end_time'):
@@ -37,7 +84,7 @@ def summary_record(user_id, data):
                'started_at': raw['session_start_time'], 'ended_at': raw['session_end_time'],
                'planned_seconds': raw['set_session_duration'], 'active_seconds': raw['actual_session_duration'],
                'is_running': False, 'strict_mode': False, 'duration_known': True, 'detail_level': 'summary',
-               'source_summary': raw, 'website_visits': [], 'events': []}
+               'source_summary': raw, 'website_visits': website_visits, 'events': []}
     summary = {'id': sid, 'topic': session['topic'], 'status': 'ended', 'summaryText': None,
                'startedAt': session['started_at'], 'endedAt': session['ended_at'],
                'plannedSeconds': raw['set_session_duration'], 'focusedSeconds': raw['actual_session_duration'],
@@ -45,7 +92,7 @@ def summary_record(user_id, data):
                'score': raw['session_score'], 'tabCount': raw['number_of_tabs'],
                'mostUsedTab': raw['most_used_tab'], 'mostOftenBlocked': raw['most_often_blocked'],
                'pausedSeconds': None, 'unattributedSeconds': None, 'visitCount': None,
-               'tabsBlocked': None, 'domains': [], 'detailLevel': 'summary',
+               'tabsBlocked': None, 'domains': domain_summary, 'detailLevel': 'summary',
                'sessionTimeSeconds': raw['actual_session_duration'], 'productiveTimeSeconds': raw['productive_time'],
                'tabsOpened': raw['number_of_tabs'], 'distractionsBlocked': None}
     return session, summary

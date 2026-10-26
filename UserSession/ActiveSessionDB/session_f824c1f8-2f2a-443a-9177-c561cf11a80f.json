@@ -1,12 +1,12 @@
 {
     "session_info": {
-        "id": "3cba2592-a771-4e07-82d9-736a9ac206dd",
+        "id": "f824c1f8-2f2a-443a-9177-c561cf11a80f",
         "topic": "hello",
         "is_running": true,
         "time": 2700,
-        "start_time": "2026-09-25T20:01:34.979309",
-        "last_update_time": "2026-09-25T20:01:34.979309",
-        "predicted_end_time": "2026-09-25T20:46:34.979309",
+        "start_time": "2026-10-26T16:42:43.366139",
+        "last_update_time": "2026-10-26T16:42:43.366139",
+        "predicted_end_time": "2026-10-26T17:27:43.366139",
         "actual_end_time": null,
         "blocked_tabs": 0,
         "tab_count": 0,

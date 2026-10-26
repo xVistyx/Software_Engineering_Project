@@ -42,3 +42,5 @@ def receive_message(data: SessionData,authorization: str = Header(None)):
         )
 
     return system.send_requests_to_frontend(response)
+
+

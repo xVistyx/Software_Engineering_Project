@@ -7,7 +7,7 @@ from collections import Counter
 
 @dataclass
 class SessionSummaryForDB:
-    session_id: int
+    session_id: str
     session_topic: str
     session_start_time: datetime
     session_end_time: datetime
@@ -20,6 +20,7 @@ class SessionSummaryForDB:
     most_used_tab: str
     most_often_blocked: str
     block_counter: int
+    website_metadata: list[dict]   
 
 
 class GenerateSummary:
@@ -82,7 +83,8 @@ class GenerateSummary:
             time_spent_on_tabs=time_spent_on_tabs,
             most_used_tab=most_used_tab,
             most_often_blocked=most_often_blocked,
-            block_counter=block_counter
+            block_counter=block_counter,
+            website_metadata=metadata       
         )
 
     # ---------------------------------------------------------
