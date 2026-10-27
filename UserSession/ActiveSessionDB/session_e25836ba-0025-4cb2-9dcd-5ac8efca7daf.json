@@ -1,0 +1,108 @@
+{
+    "session_info": {
+        "id": "e25836ba-0025-4cb2-9dcd-5ac8efca7daf",
+        "topic": "Math",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-10-27T15:56:33.998658",
+        "last_update_time": "2026-10-27T15:56:33.998658",
+        "predicted_end_time": "2026-10-27T16:41:33.998658",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 7,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66848733,
+            "title": "WW2 - OverSimplified (Part 1) - YouTube",
+            "url": "https://www.youtube.com/watch?v=_uk_6vfqwTA",
+            "description": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+            "favicon": "https://www.youtube.com/s/desktop/9bbb81d2/img/favicon.ico",
+            "timestamp": "2026-10-27T14:56:36.068Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 359.06663383299747,
+            "is_related": null
+        },
+        {
+            "tab_id": 66848733,
+            "title": "YouTube",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "description": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+            "favicon": "https://www.youtube.com/s/desktop/dc0b62b0/img/favicon.ico",
+            "timestamp": "2026-10-27T14:56:36.068Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 3.4805865829985123,
+            "is_related": null
+        },
+        {
+            "tab_id": 66848733,
+            "title": "WW2 - OverSimplified (Part 1) - YouTube",
+            "url": "https://www.youtube.com/watch?v=_uk_6vfqwTA",
+            "description": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+            "favicon": "https://www.youtube.com/s/desktop/9bbb81d2/img/favicon.ico",
+            "timestamp": "2026-10-27T14:56:36.068Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 80.55927991600038,
+            "is_related": null
+        },
+        {
+            "tab_id": 66848747,
+            "title": "Turnout so far highest on record as Israelis vote in pivotal election",
+            "url": "https://www.bbc.com/news/articles/c3j47l4kdez4o",
+            "description": "The elections - the first since the Hamas-led attacks on Israel and the wars which followed - are widely seen as a referendum on Benjamin Netanyahu.",
+            "favicon": "",
+            "timestamp": "2026-10-27T14:59:38.823Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 22.420737624997855,
+            "is_related": null
+        },
+        {
+            "tab_id": 66848733,
+            "title": "WW2 - OverSimplified (Part 1) - YouTube",
+            "url": "https://www.youtube.com/watch?v=_uk_6vfqwTA",
+            "description": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+            "favicon": "https://www.youtube.com/s/desktop/9bbb81d2/img/favicon.ico",
+            "timestamp": "2026-10-27T14:56:36.068Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 176.43585870799143,
+            "is_related": null
+        },
+        {
+            "tab_id": 66848733,
+            "title": "WW2 - OverSimplified (Part 1) - YouTube",
+            "url": "https://www.youtube.com/watch?v=_uk_6vfqwTA",
+            "description": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+            "favicon": "https://www.youtube.com/s/desktop/9bbb81d2/img/favicon.ico",
+            "timestamp": "2026-10-27T14:56:36.068Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 178.1786024989924,
+            "is_related": null
+        },
+        {
+            "tab_id": 66848733,
+            "title": "WW2 - OverSimplified (Part 1) - YouTube",
+            "url": "https://www.youtube.com/watch?v=_uk_6vfqwTA",
+            "description": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+            "favicon": "https://www.youtube.com/s/desktop/9bbb81d2/img/favicon.ico",
+            "timestamp": "2026-10-27T14:56:36.068Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 359.06663383299747,
+            "is_related": null
+        }
+    ]
+}

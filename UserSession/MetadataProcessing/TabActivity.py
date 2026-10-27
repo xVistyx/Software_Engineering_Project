@@ -94,44 +94,50 @@ class TabActivityHandler(ITabActivityHandler):
     def create_metadata(self,content: dict) -> dict:
         
                 metadata = WebsiteMetadata(
-                    tab_id=content["tab_id"],
-                    title=content.get("title", ""),
-                    url=content.get("url", ""),
-                    favicon=content.get("favicon", ""),
-                    timestamp=content.get(
-                        "timestamp",
-                        datetime.now().isoformat()
-                    ),
-                    block=None,
-                    currently_open=True,
-                    currently_active=False,
-                    time_spent=0.0,
-                    is_related=None
-                )
+                tab_id=content["tab_id"],
+                title=content.get("title", ""),
+                url=content.get("url", ""),
+                description=content.get("description", ""),
+                favicon=content.get("favicon", ""),
+                timestamp=content.get(
+                    "timestamp",
+                    datetime.now().isoformat()
+                ),
+                block=None,
+                currently_open=True,
+                currently_active=False,
+                time_spent=0.0,
+                is_related=None
+            )
         
                 result = asdict(metadata)
         
                 
         
                 return result
-    def update_metadata(self,metadata: dict,content: dict) -> None:
-            """
-            Updates metadata only.
-            Does not restart or stop the timer.
-            """
-    
-            if content.get("title"):
-                metadata["title"] = content["title"]
-    
-            if content.get("url"):
-                metadata["url"] = content["url"]
-    
-            if content.get("favicon"):
-                metadata["favicon"] = content["favicon"]
-    
-            metadata["currently_open"] = True
-    
-            return metadata
+    def update_metadata(self, metadata: dict, content: dict) -> None:
+
+        if content.get("title"):
+            metadata["title"] = content["title"]
+
+        if content.get("url"):
+            metadata["url"] = content["url"]
+
+        if content.get("description"):
+            metadata["description"] = content["description"]
+
+        if content.get("favicon"):
+            metadata["favicon"] = content["favicon"]
+
+        if content.get("timestamp"):
+            metadata["timestamp"] = content["timestamp"]
+
+        metadata["currently_open"] = True
+
+        # The metadata changed, so it needs to be written to JSON
+        self.dirty_tabs.mark_dirty(metadata)
+
+        return metadata
     
     
         

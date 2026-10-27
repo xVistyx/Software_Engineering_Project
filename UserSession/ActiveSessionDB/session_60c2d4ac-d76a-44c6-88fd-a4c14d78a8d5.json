@@ -1,0 +1,69 @@
+{
+    "session_info": {
+        "id": "60c2d4ac-d76a-44c6-88fd-a4c14d78a8d5",
+        "topic": "hello world",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-10-27T16:25:04.201669",
+        "last_update_time": "2026-10-27T16:25:04.201669",
+        "predicted_end_time": "2026-10-27T17:10:04.201669",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 4,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66848751,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "description": "Speel gratis online schaak op Chess.com met meer dan 250 miljoen leden uit de hele wereld. Speel met plezier tegen vrienden of daag de computer uit!",
+            "favicon": "https://www.chess.com/bundles/web/favicons/favicon.46041f2d.ico",
+            "timestamp": "2026-10-27T15:32:15.904Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 11.627666291999049,
+            "is_related": null
+        },
+        {
+            "tab_id": 66848753,
+            "title": "US-Midterms-Umfrage: Was Deutschland eint? Die Abneigung gegen die USA - DER SPIEGEL",
+            "url": "https://www.spiegel.de/ausland/us-midterms-umfrage-was-deutschland-eint-die-abneigung-gegen-die-usa-a-dd04220b-0818-4e37-9710-ac6e43283635",
+            "description": "Waffenk\u00e4ufe, Techkonzerne, Donald Trump: Kurz vor den Zwischenwahlen in den USA zeigt eine neue Umfrage, wie die Deutschen auf Amerika blicken. Und ob ein anderer Pr\u00e4sident daran etwas \u00e4ndern w\u00fcrde.",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-10-27T15:25:58.135Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 48.69511283299653,
+            "is_related": null
+        },
+        {
+            "tab_id": 66848755,
+            "title": "WW2 - OverSimplified (Part 1) - YouTube",
+            "url": "https://www.youtube.com/watch?v=_uk_6vfqwTA",
+            "description": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+            "favicon": "https://www.youtube.com/s/desktop/9bbb81d2/img/favicon.ico",
+            "timestamp": "2026-10-27T15:26:22.354Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 81.2678760830022,
+            "is_related": null
+        },
+        {
+            "tab_id": 66848757,
+            "title": "YouTube",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "description": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+            "favicon": "https://www.youtube.com/s/desktop/9bbb81d2/img/favicon.ico",
+            "timestamp": "2026-10-27T15:32:10.074Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 5.888415375004115,
+            "is_related": null
+        }
+    ]
+}

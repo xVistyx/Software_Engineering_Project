@@ -4,6 +4,7 @@ class WebsiteMetadata:
     tab_id: int
     title: str
     url: str
+    description: str
     favicon: str
     timestamp: str
     block: bool | None

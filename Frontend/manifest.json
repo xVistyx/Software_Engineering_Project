@@ -26,14 +26,24 @@
   },
 
   "content_scripts": [
-    {
-      "matches": [
-        "https://www.youtube.com/*"
-      ],
-      "js": [
-        "api/dynamic_webpages.js"
-      ],
-      "run_at": "document_idle"
-    }
-  ]
+  {
+    "matches": [
+      "https://www.youtube.com/*"
+    ],
+    "js": [
+      "api/dynamic_webpages.js"
+    ],
+    "run_at": "document_idle"
+  },
+  {
+    "matches": [
+      "http://*/*",
+      "https://*/*"
+    ],
+    "js": [
+      "page_metadata.js"
+    ],
+    "run_at": "document_idle"
+  }
+]
 }

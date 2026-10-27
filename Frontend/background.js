@@ -49,6 +49,29 @@ async function getRunningSession() {
 // SEND WEBSITE EVENT
 // ============================================================
 
+async function getPageDescription(tabId) {
+
+  try {
+
+    const response =
+      await chrome.tabs.sendMessage(
+        tabId,
+        {
+          action: "get_page_description"
+        }
+      );
+
+    return response?.description ?? "";
+
+  } catch (error) {
+
+    // Content scripts cannot run on certain Chrome/internal pages.
+    return "";
+
+  }
+}
+
+
 async function sendTabObservation(
   tab,
   session,
@@ -57,17 +80,19 @@ async function sendTabObservation(
 ) {
 
   if (!tab) return;
-
   if (tab.incognito) return;
 
-  if (
-    !/^https?:\/\//i.test(
-      tab.url ?? ''
-    )
-  ) {
+  if (!/^https?:\/\//i.test(tab.url ?? '')) {
     return;
   }
 
+  const description =
+    await getPageDescription(tab.id);
+
+  console.log(
+    "PAGE DESCRIPTION:",
+    description
+  );
 
   const observation = {
 
@@ -96,6 +121,9 @@ async function sendTabObservation(
     title:
       tab.title ?? '',
 
+    description:
+      description,
+
     favicon:
       tab.favIconUrl ?? '',
 
@@ -105,6 +133,8 @@ async function sendTabObservation(
     pinned:
       !!tab.pinned
   };
+
+  
 
 
   const result = await api.logWebsiteMetadata(

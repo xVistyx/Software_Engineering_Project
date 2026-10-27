@@ -70,12 +70,40 @@ class UserSessionDataManager:
     def write_metadata_to_session_json(self, data: dict) -> None:
 
         if self.session_path is None:
-            raise RuntimeError("No active session JSON has been created.")
+            raise RuntimeError(
+                "No active session JSON has been created."
+            )
 
         database = json.loads(
             self.session_path.read_text()
         )
 
+        tab_id = data["tab_id"]
+
+        # Check whether this physical Chrome tab
+        # already exists in the JSON.
+        for index, existing in enumerate(
+            database["website_metadata"]
+        ):
+
+            if existing["tab_id"] == tab_id:
+
+                # Existing tab -> update it instead of
+                # creating a duplicate.
+                database["website_metadata"][index] = data
+
+                self.session_path.write_text(
+                    json.dumps(database, indent=4)
+                )
+
+                print(
+                    "TAB ALREADY EXISTS -> UPDATED:",
+                    tab_id
+                )
+
+                return
+
+        # If we reach here, the tab genuinely does not exist.
         database["website_metadata"].append(data)
 
         database["session_info"]["tab_count"] += 1
@@ -83,7 +111,12 @@ class UserSessionDataManager:
         self.session_path.write_text(
             json.dumps(database, indent=4)
         )
-    
+
+        print(
+            "NEW TAB -> ADDED:",
+            tab_id
+        )
+        
 
 
     def _make_json_safe(self, value) -> datetime:

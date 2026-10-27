@@ -81,23 +81,33 @@ class EventManager:
         self.tab_activity:ITabActivityHandler = tab_activity
        
 
-    def handle_event(self, reason: str, state: str) -> tuple[bool, dict| None]:
-        if (reason == "window_focus_changed" and state == "unfocused"):
-            bools,meta_data = self.browser_unfocused()
-            if bools == True:
-                return True, meta_data
-            return False, None
-            
+    def handle_event(
+        self,
+        reason: str,
+        state: str
+    ) -> tuple[bool, dict | None]:
 
-        if (reason == "idle_state_changed" and state in {"idle", "locked"}):
-            bools,meta_data = self.browser_unfocused()
-            if bools == True:
-                return True, meta_data
-            return False, None
+        if reason == "window_focus_changed" and state == "unfocused":
+
+            changed, metadata = self.browser_unfocused()
+
+            # This may modify an existing tab,
+            # but it NEVER creates a new tab.
+            return False, metadata
+
+
+        if reason == "idle_state_changed" and state in {"idle", "locked"}:
+
+            changed, metadata = self.browser_unfocused()
+
+            # Again: existing tab changed,
+            # not a new tab.
+            return False, metadata
+
 
         if reason == "heartbeat":
             return False, None
-       
+
         return False, None
 
     def browser_unfocused(self) -> tuple[bool, dict | None]:
