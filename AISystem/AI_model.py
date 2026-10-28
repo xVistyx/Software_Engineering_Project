@@ -5,7 +5,8 @@ import json
 import re
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training, PeftModel
 from torch.utils.data import DataLoader
-from transformers import DataCollatorForSeq2Seq
+from pair_dataset import PairDataset, make_collate_fn
+import csv
 
 class Model(ABC):
     def __init__(self, config_path, model_name=None):
@@ -44,6 +45,7 @@ class Model(ABC):
         prompt = self.build_prompt(query, page_data)
         inputs = self.tokenise(prompt)
         raw = self.generate(inputs)
+        self.last_raw = raw
         return self.parse(raw)
 
 
@@ -54,16 +56,35 @@ class Model(ABC):
             return True                             
         return match.group(1).lower() == "true"
 
-    def train(self, dataset, val_rows=None):
+    def apply_template(self, prompt_text):
+        return self.tokenizer.apply_chat_template(
+            [{"role": "user", "content": prompt_text}],
+            tokenize=False, add_generation_prompt=True,
+            **self.config["tokenizer"]["chat_template_kwargs"],
+        )
+
+    def build_training_example(self, query, page, relevant):
+        prompt_text = self.apply_template(self.build_prompt(query, page))
+        answer = json.dumps({"relevant": bool(relevant)}) + self.tokenizer.eos_token
+        prompt_ids = self.tokenizer(prompt_text, add_special_tokens=False)["input_ids"]
+        answer_ids = self.tokenizer(answer, add_special_tokens=False)["input_ids"]
+        return {
+            "input_ids": torch.tensor(prompt_ids + answer_ids),
+            "labels": torch.tensor([-100] * len(prompt_ids) + answer_ids),
+        }
+    
+    def train(self, dataset, val_path=None):
+        train_rows = [json.loads(l) for l in open(train_path)]
+        val_rows = [json.loads(l) for l in open(val_path)] if val_path else None
         #attach LoRA adapters to the model
         self.model = prepare_model_for_kbit_training(self.model)
         self.model = get_peft_model(self.model, LoraConfig(**self.LoRA_config))
         self.model.print_trainable_parameters()
 
         # dataset = list of {"input_ids", "labels"} from build_training_example
-        collator = DataCollatorForSeq2Seq(self.tokenizer, padding=True, label_pad_token_id=-100)
+        dataset = PairDataset(train_rows, self)
         loader = DataLoader(dataset, batch_size=self.training_config["per_device_train_batch_size"],
-                            shuffle=True, collate_fn=collator)
+                        shuffle=True, collate_fn=make_collate_fn(self.tokenizer.pad_token_id))
 
         # 3. optimiser over the LoRA parameters only
         optimizer = torch.optim.AdamW(
@@ -98,27 +119,48 @@ class Model(ABC):
     def load_adapter(self, path):
         self.model = PeftModel.from_pretrained(self.model, path)
 
-    def evaluate(self, rows):
+    def evaluate(self, rows, save_path="predictions.csv"):
         self.model.eval()
-        tp = 0
-        fp = 0
-        fn = 0
-        tn = 0 
+        tp = fp = fn = tn = 0
         by_tier = {}
+        records = []
         for r in rows:
             pred_relevant = self.classify(r["query"], r["page"])
+            records.append({
+                "query": r["query"],
+                "title": r["page"]["title"],
+                "description": r["page"]["description"],
+                "tier": r.get("tier"),
+                "truth": r["relevant"],
+                "pred": pred_relevant,
+                "raw": self.last_raw,
+            })
             correct = pred_relevant == r["relevant"]
             if "tier" in r:
                 by_tier.setdefault(r["tier"], []).append(correct)
             # positive class = "block"
-            if not pred_relevant and not r["relevant"]: 
+            if not pred_relevant and not r["relevant"]:
                 tp += 1
-            elif not pred_relevant and r["relevant"]:   
+            elif not pred_relevant and r["relevant"]:
                 fp += 1   # wrongly blocked
-            elif pred_relevant and not r["relevant"]:   
+            elif pred_relevant and not r["relevant"]:
                 fn += 1   # distraction let through
-            else:                                       
+            else:
                 tn += 1
+
+        if save_path and records:
+            with open(save_path, "w", newline="", encoding="utf-8") as f:
+                w = csv.DictWriter(f, fieldnames=records[0].keys())
+                w.writeheader()
+                w.writerows(records)
+
+        errors = [r for r in records if r["truth"] != r["pred"]]
+        if errors:
+            with open("errors.csv", "w", newline="", encoding="utf-8") as f:
+                w = csv.DictWriter(f, fieldnames=errors[0].keys())
+                w.writeheader()
+                w.writerows(errors)
+
         precision = tp / max(tp + fp, 1)
         recall = tp / max(tp + fn, 1)
         return {
@@ -129,10 +171,3 @@ class Model(ABC):
             "confusion": {"tp": tp, "fp": fp, "fn": fn, "tn": tn},
             "per_tier": {k: sum(v) / len(v) for k, v in by_tier.items()},
         }
-
-
-
-
-
-
-    

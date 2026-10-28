@@ -1,0 +1,98 @@
+{
+  "seed": 42,
+  "curlie_path": "../curlie.csv.gz",
+  "output_dir": "data",
+  "queries_path": "queries.json",
+  "links_per_topic": 600,
+  "links_per_topic_other": 0,
+  "links_per_negative_group": 150,
+  "max_links_per_domain": 3,
+  "exclude_from_study": [],
+  "pairs": {
+    "easy_yes_per_page": 1,
+    "cross_topic_per_page": 1,
+    "easy_no_per_page": 6
+  },
+  "review": {
+    "reviewers": 6,
+    "overlap": 30,
+    "per_tier": {
+      "easy_yes": 60,
+      "cross_topic": 60,
+      "easy_no": 60
+    }
+  },
+  "split": {
+    "val": 0.1,
+    "test": 0.1,
+    "heldout_queries_per_topic": {
+      "val": 1,
+      "test": 2
+    },
+    "balance": [
+      "val",
+      "test"
+    ]
+  },
+  "topics": {
+    "Mathematics": [
+      "/en/Science/Math/"
+    ],
+    "Physics": [
+      "/en/Science/Physics/"
+    ],
+    "Chemistry": [
+      "/en/Science/Chemistry/"
+    ],
+    "Biology": [
+      "/en/Science/Biology/"
+    ],
+    "Computer_Science": [
+      "/en/Computers/Computer_Science/"
+    ],
+    "Economics": [
+      "/en/Science/Social_Sciences/Economics/"
+    ],
+    "History": [
+      "/en/Society/History/"
+    ],
+    "Law": [
+      "/en/Society/Law/"
+    ],
+    "Philosophy": [
+      "/en/Society/Philosophy/"
+    ],
+    "Literature": [
+      "/en/Arts/Literature/"
+    ],
+    "Medicine_Health": [
+      "/en/Health/Medicine/"
+    ]
+  },
+  "negatives": {
+    "Games": [
+      "/en/Games/"
+    ],
+    "Sports": [
+      "/en/Sports/"
+    ],
+    "Shopping": [
+      "/en/Shopping/"
+    ],
+    "Recreation": [
+      "/en/Recreation/"
+    ],
+    "Home": [
+      "/en/Home/"
+    ],
+    "Movies": [
+      "/en/Arts/Movies/"
+    ],
+    "Music": [
+      "/en/Arts/Music/"
+    ],
+    "Television": [
+      "/en/Arts/Television/"
+    ]
+  }
+}

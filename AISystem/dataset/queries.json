@@ -1,0 +1,112 @@
+{
+  "Mathematics": [
+    "I will study mathematics",
+    "Studying for my maths exam",
+    "Working on my math homework",
+    "Mathematics revision session",
+    "I need to learn more about maths today",
+    "Reading up on math for my course",
+    "Preparing a mathematics presentation",
+    "Time to focus on maths"
+  ],
+  "Physics": [
+    "I will study physics",
+    "Studying for my physics exam",
+    "Working on my classical physics homework",
+    "Physics revision session",
+    "I need to learn more about physics today",
+    "Reading up on classical physics for my course",
+    "Preparing a physics presentation",
+    "Time to focus on physics"
+  ],
+  "Chemistry": [
+    "I will study chemistry",
+    "Studying for my chemistry exam",
+    "Working on my chemical science homework",
+    "Chemistry revision session",
+    "I need to learn more about chemistry today",
+    "Reading up on chemical science for my course",
+    "Preparing a chemistry presentation",
+    "Time to focus on chemistry"
+  ],
+  "Biology": [
+    "I will study biology",
+    "Studying for my biology exam",
+    "Working on my life sciences homework",
+    "Biology revision session",
+    "I need to learn more about biology today",
+    "Reading up on life sciences for my course",
+    "Preparing a biology presentation",
+    "Time to focus on biology"
+  ],
+  "Computer_Science": [
+    "I will study computer science",
+    "Studying for my programming exam",
+    "Working on my computer science homework",
+    "Computer science revision session",
+    "I need to learn more about programming today",
+    "Reading up on computer science for my course",
+    "Preparing a computer science presentation",
+    "Time to focus on programming"
+  ],
+  "Economics": [
+    "I will study economics",
+    "Studying for my economics exam",
+    "Working on my microeconomics and macroeconomics homework",
+    "Economics revision session",
+    "I need to learn more about economics today",
+    "Reading up on microeconomics and macroeconomics for my course",
+    "Preparing a economics presentation",
+    "Time to focus on economics"
+  ],
+  "History": [
+    "I will study history",
+    "Studying for my history exam",
+    "Working on my world history homework",
+    "History revision session",
+    "I need to learn more about history today",
+    "Reading up on world history for my course",
+    "Preparing a history presentation",
+    "Time to focus on history"
+  ],
+  "Law": [
+    "I will study law",
+    "Studying for my law exam",
+    "Working on my legal studies homework",
+    "Law revision session",
+    "I need to learn more about law today",
+    "Reading up on legal studies for my course",
+    "Preparing a law presentation",
+    "Time to focus on law"
+  ],
+  "Philosophy": [
+    "I will study philosophy",
+    "Studying for my philosophy exam",
+    "Working on my ethics and philosophy homework",
+    "Philosophy revision session",
+    "I need to learn more about philosophy today",
+    "Reading up on ethics and philosophy for my course",
+    "Preparing a philosophy presentation",
+    "Time to focus on philosophy"
+  ],
+  "Medicine_Health": [
+    "I will study medicine",
+    "Studying for my medicine exam",
+    "Working on my medical science homework",
+    "Medicine revision session",
+    "I need to learn more about medicine today",
+    "Reading up on medical science for my course",
+    "Preparing a medicine presentation",
+    "Time to focus on medicine"
+  ],
+  "Literature": [
+    "I will study literature",
+    "Studying for my literature exam",
+    "Working on my English literature homework",
+    "Literature revision session",
+    "I need to learn more about literature today",
+    "Reading up on English literature for my course",
+    "Preparing a literature presentation",
+    "Time to focus on literature"
+  ]
+}
