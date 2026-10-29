@@ -49,6 +49,17 @@ class Model(ABC):
         return self.parse(raw)
 
 
+    def classify_scored(self, query, page_data):
+        """Same decision as classify() but from probabilities, not generated text.
+        Returns {"relevant": bool, "p_relevant": float, "uncertain": bool, ...}.
+        """
+        d = self.config.get("decision", {})
+        t, band = d.get("relevance_threshold", 0.5), d.get("uncertain_band", 0.15)
+        s = self.score(self.build_prompt(query, page_data))
+        s["relevant"] = s["p_relevant"] >= t
+        s["uncertain"] = abs(s["p_relevant"] - t) < band
+        return s
+
     def parse(self, raw_text):
         match = re.search(r'"relevant"\s*:\s*(true|false)', raw_text, re.IGNORECASE)
         if match is None:
@@ -73,7 +84,7 @@ class Model(ABC):
             "labels": torch.tensor([-100] * len(prompt_ids) + answer_ids),
         }
     
-    def train(self, dataset, val_path=None):
+    def train(self, train_path, val_path=None):
         train_rows = [json.loads(l) for l in open(train_path)]
         val_rows = [json.loads(l) for l in open(val_path)] if val_path else None
         #attach LoRA adapters to the model
@@ -125,7 +136,8 @@ class Model(ABC):
         by_tier = {}
         records = []
         for r in rows:
-            pred_relevant = self.classify(r["query"], r["page"])
+            sc = self.classify_scored(r["query"], r["page"])
+            pred_relevant = sc["relevant"]
             records.append({
                 "query": r["query"],
                 "title": r["page"]["title"],
@@ -133,7 +145,9 @@ class Model(ABC):
                 "tier": r.get("tier"),
                 "truth": r["relevant"],
                 "pred": pred_relevant,
-                "raw": self.last_raw,
+                "p_relevant": round(sc["p_relevant"], 4),
+                "uncertain": sc["uncertain"],
+                "answer_mass": round(sc["answer_mass"], 4),
             })
             correct = pred_relevant == r["relevant"]
             if "tier" in r:
@@ -169,5 +183,37 @@ class Model(ABC):
             "f1": 2 * precision * recall / max(precision + recall, 1e-9),
             "accuracy": (tp + tn) / max(len(rows), 1),
             "confusion": {"tp": tp, "fp": fp, "fn": fn, "tn": tn},
+            "false_block_rate": fp / max(fp + tn, 1),          # share of study pages wrongly blocked
             "per_tier": {k: sum(v) / len(v) for k, v in by_tier.items()},
+            **probability_metrics(records),
         }
+
+
+def probability_metrics(records, bins=10):
+    """AUROC of P(relevant), calibration error, and how accurate the model is when it is / is not sure."""
+    if not records:
+        return {}
+    ps = [r["p_relevant"] for r in records]
+    ys = [bool(r["truth"]) for r in records]
+    pos = [p for p, y in zip(ps, ys) if y]
+    neg = [p for p, y in zip(ps, ys) if not y]
+    auroc = None
+    if pos and neg:   # P(random relevant page scores above a random distraction), ties count half
+        auroc = sum((a > b) + 0.5 * (a == b) for a in pos for b in neg) / (len(pos) * len(neg))
+    ece, table = 0.0, []
+    for i in range(bins):
+        lo, hi = i / bins, (i + 1) / bins
+        idx = [j for j, p in enumerate(ps) if lo <= p < hi or (i == bins - 1 and p == 1.0)]
+        if idx:
+            conf, frac = sum(ps[j] for j in idx) / len(idx), sum(ys[j] for j in idx) / len(idx)
+            ece += len(idx) / len(ps) * abs(conf - frac)
+            table.append({"bin": f"{lo:.1f}-{hi:.1f}", "n": len(idx), "mean_p": round(conf, 3), "actual_relevant": round(frac, 3)})
+    sure = [r for r in records if not r["uncertain"]]
+    unsure = [r for r in records if r["uncertain"]]
+    acc = lambda rs: (sum(r["truth"] == r["pred"] for r in rs) / len(rs)) if rs else None
+    return {
+        "auroc": auroc, "ece": ece, "calibration": table,
+        "uncertain_share": len(unsure) / len(records),
+        "accuracy_when_sure": acc(sure), "accuracy_when_uncertain": acc(unsure),
+        "mean_answer_mass": sum(r["answer_mass"] for r in records) / len(records),
+    }
