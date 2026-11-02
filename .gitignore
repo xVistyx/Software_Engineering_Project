@@ -6,3 +6,11 @@ html_content.json.gz
 mapping.json/gz
 __pycache__/
 *.pyc
+outputs/
+errors.csv
+predictions*.csv
+results_*.json
+slurm.*
+*.log
+_tmp_split/
+curlie.csv.gz
