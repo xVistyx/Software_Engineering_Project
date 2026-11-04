@@ -94,7 +94,7 @@ class TestDecisionRule(ModelTestCase):
                 self.assertIs(result["relevant"], relevant)
                 self.assertIs(result["uncertain"], uncertain)
         """
-        This test ives the classifier a list of fixed probabilities, from clearly relevant to clearly
+        This test gives the classifier a list of fixed probabilities, from clearly relevant to clearly
         irrelevant and including values on the boundaries.
         For each one it checks that the decision is correct where
         low probability is blocked and a high one is allowed and probabilities close to 0.5
