@@ -1,0 +1,43 @@
+{
+    "session_info": {
+        "id": "f33d1ed9-b3eb-4b1b-a7d3-8eda3047f8fc",
+        "topic": "ew",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-11-05T11:46:00.401204",
+        "last_update_time": "2026-11-05T11:46:00.401204",
+        "predicted_end_time": "2026-11-05T12:31:00.401204",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 2,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66848853,
+            "title": "feuwfw - Google Zoeken",
+            "url": "https://www.google.com/search?q=feuwfw&rlz=1C5OZZY_enNL1221NL1221&oq=feuwfw&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBBzc4MGowajeoAgCwAgA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "description": "",
+            "favicon": "https://www.gstatic.com/images/branding/searchlogo/ico/favicon.ico",
+            "timestamp": "2026-11-05T10:46:47.391Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 29.78698879102012,
+            "is_related": null
+        },
+        {
+            "tab_id": 66848917,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "description": "",
+            "favicon": "https://www.chess.com/bundles/web/favicons/favicon.46041f2d.ico",
+            "timestamp": "2026-11-05T10:46:31.830Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 15.664251125010196,
+            "is_related": null
+        }
+    ]
+}

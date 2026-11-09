@@ -1,0 +1,16 @@
+{
+    "session_info": {
+        "id": "7db09486-a138-4147-8616-705673be711c",
+        "topic": "hello world",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-11-05T12:23:05.025589",
+        "last_update_time": "2026-11-05T12:23:05.025589",
+        "predicted_end_time": "2026-11-05T13:08:05.025589",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 0,
+        "complete_session": false
+    },
+    "website_metadata": []
+}
