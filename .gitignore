@@ -1,3 +1,22 @@
+<<<<<<< HEAD
 # Python cache files
 __pycache__/
 *.py[cod]
+=======
+<<<<<<< HEAD
+.DS_Store
+html_content_english.jsonl
+curlie.csv.gz
+html_content.json.gz
+mapping.json/gz
+__pycache__/
+*.pyc
+outputs/
+errors.csv
+predictions*.csv
+results_*.json
+slurm.*
+*.log
+_tmp_split/
+curlie.csv.gz
+>>>>>>> origin/feature/AI-system

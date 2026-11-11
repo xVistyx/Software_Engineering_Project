@@ -24,9 +24,9 @@ class WebsiteBlockerManager:
                 video["is_related"] = is_related
 
                 block = BlockContent(
-                    website_url=video["url"],
-                    content_id=video["content_id"],
-                    block= is_related
+                    website_url=meta_datas["url"],
+                    content_id="",
+                    block=is_related
                 )
 
                 block_content_list.append(block)
@@ -58,7 +58,7 @@ class WebsiteBlockerManager:
         return meta_datas, response
 
     def confidence_to_bool(self, ai_confidence) -> bool:
-        return False
+        return not ai_confidence
 
     def get_ai_evaluation(self, metadata, topic) -> bool:
 
