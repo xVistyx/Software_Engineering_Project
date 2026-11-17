@@ -1,0 +1,89 @@
+{
+    "session_info": {
+        "id": "298dcdd8-6629-4d4d-9f1a-2605a6a4f1cd",
+        "topic": "math",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-11-17T12:58:54.831706",
+        "last_update_time": "2026-11-17T12:58:54.831706",
+        "predicted_end_time": "2026-11-17T13:43:54.831706",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 6,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66852629,
+            "title": "YouTube",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "favicon": "https://www.youtube.com/s/desktop/bf021a32/img/favicon.ico",
+            "timestamp": "2026-11-17T11:58:56.290Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 5.063949083007174,
+            "is_related": null
+        },
+        {
+            "tab_id": 66852629,
+            "title": "YouTube",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "favicon": "https://www.youtube.com/s/desktop/bf021a32/img/favicon.ico",
+            "timestamp": "2026-11-17T11:58:56.290Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 5.063949083007174,
+            "is_related": null
+        },
+        {
+            "tab_id": 66852630,
+            "title": "YouTube",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "favicon": "https://www.youtube.com/s/desktop/bf021a32/img/favicon.ico",
+            "timestamp": "2026-11-17T11:59:05.958Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 5.468900457985001,
+            "is_related": null
+        },
+        {
+            "tab_id": 66852630,
+            "title": "YouTube",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "favicon": "https://www.youtube.com/s/desktop/bf021a32/img/favicon.ico",
+            "timestamp": "2026-11-17T11:59:05.958Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 5.468900457985001,
+            "is_related": null
+        },
+        {
+            "tab_id": 66852633,
+            "title": "Khan Academy | Gratis Online Cursussen, Lessen & Oefeningen",
+            "url": "https://nl.khanacademy.org/",
+            "favicon": "https://cdn.kastatic.org/images/favicon.ico?logo",
+            "timestamp": "2026-11-17T11:59:55.051Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 19.6869993339933,
+            "is_related": null
+        },
+        {
+            "tab_id": 66852633,
+            "title": "Khan Academy | Gratis Online Cursussen, Lessen & Oefeningen",
+            "url": "https://nl.khanacademy.org/",
+            "favicon": "https://cdn.kastatic.org/images/favicon.ico?logo",
+            "timestamp": "2026-11-17T11:59:55.051Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 19.6869993339933,
+            "is_related": null
+        }
+    ]
+}

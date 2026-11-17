@@ -92,7 +92,7 @@ def summary_record(user_id, data):
                'score': raw['session_score'], 'tabCount': raw['number_of_tabs'],
                'mostUsedTab': raw['most_used_tab'], 'mostOftenBlocked': raw['most_often_blocked'],
                'pausedSeconds': None, 'unattributedSeconds': None, 'visitCount': None,
-               'tabsBlocked': None, 'domains': domain_summary, 'detailLevel': 'summary',
+               'tabsBlocked': raw['block_counter'], 'domains': domain_summary, 'detailLevel': 'summary',
                'sessionTimeSeconds': raw['actual_session_duration'], 'productiveTimeSeconds': raw['productive_time'],
-               'tabsOpened': raw['number_of_tabs'], 'distractionsBlocked': None}
+               'tabsOpened': raw['number_of_tabs'], 'distractionsBlocked': raw['block_counter']}
     return session, summary

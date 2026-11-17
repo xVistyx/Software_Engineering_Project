@@ -1,0 +1,53 @@
+{
+    "session_info": {
+        "id": "97f6e730-64da-4240-8df6-d41138b56aaf",
+        "topic": "math",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-11-17T13:28:12.935335",
+        "last_update_time": "2026-11-17T13:28:12.935335",
+        "predicted_end_time": "2026-11-17T14:13:12.935335",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 3,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66852640,
+            "title": "YouTube",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "favicon": "https://www.youtube.com/s/desktop/bf021a32/img/favicon.ico",
+            "timestamp": "2026-11-17T12:28:14.724Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 0.8382217499893159,
+            "is_related": null
+        },
+        {
+            "tab_id": 66852642,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "https://www.chess.com/bundles/web/favicons/favicon.46041f2d.ico",
+            "timestamp": "2026-11-17T12:28:18.963Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 0.8940812909859233,
+            "is_related": null
+        },
+        {
+            "tab_id": 66852633,
+            "title": "Khan Academy | Gratis Online Cursussen, Lessen & Oefeningen",
+            "url": "https://nl.khanacademy.org/",
+            "favicon": "https://cdn.kastatic.org/images/favicon.ico?logo",
+            "timestamp": "2026-11-17T12:28:22.874Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 0.0,
+            "is_related": null
+        }
+    ]
+}

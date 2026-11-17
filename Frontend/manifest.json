@@ -13,8 +13,10 @@
 
   "host_permissions": [
     "http://127.0.0.1:8000/*",
+    "http://localhost:8000/*",
+    "http://100.85.175.65:8000/*",
     "https://www.youtube.com/*"
-  ],
+],
 
   "background": {
     "service_worker": "background.js",

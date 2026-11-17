@@ -66,6 +66,7 @@ class GenerateSummary:
         most_used_tab = self.calculate_most_used_tabs(metadata)
         most_often_blocked = self.calculate_most_blocked(metadata)
         productive_time = sum(float(tab.get("time_spent", 0) or 0) for tab in metadata if tab.get("is_related") is True)
+        productive_time = min(actual_session_duration, max(0.0, productive_time))
         session_score = self.generate_score(productive_time, actual_session_duration)
         block_counter = self.count_blocked_sites(session_data)
        
@@ -188,7 +189,7 @@ class GenerateSummary:
             if tab_id is None:
                 continue
 
-            tab_times[tab_id] = self._get_tab_time_spent(tab)
+            tab_times[tab_id] = tab_times.get(tab_id, 0.0) + self._get_tab_time_spent(tab)
 
         return tab_times
     
@@ -265,23 +266,5 @@ class GenerateSummary:
             return ""
 
     def _get_tab_time_spent(self, tab: dict) -> float:
-        time_spent = float(tab.get("time_spent", 0) or 0)
-
-        # Use the recorded value if the timer has already tracked time.
-        if time_spent != 0.0:
-            return time_spent
-
-        start_time = self._parse_datetime(tab.get("timestamp"))
-
-        if start_time is None:
-            return 0.0
-
-        # Avoid mixing timezone-aware and timezone-naive datetimes.
-        if start_time.tzinfo is not None:
-            current_time = datetime.now(start_time.tzinfo)
-        else:
-            current_time = datetime.now()
-
-        elapsed = (current_time - start_time).total_seconds()
-
-        return max(0.0, elapsed)
+        # Zero is a valid measured duration, not a missing timer.
+        return max(0.0, float(tab.get("time_spent", 0) or 0))

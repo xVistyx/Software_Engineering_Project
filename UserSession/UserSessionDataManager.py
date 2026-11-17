@@ -76,15 +76,25 @@ class UserSessionDataManager:
             self.session_path.read_text()
         )
 
-        database["website_metadata"].append(data)
-
-        database["session_info"]["tab_count"] += 1
+        identity = data.get("visit_id", data["tab_id"])
+        for index, existing in enumerate(database["website_metadata"]):
+            if existing.get("visit_id", existing["tab_id"]) == identity:
+                database["website_metadata"][index] = data
+                break
+        else:
+            database["website_metadata"].append(data)
+        database["session_info"]["tab_count"] = len({row["tab_id"] for row in database["website_metadata"]})
 
         self.session_path.write_text(
             json.dumps(database, indent=4)
         )
     
 
+
+    def update_blocked_count(self, count):
+        database = json.loads(self.session_path.read_text())
+        database["session_info"]["blocked_tabs"] = count
+        self.session_path.write_text(json.dumps(database, indent=4))
 
     def _make_json_safe(self, value) -> datetime:
         if isinstance(value, datetime):
@@ -105,7 +115,7 @@ class UserSessionDataManager:
             database["website_metadata"]
         ):
 
-            if existing["tab_id"] == metadata["tab_id"]:
+            if existing.get("visit_id", existing["tab_id"]) == metadata.get("visit_id", metadata["tab_id"]):
 
                 database["website_metadata"][index] = metadata
 

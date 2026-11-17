@@ -1,7 +1,7 @@
 
 from pathlib import Path
 from AISystem.qwen_model import Qwen3Model
-
+import torch
 
 class AISessionEval:
     def __init__(self):
@@ -21,6 +21,18 @@ class AISessionEval:
         adapter_path = base_dir / "outputs" / "qwen3_4b_lora"
 
         self.model.config["model"]["adapter_path"] = str(adapter_path)
+        if torch.cuda.is_available():
+            device = "cuda"
+        elif torch.backends.mps.is_available():
+            device = "mps"
+        else:
+            device = "cpu"
+
+        self.model.config["model"]["device_map"] = device
+
+        print(f"[AI] Running on {device}")
+
+    
 
         # Load Qwen3-4B and its fine-tuned adapter
         self.model.load()

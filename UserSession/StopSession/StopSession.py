@@ -12,8 +12,9 @@ class StopSession:
         pass session data to GenerateSummary
         Stop All tracking of websites and information        
         """
-        backend_data,frontend_data  = self.session_summary.generate_summary(session_data)
         session_info = self.stop_session(active_session)
+        session_data["session_info"]["actual_end_time"] = session_info["actual_end_time"]
+        backend_data,frontend_data  = self.session_summary.generate_summary(session_data)
         return frontend_data, backend_data, session_info
         
     def stop_session(self, active_session):

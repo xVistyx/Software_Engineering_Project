@@ -76,14 +76,12 @@ class System():
         
     def run_user_session(self,action: str,content: dict,user_id,user_session_manager) -> dict[str:str, str: dict]:
 
-        response = user_session_manager.user_session_manager(action,content)
-
-        if action == "end_session":
-            session_summary = (user_session_manager.send_to_global_db_manager())
-            self.data_manager.save_session(user_id,session_summary)
+        with user_session_manager.lock:
+            response = user_session_manager.user_session_manager(action,content)
+            if action == "end_session" and "error" not in response.get("content", {}):
+                session_summary = user_session_manager.send_to_global_db_manager()
+                self.data_manager.save_session(user_id,session_summary)
             return response
-
-        return response
 
 
   

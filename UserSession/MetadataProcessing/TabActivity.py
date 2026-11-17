@@ -1,4 +1,5 @@
 from datetime import datetime
+from uuid import uuid4
 from dataclasses import dataclass
 from dataclasses import  asdict
 from .SessionInterfaces import ITabsStore, IDirtyTabsStore, ITabActivityHandler, ITabTimerHandler
@@ -102,14 +103,15 @@ class TabActivityHandler(ITabActivityHandler):
                         "timestamp",
                         datetime.now().isoformat()
                     ),
-                    block=None,
+                    block=content.get("block"),
                     currently_open=True,
                     currently_active=False,
                     time_spent=0.0,
-                    is_related=None
+                    is_related=content.get("is_related")
                 )
         
                 result = asdict(metadata)
+                result["visit_id"] = str(uuid4())
         
                 
         
@@ -129,7 +131,11 @@ class TabActivityHandler(ITabActivityHandler):
             if content.get("favicon"):
                 metadata["favicon"] = content["favicon"]
     
+            for key in ("block", "is_related"):
+                if key in content:
+                    metadata[key] = content[key]
             metadata["currently_open"] = True
+            self.dirty_tabs.mark_dirty(metadata)
     
             return metadata
     

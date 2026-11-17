@@ -50,7 +50,11 @@ class WebsiteMetadataEvaluator(IWebsiteMetadataEvaluator):
         reason = content.get("reason")
         state = content.get("state")
 
-        if reason in self.reason_lst_tabs:
+        if reason in {"session_end", "session_pause", "untracked_tab"}:
+            self.finish_tab(self.session.timer.active_tab_id, drain=False)
+            self.meta_data = None
+            return False
+        if reason in self.reason_lst_tabs or (reason in {"window_focus_changed", "idle_state_changed", "session_start", "session_resume"} and state == "active" and content.get("tab_id") is not None):
             is_new, metadata = self.tab_manager.handle_tab_state(reason, state, content, topic)
         else:
             is_new, metadata = self.event_manager.handle_event(reason, state)
@@ -68,6 +72,21 @@ class WebsiteMetadataEvaluator(IWebsiteMetadataEvaluator):
         result = self.meta_data.copy()
         result["time_spent"] = (self.session.timer.get_time_spent(result["tab_id"]))
         return result
+
+    def finish_tab(self, tab_id, drain=True):
+        if tab_id is not None and self.session.timer.is_active(tab_id):
+            self.session.tab_activity.deactivate_tab(tab_id)
+        return self.get_dirty_tabs() if drain else []
+
+    def blocked_visit(self, content):
+        tab_id = content.get("tab_id")
+        current = self.session.tabs.get_tab(tab_id)
+        if current and current.get("url") == content.get("url"):
+            self.session.tab_activity.close_tab(tab_id)
+        return self.get_dirty_tabs()
+
+    def finish(self):
+        return self.finish_tab(self.session.timer.active_tab_id)
 
     def get_dirty_tabs(self) -> list[dict]:
         return self.session.dirty_handler.get_dirty_tabs()
@@ -131,6 +150,10 @@ class TabManager:
 
       
         
+        current = self.tabs.get_tab(tab_id)
+        if current is not None and (not current.get("currently_open", True) or (content.get("url") and current.get("url") != content["url"])):
+            self.tab_activity.close_tab(tab_id)
+            self.tabs.remove_tab(tab_id)
         if not self.tabs.contains(tab_id):
             new_tab, meta_data =  self.create_tab(content, topic, tab_id)
             
@@ -155,14 +178,14 @@ class TabManager:
 
     def create_tab(self, content, topic, tab_id) -> tuple[bool, dict | None]:
         metadata = self.tab_activity.create_metadata(content)
-        metadata.setdefault("is_related", True)
+        # Unknown relevance must not be treated as productive.
         new_tab = True
         print("NEW TAB:",tab_id)
         return new_tab, metadata
 
     def update_tab(self, content, topic, tab_id) -> tuple[bool, dict | None]:
         metadata = self.tabs.get_tab(tab_id)
-        metadata.setdefault("is_related", True)
+        # Preserve the classification of this visit.
         if metadata is None:
             return False, None
         self.tab_activity.update_metadata(metadata,content)
@@ -172,7 +195,7 @@ class TabManager:
 
 
     def time_manager(self, reason, tab_id, state) -> bool:
-            if reason == "tab_activated":
+            if state == "active":
                 return self.tab_activity.activate_tab(tab_id)
     
             if (reason == "page_updated" and state == "active" and not self.timer.is_active(tab_id)):

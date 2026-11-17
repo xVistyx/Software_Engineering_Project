@@ -31,15 +31,15 @@ class WebsiteBlockerManager:
 
                 block_content_list.append(block)
         else:
-            is_related = self.get_ai_evaluation(
-                            meta_datas, topic
-                        )
+            should_block = self.get_ai_evaluation(meta_datas, topic)
 
-            meta_datas["is_related"] = is_related
+            meta_datas["is_related"] = not should_block
+            meta_datas["block"] = should_block
 
-            block = BlockContent(website_url=meta_datas["url"],
+            block = BlockContent(
+                website_url=meta_datas["url"],
                 content_id="",
-                block= is_related
+                block=should_block
             )
 
             block_content_list.append(block)

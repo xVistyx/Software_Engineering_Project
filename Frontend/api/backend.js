@@ -71,7 +71,7 @@ async function req(
       }),
 
       signal:
-        AbortSignal.timeout(8000),
+        AbortSignal.timeout(120000),
     }
   );
 

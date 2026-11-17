@@ -15,15 +15,29 @@ class ActiveUserSessionManager:
     
     def active_session_manager(self,metadata: dict,session_topic: str, command) -> tuple[dict | list[dict] | None, bool]:
         print("COMMMAND \n \n ", command, "\n \n")
-        if command  == "log_dynamic_content" or metadata["reason"] == "log_meta_data":
+        if command == "log_dynamic_content":
+            return {}, False, self.dynamic_meta_data(metadata, session_topic)
+        if metadata.get("reason") == "log_meta_data":
             list_of_recommendation = self.dynamic_meta_data(metadata, session_topic) 
             primary_meta_data = metadata
         else:
             #reason': 'window_focus_changed 
             print("NORMAL CONTENT ")
             print("\n\n META DATA, ", metadata, "\n\n")
-            if metadata["reason"] == 'page_updated':
-                _, block_info_lst = self.website_blocking_manager.website_blocker_manager(metadata,session_topic)
+            reason = metadata.get("reason")
+            if reason in {"page_updated", "tab_activated", "window_focus_changed", "idle_state_changed", "session_start", "session_resume"} and metadata.get("url") and metadata.get("state") == "active":
+                current = self.website_meta_data_evaluator.session.tabs.get_tab(metadata.get("tab_id"))
+                if current and current.get("currently_open") and current.get("url") == metadata["url"] and current.get("title") == metadata.get("title", "") and current.get("block") is not None:
+                    metadata["block"] = current["block"]
+                    metadata["is_related"] = current["is_related"]
+                    block_info_lst = {"tab_id": metadata["tab_id"], "blocking_decisions": [{"website_url": metadata["url"], "content_id": "", "block": current["block"]}]}
+                else:
+                    # A new page or tab is no longer time spent on the previous page.
+                    # Keep accumulated dirty updates until webiste_data persists them.
+                    timer = self.website_meta_data_evaluator.session.timer
+                    if timer.active_tab_id is not None and (timer.active_tab_id != metadata["tab_id"] or not current or current.get("url") != metadata["url"]):
+                        self.website_meta_data_evaluator.finish_tab(timer.active_tab_id, drain=False)
+                    _, block_info_lst = self.website_blocking_manager.website_blocker_manager(metadata,session_topic)
                 primary_meta_data = metadata
                 list_of_recommendation = block_info_lst
             else:
@@ -72,22 +86,10 @@ class ActiveUserSessionManager:
             
     def webiste_data(self, metadata: dict, session_topic:str) -> tuple[dict, bool]:
 
-            is_new_tab = self.website_meta_data_evaluator.handle_event(metadata,session_topic)
-            stored = False
-            if is_new_tab:
-                print("NEW TAB -> STORE:",metadata.get("tab_id"))
-                clean_metadata = (self.website_meta_data_evaluator.get_website_meta_data()) 
-                stored = True
-                return [clean_metadata, stored]
-            dirty_tabs = self.website_meta_data_evaluator.get_dirty_tabs() 
-            print("DIRTY TABS:", dirty_tabs)
-            stored = len(dirty_tabs) > 0
-            return [dirty_tabs, stored]
-
-  
-
-
-
-    
-    
-    
+            is_new_tab = self.website_meta_data_evaluator.handle_event(metadata, session_topic)
+            new_record = self.website_meta_data_evaluator.get_website_meta_data() if is_new_tab else None
+            dirty = self.website_meta_data_evaluator.get_dirty_tabs()
+            if new_record is not None:
+                dirty = [record for record in dirty if record.get("visit_id") != new_record.get("visit_id")]
+                dirty.append(new_record)
+            return dirty, bool(dirty)

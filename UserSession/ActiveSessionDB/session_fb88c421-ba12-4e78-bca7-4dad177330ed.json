@@ -1,0 +1,65 @@
+{
+    "session_info": {
+        "id": "fb88c421-ba12-4e78-bca7-4dad177330ed",
+        "topic": "math",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-11-17T13:42:38.489961",
+        "last_update_time": "2026-11-17T13:42:38.489961",
+        "predicted_end_time": "2026-11-17T14:27:38.489961",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 4,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66852651,
+            "title": "YouTube",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "favicon": "https://www.youtube.com/s/desktop/bf021a32/img/favicon.ico",
+            "timestamp": "2026-11-17T12:42:43.478Z",
+            "block": true,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 1.4724760839890223,
+            "is_related": false
+        },
+        {
+            "tab_id": 66852653,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "https://www.chess.com/bundles/web/favicons/favicon.46041f2d.ico",
+            "timestamp": "2026-11-17T12:42:48.257Z",
+            "block": true,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 1.2590714580146596,
+            "is_related": false
+        },
+        {
+            "tab_id": 66852655,
+            "title": "Khan Academy | Gratis Online Cursussen, Lessen & Oefeningen",
+            "url": "https://nl.khanacademy.org/",
+            "favicon": "https://cdn.kastatic.org/images/favicon.ico?logo",
+            "timestamp": "2026-11-17T12:42:51.231Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 65.03774345800048,
+            "is_related": true
+        },
+        {
+            "tab_id": 66852655,
+            "title": "Khan Academy | Gratis Online Cursussen, Lessen & Oefeningen",
+            "url": "https://nl.khanacademy.org/",
+            "favicon": "https://cdn.kastatic.org/images/favicon.ico?logo",
+            "timestamp": "2026-11-17T12:42:51.231Z",
+            "block": false,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 65.03774345800048,
+            "is_related": true
+        }
+    ]
+}

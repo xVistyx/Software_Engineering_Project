@@ -58,13 +58,11 @@ async function sendTabObservation(
 
   if (!tab) return;
 
-  if (tab.incognito) return;
-
-  if (
-    !/^https?:\/\//i.test(
-      tab.url ?? ''
-    )
-  ) {
+  if (tab.incognito || !/^https?:\/\//i.test(tab.url ?? '')) {
+    await api.logWebsiteMetadata({
+      event_id: crypto.randomUUID(), session_id: session.id,
+      timestamp: new Date().toISOString(), reason: 'untracked_tab', state: 'inactive'
+    });
     return;
   }
 
@@ -134,6 +132,11 @@ try {
 
     await chrome.tabs.update(tab.id, {
         url: chrome.runtime.getURL("blocked.html")
+    });
+    await api.logWebsiteMetadata({
+        event_id: crypto.randomUUID(), session_id: session.id,
+        timestamp: new Date().toISOString(), reason: 'website_blocked',
+        state: 'blocked', tab_id: tab.id, url: tab.url
     });
 } catch (error) {
     console.warn("Could not block tab:", error);
@@ -324,6 +327,9 @@ async function handleTabActivated(
   }
 
 
+  const window = await chrome.windows.get(tab.windowId).catch(() => null);
+  if (!window?.focused) return;
+
   await sendTabObservation(
     tab,
     session,
@@ -347,9 +353,11 @@ async function handlePageUpdated(
     Only care about the active tab.
   */
 
-  if (!tab.active) {
-    return;
-  }
+  if (!tab.active) return;
+  const window = await chrome.windows.get(tab.windowId).catch(() => null);
+  if (!window?.focused) return;
+  const latestTab = await chrome.tabs.get(tabId).catch(() => null);
+  if (!latestTab?.active || latestTab.url !== tab.url) return;
 
 
   /*
@@ -920,6 +928,12 @@ chrome.runtime.onMessage.addListener(
           return;
         }
 
+
+        if (message.type === 'SESSION_START' || message.type === 'SESSION_RESUME') {
+          const [tab] = await chrome.tabs.query({active: true, lastFocusedWindow: true});
+          if (tab) await sendTabObservation(tab, session, message.type.toLowerCase(), 'active');
+          return;
+        }
 
         await api.logWebsiteMetadata({
 

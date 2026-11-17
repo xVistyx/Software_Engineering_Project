@@ -14,7 +14,7 @@ class DirtyTabHandler(IDirtyTabsStore):
         if tab_id is None:
             raise ValueError("Metadata must contain 'tab_id'")
 
-        self._dirty_tabs[tab_id] = metadata.copy()
+        self._dirty_tabs[metadata.get("visit_id", tab_id)] = metadata.copy()
 
     def get_dirty_tabs(self) -> list[dict[str, Any]]:
         """Return queued updates and clear the queue."""

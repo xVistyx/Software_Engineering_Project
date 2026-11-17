@@ -29,11 +29,14 @@ export function SessionPage({ navigate, state, api, bg }) {
     page.querySelectorAll('button').forEach(button => { button.disabled = true; });
     try {
       if (action === 'end') {
+        await bg('SESSION_END');
+
         const endResult = await api.endSession(session.id);
         const summary = endResult?.content ?? endResult;
+
         console.log('END SESSION SUMMARY:', summary);
+
         state.completedSessionSummary = summary;
-        await bg('SESSION_END');
         await complete();
       } else {
         session = { ...session, ...await api.updateSession(session.id, { status: action }) };
