@@ -96,7 +96,7 @@ Allow Page      Block Page
 
 How to run:
 ## Conda Environment Setup
-
+- Detailed instructions on how to Run the code itself are in instructions.md
 This project uses **Conda** so everyone uses the same Python version and dependencies.
 
 ### 1. Install Miniconda
