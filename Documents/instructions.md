@@ -17,12 +17,13 @@ python -m pip check
 python -c "import fastapi, uvicorn, pydantic, torch, transformers, peft, accelerate, safetensors; print('Imports successful')"
 
 AI model
-- Unzip AISystem/outputs.zip
+- Unzip AISystem/outputs.zip inside of AISystem Folder so the relative path is AISystem/outputs
 - Download model and check if it setup correctly: python -u -c "from UserSession.AIEval.AISessionEval import AISessionEval; ai = AISessionEval(); print('AI model loaded successfully')"
 
 HOW TO RUN:
 
 - Run the server: python -m uvicorn main:app --host 127.0.0.1 --port 8000
+- To exit server: Press CTRL+C to quit
 
 After this the server should be printing things like:
 INFO:     Started server process [81052]
