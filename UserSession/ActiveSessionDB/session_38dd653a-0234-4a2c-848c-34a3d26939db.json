@@ -1,0 +1,29 @@
+{
+    "session_info": {
+        "id": "38dd653a-0234-4a2c-848c-34a3d26939db",
+        "topic": "math",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-11-17T12:53:35.258047",
+        "last_update_time": "2026-11-17T12:53:35.258047",
+        "predicted_end_time": "2026-11-17T13:38:35.258047",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 1,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66852625,
+            "title": "youtube.com/?app=desktop&hl=NL",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "favicon": "",
+            "timestamp": "2026-11-17T11:53:38.215Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 0.0,
+            "is_related": null
+        }
+    ]
+}

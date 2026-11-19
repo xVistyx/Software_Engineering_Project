@@ -1,0 +1,65 @@
+{
+    "session_info": {
+        "id": "8c3e5db0-9f68-4df0-bc4c-570eb30b3dba",
+        "topic": "math",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-11-17T13:37:13.010777",
+        "last_update_time": "2026-11-17T13:37:13.010777",
+        "predicted_end_time": "2026-11-17T14:22:13.010777",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 4,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66852644,
+            "title": "YouTube",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "favicon": "https://www.youtube.com/s/desktop/bf021a32/img/favicon.ico",
+            "timestamp": "2026-11-17T12:37:19.033Z",
+            "block": true,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 2.986495042016031,
+            "is_related": false
+        },
+        {
+            "tab_id": 66852633,
+            "title": "Khan Academy | Gratis Online Cursussen, Lessen & Oefeningen",
+            "url": "https://nl.khanacademy.org/",
+            "favicon": "https://cdn.kastatic.org/images/favicon.ico?logo",
+            "timestamp": "2026-11-17T12:37:22.966Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 2.1505439169995952,
+            "is_related": null
+        },
+        {
+            "tab_id": 66852646,
+            "title": "Khan Academy | Gratis Online Cursussen, Lessen & Oefeningen",
+            "url": "https://nl.khanacademy.org/",
+            "favicon": "https://cdn.kastatic.org/images/favicon.ico?logo",
+            "timestamp": "2026-11-17T12:37:24.805Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 4.36730099999113,
+            "is_related": true
+        },
+        {
+            "tab_id": 66852647,
+            "title": "free online courses - Google Zoeken",
+            "url": "https://www.google.com/search?q=free+online+courses&rlz=1C5OZZY_enNL1221NL1221&oq=free&gs_lcrp=EgZjaHJvbWUqDAgCEAAYQxiABBiKBTIMCAAQABhDGIAEGIoFMgYIARBFGDkyDAgCEAAYQxiABBiKBTISCAMQABhDGIMBGLEDGIAEGIoFMhgIBBAuGEMYgwEYxwEYsQMY0QMYgAQYigUyBggFEEUYOzIGCAYQRRg7MgYIBxBFGDzSAQgyNDcyajBqN6gCALACAA&sourceid=chrome&source=chrome.ob&ie=UTF-8",
+            "favicon": "",
+            "timestamp": "2026-11-17T12:37:32.909Z",
+            "block": false,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 2.0626110000011977,
+            "is_related": true
+        }
+    ]
+}

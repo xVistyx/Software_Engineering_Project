@@ -1,0 +1,65 @@
+{
+    "session_info": {
+        "id": "a5569b41-13f3-4206-84fa-3a09b2279ba7",
+        "topic": "math",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-11-11T15:44:53.095269",
+        "last_update_time": "2026-11-11T15:44:53.095269",
+        "predicted_end_time": "2026-11-11T16:29:53.095269",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 4,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66851116,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "",
+            "timestamp": "2026-11-11T14:44:56.742Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 75.29675712500466,
+            "is_related": null
+        },
+        {
+            "tab_id": 66851116,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "",
+            "timestamp": "2026-11-11T14:44:56.742Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 75.29675712500466,
+            "is_related": null
+        },
+        {
+            "tab_id": 66851119,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "",
+            "timestamp": "2026-11-11T14:46:28.652Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 14.123585041990736,
+            "is_related": null
+        },
+        {
+            "tab_id": 66851119,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "",
+            "timestamp": "2026-11-11T14:46:28.652Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 14.123585041990736,
+            "is_related": null
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "LockDown — Focus",
+  "version": "1.0.0",
+
+  "permissions": [
+    "storage",
+    "declarativeNetRequest",
+    "tabs",
+    "alarms",
+    "idle"
+  ],
+
+  "host_permissions": [
+    "http://127.0.0.1:8000/*",
+    "http://localhost:8000/*",
+    "http://100.85.175.65:8000/*",
+    "https://www.youtube.com/*"
+],
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "action": {
+    "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "api/dynamic_webpages.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

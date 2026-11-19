@@ -1,0 +1,89 @@
+{
+    "session_info": {
+        "id": "88814443-551a-4dd5-aa66-b5ffe0eb5275",
+        "topic": "math",
+        "is_running": true,
+        "time": 2700,
+        "start_time": "2026-11-17T13:08:11.774374",
+        "last_update_time": "2026-11-17T13:08:11.774374",
+        "predicted_end_time": "2026-11-17T13:53:11.774374",
+        "actual_end_time": null,
+        "blocked_tabs": 0,
+        "tab_count": 6,
+        "complete_session": false
+    },
+    "website_metadata": [
+        {
+            "tab_id": 66852634,
+            "title": "YouTube",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "favicon": "https://www.youtube.com/s/desktop/bf021a32/img/favicon.ico",
+            "timestamp": "2026-11-17T12:08:15.840Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 1.7014479580102488,
+            "is_related": null
+        },
+        {
+            "tab_id": 66852634,
+            "title": "YouTube",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "favicon": "https://www.youtube.com/s/desktop/bf021a32/img/favicon.ico",
+            "timestamp": "2026-11-17T12:08:15.840Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 1.7014479580102488,
+            "is_related": null
+        },
+        {
+            "tab_id": 66852635,
+            "title": "Chess.com - Schaken Online - Gratis Partijen",
+            "url": "https://www.chess.com/nl",
+            "favicon": "",
+            "timestamp": "2026-11-17T12:08:30.117Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 2.8947815830179024,
+            "is_related": null
+        },
+        {
+            "tab_id": 66852636,
+            "title": "YouTube",
+            "url": "https://www.youtube.com/?app=desktop&hl=NL",
+            "favicon": "https://www.youtube.com/s/desktop/bf021a32/img/favicon.ico",
+            "timestamp": "2026-11-17T12:08:32.996Z",
+            "block": null,
+            "currently_open": false,
+            "currently_active": false,
+            "time_spent": 2.5685235830023885,
+            "is_related": null
+        },
+        {
+            "tab_id": 66852633,
+            "title": "Khan Academy | Gratis Online Cursussen, Lessen & Oefeningen",
+            "url": "https://nl.khanacademy.org/",
+            "favicon": "https://cdn.kastatic.org/images/favicon.ico?logo",
+            "timestamp": "2026-11-17T12:08:35.808Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": true,
+            "time_spent": 9.875016985461116e-06,
+            "is_related": null
+        },
+        {
+            "tab_id": 66852633,
+            "title": "Khan Academy | Gratis Online Cursussen, Lessen & Oefeningen",
+            "url": "https://nl.khanacademy.org/",
+            "favicon": "https://cdn.kastatic.org/images/favicon.ico?logo",
+            "timestamp": "2026-11-17T12:08:35.808Z",
+            "block": null,
+            "currently_open": true,
+            "currently_active": false,
+            "time_spent": 1.6152183750236873,
+            "is_related": null
+        }
+    ]
+}

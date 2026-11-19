@@ -1,0 +1,16 @@
+name: LockDownProject
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - fastapi
+      - uvicorn
+      - pydantic
+      - torch
+      - transformers
+      - peft
+      - accelerate
+      - safetensors
+      - pytest

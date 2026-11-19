@@ -1,0 +1,13 @@
+query,title,description,tier,truth,pred,p_relevant,uncertain,answer_mass
+Working on my computer science homework,iko poran volunteer abroad – World's most affordable programs,,easy_no,False,True,0.9988,False,1.0
+I need to learn more about medicine today,iko poran volunteer abroad – World's most affordable programs,,easy_no,False,True,0.9992,False,1.0
+I will study chemistry,iko poran volunteer abroad – World's most affordable programs,,easy_no,False,True,0.9991,False,1.0
+Studying for my history exam,iko poran volunteer abroad – World's most affordable programs,,easy_no,False,True,0.9995,False,1.0
+I need to learn more about physics today,The Best Medical Alert Systems - Nationwide | $19/mo | SeniorSafety.com,"America's Best Medical Alert Systems, No long-term contract. 24/7 Emergency Care Starting at $19/Month. No Activation Fees, Cancel Anytime.",easy_no,False,True,0.6224,True,0.9999
+I will study philosophy,"Jurassic Punk - Movie trailers, teaser trailers, video clips","The latest movie and animation clips and trailers! Hundreds of free clips and trailers from new and classic movies. Download quicktime, DiVX and MPEG trailers, teasers and clips.",cross_topic,True,False,0.0,False,1.0
+Studying for my maths exam,iko poran volunteer abroad – World's most affordable programs,,easy_no,False,True,0.9972,False,1.0
+I need to learn more about chemistry today,The Best Medical Alert Systems - Nationwide | $19/mo | SeniorSafety.com,"America's Best Medical Alert Systems, No long-term contract. 24/7 Emergency Care Starting at $19/Month. No Activation Fees, Cancel Anytime.",easy_no,False,True,0.6224,True,0.9999
+I need to learn more about physics today,iko poran volunteer abroad – World's most affordable programs,,easy_no,False,True,0.9978,False,1.0
+Economics revision session,The Best Medical Alert Systems - Nationwide | $19/mo | SeniorSafety.com,"America's Best Medical Alert Systems, No long-term contract. 24/7 Emergency Care Starting at $19/Month. No Activation Fees, Cancel Anytime.",easy_no,False,True,0.5312,True,0.9999
+Studying for my history exam,The Best Medical Alert Systems - Nationwide | $19/mo | SeniorSafety.com,"America's Best Medical Alert Systems, No long-term contract. 24/7 Emergency Care Starting at $19/Month. No Activation Fees, Cancel Anytime.",easy_no,False,True,0.7549,False,0.9999
+I need to learn more about chemistry today,AMDRIFT.COM – GRASSROOTS AND PRO DRIFT COVERAGE!,GRASSROOTS AND PRO DRIFT COVERAGE!,easy_no,False,True,0.9149,False,1.0
